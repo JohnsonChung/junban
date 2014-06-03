@@ -1,0 +1,20 @@
+{
+  "name": "project",
+  "version": "0.0.1",
+  "description": "tu rai wan",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "latest",
+    "less": "latest",
+    "bootstrap": "latest",
+    "holderjs": "latest",
+    "lesshat": "~3.0.1"
+  }
+}
