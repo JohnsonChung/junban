@@ -1,0 +1,100 @@
+@import '../bower_components/lesshat/build/lesshat.less';
+@import '../bower_components/bootstrap/less/variables.less';
+@import 'style.less';
+
+//======== Variable =========
+@main-color: ;
+@sub-color: ;
+@third-color: ;
+
+//======== Preset ========
+html, body {
+  height: 100%;
+}
+body {
+  min-height: 100%;
+}
+
+//======== Utility =========
+.height-100 {
+    height: 100%;
+}
+
+//======== Main =========
+.btn-question {
+    margin-bottom: 2.5em;
+}
+.main-content {
+    position: fixed;    
+    top: 0; bottom: 0;
+    left: 0; right: 0;
+    margin: 0;
+    padding-top: 60px;
+    height: 100%;
+
+    // row
+    .col-table {
+        display: table;        
+    }
+    .row-question {
+        display: table-row;
+        background-color: fade(gray, 50%);
+    }
+    .row-answer {
+        display: table-row;
+        height: 75%;
+        background-color: fade(gray,20%);
+    }
+    .row-pagination {
+        display: table-row;
+        height: 10%;
+        background-color: fade(gray, 50%);
+    }
+
+
+    // btn
+    .btn{
+        padding: 1em;
+    }
+}
+.progress-nav {
+
+    .list-group {        
+        .list-group-item {
+            .box-shadow(~'1em 0 @{gray-lighter} inset');
+            .border-radius(0);
+            background-color: #F3F3F3;
+
+            &.active {
+                border: none;
+                background-color: white;
+                z-index: @zindex-popover;
+                border-bottom: 1px solid @pagination-border;
+                .box-shadow(~'-1em 0 @{brand-primary} inset, 1px 0.5em @{gray-lighter}');                
+
+                &:after {
+                    content:'';
+                    position: absolute;
+                    left: 50%;
+                    top: 100%;
+                    margin-left: -2em;
+                    border-left: 0;
+                    border-top: 1.2em solid white;
+                    border-right: 2em solid transparent;
+                    border-left: 2em solid transparent;                    
+                }
+                &:before {
+                    content:'';
+                    position: absolute;
+                    left: 50%;
+                    top: 100%;
+                    margin-left: -2.2em;
+                    border-left: 0;
+                    border-top: 2em solid @pagination-border;
+                    border-right: 2.2em solid transparent;
+                    border-left: 2.2em solid transparent;                    
+                }
+            }
+        }
+    }
+}

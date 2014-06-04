@@ -3,7 +3,7 @@ html, body, .container-vertical-block, .container-vertical-block .row
     height: 100%;
     margin: 0 auto;
 }
-div.vertical-tab-container {
+.vertical-tab-container {
     z-index: 10;
     background-color: #ffffff;
     padding: 0 !important;
@@ -11,12 +11,12 @@ div.vertical-tab-container {
     background-clip: padding-box;
     height: 100% !important;
 }
-div.vertical-tab-menu {
+.vertical-tab-menu {
     padding-right: 0;
     padding-left: 0;
     padding-bottom: 0;
         height: 99%;
-    div.list-group {
+    .list-group {
         margin-bottom: 0;
         height: 100%;
         .list-group-item {
@@ -49,19 +49,19 @@ div.vertical-tab-menu {
         }
     }
 }
-div.vertical-tab-menu div.list-group &>a .glyphicon, div.vertical-tab-menu div.list-group &>a .fa {
+.vertical-tab-menu .list-group &>a .glyphicon, .vertical-tab-menu .list-group &>a .fa {
     color: #5A55A3;
 }
-div.vertical-tab-menu div.list-group &>a.active, div.vertical-tab-menu div.list-group &>a.active .glyphicon, div.vertical-tab-menu div.list-group &>a.active .fa {
+.vertical-tab-menu .list-group &>a.active, .vertical-tab-menu .list-group &>a.active .glyphicon, .vertical-tab-menu .list-group &>a.active .fa {
     background-color: #5A55A3;
     background-image: #5A55A3;
     color: #ffffff;
 }
-div.vertical-tab-content {
+.vertical-tab-content {
     background-color: #ffffff;
 }
-div.vertical-tab {
-    div.vertical-tab-content:not(.active) {
+.vertical-tab {
+    .vertical-tab-content:not(.active) {
         display: none;
     }
 }

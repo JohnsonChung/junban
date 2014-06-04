@@ -7,17 +7,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Untitled</title>
 
+    <!-- boilerplate -->
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+
+    <!-- fonts -->
+    <link rel="stylesheet" type="text/less" href="svg/flaticon/flaticon.css">
+
     <!-- stylesheet -->
-    <link rel="stylesheet" href="bower_components/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="css/nx-demo.css" />
     <link rel="stylesheet" type="text/css" href="css/nx-component.css" />
     <link rel="stylesheet" type="text/less" href="css/combine.less">
     <link rel="stylesheet" type="text/less" href="css/application.less">
     <link rel="stylesheet" type="text/less" href="css/style.less">
 
+
+    <!-- livePage extension -->
+    <linkrel="livePage" href="css/application.less" />
+
     <!-- vendor -->
-    <script src="bower_components/jquery/jquery.min.js"></script>
-    <script src="bower_components/less/less-1.7.0.min.js"></script>
+    <script src="bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="bower_components/less/dist/less-1.7.0.min.js"></script>
     <script src="bower_components/holderjs/holder.js"></script>
 
     <!-- javascript -->
@@ -26,8 +35,11 @@
 </head>
 
 <body>
+    <!-- body margin-top-corrupt debug -->
     <div class="body-corrupt"></div>
-    <!--  -->
+
+
+    <!-- login -->
     <div class="container main-content login-content">
         <div class="row">
             <div class="col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-3">
@@ -47,106 +59,117 @@
                     </div>
                     <div class="form-group">
                         <div class="col-md-offset-1 col-md-10">
-                            <div class="checkbox">
-                                <label>
-                                    <input type="checkbox">Remember me
-                                </label>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <div class="col-md-offset-1 col-md-10">
                             <button type="submit" class="btn btn-default">Sign in</button>
+                            <label>
+                                <input type="checkbox">Remember me
+                            </label>
                         </div>
                     </div>
                 </form>
             </div>
         </div>
     </div>
-    <!--  -->
+
+
+    <!-- Application -->
     <div class="container main-content app-content">
-
         <div class="row">
-            <div class="col-md-12">
-                <h1>Hello, world!</h1>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="row">
+                        <div class="col-xs-12 col-md-4 visible-lg">
+                            <div class="thumbnail clearfix">
+                                <img class="img-responsive" data-src="holder.js/400x300/" alt="Responsive image" title="sample img">
 
-                <div class="row">
-                    <div class="col-xs-12 col-md-4">
-                        <div class="thumbnail clearfix">
-                            <img class="img-responsive" data-src="holder.js/400x300/" alt="Responsive image" title="sample img">
+                                <div class="btn-group">
+                                    <a class="btn btn-default">Button</a>
+                                    <a class="btn btn-default">
+                                        <span class="glyphicon glyphicon-cog"></span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-6 col-md-4 col-center">
+                            <div class="application">
+                                <a class="btn-app">
+                                    <i class="glyph-icon flaticon-finger2 app-icon"></i>
+                                    <div class="app-title">Customer monitor</div>
+                                </a>
+                                <div class="btn-group btn-group-justified">
+                                    <a class="btn btn-default app-info">目前有125名顧客正在等待</a>
+                                    <a class="btn btn-cog btn-default">
+                                        <span class="glyphicon glyphicon-cog "></span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-6 col-md-4 col-center">
+                            <div class="application">
+                                <a class="btn-app">
+                                    <i class="glyph-icon flaticon-checklist5 app-icon"></i>
+                                    <div class="app-title">Staff monitor</div>
+                                </a>
+                                <div class="btn-group btn-group-justified">
+                                    <a class="btn btn-default app-info">目前有125名顧客正在等待</a>
+                                    <a class="btn btn-cog btn-default">
+                                        <span class="glyphicon glyphicon-cog "></span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-6 col-md-4 col-center">
+                            <div class="application">
+                                <a class="btn-app">
+                                    <i class="glyph-icon flaticon-8 app-icon"></i>
+                                    <div class="app-title">List Checker</div>
+                                </a>
+                                <div class="btn-group btn-group-justified">
+                                    <a class="btn btn-default app-info">目前有125名顧客正在等待</a>
+                                    <a class="btn btn-cog btn-default">
+                                        <span class="glyphicon glyphicon-cog "></span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-6 col-md-4 col-center">
+                            <div class="application">
+                                <a class="btn-app disabled">
+                                    <i class="glyph-icon flaticon-screen40 app-icon"></i>
+                                    <div class="app-title">Wall monitor</div>
+                                </a>
+                                <div class="btn-group btn-group-justified">
+                                    <a class="btn btn-default app-info btn-primary">Need Premium...</a>
+                                    <a class="btn btn-cog btn-default">
+                                        <span class="glyphicon glyphicon-question-sign "></span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-md-8 col-lg-12">
+                            <p>Consectetur art party Tonx culpa semiotics. Pinterest assumenda minim organic quis.</p>
 
-                            <div class="btn-group">
-                                <a class="btn btn-default">Button</a>
-                                <a class="btn btn-default">
-                                    <span class="glyphicon glyphicon-cog"></span>
-                                </a>
-                            </div>
+                            <p>Wayfarers selvage YOLO, commodo assumenda eu est bespoke mlkshk. Helvetica reprehenderit iPhone, aesthetic 90's literally chambray bicycle rights viral blog voluptate. Occupy bespoke stumptown duis keytar vero.</p>
                         </div>
-                    </div>
-                    <div class="col-xs-12 col-sm-6 col-md-4 col-center">
-                        <div class="application">
-                            <div class="btn-app">
-                                <div class="glyphicon glyphicon-cog app-icon"></div>
-                            </div>
-                            <div class="btn-group btn-group-justified">
-                                <a class="btn btn-default app-info">目前有125名顧客正在等待</a>
-                                <a class="btn btn-cog btn-default">
-                                    <span class="glyphicon glyphicon-cog "></span>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xs-12 col-sm-6 col-md-4 col-center">
-                        <div class="application">
-                            <div class="btn-app">
-                                <div class="glyphicon glyphicon-cog app-icon"></div>
-                            </div>
-                            <div class="btn-group btn-group-justified">
-                                <a class="btn btn-default app-info">目前有125名顧客正在等待</a>
-                                <a class="btn btn-cog btn-default">
-                                    <span class="glyphicon glyphicon-cog "></span>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xs-12 col-sm-6 col-md-4 col-center">
-                        <div class="application">
-                            <div class="btn-app">
-                                <div class="glyphicon glyphicon-cog app-icon"></div>
-                            </div>
-                            <div class="btn-group btn-group-justified">
-                                <a class="btn btn-default app-info">目前有125名顧客正在等待</a>
-                                <a class="btn btn-cog btn-default">
-                                    <span class="glyphicon glyphicon-cog "></span>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xs-12 col-sm-6 col-md-4 col-center">
-                        <div class="application">
-                            <div class="btn-app">
-                                <div class="glyphicon glyphicon-cog app-icon"></div>
-                            </div>
-                            <div class="btn-group btn-group-justified">
-                                <a class="btn btn-default app-info">目前有125名顧客正在等待</a>
-                                <a class="btn btn-cog btn-default">
-                                    <span class="glyphicon glyphicon-cog "></span>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xs-12 col-md-4">
-                        <p>Consectetur art party Tonx culpa semiotics. Pinterest assumenda minim organic quis.</p>
-
-                        <p>Wayfarers selvage YOLO, commodo assumenda eu est bespoke mlkshk. Helvetica reprehenderit iPhone, aesthetic 90's literally chambray bicycle rights viral blog voluptate. Occupy bespoke stumptown duis keytar vero.</p>
                     </div>
                 </div>
             </div>
         </div>
-
     </div>
 
-    <!-- gn nexus menu -->
+
+    <!-- footer -->
+    <div id="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <p class="">Place sticky footer content here.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Google nexus menu -->
     <div class="container">
         <ul id="gn-menu" class="gn-menu-main">
             <li class="gn-trigger">
@@ -206,6 +229,8 @@
         </ul>
     </div>
     <!-- /container -->
+
+
     <script src="js/classie.js"></script>
     <script src="js/gnmenu.js"></script>
     <script>

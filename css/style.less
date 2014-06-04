@@ -1,23 +1,60 @@
 @foobar: orange;
 
 
-
-body {
-	background-color: #ddd;
+// Utility
+.border(@color:red) {
+    border: 1px solid @color;
 }
+
+
+// debug
 .body-corrupt {
 	display: inline-block;
 }
-.main-content {
-	margin-top: 45px;
-	padding-left: 50px;
-}
 
+
+// bootstrap extend
+.container-full {
+  margin: 0 auto;
+  width: 100%;
+}
 .col-center {	
 	text-align: center;	
 }
 
 
- .border(@color:red) {
-    border: 1px solid @color;
+// other
+.main-content {
+	margin-top: 45px;
+	padding-left: 50px;
+}
+#footer {
+	color: white;
+	margin-top: 40px;
+	margin-left: 45px;
+	margin-bottom: 0;
+	line-height: 50px;
+	background-color: rgba(255,255,255,0.3);
+}
+
+.box {
+	position: fixed;
+	height: 100%;
+	width: 100%;
+	.border;
+	background-color: #ccc;
+
+	.box-row {
+		width: 100%;
+		height: 33%;		
+
+		.box-col {
+			display: inline-block;
+			
+			width: 49%;
+			height: 100%;
+			background-color: red;
+
+		}
+	}
 }
