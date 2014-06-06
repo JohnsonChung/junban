@@ -27,8 +27,14 @@ body {
 	.btn-block {		
 		position: absolute;    
 		width: 96%;
-	   	left: 0; top: 0;  	   	
+        left: 50%;
+        top: 0;
+        margin-left: -48%;   	
 	}
+}
+.row-reset {
+    margin: 0;
+    padding: 0;
 }
 
 //======== Main =========
@@ -46,12 +52,18 @@ body {
     top: 0; bottom: 0;
     left: 0; right: 0;
     margin: 0;
+    padding: 0;
     padding-top: 45px;
     height: 100%;
 
+
     // row
+    .row {
+        .row-reset;
+    }
     .col-table {
-        display: table;        
+        display: table;
+        .row-reset;
     }
     .row-question {
         display: table-row;
@@ -63,7 +75,7 @@ body {
         // background-color: fade(gray,20%);
 
         .row {
-        	margin: 0 -45px;
+        	margin: 0 0px;
         }
     }
     .row-pagination {
@@ -73,6 +85,7 @@ body {
     }
 }
 .progress-nav {
+    .row-reset;
     .list-group {        
         .list-group-item {
             .box-shadow(~'1em 0 @{gray-lighter} inset');
