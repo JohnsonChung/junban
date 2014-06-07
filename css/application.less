@@ -14,13 +14,13 @@
 }
 //======== Html tag =========
 body {
-    padding-left: 50px;
+    padding-left: 45px;
     padding-top: 25px;
     background-color: #ddd;
     background-image: url(../img/c12.jpg);
     background-repeat: no-repeat;
     background-attachment: fixed;
-    background-position:center; 
+    background-position: top center; 
 }
 
 //========Builder=========
@@ -38,7 +38,7 @@ body {
     .transition-duration(@duration-out);
     .box-shadow(~"0 @{btn-z} @{shadow-color}");
     background-color: @bg-color;
-    display: inline-block;
+    display: block;  
     position: relative;
     top: 0;
     @btn-z-2: @btn-z * .8;
@@ -69,7 +69,6 @@ body {
     padding: 0 0 45px 0;
     .btn-app {
         margin-bottom: 10px;
-        float: left;
         color: white;
         .btn-3d-builder(#436F7C, #1B4667);
         .size(@app-width, @app-height);
