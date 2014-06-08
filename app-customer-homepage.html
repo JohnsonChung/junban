@@ -55,7 +55,7 @@
                     <div class="col-md-12 col-center">
                         <button class="btn btn-primary ladda-btn ladda-button" data-style="zoom-in">
                             <span class="ladda-label">Submit</span>
-                        </button>
+                        </button><a href="#" class="btn btn-primary ladda-button" data-style="expand-left"><span class="ladda-label">expand-left</span></a>
                         <div class="wrapper">
                             <input type="button">
                             <label><i class='icon-off'>Start</i>
@@ -112,32 +112,6 @@
     Ladda.bind('.ladda-btn', {
         timeout: 2000
     });
-
-    // Bind progress buttons and simulate loading progress
-    Ladda.bind('.ladda-btn', {
-        callback: function(instance) {
-            var progress = 0;
-            var interval = setInterval(function() {
-                progress = Math.min(progress + Math.random() * 0.1, 1);
-                instance.setProgress(progress);
-
-                if (progress === 1) {
-                    instance.stop();
-                    clearInterval(interval);
-                }
-            }, 200);
-        }
-    });
-
-    // You can control loading explicitly using the JavaScript API
-    // as outlined below:
-
-    // var l = Ladda.create( document.querySelector( 'button' ) );
-    // l.start();
-    // l.stop();
-    // l.toggle();
-    // l.isLoading();
-    // l.setProgress( 0-1 );
     </script>
 
 
