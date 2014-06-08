@@ -3,7 +3,23 @@
 @import '../css/style.less';
 
 //======== Utility =========
+#Layer_1 {	
+	position: fixed;
+	top: 40%;
+	left: 25%;
+  z-index: 999999;
+}
+.path {
+  stroke-dasharray: 851 ;
+  stroke-dashoffset: 851 ;
+  .animation( dash 5s linear alternate infinite);
+  position: fixed;
+  top: 100px;
+  left: 800px;
+  z-index: 99;
+}
 
+.keyframes(~'dash,	0% { stroke-dashoffset: 851 ; } 100% {  stroke-dashoffset: 0;  }');
 
 //======== Main =========
 .row-answer {
@@ -13,9 +29,6 @@
 		background-color: #ececec;
 		height: 90%;		
 		width: 100%;
-		background-image: url(../img/sign-template.png);
-		background-repeat: no-repeat;
-		background-position: 40% 45%;
 	}	
 }
 .animate {
