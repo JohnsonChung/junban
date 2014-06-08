@@ -2,24 +2,33 @@
 @import '../css/vender/variables.less';
 @import '../css/style.less';
 
+//======== LESS Loop =========
+
+.loop(@counter) when (@counter > 0) {
+  .loop((@counter - 1));    // next iteration
+  #Layer_1 g:nth-child(@{counter}) .path{
+  	.animation-delay(300 * @counter);
+  }  
+}
+
 //======== Utility =========
 #Layer_1 {	
 	position: fixed;
-	top: 40%;
-	left: 25%;
-  z-index: 999999;
+	top: 18%;
+	left: 05%;
+ 	z-index: 999999;
 }
+@var: 600;
 .path {
-  stroke-dasharray: 851 ;
-  stroke-dashoffset: 851 ;
-  .animation( dash 5s linear alternate infinite);
-  position: fixed;
-  top: 100px;
-  left: 800px;
-  z-index: 99;
+  stroke: @brand-primary;
+  stroke-dasharray: @var;
+  stroke-dashoffset: @var;
+  .animation( dash 1s linear alternate forwards);
 }
 
-.keyframes(~'dash,	0% { stroke-dashoffset: 851 ; } 100% {  stroke-dashoffset: 0;  }');
+.loop(9);
+
+.keyframes(~'dash,	0% { stroke-dashoffset: @{var}; } 100% {  stroke-dashoffset: 0;  }');
 
 //======== Main =========
 .row-answer {
