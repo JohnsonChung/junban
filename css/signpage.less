@@ -6,17 +6,18 @@
 
 .loop(@counter) when (@counter > 0) {
   .loop((@counter - 1));    // next iteration
-  #Layer_1 g:nth-child(@{counter}) .path{
+  #svg-signature g:nth-child(@{counter}) .path{
   	.animation-delay(300 * @counter);
   }  
 }
-
 //======== Utility =========
-#Layer_1 {	
-	position: fixed;
-	top: 18%;
-	left: 05%;
+#svg-signature {	
+	position: absolute;
  	z-index: 999999;
+ 	height: 100%;
+ 	width: 100%;
+	left: -8%;
+	top: -15%;
 }
 @var: 600;
 .path {
@@ -36,7 +37,7 @@
 		position: relative;		
 		border: 8px dashed @brand-primary;
 		background-color: #ececec;
-		height: 90%;		
+		height: 93%;		
 		width: 100%;
 	}	
 }
