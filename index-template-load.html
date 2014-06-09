@@ -1,0 +1,152 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="description" content="">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <title>Template-loader</title>
+
+    <!-- boilerplate -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+
+    <!-- fonts -->
+    <link rel="stylesheet" type="text/less" href="svg/flaticon/flaticon.css">
+
+    <!-- stylesheet -->
+    <link rel="stylesheet" type="text/css" href="css/nx-demo.css" />
+    <link rel="stylesheet" type="text/css" href="css/nx-component.css" />
+    <link rel="stylesheet" type="text/less" href="css/application.less">
+    <link rel="stylesheet" type="text/less" href="css/style.less">
+
+    <!-- livePage extension -->
+    <!-- <linkrel="livePage" href="css/application.less" /> -->
+
+    <!-- vendor -->
+    <script src="js/jquery.min.js"></script>
+    <script src="js/less-1.7.0.min.js"></script>
+    <script src="js/holder.js"></script>
+    <script src="bower_components/handlebars/handlebars.js"></script>
+
+    <!-- javascript -->
+    <script src="js/modernizr.custom.js"></script>
+    <script src="js/template-load.js"></script>
+
+</head>
+
+<body>
+    <!-- 從外部讀取樣板 -->
+    <style>
+    iframe {
+        display: none;
+    }
+    </style>
+    <iframe id="template1" title="Login" src="template/template-1.html"></iframe>
+    <iframe id="template2" title="APP" src="template/template-2.html"></iframe>
+    <iframe id="template3" title="Forms" src="template/template-3.html"></iframe>
+    <iframe id="template4" title="user-Setting" src="template/template-4.html"></iframe>
+    <iframe id="template5" title="Forms" src="template/template-5.html"></iframe>
+    <iframe id="template6" title="Forms" src="template/template-6.html"></iframe>
+
+
+    <!-- 選單 -->
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 col-center" data="template-count">
+                <a id="button1" class="btn btn-primary" type="button" data-target="template1">Login</a>
+                <a id="button2" class="btn btn-primary" type="button" data-target="template2">Application</a>
+                <a id="button3" class="btn btn-primary" type="button" data-target="template3">Forms</a>
+                <a id="button4" class="btn btn-primary" type="button" data-target="template4">User-Setting</a>
+                <a id="button5" class="btn btn-primary" type="button" data-target="template5">---</a>
+                <a id="button6" class="btn btn-primary" type="button" data-target="template6">---</a>
+            </div>
+        </div>
+    </div>
+    <br>
+
+    <!-- 內容顯示區 -->
+    <section id="content">
+
+    </section>
+
+    <!-- footer -->
+    <div id="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 col-md-12 col-xs-12">
+                    <p class="">Place sticky footer content here.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Google nexus menu -->
+    <div class="container">
+        <ul id="gn-menu" class="gn-menu-main">
+            <li class="gn-trigger">
+                <a class="gn-icon gn-icon-menu">
+                    <span>Menu</span>
+                </a>
+                <nav class="gn-menu-wrapper gn-open-part gn-open-all">
+                    <div class="gn-scroller">
+                        <ul class="gn-menu">
+                            <li>
+                                <a class="gn-icon gn-icon-download">Application</a>
+                                <ul class="gn-submenu">
+                                    <li><a class="gn-icon gn-icon-illustrator">Vector Illustrations</a>
+                                    </li>
+                                    <li><a class="gn-icon gn-icon-photoshop">Photoshop files</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li><a class="gn-icon gn-icon-cog">Statistics</a>
+                            </li>
+                            <li><a class="gn-icon gn-icon-help">Help</a>
+                            </li>
+                            <li>
+                                <a class="gn-icon gn-icon-archive">Archives</a>
+                                <ul class="gn-submenu">
+                                    <li><a class="gn-icon gn-icon-article">Articles</a>
+                                    </li>
+                                    <li><a class="gn-icon gn-icon-pictures">Images</a>
+                                    </li>
+                                    <li><a class="gn-icon gn-icon-videos">Videos</a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- /gn-scroller -->
+                </nav>
+            </li>
+            <li><a href="http://tympanus.net/codrops">Codrops</a>
+            </li>
+            <li>
+                <a class="codrops-icon codrops-icon-prev" href="http://tympanus.net/Development/HeaderEffects/">
+                    <span>Previous Demo</span>
+                </a>
+            </li>
+            <li>
+                <a>
+                    <span><span class="glyphicon glyphicon-off"></span> Login</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <!-- /container -->
+
+
+    <script src="js/classie.js"></script>
+    <script src="js/gnmenu.js"></script>
+    <script>
+    new gnMenu(document.getElementById('gn-menu'));
+    </script>
+
+
+</body>
+
+
+
+</html>
