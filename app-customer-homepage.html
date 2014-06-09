@@ -53,7 +53,7 @@
                 </div>
                 <div class="row">
                     <div class="col-md-12 col-center">
-                        <button class="btn btn-primary ladda-btn ladda-button" data-style="zoom-in">
+                        <button type="submit" class="btn btn-primary ladda-btn ladda-button" data-style="zoom-in">
                             <span class="ladda-label">Submit</span>
                         </button><a href="#" class="btn btn-primary ladda-button" data-style="expand-left"><span class="ladda-label">expand-left</span></a>
                         <div class="wrapper">
@@ -66,7 +66,7 @@
             </div>
             <div class="col-md-2 col-xs-2 progress-nav">
                 <div class="list-group">
-                    <div href="#" class="list-group-item text-center">
+                    <div href="#" class="list-group-item active text-center">
                         <h1 style="font-size:2em;" class="glyphicon glyphicon-home"></h1>
                         <br/>Home
                     </div>
@@ -74,7 +74,7 @@
                         <h1 style="font-size:2em;" class="glyphicon glyphicon-pencil"></h1>
                         <br/>Sign
                     </div>
-                    <div href="#" class="list-group-item active text-center">
+                    <div href="#" class="list-group-item text-center">
                         <h1 style="font-size:2em;" class="glyphicon glyphicon-question-sign"></h1>
                         <br/>Questions
                         <br/>
@@ -95,19 +95,14 @@
                         <h1 style="font-size:2em;" class="glyphicon glyphicon-star"></h1>
                         <br/>Complete
                     </div>
-                    <div href="#" class="list-group-item text-center">
-                        <h1 style="font-size:2em;" class="glyphicon glyphicon-remove"></h1>
-                        <br/>
-                        <button href="" class="btn btn-default">cancel</button>
-                    </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <script src="js/ladda.min.js"></script>
-    <script src="js/spin.min.js"></script>
-    <script>
+    <script type="text/javascript" src="js/spin.min.js"></script>
+    <script type="text/javascript" src="js/ladda.min.js"></script>
+    <script type="text/javascript">
     // Bind normal buttons
     Ladda.bind('.ladda-btn', {
         timeout: 2000

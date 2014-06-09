@@ -31,14 +31,25 @@
 
 .keyframes(~'dash,	0% { stroke-dashoffset: @{var}; } 100% {  stroke-dashoffset: 0;  }');
 
+//======== Utility ========
+.heading-reset {
+	margin: 0;
+	padding: 0;
+}
 
 //======== Main =========
+.row-question {
+	height: 3em;
+}
 .row-answer {
-	.signature-area {	
-		position: relative;		
+	
+	.signature-area {
+		
+		position: relative;	
+		margin-left: 7px;
 		border: 8px dashed @brand-primary;
 		background-color: #ececec;
-		height: 93%;		
+		height: 98%;		
 		width: 100%;
 	}	
 }
