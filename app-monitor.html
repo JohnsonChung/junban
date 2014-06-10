@@ -1,0 +1,51 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="description" content="">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <title>Untitled</title>
+
+    <!-- boilerplate -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+
+    <!-- fonts -->
+    <link rel="stylesheet" type="text/less" href="svg/flaticon/flaticon.css">
+
+    <!-- stylesheet -->
+    <link rel="stylesheet" type="text/less" href="css/app-monitor.less">
+
+    <!-- livePage extension -->
+    <!-- <linkrel="livePage" href="css/" /> -->
+
+    <!-- vendor -->
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/less-1.7.0.min.js"></script>
+    <script type="text/javascript" src="js/holder.js"></script>
+
+    <!-- javascript -->
+    <script src="js/modernizr.custom.js"></script>
+
+    <script type="text/javascript">
+    $(function() {
+        for (var i = 40; i >= 0; i--) {
+            $('.box').prepend('<li>' + i + '</li>');
+        };
+        function clear() {
+            $(this).css({"height":"0", "font-size":"0","margin":"0"}).delay(1000).queue(function() { $(this).remove(); });;
+        }
+        $('li').bind('click', clear);
+    });
+    </script>
+</head>
+
+<body>
+    <ul class="box">
+    </ul>
+</body>
+
+
+
+</html>

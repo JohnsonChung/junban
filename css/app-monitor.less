@@ -1,0 +1,52 @@
+@import '../css/vender/lesshat.less';
+@import '../css/vender/variables.less';
+@import 'style.less';
+
+//========Preset========
+ html, body {
+    height: 100%;
+}
+body {
+    min-height: 100%;
+    overflow: hidden;
+}
+
+//========Utility=========
+@sign-box-h: 90px;
+@sign-box-w: 33%;
+@box-margin: 11px;
+
+ul {
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    .size(100%);
+    background-color: #ccc;
+    overflow-y: hidden;
+    overflow-x: scroll;
+    padding: 20px 20px;
+    padding-left: @box-margin;
+    .border();
+}
+li {
+    list-style: none;
+    .size(@sign-box-w, @sign-box-h);
+    min-width: 250px;
+    margin-bottom: @box-margin;
+    margin-right: @box-margin;
+    color: white;
+    text-align: center;
+    font-size: 50px;
+    line-height: 100px;
+    font-weight: bold;
+    outline: 1px solid white;
+    background-color: #aaa;
+    .transition(~"all 1s ease-out");
+
+    &:first-child {
+        height: @sign-box-h * 2 + @box-margin;
+    }    
+
+}
+//========Main=========
