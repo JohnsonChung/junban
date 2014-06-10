@@ -33,16 +33,39 @@
         for (var i = 40; i >= 0; i--) {
             $('.box').prepend('<li>' + i + '</li>');
         };
+
+        var number = 40;
+        $('.box li:first-child').html( number );
+
         function clear() {
-            $(this).css({"height":"0", "font-size":"0","margin":"0"}).delay(1000).queue(function() { $(this).remove(); });;
+            $(this).css({
+                "height": "0",
+                "width": "0",
+                "font-size": "0",
+                "margin": "0"
+            }).delay(1000).queue(function() {
+                $(this).remove();
+            });;
+            number = number - 1;
+            $('.box li:first-child').html( number );
         }
         $('li').bind('click', clear);
+        $('.btn-toggle').bind('click', function() {
+            $(".box").toggleClass('hori', 'verti')
+        })
     });
     </script>
 </head>
 
 <body>
-    <ul class="box">
+    <nav>
+        <div class="row">
+            <div class="col-sm-offset-3 col-sm-6">
+                <span class="btn btn-primary btn-block btn-toggle">Change Alignment</span>
+            </div>
+        </div>
+    </nav>
+    <ul class="box hori">
     </ul>
 </body>
 

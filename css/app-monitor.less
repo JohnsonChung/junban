@@ -13,27 +13,53 @@ body {
 
 //========Utility=========
 @sign-box-h: 90px;
-@sign-box-w: 33%;
-@box-margin: 11px;
+@sign-box-w: 32.8%;
+@box-margin: 0.5%;
 
+nav{
+    position: fixed;    
+    z-index: 10;
+    width: 100%;
+}
 ul {
     position: fixed;
-    display: flex;
-    flex-direction: column;
+    flex-direction: column;    
     flex-wrap: wrap;
-    .size(100%);
+    .size(100%, 100%);
     background-color: #ccc;
     overflow-y: hidden;
     overflow-x: scroll;
-    padding: 20px 20px;
-    padding-left: @box-margin;
+    padding: 1%;
+    padding-left: @box-margin * 2;
     .border();
+    &.verti {
+        display: table;
+        text-align: center;
+    }
+    &.hori {           
+        display: -webkit-flex;
+        display: flex;
+
+        -webkit-align-items: center;
+        align-items: center;
+
+        // -webkit-justify-content: center;
+        // justify-content: center;
+
+        -webkit-flex-flow: column wrap;
+        flex-flow: column wrap;
+        
+        -webkit-align-content: stretch;
+        align-content: stretch;
+    }
 }
 li {
+    position: relative;
+    top: auto; left: auto;
     list-style: none;
+    float: left;    
     .size(@sign-box-w, @sign-box-h);
-    min-width: 250px;
-    margin-bottom: @box-margin;
+    margin-bottom: 10px;
     margin-right: @box-margin;
     color: white;
     text-align: center;
@@ -42,11 +68,17 @@ li {
     font-weight: bold;
     outline: 1px solid white;
     background-color: #aaa;
+
     .transition(~"all 1s ease-out");
 
     &:first-child {
-        height: @sign-box-h * 2 + @box-margin;
-    }    
+        height: @sign-box-h * 2 + 10px; 
+       
 
+
+    }
+    &:hover {
+        background-color: @brand-primary;
+    }
 }
 //========Main=========
