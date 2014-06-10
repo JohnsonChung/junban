@@ -30,7 +30,7 @@
 
     <script type="text/javascript">
     $(function() {
-        for (var i = 40; i >= 0; i--) {
+        for (var i = 45; i >= 0; i--) {
             $('.box').prepend('<li>' + i + '</li>');
         };
 
@@ -51,7 +51,7 @@
         }
         $('li').bind('click', clear);
         $('.btn-toggle').bind('click', function() {
-            $(".box").toggleClass('hori', 'verti')
+            $(".box").toggleClass('hori verti');
         })
     });
     </script>
