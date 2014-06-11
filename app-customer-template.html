@@ -1,0 +1,79 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="description" content="">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <title>Untitled</title>
+
+    <!-- boilerplate -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+
+    <!-- fonts -->
+    <link rel="stylesheet" type="text/less" href="svg/flaticon/flaticon.css">
+
+    <!-- stylesheet -->
+    <link rel="stylesheet" type="text/less" href="css/app-questions.less">
+    <link rel="stylesheet" type="text/less" href="css/app-homepage.less">
+    <link rel="stylesheet" type="text/less" href="css/app-signpage.less">
+
+    <!-- livePage extension -->
+    <!-- <linkrel="livePage" href="css/" /> -->
+
+    <!-- vendor -->
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/less-1.7.0.min.js"></script>
+    <script type="text/javascript" src="js/holder.js"></script>
+    <script type="text/javascript" src="bower_components/handlebars/handlebars.js"></script>
+
+    <!-- javascript -->
+    <script src="js/modernizr.custom.js"></script>
+    <script src="js/template-load.js"></script>
+</head>
+
+<body>
+    <!-- 從外部讀取樣板 -->
+    <style>
+    iframe {
+        display: none;
+    }
+    </style>
+    <iframe id="template1" title="Start" src="template/template-customer-1.html"></iframe>
+    <iframe id="template2" title="Sign" src="template/template-customer-2.html"></iframe>
+    <iframe id="template3" title="Question" src="template/template-customer-3.html"></iframe>
+
+
+    <!-- 選單 -->
+    <br>
+    <br>
+    <div class="container">
+        <div class="row">
+            
+        </div>
+    </div>
+    <br>
+
+    <!-- 內容顯示區 -->
+    <section id="content" class="col-md-10">
+
+    </section>  
+    <!-- nav-top -->
+    <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+        <div class="container container-full">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">Brand</a>
+            </div>
+            <div class="pull-right" data="template-count">
+                <a id="button1" class="btn btn-primary" type="button" data-target="template1">Start</a>
+                <a id="button2" class="btn btn-primary" type="button" data-target="template2">Sign</a>
+                <a id="button3" class="btn btn-primary" type="button" data-target="template3">Question</a>
+            </div>
+        </div>
+    </nav>
+</body>
+
+
+
+</html>

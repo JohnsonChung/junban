@@ -15,10 +15,10 @@ $(window).load(function() {
     // 自動抓取 html button 數量
     var count = $('[data="template-count"]').children().length;
     console.log("template button: " + count);
-    for (var i = count - 1; i >= 0; i--) {
+    for (var i = count; i >= 0; i--) {
         $("#button" + i).bind('click', function() {
             var template = getTemplate(this);
-            setContent(template());
+            setContent(template());            
         })
     };
 });
