@@ -15,9 +15,7 @@
     <link rel="stylesheet" type="text/less" href="svg/flaticon/flaticon.css">
 
     <!-- stylesheet -->
-    <link rel="stylesheet" type="text/less" href="css/app-questions.less">
-    <link rel="stylesheet" type="text/less" href="css/app-homepage.less">
-    <link rel="stylesheet" type="text/less" href="css/app-signpage.less">
+    <link rel="stylesheet" type="text/less" href="css/combine-app-customer.less">
 
     <!-- livePage extension -->
     <!-- <linkrel="livePage" href="css/" /> -->
@@ -46,30 +44,84 @@
 
 
     <!-- 選單 -->
-    <br>
-    <br>
-    <div class="container">
-        <div class="row">
-            
-        </div>
-    </div>
-    <br>
 
     <!-- 內容顯示區 -->
-    <section id="content" class="col-md-10">
+    <div class="container container-full main-content">
+        <div class="row row-table">
+            <div id="content" class="col-sm-10 col-xs-9 col-table">
 
-    </section>  
+            </div>
+            <div class="col-sm-2 col-xs-3 progress-nav">
+                <ul class="list-group">
+                    <li href="#" name="home" class="list-group-item active text-center">
+                        <h1 style="font-size:2em;" class="glyphicon glyphicon-home"></h1>
+                        <br/>Home
+                    </li>
+                    <li href="#" name="sign" class="list-group-item text-center">
+                        <h1 style="font-size:2em;" class="glyphicon glyphicon-pencil"></h1>
+                        <br/>Sign
+                    </li>
+                    <li href="#" name="question" class="list-group-item text-center">
+                        <h1 style="font-size:2em;" class="glyphicon glyphicon-question-sign"></h1>
+                        <br/>Questions
+                        <br/>
+                        <ul class="pagination question-pagination">
+                            <li><a>1</a>
+                            </li>
+                            <li><a>2</a>
+                            </li>
+                            <li class="active"><a>3</a>
+                            </li>
+                            <li><a>4</a>
+                            </li>
+                            <li><a>5</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li href="#" name="complete" class="list-group-item text-center">
+                        <h1 style="font-size:2em;" class="glyphicon glyphicon-star"></h1>
+                        <br/>Complete
+                    </li>
+                </ul>
+                <!-- btn-cancel -->
+                <div class="">
+                    <a class="btn btn-default btn-cancel">
+                        <span class="glyphicon glyphicon-remove"></span>
+                        &nbspCancel</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
     <!-- nav-top -->
-    <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <nav class="navbar navbar-default navbar-sm navbar-fixed-top" role="navigation">
         <div class="container container-full">
             <div class="navbar-header">
                 <a class="navbar-brand" href="#">Brand</a>
             </div>
             <div class="pull-right" data="template-count">
-                <a id="button1" class="btn btn-primary" type="button" data-target="template1">Start</a>
-                <a id="button2" class="btn btn-primary" type="button" data-target="template2">Sign</a>
-                <a id="button3" class="btn btn-primary" type="button" data-target="template3">Question</a>
+                <a id="button1" class="btn btn-primary btn-xs navbar-btn" type="button" data-target="template1">Start</a>
+                <a id="button2" class="btn btn-primary btn-xs navbar-btn" type="button" data-target="template2">Sign</a>
+                <a id="button3" class="btn btn-primary btn-xs navbar-btn" type="button" data-target="template3">Question</a>
             </div>
+            <script>
+            function resetActive() {
+                $('.list-group-item').removeClass('active');
+            }
+            $('#button1').bind('click', function() {
+                resetActive();
+                $('.list-group-item[name="home"]').addClass('active');
+            });
+            $('#button2').bind('click', function() {
+                resetActive();
+                $('.list-group-item[name="sign"]').addClass('active');
+            });
+            $('#button3').bind('click', function() {
+                resetActive();
+                $('.list-group-item[name="question"]').addClass('active');
+            });
+            </script>
         </div>
     </nav>
 </body>

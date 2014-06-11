@@ -6,7 +6,7 @@
     <meta name="description" content="">
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-capable" content="yes">
-    <title>Untitled</title>
+    <title>Question</title>
 
     <!-- boilerplate -->
     <link rel="stylesheet" href="css/bootstrap.min.css">
@@ -15,8 +15,7 @@
     <link rel="stylesheet" type="text/less" href="svg/flaticon/flaticon.css">
 
     <!-- stylesheet -->
-    <link rel="stylesheet" type="text/less" href="css/combine.less">
-    <link rel="stylesheet" type="text/less" href="css/app-questions.less">
+    <link rel="stylesheet" type="text/less" href="css/combine-app-customer.less">
 
     <!-- livePage extension -->
     <!-- <linkrel="livePage" href="css/" /> -->
@@ -34,9 +33,9 @@
 <body>
     <!-- main content -->
     <div class="container container-full main-content">
-        <div class="row height-100">
-            <div class="col-md-10 col-xs-10 col-table height-100">
-                <div class="row-question row">
+        <div class="row row-table">
+            <div class="col-md-10 col-xs-10 col-table">
+                <div class="row-question row ">
                     <div class="col-md-12 col-center">
                         <h1>This is a Sample Title.</h1>
                         <h4>and this is sub title.</h4>
@@ -47,7 +46,7 @@
                         <div class="row">
                             <!-- BUG The number of あ over 38  will cause block corrupt in 10"-->
                             <div class="col-md-6 col-xs-6 nowrap-fix"><a class="btn btn-default btn-question btn-block">
-                        	りんご</a>
+                            りんご</a>
                             </div>
                             <div class="col-md-6 col-xs-6 nowrap-fix"><a class="btn btn-default btn-question btn-block">スイカ</a>
                             </div>
@@ -84,16 +83,16 @@
                 </div>
             </div>
             <div class="col-md-2 col-xs-2 progress-nav">
-                <div class="list-group">
-                    <div href="#" class="list-group-item text-center">
+                <ul class="list-group">
+                    <li href="#" class="list-group-item text-center">
                         <h1 style="font-size:2em;" class="glyphicon glyphicon-home"></h1>
                         <br/>Home
-                    </div>
-                    <div href="#" class="list-group-item text-center">
+                    </li>
+                    <li href="#" class="list-group-item text-center">
                         <h1 style="font-size:2em;" class="glyphicon glyphicon-pencil"></h1>
                         <br/>Sign
-                    </div>
-                    <div href="#" class="list-group-item active text-center">
+                    </li>
+                    <li href="#" class="list-group-item active text-center">
                         <h1 style="font-size:2em;" class="glyphicon glyphicon-question-sign"></h1>
                         <br/>Questions
                         <br/>
@@ -109,23 +108,25 @@
                             <li><a>5</a>
                             </li>
                         </ul>
-                    </div>
-                    <div href="#" class="list-group-item text-center">
+                    </li>
+                    <li href="#" class="list-group-item text-center">
                         <h1 style="font-size:2em;" class="glyphicon glyphicon-star"></h1>
                         <br/>Complete
-                    </div>
-                    <div href="#" class="list-group-item text-center">
-                        <h1 style="font-size:2em;" class="glyphicon glyphicon-remove"></h1>
-                        <br/>
-                        <button href="" class="btn btn-default">cancel</button>
-                    </div>
+                    </li>
+                </ul>
+
+                <!-- btn-cancel -->
+                <div class="">
+                    <a class="btn btn-default btn-cancel">
+                        <span class="glyphicon glyphicon-remove"></span>
+                        &nbspCancel</a>
                 </div>
             </div>
         </div>
     </div>
 
     <!-- nav-top -->
-    <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <nav class="navbar navbar-default navbar-sm navbar-fixed-top" role="navigation">
         <div class="container container-full">
             <div class="navbar-header">
                 <a class="navbar-brand" href="#">Brand</a>

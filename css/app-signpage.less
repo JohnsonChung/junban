@@ -1,5 +1,5 @@
-@import '../css/vender/lesshat.less';
-@import '../css/vender/variables.less';
+// @import '../css/vender/lesshat.less';
+// @import '../css/vender/variables.less';
 @import '../css/style.less';
 
 //======== LESS Loop =========
@@ -10,7 +10,7 @@
   	.animation-delay(300 * @counter);
   }  
 }
-//======== svg =========
+//======== svg (suziki)=========
 #svg-signature {	
 	position: absolute;
  	z-index: 999999;
@@ -31,22 +31,14 @@
 
 .keyframes(~'dash,	0% { stroke-dashoffset: @{var}; } 100% {  stroke-dashoffset: 0;  }');
 
-//======== Utility ========
-.heading-reset {
-	margin: 0;
-	padding: 0;
-}
-
 //======== Main =========
 .row-question {
-	height: 3em;
 }
 .row-answer {
 	
 	.signature-area {
 		
-		position: relative;	
-		margin-left: 7px;
+		position: relative;
 		border: 8px dashed @brand-primary;
 		background-color: #ececec;
 		height: 98%;		
