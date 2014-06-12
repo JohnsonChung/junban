@@ -22,8 +22,9 @@ app.controller("DemoCtrl", function($scope, signService, questionService) {
     $scope.init = function() {
         $scope.reset();
         
-        if(Modernizr.isTouch) {
-            $(document.body).addClass('disable-btn-hover');
+        //prevent stiky tap hover state
+        if(Modernizr.touch) {
+            $("body").addClass('disable-btn-hover');
         }
     }
 
@@ -126,8 +127,10 @@ app.service("signService", function(){
     
     this.resetCanvas = function() {
         that.signed = false;
-        that.canvas.reset({background: true});
-        that.bindEvents();
+        if(that.canvas !== null) {
+            that.canvas.reset({background: true});
+            that.bindEvents();
+        }
     };
     
     this.startDrawing = function() {
