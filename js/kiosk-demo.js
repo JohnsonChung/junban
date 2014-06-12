@@ -1,4 +1,4 @@
-var app = angular.module('KioskApp', []);
+var app = angular.module('KioskApp', ['ngTouch']);
 
 app.controller("DemoCtrl", function($scope) {
     $scope.templates = [
@@ -60,11 +60,26 @@ app.controller("DemoCtrl", function($scope) {
 
 app.controller("signCtrl", function($scope) {
     $scope.init = function() {
-        var simpleBoard = new DrawingBoard.Board('simple-board', {
-            controls: false,
-            webStorage: false
-        });
+
     };
+    
+    $scope.removeAnimation = function() {
+        $(".stylie,#svg-signature").remove();
+    };
+});
+
+app.directive("signCanvas", function() {
+    return {
+        restrict: "A",
+        link: function(scope, elem, attrs) {
+            var simpleBoard = new DrawingBoard.Board($(elem).attr('id'), {
+                controls: false,
+                webStorage: false,
+                size: 15
+            });
+            console.log(simpleBoard);
+        }
+    }
 });
 
 app.directive("stepIndicator", function() {

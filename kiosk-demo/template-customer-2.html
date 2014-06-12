@@ -5,8 +5,8 @@
 </div>
 <div class="row-answer row" ng-controller="signCtrl" ng-init="init()">
     <div class="col-md-12 col-xs-12 height-100">
-        <div class="signature-area">
-            <canvas id="sign-canvas" width="500" height="500"></canvas>
+        <div class="signature-area" ng-mousedown="removeAnimation()">
+            <div id="sign-canvas" style="width:100%;height:100%;" sign-canvas></div>
             <div class="animate stylie ">
                 <i class="glyph-icon flaticon-finger2 "></i>
             </div>
