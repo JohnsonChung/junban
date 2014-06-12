@@ -21,6 +21,10 @@ app.controller("DemoCtrl", function($scope, signService, questionService) {
 
     $scope.init = function() {
         $scope.reset();
+        
+        if(Modernizr.isTouch) {
+            $(document.body).addClass('disable-btn-hover');
+        }
     }
 
     $scope.reset = function() {
@@ -58,6 +62,10 @@ app.controller("DemoCtrl", function($scope, signService, questionService) {
 
     $scope.setSigned = function(signed) {
         $scope.signed = signed;
+    }
+    
+    $scope.toggleFullscreen = function() {
+        screenfull.toggle(document.documentElement);
     }
 
     $scope.questionService = questionService;
@@ -97,9 +105,7 @@ app.controller("QuestionCtrl", function($scope, questionService) {
         }
     };
     
-    $scope.selectAnswer = function() {
-        
-    };
+    $scope.hello = function(){alert(13);}
 });
 
 app.service("signService", function(){
@@ -187,6 +193,9 @@ app.service("questionService", function() {
     
     this.reset = function() {
         this.index = 0;
+        for(var i in this.questions) {
+            this.questions[i].selected = null;
+        }
     };
 });
 

@@ -35,6 +35,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.0-beta.9/angular.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.0-beta.9/angular-touch.min.js"></script>
     <script src="kiosk-demo/drawingboard.min.js"></script>
+    <script src="kiosk-demo/screenfull.min.js"></script>
     <script src="kiosk-demo/kiosk-demo.js"></script>
 </head>
 
@@ -73,8 +74,10 @@
                         <br/>
                         <ul class="pagination question-pagination">
                             <li ng-repeat="question in questionService.questions" 
-                                ng-class="{true:'active',false:''}[template.name=='question'&&{{$index}}==questionService.index]">
-                                <a>{{$index+1}}</a>
+                                ng-class="{'active': template.name=='question'&&{{$index}}==questionService.index,
+                                           'disabled': template.name!='question'}">
+                                <a ng-click="hello()"
+                                   ng-disabled="template.name!='question'">{{$index+1}}</a>
                             </li>
                         </ul>
                     </li>
