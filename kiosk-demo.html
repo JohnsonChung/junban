@@ -72,7 +72,8 @@
                         <br/>Questions
                         <br/>
                         <ul class="pagination question-pagination">
-                            <li ng-repeat="question in questions" ng-class="{true:'active',false:''}[step==2&&{{$index}}==question_index]">
+                            <li ng-repeat="question in questionService.questions" 
+                                ng-class="{true:'active',false:''}[template.name=='question'&&{{$index}}==questionService.index]">
                                 <a>{{$index+1}}</a>
                             </li>
                         </ul>

@@ -1,6 +1,6 @@
 var app = angular.module('KioskApp', ['ngTouch']);
 
-app.controller("DemoCtrl", function($scope) {
+app.controller("DemoCtrl", function($scope, signService, questionService) {
     $scope.templates = [
         {
             name: 'home',
@@ -26,10 +26,10 @@ app.controller("DemoCtrl", function($scope) {
     $scope.reset = function() {
         //remove canvas storage
         window.localStorage.removeItem('drawing-board-sign-canvas');
+
+        signService.reset();
         
-        //reset sign flags
-        $scope.signAnimationPlayed = false;
-        $scope.signed = false;
+        questionService.reset();
     }
 
     $scope.step = 0;
@@ -38,7 +38,11 @@ app.controller("DemoCtrl", function($scope) {
         $scope.template = $scope.templates[index];
     }
     $scope.nextStep = function() {
-        $scope.goto($scope.step + 1);
+        if($scope.step === $scope.templates.length - 1){
+            $scope.goHome();
+        } else {
+            $scope.goto($scope.step + 1);
+        }
     }
     $scope.prevStep = function() {
         $scope.goto($scope.step - 1);
@@ -51,38 +55,28 @@ app.controller("DemoCtrl", function($scope) {
     $scope.setSignAnimationPlayed = function() {
         $scope.signAnimationPlayed = true;
     };
-    
+
     $scope.setSigned = function(signed) {
         $scope.signed = signed;
     }
+
+    $scope.questionService = questionService;
 });
 
-app.controller("SignCtrl", function($scope) {
+app.controller("SignCtrl", function($scope, signService) {
     $scope.init = function() {
         //check instruction animation played
-        if ($scope.$parent.signAnimationPlayed) {
-            $scope.removeAnimation();
+        if (signService.instructionPlayed) {
+            signService.removeInstruction();
         } else {
-            $scope.$parent.setSignAnimationPlayed();
+            signService.instructionPlayed = true;
         }
     };
 
-    $scope.removeAnimation = function() {
-        $(".stylie,#svg-signature").remove();
-    };
+    $scope.signService = signService;
 
-    $scope.resetSignCanvas = function() {
-        $scope.signCanvas.reset({background: true});
-        $scope.$parent.setSigned(false);
-    };
-    
-    $scope.startDrawing = function() {
-        $scope.removeAnimation();
-        $scope.$parent.setSigned(true);
-    };
-    
     $scope.nextStep = function() {
-        if(!$scope.$parent.signed) {
+        if (!signService.signed) {
             alert("Please sign first!");
         } else {
             $scope.$parent.nextStep();
@@ -90,10 +84,59 @@ app.controller("SignCtrl", function($scope) {
     }
 });
 
-app.controller("QuestionCtrl", function($scope) {
-    $scope.question_index = 0;
+app.controller("QuestionCtrl", function($scope, questionService) {
+    $scope.nextStep = function() {
+        if (!questionService.nextQuestion()) {
+            $scope.$parent.nextStep();
+        }
+    };
+    
+    $scope.prevStep = function() {
+        if (!questionService.prevQuestion()) {
+            $scope.$parent.prevStep();
+        }
+    };
+    
+    $scope.selectAnswer = function() {
+        
+    };
+});
 
-    $scope.questions = [
+app.service("signService", function(){
+    this.signed = false;
+    this.instructionPlayed = false;
+    this.canvas = null;
+    
+    this.removeInstruction = function() {
+        $(".stylie,#svg-signature").remove();
+    }
+    
+    var that = this;
+    
+    this.reset = function() {
+        that.signed = that.instructionPlayed = false;
+        that.resetCanvas();
+    };
+    
+    this.resetCanvas = function() {
+        that.signed = false;
+        that.canvas.reset({background: true});
+        that.bindEvents();
+    };
+    
+    this.startDrawing = function() {
+        that.signed = true;
+        that.removeInstruction();
+    };
+    
+    this.bindEvents = function() {
+        that.canvas.ev.bind("board:startDrawing", that.startDrawing);
+    }
+});
+
+app.service("questionService", function() {
+    this.index = 0;
+    this.questions = [
         {
             question: "Question A",
             answers: [
@@ -107,31 +150,61 @@ app.controller("QuestionCtrl", function($scope) {
             ]
         }
     ];
+
+    this.currentQuestion = function() {
+        return this.questions[this.index];
+    };
+
+    this.isLast = function() {
+        return this.index === this.questions.length - 1;
+    };
     
-    $scope.nextQuestion = function() {
-        if ($scope.question_index == $scope.questions.length - 1) {
-            $scope.nextStep();
+    this.isFirst = function() {
+        return this.index === 0;
+    };
+
+    this.nextQuestion = function() {
+        if (this.isLast()) {
+            return false;
         } else {
-            $scope.question_index++;
+            this.index++;
+            return true;
+        }
+    };
+    
+    this.prevQuestion = function() {
+        if (this.isFirst()) {
+            return false;
+        } else {
+            this.index--;
+            return true;
         }
     }
+    
+    this.selectAnswer = function(answerIndex) {
+        this.questions[this.index]['selected'] = answerIndex;
+    };
+    
+    this.reset = function() {
+        this.index = 0;
+    };
 });
 
-app.directive("signCanvas", function() {
+app.directive("signCanvas", ['signService', function(signService) {
     return {
         restrict: "A",
         link: function(scope, elem, attrs) {
-            scope.signCanvas = new DrawingBoard.Board($(elem).attr('id'), {
+            signService.canvas = new DrawingBoard.Board($(elem).attr('id'), {
                 controls: false,
                 webStorage: 'local',
                 size: 15,
                 background: false
             });
 
-            scope.signCanvas.ev.bind("board:startDrawing", scope.startDrawing);
+            signService.bindEvents();
         }
     }
-});
+}]);
 
 app.directive("stepIndicator", function() {
     return {
