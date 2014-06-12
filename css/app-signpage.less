@@ -13,7 +13,7 @@
 //======== svg (suziki)=========
 #svg-signature {	
 	position: absolute;
- 	z-index: 999999;
+ 	z-index: @zindex-tooltip;
  	height: 100%;
  	width: 100%;
 	left: -8%;
@@ -21,24 +21,30 @@
 }
 @var: 600;
 .path {
-  stroke: @brand-primary;
-  stroke-dasharray: @var;
-  stroke-dashoffset: @var;
-  .animation( dash 1s linear alternate forwards);
+	stroke: @brand-primary;
+	stroke-dasharray: @var;
+	stroke-dashoffset: @var;
+	.animation( dash 1s linear alternate forwards);
+}
+.loop(9);
+// fade out svg-signature
+#svg-signature {	
+	.animation( fadeout 1s linear normal forwards);
+	.animation-delay(2800); // 300 * 10
 }
 
-.loop(9);
+.keyframes(~'dash,	0% { stroke-dashoffset: @{var}; } 100% {  stroke-dashoffset: 0; }');
+.keyframes(~'fadeout,  0% {  display: block; -webkit-opacity: 1; -moz-opacity: 1; opacity: 1; } 50% {  -webkit-opacity: 0; -moz-opacity: 0; opacity: 0; height: 100%; } 100% { -webkit-opacity: 0; -moz-opacity: 0; opacity: 0; height: 0; }');
 
-.keyframes(~'dash,	0% { stroke-dashoffset: @{var}; } 100% {  stroke-dashoffset: 0;  }');
 
 //======== Main =========
 .row-question {
 }
 .row-answer {
 	
-	.signature-area {
-		
+	.signature-area {		
 		position: relative;
+		z-index: @zindex-popover;
 		border: 8px dashed @brand-primary;
 		background-color: #ececec;
 		height: 98%;		
