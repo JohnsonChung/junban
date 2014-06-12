@@ -51,16 +51,17 @@
 		width: 100%;
 	}	
 	.signature-area-writable{
+		position: relative;
+		z-index: @zindex-modal-background;
 		height: 100%;
-		width: 100%;
-		.opacity(0);
+		width: 100%;		
 	}
 }
 .animate {
 	position: absolute;
 	top: 45%;
 	left: 25%;	
-	z-index: 2000;	
+	z-index:  @zindex-tooltip + 1;	
 	
 	.glyph-icon {
 		position: relative;
