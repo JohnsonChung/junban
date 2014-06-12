@@ -1,13 +1,14 @@
 .row-percent-loop(@counter) when ( @counter > 0) {
-    .loop((@counter - 1)); // next iteration
+    .row-percent-loop((@counter - 1)); // next iteration
     .row-@{counter} {
-        height: @counter * 10%;
+        height: @counter * 10% !important;
+        outline: red solid 1px;
     }
 }
 .row-percent-loop(10);
 
 .row-px-loop(@counter) when ( @counter > 0) {
-    .loop((@counter - 1)); // next iteration
+    .row-px-loop((@counter - 1)); // next iteration
     .row-@{counter}px {
         height: @counter * 10px;
     }
