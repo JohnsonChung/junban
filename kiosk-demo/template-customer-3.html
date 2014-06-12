@@ -1,22 +1,24 @@
-<div class="row-question row">
-    <div class="col-md-12 col-center">
-        <h1 class="heading-reset">{{question.question}}</h1>
-    </div>
-</div>
-<div class="row-answer row">
-    <div class="col-md-12 col-xs-12">
-        <div class="col-md-6 col-xs-6 nowrap-fix" ng-repeat="answer in question.answers">
-            <a class="btn btn-default btn-question btn-block">{{answer}}</a>
+<div class="col-sm-12 col-table" ng-controller="QuestionCtrl">
+    <div class="row-question row">
+        <div class="col-md-12 col-center">
+            <h1 class="heading-reset">{{question.question}}</h1>
         </div>
     </div>
-</div>
-<div class="row-pagination row">
-    <div class="col-md-12 col-center">
-        <div class="col-md-offset-2 col-md-3 col-sm-offset-2  col-sm-3 col-xs-4">
-            <a class="btn btn-default btn-block btn-lg btn-forward" ng-click="prevStep()">Forward</a>
+    <div class="row-answer row">
+        <div class="col-md-12 col-xs-12">
+            <div class="col-md-6 col-xs-6 nowrap-fix" ng-repeat="answer in question.answers">
+                <a class="btn btn-default btn-question btn-block">{{answer}}</a>
+            </div>
         </div>
-        <div class="col-md-5 col-sm-6 col-xs-8">
-            <a class="btn btn-primary btn-block btn-lg btn-next" ng-click="nextStep()">Next <span class="glyphicon glyphicon-arrow-right"></span></a>
+    </div>
+    <div class="row-pagination row">
+        <div class="col-md-12 col-center">
+            <div class="col-md-offset-2 col-md-3 col-sm-offset-2  col-sm-3 col-xs-4">
+                <a class="btn btn-default btn-block btn-lg btn-forward" ng-click="prevStep()">Forward</a>
+            </div>
+            <div class="col-md-5 col-sm-6 col-xs-8">
+                <a class="btn btn-primary btn-block btn-lg btn-next" ng-click="nextStep()">Next <span class="glyphicon glyphicon-arrow-right"></span></a>
+            </div>
         </div>
     </div>
 </div>
