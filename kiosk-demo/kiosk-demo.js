@@ -44,7 +44,7 @@ app.controller("DemoCtrl", function($scope, signService, questionService) {
     }
     $scope.nextStep = function() {
         if($scope.step === $scope.templates.length - 1){
-            $scope.goHome();
+            $scope.complete();
         } else {
             $scope.goto($scope.step + 1);
         }
@@ -55,6 +55,10 @@ app.controller("DemoCtrl", function($scope, signService, questionService) {
     $scope.goHome = function() {
         $scope.reset();
         $scope.goto(0);
+    }
+    $scope.complete = function() {
+        $scope.parties++;
+        $scope.goHome();
     }
 
     $scope.setSignAnimationPlayed = function() {
@@ -147,15 +151,15 @@ app.service("questionService", function() {
     this.index = 0;
     this.questions = [
         {
-            question: "Question A",
+            question: "How many persons are there in your party?",
             answers: [
-                "A", "B", "C", "D", "E", "F", "G"
+                "1", "2", "3", "4", "5", "6", "7", "8+"
             ]
         },
         {
-            question: "Question B",
+            question: "Which area do you prefer?",
             answers: [
-                "H", "I", "J", "K"
+                "Non-Smoking Area", "Smoking Area", "Either Will Do", "4th Answer"
             ]
         }
     ];
