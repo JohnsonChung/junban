@@ -1,16 +1,35 @@
+// preset 
+.row-table {
+    .row-reset;
+    .height-100;
+}
+.col-table {
+    display: table;
+    padding: 0;
+    margin: 0;
+    background-color: white;
+    .height-100;
+}
+.col-table {
+	& > .row {
+		display: table-row;
+		text-align: center;
+	}
+}
+
+// row grid
 .row-percent-loop(@counter) when ( @counter > 0) {
     .row-percent-loop((@counter - 1)); // next iteration
     .row-@{counter} {
         height: @counter * 10% !important;
-        outline: red solid 1px;
     }
 }
 .row-percent-loop(10);
 
-.row-px-loop(@counter) when ( @counter > 0) {
-    .row-px-loop((@counter - 1)); // next iteration
-    .row-@{counter}px {
-        height: @counter * 10px;
+.row-em-loop(@counter) when ( @counter > 0) {
+    .row-em-loop((@counter - 1)); // next iteration
+    .row-@{counter}-em {
+        height: @counter * 1em;
     }
 }
-.row-px-loop(10);
+.row-em-loop(10);

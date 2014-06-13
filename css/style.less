@@ -2,12 +2,17 @@
 
 
 // Utility
-.border(@color:red) {
-    border: 1px solid @color;
+.border(@color:red; @width: 1px) {
+    border: @width solid @color;
+}
+.outline(@color: red; @width: 1px){
+    outline: @color solid @width;
 }
 
 
+//==================================
 // bootstrap extend
+//==================================
 .container-full {
   margin: 0 auto;
   width: 100%;
@@ -25,6 +30,19 @@ h3 {
 	padding: 6px 0;
 }
 
+// small navbar
+.navbar.navbar-sm {	
+	height: 40px;
+	min-height: 40px;
+	padding: 0;
+
+	.navbar-brand {
+		line-height: 20px;
+		height: 40px;
+		padding: 10px 15px;
+	}
+}
+
 
 // other
 #footer {
@@ -38,5 +56,3 @@ h3 {
 	line-height: 50px;
 	background-color: rgba(255,255,255,0.3);
 }
-
-

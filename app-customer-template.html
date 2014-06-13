@@ -42,6 +42,8 @@
     <iframe id="template1" title="Start" src="template/template-customer-1.html"></iframe>
     <iframe id="template2" title="Sign" src="template/template-customer-2.html"></iframe>
     <iframe id="template3" title="Question" src="template/template-customer-3.html"></iframe>
+    <iframe id="template4" title="Complete" src="template/template-customer-4.html"></iframe>
+    <iframe id="template5" title="QR" src="template/template-customer-5.html"></iframe>
 
 
     <!-- 選單 -->
@@ -105,25 +107,34 @@
                 <a id="button1" class="btn btn-primary btn-xs navbar-btn" type="button" data-target="template1">Start</a>
                 <a id="button2" class="btn btn-primary btn-xs navbar-btn" type="button" data-target="template2">Sign</a>
                 <a id="button3" class="btn btn-primary btn-xs navbar-btn" type="button" data-target="template3">Question</a>
+                <a id="button4" class="btn btn-primary btn-xs navbar-btn" type="button" data-target="template4">Complete</a>
+                <a id="button5" class="btn btn-primary btn-xs navbar-btn" type="button" data-target="template5">QR</a>
             </div>
             <script>
-            function resetActive() {
-                $('.list-group-item').removeClass('active');
-            }
-            $('#button1').bind('click', function() {
-                resetActive();
-                $('.list-group-item[name="home"]').addClass('active');
+            $(document).ready(function() {
+                function resetActive() {
+                    $('.list-group-item').removeClass('active');
+                }
+                $('[id^="button"]').bind('click', resetActive);
+                $('#button1').bind('click', function() {
+                    $('.list-group-item[name="home"]').addClass('active');
+                });
+                $('#button2').bind('click', function() {
+                    $('.list-group-item[name="sign"]').addClass('active');
+                });
+                $('#button3').bind('click', function() {
+                    $('.list-group-item[name="question"]').addClass('active');
+                });
+                $('#button4').bind('click', function() {
+                    $('.list-group-item[name="complete"]').addClass('active');
+                });
+                $('#button5').bind('click', function() {
+                    $('.list-group-item[name="complete"]').addClass('active');
+                });
             });
-            $('#button2').bind('click', function() {
-                resetActive();
-                $('.list-group-item[name="sign"]').addClass('active');
-            });
-            $('#button3').bind('click', function() {
-                resetActive();
-                $('.list-group-item[name="question"]').addClass('active');
-            });
+            // less.js bug?
             $(document).load(function() {
-                $('#button1').trigger('click');
+                $('#button3').trigger('click');
             });
             </script>
         </div>

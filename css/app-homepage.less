@@ -1,46 +1,94 @@
-// @import '../css/vender/lesshat.less';
-// @import '../css/vender/variables.less';
-@import '../css/light-power-button.less';
-@import 'style.less';
+// @import '../css/light-power-button.less';
 
-
-//======== Preset ========
-html, body {
-  height: 100%;
-}
-body {
-  min-height: 100%;
-}
-
-//======== Utility =========
-.height-100 {
-    height: 100%;
-}
 //======== Main =========
 #brand-logo {
+	display: block;	
     height: 100%;
+    min-height: 200px;    
 }
-.row-brand {
-    height: 10%;
+.text-no-margin {
+	margin-top: 0 !important;
+	margin-bottom: 0 !important;
 }
-.row-counter {
-    padding: 20px 0;
-    height: 20%;
-
-    .groups-counter {   
-        padding: 0 1em;
-        line-height: 1em;
-        
-        &-number {
-            font-size: 4em;
-        }
-        &-unit {
-            font-size: 0.8em;
-        }
+.groups-counter {   
+    padding: 0 1em;
+    
+    &-number {
+        font-size: 4em;
     }
 }
-.btn-start {
-    z-index: @zindex-popover;
+
+
+.row-startbtn {   
 }
-.btn-container {
+.btn-start { 
+	position: relative;
+	z-index: 9999;
+
+	.wrapper:before {
+	    content:"";
+	    display: block;
+	    border-top: 1px solid #ddd;
+	    border-bottom: 1px solid #fff;
+	    width: 100%;
+	    height: 1px;
+	    position: absolute;
+	    top: 50%;
+	    z-index: -1;
+	}
+	a:focus {
+	    text-decoration: none;
+	    outline: none;
+	}
+	a:hover {
+	    text-decoration: none;
+	    outline: none;
+	    color: #555;
+	    background: #f5f5f5;
+
+	}
+	a:active {
+	    text-decoration: none;
+	    outline: none;
+	    color: @brand-primary;
+	    background: #fff;
+	}
+	a:before {
+	    content:"";
+	    display: block;
+	    background: #fff;
+	    border-top: 2px solid #ccc;
+	    position: absolute;
+	    @gap-width: -20px;
+	    top: @gap-width;
+	    left: @gap-width;
+	    bottom: @gap-width;
+	    right: @gap-width;
+	    z-index: -1;
+	    border-radius: 70px;
+	    .box-shadow(~"0px 8px 48px #ddd inset, 0px 5px 5px #aaa inset");
+	}
+	a {
+	  display: inline-block;  
+	  position: relative;
+
+	  
+	  width: 500px;
+	  height: 144px;
+
+	  color: #a7a7a7;
+	  text-align: center;
+	  line-height: 144px;
+	  font-size: 75px;
+
+	  background-color: #f7f7f7;
+	  background-image: -webkit-gradient(linear, left top, left bottom, from(#f7f7f7), to(#e7e7e7));
+	  background-image: -webkit-linear-gradient(top, #f7f7f7, #e7e7e7); 
+	  background-image: -moz-linear-gradient(top, #f7f7f7, #e7e7e7); 
+	  background-image: -ms-linear-gradient(top, #f7f7f7, #e7e7e7); 
+	  background-image: -o-linear-gradient(top, #f7f7f7, #e7e7e7); 
+
+	  border-radius: 50px;
+	  box-shadow: 0px 3px 8px #aaa, inset 0px 2px 3px #fff;
+	}
 }
