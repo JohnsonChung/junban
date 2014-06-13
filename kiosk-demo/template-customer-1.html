@@ -1,26 +1,25 @@
-<div class="col-sm-12 col-table">
-    <div class="row-brand row" style="border: none">
-        <div class="col-md-12 col-center">
-            <img id="brand-logo" src="img/logo.png" alt="" ng-click="toggleFullscreen()">
-        </div>
+<div class="customer-screen-home col-xs-12 col-table">
+    <div class="row row-4">
+        <span id="brand-logo" class="image image-jyunban-logo" ng-click="toggleFullscreen()"></span>
     </div>
-    <div class="row-counter row">
-        <div class="col-md-12 col-center">
-            <h1>ただいま
+    <div class="row row-2">
+        <div class="col-xs-12 col-center">
+            <h1 class="text-no-margin">ただいま
                 <span class="groups-counter">
                     <span class="groups-counter-number">{{parties}}</span>
-                    <span class="groups-counter-unit">組</span>
                 </span>組様がお待ちです</h1>
-            <h2>Push Button below to get in the line.</h2>
+            <h2 class="text-no-margin">Push Button below to get in the line.</h2>
         </div>
     </div>
-    <div class="row">
-        <div class="col-md-12 col-center">
-            <div class="wrapper btn-start">
-                <input type="button" ng-click="goto(1)">
-                <label><i class='icon-off'>Start</i>
-                </label>
-            </div>
+    <div class="row row-startbtn row-4">
+        <div class="col-xs-12 col-center" style="padding-top:25px;">
+            <div class="">
+                <div class="btn-start">
+                    <div class="wrapper">
+                        <a href="#" class="icon-home" ng-click="goto(1)">Start</a>
+                    </div>
+                </div>
+            </nav>
         </div>
     </div>
 </div>
