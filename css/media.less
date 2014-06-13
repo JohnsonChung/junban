@@ -1,0 +1,75 @@
+// ==========================================
+// unfinish
+// ==========================================
+
+// @viewport {
+// 	width: auto; // auto | device-width | length | percentage
+
+// 	// 'width' sets both max and min-width. It's a shorthand descriptor.
+// 	max-width: auto;
+// 	min-width: auto;
+
+// 	// 'zoom' equates to 'initial-scale' in meta tag.
+// 	// Values of 1.0 or 100% mean no zoom.
+// 	zoom: auto; // auto | number | percentage
+
+// 	max-zoom: 5; // Largest allowed zoom factor.
+// 	min-zoom: 0.25; // Smallest allowed zoom factor.
+
+// 	// Can the zoom factor be changed by user interaction?
+// 	// Equates to 'user-scalable' in meta tag.
+// 	user-zoom: zoom; // fixed | zoom
+
+// 	// Lock orientation or leave to auto.
+// 	orientation: auto; // auto | portrait | landscape
+
+// }
+
+// from : http://menacingcloud.com/?c=cssViewportOrMetaTag
+
+@media all and (orientation:landscape) {
+
+}
+// nexus 
+@xs-size-max: 580px;
+
+//nexus 10
+@sm-size-min: 680px;
+@sm-size-max: 990px; // bootstrap 768
+@md-size-min: 992px; // 		  992
+@md-size-max: 1190px;
+@lg-size: 1200px; //          1200
+
+@media (max-width: @xs-size-max) and (orientation:portrait) {	
+	@viewport {
+		width: 768px !important;
+		zoom: 0.5 !important;
+	}
+	body {
+		border: 3px solid green;
+	}
+}
+@media (min-width: @sm-size-min) and (max-width: @sm-size-max ) and (orientation:portrait) {
+	@viewport {
+		width: 590px;		
+	}
+	body {
+		border: 3px solid blue;
+	}
+}
+@media (min-width: @md-size-min) and (max-width: @md-size-max) and (orientation:portrait) {
+	@viewport {
+		width: 780px;
+	}
+	body {
+		border: 3px solid red;
+	}
+}
+@media (min-width: @lg-size) and (orientation:portrait) {
+	@viewport {
+		width: 900px;
+	}
+	body {		
+		border: 3px solid yellow;
+	}
+}

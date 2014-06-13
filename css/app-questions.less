@@ -1,24 +1,6 @@
-// @import '../css/vender/lesshat.less';
-// @import '../css/vender/variables.less';
-@import 'style.less';
+//======== Main =========
 
-//======== Variable =========
-@main-color: ;
-@sub-color: ;
-@third-color: ;
-
-//======== Preset ========
-html, body {
-  height: 100%;
-}
-body {
-  min-height: 100%;
-}
-
-//======== Utility =========
-.height-100 {
-    height: 100%;
-}
+// Fix bootstrap btn content too long to cause grid system collape.
 .nowrap-fix {
 	position: relative;	
 	height: 6em;
@@ -32,130 +14,11 @@ body {
         margin-left: -48%;   	
 	}
 }
-.row-reset {
-    margin: 0;
-    padding: 0;
-}
-//======== Main =========
-.btn-forward, .btn-next, .btn-question {  
-    padding: 0.3em .5em;
-    font-size: 2em;
 
-    .glyphicon {
-        font-size: 0.8em;
-    }
-}
 .btn-question {
 	overflow: hidden;
 	white-space: nowrap;
 	-ms-text-overflow: ellipsis;
 	text-overflow: ellipsis;
     font-size: 3.0em;
-}
-.main-content {
-    position: fixed;    
-    top: 0; bottom: 0;
-    left: 0; right: 0;
-    margin: 0;
-    padding: 0;
-    padding-top: 45px;
-    height: 100%;
-
-    .row-table {
-        .row-reset;
-        .height-100;
-    }
-    .col-table {
-        display: table;
-        padding: 0;
-        margin: 0;
-        background-color: white;
-        .height-100;
-    }
-    .row-question {
-        display: table-row;
-        // background-color: fade(gray, 50%);
-        height: 1em;
-    }
-    .row-answer {
-        display: table-row;
-        height: 90%;
-        // background-color: fade(gray,20%);
-    }
-    .row-pagination {
-        display: table-row;
-        height: 6em;
-        // background-color: fade(gray, 50%);
-    }
-}
-.progress-nav {
-    .row-reset;
-    .height-100;
-    .list-group {        
-        .list-group-item {
-            .box-shadow(~'1em 0 @{gray-lighter} inset');
-            .border-radius(0);
-            background-color: #F3F3F3;
-            color: @gray-light;
-
-            .pagination {         	
-            	margin: 5px auto;  
-            	a {
-            		padding: 3px 8px;
-            		cursor: pointer;
-            	}
-                .disabled a{
-                    cursor: default; 
-                }
-            }
-
-            &.active {
-                border: none;
-                background-color: white;
-                z-index: @zindex-popover;
-                border-bottom: 1px solid @pagination-border;
-                color: black;
-                .box-shadow(~'-1em 0 @{brand-primary} inset, 1px 0.5em @{gray-lighter}');
-
-                &:after {
-                    content:'';
-                    position: absolute;
-                    left: 50%;
-                    top: 100%;
-                    margin-left: -2em;
-                    border-left: 0;
-                    border-top: 1.2em solid white;
-                    border-right: 2em solid transparent;
-                    border-left: 2em solid transparent;                    
-                }
-                &:before {
-                    content:'';
-                    position: absolute;
-                    left: 50%;
-                    top: 100%;
-                    margin-left: -2.2em;
-                    border-left: 0;
-                    border-top: 2em solid @pagination-border;
-                    border-right: 2.2em solid transparent;
-                    border-left: 2.2em solid transparent;                    
-                }
-            }
-            &.active:last-child {
-            	&:before, &:after {
-            		display: none;            		
-            	}
-            }
-        }
-    }
-}
-.navbar.navbar-sm {	
-	height: 40px;
-	min-height: 40px;
-	padding: 0;
-
-	.navbar-brand {
-		line-height: 20px;
-		height: 40px;
-		padding: 10px 15px;
-	}
 }
