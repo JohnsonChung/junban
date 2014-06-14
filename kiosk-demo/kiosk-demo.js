@@ -220,7 +220,7 @@ app.directive("signCanvas", ['signService', function(signService) {
         link: function(scope, elem, attrs) {
             signService.canvas = new DrawingBoard.Board($(elem).attr('id'), {
                 controls: false,
-                webStorage: 'local',
+                webStorage: false,
                 size: 15,
                 background: false
             });
