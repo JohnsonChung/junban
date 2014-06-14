@@ -13,6 +13,14 @@ app.controller("DemoCtrl", function($scope, signService, questionService) {
         {
             name: 'question',
             url: 'kiosk-demo/template-customer-3.html'
+        },
+        {
+            name: 'complete',
+            url: 'kiosk-demo/template-customer-4.html'
+        },
+        {
+            name: 'QR',
+            url: 'kiosk-demo/template-customer-5.html'
         }
     ];
     $scope.template = $scope.templates[0];
