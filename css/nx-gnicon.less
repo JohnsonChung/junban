@@ -1,85 +1,39 @@
-.gn-menu-main a.gn-icon-search {
-	position: absolute;
-	top: 0;
-	left: 0;
-	height: 45px;
-}
-
-.gn-icon::before {
-	display: inline-block;
-	width: 45px;
-	text-align: center;
-	text-transform: none;
-	font-weight: normal;
-	font-style: normal;
-	font-variant: normal;
-	font-family: 'ecoicons';
-	line-height: 1;
-	speak: none;
-	-webkit-font-smoothing: antialiased;
-}
-
-.gn-icon-help::before {
-	content: "\e000"
-}
-
-.gn-icon-earth::before {
-	content: "\e004"
-}
-
-.gn-icon-cog::before {
-	content: "\e006"
-}
-
-.gn-icon-search::before {
-	content: "\e005"
-}
-
-.gn-icon-download::before {
-	content: "\e007"
-}
-
-.gn-icon-photoshop::before {
-	content: "\e001"
-}
-
-.gn-icon-illustrator::before {
-	content: "\e002"
-}
-
-.gn-icon-archive::before {
-	content: "\e00d"
-}
-
-.gn-icon-article::before {
-	content: "\e003"
-}
-
-.gn-icon-pictures::before {
-	content: "\e008"
-}
-
-.gn-icon-videos::before {
-	content: "\e009"
+.fa {
+	width: 1.5em;
 }
 
 /* if an icon anchor has a span, hide the span */
-
-.gn-icon span {
+// why ? ? ? If icon-font not work let inside span words function.
+.fa span {
 	width: 0;
 	height: 0;
 	display: block;
 	overflow: hidden;
 }
 
-.gn-icon-menu::before {
-	margin-left: -15px;
-	vertical-align: -2px;
-	width: 30px;
-	height: 3px;
-	background: #5f6f81;
-	box-shadow: 0 3px white, 0 -6px #5f6f81, 0 -9px white, 0 -12px #5f6f81;
-	content: '';
+ul.gn-menu .fa /*, .gn-icon::before*/ {
+	display: inline-block;
+	width: 45px;
+	text-align: center;
+	text-transform: none;
+	// font-weight: normal;
+	// font-style: normal;
+	// font-variant: normal;
+	// font-family: 'ecoicons';
+
+	// ? ? ?
+	line-height: 1;
+	// Specifies whether content will render aurally
+	speak: none;
+	-webkit-font-smoothing: antialiased;
+}
+
+
+// spacial setting for menu icon
+.gn-trigger-btn .fa-bars {
+	margin-left: -23px;
+	vertical-align: -10px;
+	font-size: 30px;
 }
 
 .no-touch .gn-icon-menu:hover::before,
