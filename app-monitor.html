@@ -27,10 +27,12 @@
 
     <script type="text/javascript">
     $(function() {
+
+        var persudoCounts = 40;
         var span = $('li:last-child').html();
-        console.log(span);
-        // create multiple boxes
-        for (var i = 40; i > 0; i--) {
+
+        // create multiple boxes        
+        for (var i = persudoCounts - 1 ; i > 0; i--) {
             $('.monitor').append('<li>'+span+'</li>');
         };
         $('.number').each( function(i) {
@@ -39,6 +41,8 @@
         });
 
         // hidden box
+        var number = persudoCounts;
+        $('.counts').html(persudoCounts);
         function clear() {
             $(this).css({
                 "height": "0",
@@ -50,7 +54,7 @@
                 $(this).remove();
             });;
             number = number - 1;
-            $('.box li:first-child .counts').html( number );
+            $('.counts').html( number );
         }
 
         // bind click event

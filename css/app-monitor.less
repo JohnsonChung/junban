@@ -66,7 +66,7 @@ ul.monitor {
         margin-bottom: 20px;
         margin-right: @box-margin;
 
-        font-weight: bold;
+        // font-weight: bold;
         list-style: none;
         .transition(~"all 1s ease-out");
 
@@ -108,7 +108,8 @@ ul.monitor {
                 padding: 0;
             }
             .number {
-                font-size: 3em;
+                // font-size: 3em; into media
+                font-weight: bold;
                 color: green;
                 width: 18%;                
             }
@@ -122,18 +123,29 @@ ul.monitor {
                     background-image: url(../img/sign-template.png);
                     background-repeat: no-repeat;
                     background-size: auto 100%;
-                    
                 }
             }
             .esquire {
-                font-size: 2em;
+                // font-size: 2em; into media
+                vertical-align: bottom;
+                padding-bottom: 5px;
             }
 
         }
     }
 }
 //======== Media =========
-@media (max-width: 780px){
+@media (max-width: 600px){
+    .spans { 
+        .number {
+            font-size: 2em !important;
+        }
+        .esquire {
+            font-size: 1em !important;
+        }
+    }
+}
+@media (min-width: 600px){
     .spans { 
         .number {
             font-size: 2em !important;
