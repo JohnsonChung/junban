@@ -29,21 +29,18 @@ ul.monitor {
     background-color: @brand-primary;
     padding: 1%;
     padding-left: @box-margin * 2;
-    .border();
 
     // align by vertical
     &.verti {
-        display: table;
+
+        overflow-y: scroll !important;
+        overflow-x: hidden !important;
         text-align: center;
-
-        overflow-y: scroll;
-        overflow-x: hidden;
-
     }
     // align by horizontal
     &.hori {     
-        overflow-y: hidden;
-        overflow-x: scroll; 
+        overflow-y: hidden !important;
+        overflow-x: scroll !important; 
 
         display: -webkit-flex;
         display: flex;
