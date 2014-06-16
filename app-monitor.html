@@ -35,7 +35,7 @@
         };
         $('.number').each( function(i) {
             i++;
-            $(this).html(i);
+            $(this).html(i);            
         });
 
         // hidden box
@@ -50,11 +50,13 @@
                 $(this).remove();
             });;
             number = number - 1;
-            $('.box li:first-child').html( number );
+            $('.box li:first-child .counts').html( number );
         }
 
         // bind click event
         $('li').bind('click', clear);
+        $('li:first-child').unbind("click");
+
         $('.btn-toggle').bind('click', function() {
             $(".box").toggleClass('hori verti');
         })

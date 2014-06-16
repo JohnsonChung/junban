@@ -13,8 +13,8 @@ body {
 
 //========Utility=========
 @sign-box-h: 90px;
-@sign-box-w: 32.8%;
-@box-margin: 0.5%;
+@sign-box-w: 32%;
+@box-margin: 1%;
 
 nav{
     position: fixed;    
@@ -32,7 +32,7 @@ ul.monitor {
 
     // align by vertical
     &.verti {
-
+        padding-left: 3%;
         overflow-y: scroll !important;
         overflow-x: hidden !important;
         text-align: center;
@@ -63,7 +63,7 @@ ul.monitor {
         top: 0; left: auto;
         float: left;        
         .size(@sign-box-w, @sign-box-h);
-        margin-bottom: 10px;
+        margin-bottom: 20px;
         margin-right: @box-margin;
 
         font-weight: bold;
@@ -72,7 +72,7 @@ ul.monitor {
 
         &.counter{            
             position: relative;            
-            height: @sign-box-h * 2 + 10px;                         
+            height: @sign-box-h * 2 + 20px;                         
             text-align: center;
             color: white;
             .border-radius(20px);
