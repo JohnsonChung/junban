@@ -87,39 +87,38 @@
     <div class="container">
         <ul id="gn-menu" class="gn-menu-main">
             <li class="gn-trigger">
-                <a class="gn-icon gn-icon-menu">
-                    <span>Menu</span>
+                <a class="gn-trigger-btn gn-icon-menu">
+                    <i class="fa fa-bars"><span>Menu</span></i>
                 </a>
                 <nav class="gn-menu-wrapper gn-open-part ">
                     <div class="gn-scroller">
                         <ul class="gn-menu">
                             <li>
-                                <a class="gn-icon gn-icon-archive">Application</a>
+                                <a class="active"><i class="fa fa-child"></i>Application<i class="fa fa-child"></i></a>
                             </li>
-                            <li><a class="gn-icon gn-icon-cog">Statistics</a>
-                                <li><a class="gn-icon gn-icon-cog">Config</a>
-                                    <ul class="gn-submenu">
-                                        <li><a class="gn-icon gn-icon-illustrator">Vector Illustrations</a>
-                                        </li>
-                                        <li><a class="gn-icon gn-icon-photoshop">Photoshop files</a>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li><a class="gn-icon">-Block-</a>
-                                </li>
-                                <li><a class="gn-icon gn-icon-help">About</a>
-                                </li>
-                                <li>
-                                    <a class="gn-icon gn-icon-archive">Archives</a>
-                                    <ul class="gn-submenu">
-                                        <li><a class="gn-icon gn-icon-article">Articles</a>
-                                        </li>
-                                        <li><a class="gn-icon gn-icon-pictures">Images</a>
-                                        </li>
-                                        <li><a class="gn-icon gn-icon-videos">Videos</a>
-                                        </li>
-                                    </ul>
-                                </li>
+                            <li><a class="disabled"><i class="fa fa-child"></i>Statistics</a>
+                            </li>
+                            <li><a><i class="fa fa-child"></i>Config</a>
+                                <ul class="gn-submenu">
+                                    <li><a class="gn-icon gn-icon-illustrator"><i class="fa fa-child"></i>Vector Illustrations</a>
+                                    </li>
+                                    <li><a class="gn-icon gn-icon-photoshop"><i class="fa fa-child"></i>Photoshop files</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="line-block"></li>
+                            <li><a><i class="fa fa-child"></i>About</a>
+                            </li>
+                            <li>
+                                <a class="active"><i class="fa fa-child"></i>Archives</a>
+                                <ul class="gn-submenu">
+                                    <li><a class="active"><i class="fa fa-child"></i>Articles</a>
+                                    </li>
+                                    <li><a><i class="fa fa-child"></i>Images</a>
+                                    </li>
+                                    <li><a class="disabled"><i class="fa fa-child"></i>Videos - Premium</a>
+                                    </li>
+                                </ul>
                             </li>
                         </ul>
                     </div>
@@ -129,9 +128,12 @@
             <li><a>順番コンシェル</a>
             </li>
             <li>
-                <a class="codrops-icon codrops-icon-prev">
+                <a>
+                    <i class="fa fa-expand"></i>
                     <span>Btn-sample</span>
                 </a>
+            </li>
+            <li class="line-block">
             </li>
             <li>
                 <a class="active">
@@ -150,13 +152,8 @@
             </li>
             <li>
                 <a>
-                    <span>Btn-sample</span>
-                </a>
-            </li>
-            <li>
-                <a>
                     <span>
-                        <span class="glyphicon glyphicon-off"></span>Login</span>
+                        <i class="fa fa-power-off"></i>Login</span>
                 </a>
             </li>
         </ul>
@@ -170,6 +167,12 @@
     new gnMenu(document.getElementById('gn-menu'));
     </script>
 
+    <script>
+        $(window).load( function( ) {            
+            var template = getTemplate('#button5');
+            setContent(template());  
+        })
+    </script>
 
 </body>
 
