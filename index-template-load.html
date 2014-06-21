@@ -167,6 +167,12 @@
     new gnMenu(document.getElementById('gn-menu'));
     </script>
 
+    <script>
+        $(window).load( function( ) {            
+            var template = getTemplate('#button5');
+            setContent(template());  
+        })
+    </script>
 
 </body>
 

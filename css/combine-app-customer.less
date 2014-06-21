@@ -14,12 +14,72 @@
 @import '../css/app-complete.less';
 
 
+// ====================================
+// Color Custom
+// ====================================
+@progress-nav-color: #E8CA3E;		// 右邊導覽列	
+@pagination-color: #E8CA3E; 		// 下方煥業按鈕
+@brand-bar-color: @brand-primary;	// 上方navbar案
+@btn-question-color: #EFE183;		// 問題答案按鈕
+
+// ====================================
+// Fonts
+// ====================================
+body {
+	font-family: "Arial Black", Roboto, DroidSans, 'メイリオ', Meiryo,'ＭＳ Ｐゴシック',sans-serif;
+}
+
+// ====================================
+// Others
+// ====================================
+.btn-custom {
+	position: relative;	
+	border: 1px solid #aaa;
+	color: black;
+
+	&:focus {
+	    text-decoration: none;
+	    outline: none;
+	}
+	&:active {
+	    text-decoration: none;
+	    outline: none;
+	    color: @btn-question-color;
+	    background: lighten(@btn-question-color,20%);
+		text-shadow: 0 2px rgba(0,0,0,1), 0 0 1px #000;
+	}
+	&:hover {
+		color: #fff;
+	}
+	& {
+		display: inline-block;  
+		position: relative;
+
+		color: #fff;
+		text-align: center;	  
+		text-shadow: 0 1px rgba(0,0,0,0.8), 0 0 1px #000;
+
+		background-color: @btn-question-color;
+		.background-image(linear-gradient(linear, left top, left bottom, from(@btn-question-color), to(darken(@btn-question-color,15%))));
+
+		@shadow-darken: fade(darken(@btn-question-color,35%), 50%);
+		.box-shadow(~"0px 3px 5px @{shadow-darken} , inset 0px 2px 3px #fff");
+	}
+}
+
+
 // Temple =====================================
 
 .btn-cancel {
     position: absolute;
-    right: 0;
-    bottom: 0;
+    z-index: 0;
+    right: 5px; bottom: 5px;
+    left: 5px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    margin: 5px;
+    .border-radius(0);		
+    .background-image(linear-gradient(linear, left top, left bottom, from(white), to(darken(white,10%))));
 }
 .heading-reset {  
     margin: 0;  
@@ -59,5 +119,41 @@
 	.btn.btn-danger:hover {
 		background-color: @btn-danger-bg;
 		border-color: @btn-danger-border;
+	}
+}
+
+
+// ====================================
+// Bootstrap Mixin Copy
+// ====================================
+
+.button-variant(@color; @background; @border) {
+	color: @color;
+	background-color: @background;
+	border-color: @border;
+
+	&:hover,
+	&:focus,
+	&:active,
+	&.active {
+	color: @color;
+	background-color: darken(@background, 8%);
+	    border-color: darken(@border, 12%);
+	}
+	&:active,
+	&.active {
+	background-image: none;
+	}
+	&.disabled,
+	&[disabled],
+	fieldset[disabled] & {
+		&,
+		&:hover,
+		&:focus,
+		&:active,
+		&.active {
+		  background-color: @background;
+		      border-color: @border;
+		}
 	}
 }
