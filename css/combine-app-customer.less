@@ -18,16 +18,19 @@
 // Color Custom
 // ====================================
 @progress-nav-color: #E8CA3E;		// 右邊導覽列	
-@pagination-color: #E8CA3E; 		// 下方煥業按鈕
+@pagination-color: #4480E1; 		// 下方煥業按鈕
 @brand-bar-color: @brand-primary;	// 上方navbar案
 @btn-question-color: #EFE183;		// 問題答案按鈕
+
 
 // ====================================
 // Fonts
 // ====================================
 body {
 	font-family: "Arial Black", Roboto, DroidSans, 'メイリオ', Meiryo,'ＭＳ Ｐゴシック',sans-serif;
+	 -webkit-font-smoothing: antialiased; // OSX only
 }
+
 
 // ====================================
 // Others
@@ -46,7 +49,7 @@ body {
 	    outline: none;
 	    color: @btn-question-color;
 	    background: lighten(@btn-question-color,20%);
-		text-shadow: 0 2px rgba(0,0,0,1), 0 0 1px #000;
+		text-shadow: 0 2px rgba(0,0,0,1), 0 0 2px rgba(0,0,0,0.8);
 	}
 	&:hover {
 		color: #fff;
@@ -57,7 +60,7 @@ body {
 
 		color: #fff;
 		text-align: center;	  
-		text-shadow: 0 1px rgba(0,0,0,0.8), 0 0 1px #000;
+		text-shadow: 0 1px rgba(0,0,0,0.8), 0 0 2px rgba(0,0,0,0.6);
 
 		background-color: @btn-question-color;
 		.background-image(linear-gradient(linear, left top, left bottom, from(@btn-question-color), to(darken(@btn-question-color,15%))));
@@ -67,9 +70,19 @@ body {
 	}
 }
 
+.btn-next {
+	&:active {
+	    color: @pagination-color;
+	    background: lighten(@pagination-color,20%);
+	}	
+	& {
+		background: @pagination-color;
+		.background-image(linear-gradient(linear, left top, left bottom, from(@pagination-color), to(darken(@pagination-color,15%))));
 
-// Temple =====================================
-
+		@shadow-darken: fade(darken(@pagination-color,35%), 50%);
+		.box-shadow(~"0px 3px 5px @{shadow-darken} , inset 0px 2px 3px #fff");
+	}
+}
 .btn-cancel {
     position: absolute;
     z-index: 0;
@@ -81,6 +94,9 @@ body {
     .border-radius(0);		
     .background-image(linear-gradient(linear, left top, left bottom, from(white), to(darken(white,10%))));
 }
+
+// Temple =====================================
+
 .heading-reset {  
     margin: 0;  
     padding: 10px 0 6px 0;
