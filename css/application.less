@@ -46,7 +46,6 @@ body {
     .transition-duration(@duration-out);
     .box-shadow(~"0 @{btn-z} @{shadow-color}");
     background-color: @bg-color;
-    display: block;  
     position: relative;
     top: 0;
     @btn-z-2: @btn-z * .8;
@@ -91,7 +90,8 @@ body {
         }
     }
     .btn-app {
-        position: relative;
+        display: inline-block;
+        position: relative;        
         margin-bottom: 10px;
         color: white;
         .btn-3d-builder(@app-bg-color, @app-bg-shadow-color);
@@ -111,21 +111,28 @@ body {
             margin-top: -60px;
         }
     }
-    .app-info {
-        width: @app-width - 40px;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        .button-style-clean;
-    }
-    .btn-cog {
-        top: -5px;
-        width: 40px;
-        .button-style-clean;
-        .btn-3d-builder(@gray-lighter; #555; 6px);
-        margin-top: -6px;
-    }
     .app-switch {
         position: absolute;    
         right: 0px; top: -23px;
+    }
+    .app-control-group {
+        position: relative;        
+        display: table;
+        width: 100%;
+        > a {
+            display: table-cell; 
+        }
+        .btn-cog {
+            .border-radius(0);
+        }
+    }
+    .app-info {
+        margin-bottom: -30px;
+        padding: 5px 8px;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        text-align: left;
+        background-color: #eee;
     }
 }
