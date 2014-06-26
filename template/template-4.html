@@ -3,27 +3,189 @@
         <div class="col-md-offset-1 col-md-10">
             <!-- Nav tabs -->
             <ul class="nav nav-tabs">
-                <li class="active"><a href="#home" data-toggle="tab">受付画面のメッセージ</a>
+                <li class="active">
+                    <a href="#home" data-toggle="tab">
+                        <span class="label label-primary">1</span>受付画面のメッセージ</a>
                 </li>
-                <li><a href="#profile" data-toggle="tab">問題編集</a>
+                <li>
+                    <a href="#profile" data-toggle="tab">
+                        <span class="label label-primary">2</span>問題編集</a>
                 </li>
-                <li><a href="#messages" data-toggle="tab">Messages</a>
+                <li>
+                    <a href="#messages" data-toggle="tab">
+                        <span class="label label-primary">3</span>Messages</a>
                 </li>
-                <li><a href="#settings" data-toggle="tab">Settings</a>
+                <li>
+                    <a href="#settings" data-toggle="tab">
+                        <span class="label label-primary">4</span>Settings</a>
                 </li>
             </ul>
-
             <!-- Tab panes -->
             <div class="tab-content">
+                <!-- pane start -->
                 <div class="tab-pane active" id="home">
-                    asd
+                    <div class="panel-heading">
+                        <div class="row">
+                            <div class="col-sm-6 col-xs-8">
+                                <h3>Kyosk受付画面編集</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <form role="form" class="panel-body">
+                        <div class="form-group">
+                            <div class="col-sm-12">
+                                <div class="panel panel-default">
+                                    <div class="panel-heading">
+                                        <div class="row">
+                                            <div class="col-sm-3 col-xs-4"><input type="text" class="form-control focus" placeholder="吉野家"></div>
+                                            <div class="col-sm-8 col-xs-8">
+                                                <input type="text" class="form-control focus" placeholder="ようこそ!">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="panel-body">
+                                        <div class="col-xs-10">
+                                            <div class="col-md-offset-4 col-md-4">
+                                                <div class="thumbnail focus">
+                                                    <img src="http://placehold.it/250&text=logo" height="268" width="256" alt="">
+                                                    <label for="exampleInputFile">Logo upload</label>
+                                                    <input type="file" id="exampleInputFile">
+                                                </div>
+                                            </div>
+                                            <div class="col-xs-12 col-center">
+                                                <p>ただいま <span class="persudo-counter">10</span> 組様がお待ちです<br>
+                                                Push Button below to get in the line.</p>
+                                            </div>                                            
+                                            <div class="col-xs-12 col-center">
+                                                <button type="button" class="btn btn-default btn-lg"> Start </button>
+                                            </div>
+                                        </div>
+                                        <div class="col-xs-2">
+                                            <div class="wrapper">
+                                                <div class="persudo-navs">
+                                                    <div class="persudo-nav"></div>
+                                                    <div class="persudo-nav"></div>
+                                                    <div class="persudo-nav"></div>
+                                                    <div class="persudo-nav"></div>
+                                                    <div class="persudo-nav"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                    <div class="panel-footer">
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <div class="form-groups  pull-right">
+                                    <div class="btn btn-default">Cancel</div>
+                                    <div class="btn btn-success">Save Change</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- pane end -->
                 </div>
-                <div class="tab-pane" id="profile">...</div>
+                <div class="tab-pane" id="profile">
+                    <!-- pane start -->
+                    <div class="panel-heading">
+                        <div class="row">
+                            <div class="col-sm-6 col-xs-8">
+                                <h3>Question Edit</h3>
+                            </div>
+                            <div class="col-sm-6 col-xs-4">
+                                <div class="form-groups pull-right">
+                                    <div class="btn btn-primary"><i class="fa fa-plus"></i>Add Question</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <form role="form" class="panel-body">
+                        <div class="form-group">
+                            <div class="col-sm-12">
+                                <div class="panel panel-default">
+                                    <div class="panel-heading">Question 1
+                                        <div class="btn-default btn btn-xs pull-right">
+                                            Remove
+                                            <i class="fa fa-times"></i>
+                                        </div>
+                                    </div>
+                                    <div class="panel-body">
+                                        <div class="col-sm-12">
+                                            <div class="form-group has-warning has-feedback">
+                                                <label class="control-label" for="inputWarning2">名前 - Can not be null!</label>
+                                                <input type="text" class="form-control" id="inputWarning2" placeholder="">
+                                                <span class="glyphicon glyphicon-warning-sign form-control-feedback"></span>
+                                            </div>
+                                            <div class="form-group has-error">
+                                                <label class="control-label" for="inputError2">Content is too Long!</label>
+                                                <label class="control-label pull-right" for="inputWarning2">55/180</label>
+                                                <textarea class="form-control" rows="2">質問 - How many persons are there in your party?</textarea>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-12">
+                                            <div class="row">
+                                                <li class="col-sm-6 has-success has-feedback">
+                                                    <input type="input" class="form-control" placeholder="Answer 1">
+                                                    <span class="glyphicon glyphicon-ok form-control-feedback"></span>
+                                                </li>
+                                                <li class="col-sm-6">
+                                                    <input type="input" class="form-control" placeholder="Answer 2">
+                                                </li>
+                                                <li class="col-sm-6">
+                                                    <input type="input" class="form-control" placeholder="Answer 3">
+                                                </li>
+                                                <li class="col-sm-6">
+                                                    <input type="input" class="form-control" placeholder="Answer 4">
+                                                </li>
+                                                <li class="col-sm-6">
+                                                    <input type="input" class="form-control" placeholder="Answer 5">
+                                                </li>
+                                                <li class="col-sm-6">
+                                                    <input type="input" class="form-control" placeholder="Answer 6">
+                                                </li>
+                                                <li class="col-sm-6">
+                                                    <input type="input" class="form-control" placeholder="Answer 7">
+                                                </li>
+                                                <li class="col-sm-6">
+                                                    <input type="input" class="form-control" placeholder="Answer 8">
+                                                </li>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <p>
+                                    *Separate options by new line
+                                </p>
+                            </div>
+                        </div>
+                    </form>
+                    <div class="panel-footer">
+                        <div class="row">
+                            <div class="col-sm-6 col-xs-4">
+                                <div class="form-groups">
+                                    <div class="btn btn-primary"><i class="fa fa-plus"></i>Add Question</div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6 col-xs-8">
+                                <div class="form-groups  pull-right">
+                                    <div class="btn btn-default">Cancel</div>
+                                    <div class="btn btn-success">Save Change</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- pane end -->
+                </div>
                 <div class="tab-pane" id="messages">...</div>
                 <div class="tab-pane" id="settings">...</div>
             </div>
         </div>
     </div>
+</div>
+<div class="container">
     <div class="row">
         <div class="col-md-offset-1 col-md-10">
             <div class="panel panel-default">

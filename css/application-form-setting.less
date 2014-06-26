@@ -1,0 +1,47 @@
+// Vender =====================================
+@import '../css/vender/lesshat.less';
+@import '../css/vender/variables.less';
+
+
+// ====================================
+// Preset
+// ====================================
+.wrapper {
+	position: relative;	
+}
+.focus {
+	@fade-color: fade( @brand-primary, 50%);
+	border: 1px solid fade( @brand-primary, 80%);
+	.box-shadow(~"0 0 8px @{fade-color}");
+}
+.persudo-navs {
+	position: absolute;
+	right: -28px;
+	.persudo-nav {		
+		.size(120px, 60px);
+		.box-shadow(~"inset 10px 0px #ddd");
+		outline: 1px solid #eee;
+		background-color: @gray-lighter;
+
+		&:first-child {
+			.box-shadow(~"inset -10px 0 @{brand-primary}");
+			outline: none;
+			border: 1px solid #eee;
+			border-width: 1px 0 0 0 ;
+			background-color: white;
+
+			&:before {
+				content: 'Home';
+				position: absolute;
+				color: #ccc;
+				left: 40px; top: 25px;
+			}
+		}
+		&:last-child {
+
+		}
+	}
+}
+.persudo-counter {
+	font-size: 4.5em;	
+}

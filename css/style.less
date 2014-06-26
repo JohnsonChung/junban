@@ -1,5 +1,9 @@
-@foobar: orange;
-
+//==================================
+// Import
+//==================================
+@import "../bower_components/bootstrap/less/variables.less";
+@import "../bower_components/lesshat/build/lesshat.less";
+@import "../css/application-form-setting.less";
 
 // Utility
 .border(@color:red; @width: 1px) {
@@ -44,7 +48,41 @@ h3 {
 }
 
 // Tab
+.nav-tabs {	
+	[data-toggle="tab"] {
+		margin-top: 5px;
+		padding-top: 5px;
 
+		background-color: darken( @gray-lighter, 3%);
+		border: 1px solid @gray-lighter;
+		border-width: 1px 1px 0;
+		&:focus {
+			outline: none;
+		}
+	}
+	li.active [data-toggle="tab"] {
+		margin-top: 0px;
+		padding-top: 10px;
+	}
+}
+.tab-content {
+	margin-bottom: 20px;
+
+	.tab-pane {
+		position: relative;
+		background-color: white;
+		.border-bottom-right-radius( @border-radius-base );
+		.border-bottom-left-radius( @border-radius-base );
+
+		&.active {			
+		}
+	}
+}
+
+// span.Label 
+.label {
+	margin-right: 0.5em;
+}
 
 
 //==================================
