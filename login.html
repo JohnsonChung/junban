@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Bootstrap 3, from LayoutIt!</title>
+    <title>ログイン - 順番コンシェル</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
@@ -14,6 +14,7 @@
     <!--append ‘#!watch’ to the browser URL, then refresh the page. -->
 
     <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link type="text/less" href="css/landing-login.less" rel="stylesheet" >
 
     <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
@@ -21,71 +22,18 @@
   <![endif]-->
 
     <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script src="js/less-1.7.3.min.js"></script>
 </head>
 
-<body>
-    <style>
-        html {            
-            height: 100%;
-            width: 100%;
-        }
-        body {
-            position: relative;                        
-            font-family: メイリオ, sans-serif;
-            height: 100%;
-            width: 100%;
-        }
-        body:after {            
-            content:'';
-            position: fixed;            
-            z-index: -1;
-            bottom: 115px;
-            height: 45px;
-            width: 100%;
-            background-color: #00b7ee;
-            opacity: 0.5;
-        }
-        h1 {            
-            color: #00b7ee;
-            line-height: 3em;
-        }
-        dl {            
-            
-        }
-        dt {
-            color: #00b7ee;
-            font-size: 1.5em;
-            margin-bottom: 10px;
-        }
-        dd {
-            color: #999;
-            margin-left: 3em;
-            margin-bottom: 30px;
-        }
-        .bg-container {
-            position: absolute;
-            z-index: 1;
-            background-image: url('img/comic/login-comic.png');
-            background-repeat: no-repeat;
-            background-attachment: fixed;
-            background-position: center bottom;         
-            background-size:  auto auto;
-            height: 100%;
-            width: 100%;
-        }
-        .container {
-            position: relative;
-            z-index: 2;
-            background-color: rgba(255,255,255,0.8);
-        }
-    </style>
-    <div class="bg-container"></div>
+<body> 
     <div class="container">
         <div class="row">
-            <h1>あなたに専属の ” 順番コンシェル ”</h1>
+            <div class="col-md-12">
+                <h1>あなたに専属の <span>&#8220 順番コンシェル &#8221</span></h1>
+            </div>
         </div>
-        <div class="row clearfix">
-            <div class="col-md-7 column">
+        <div class="row">
+            <div class="col-sm-7 column">
                 <dl>
                     <dt>一、タブレットとスマホ簡単に始められます。</dt>
                     <dd>アプリ版はAndroidのみ準備して今うs。
@@ -98,7 +46,7 @@
                     </dd>
                 </dl>
             </div>
-            <div class="col-md-5 column">
+            <div class="col-sm-5 column">
                 <div class="panel panel-default">
                     <div class="panel-heading">ログイン
                         <span class="pull-right">または<a>アカウントを作成</a>
@@ -128,6 +76,7 @@
             </div>
         </div>
     </div>
+    <footer></footer>
 </body>
 
 </html>
