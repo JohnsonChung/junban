@@ -1,6 +1,7 @@
 // Vender =====================================
 @import '../css/vender/lesshat.less';
 @import '../css/vender/variables.less';
+@import '../css/font-awesome.min.css';
 
 
 // Preset =====================================
@@ -37,68 +38,6 @@ body {
 }
 
 
-// ====================================
-// Others
-// ====================================
-.btn-custom {
-	position: relative;	
-	border: 1px solid #aaa;
-	color: black;
-
-	&:focus {
-	    text-decoration: none;
-	    outline: none;
-	}
-	&:active {
-	    text-decoration: none;
-	    outline: none;
-	    color: @btn-question-color;
-	    background: lighten(@btn-question-color,20%);
-		text-shadow: 0 2px rgba(0,0,0,1), 0 0 2px rgba(0,0,0,0.8);
-	}
-	&:hover {
-		color: #fff;
-	}
-	& {
-		display: inline-block;  
-		position: relative;
-
-		color: #fff;
-		text-align: center;	  
-		text-shadow: 0 1px rgba(0,0,0,0.8), 0 0 2px rgba(0,0,0,0.6);
-
-		background-color: @btn-question-color;
-		.background-image(linear-gradient(linear, left top, left bottom, from(@btn-question-color), to(darken(@btn-question-color,15%))));
-
-		@shadow-darken: fade(darken(@btn-question-color,35%), 50%);
-		.box-shadow(~"0px 3px 5px @{shadow-darken} , inset 0px 2px 3px #fff");
-	}
-}
-
-.btn-next {
-	&:active {
-	    color: @pagination-color;
-	    background: lighten(@pagination-color,20%);
-	}	
-	& {
-		background: @pagination-color;
-		.background-image(linear-gradient(linear, left top, left bottom, from(@pagination-color), to(darken(@pagination-color,15%))));
-
-		@shadow-darken: fade(darken(@pagination-color,35%), 50%);
-		.box-shadow(~"0px 3px 5px @{shadow-darken} , inset 0px 2px 3px #fff");
-	}
-}
-.btn-cancel {
-    position: absolute;
-    z-index: 0;
-    right: 5px; bottom: 5px;
-    left: 5px;
-    padding-top: 20px;
-    padding-bottom: 20px;
-    margin: 5px;
-    .border-radius(0);		
-    .background-image(linear-gradient(linear, left top, left bottom, from(white), to(darken(white,10%))));
-}
 
 // Temple =====================================
 

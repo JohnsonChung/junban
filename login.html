@@ -24,46 +24,86 @@
 </head>
 
 <body>
-
+    <style>
+        html {            
+            height: 100%;
+            width: 100%;
+        }
+        body {
+            position: relative;                        
+            font-family: メイリオ, sans-serif;
+            height: 100%;
+            width: 100%;
+        }
+        body:after {            
+            content:'';
+            position: fixed;            
+            z-index: -1;
+            bottom: 115px;
+            height: 45px;
+            width: 100%;
+            background-color: #00b7ee;
+            opacity: 0.5;
+        }
+        h1 {            
+            color: #00b7ee;
+            line-height: 3em;
+        }
+        dl {            
+            
+        }
+        dt {
+            color: #00b7ee;
+            font-size: 1.5em;
+            margin-bottom: 10px;
+        }
+        dd {
+            color: #999;
+            margin-left: 3em;
+            margin-bottom: 30px;
+        }
+        .bg-container {
+            position: absolute;
+            z-index: 1;
+            background-image: url('img/comic/login-comic.png');
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-position: center bottom;         
+            background-size:  auto auto;
+            height: 100%;
+            width: 100%;
+        }
+        .container {
+            position: relative;
+            z-index: 2;
+            background-color: rgba(255,255,255,0.8);
+        }
+    </style>
+    <div class="bg-container"></div>
     <div class="container">
         <div class="row">
-            <h1>順番コンシェル - ユーザー登録</h1>
+            <h1>あなたに専属の ” 順番コンシェル ”</h1>
         </div>
         <div class="row clearfix">
             <div class="col-md-7 column">
                 <dl>
-                    <dt>
-                        Description lists
-                    </dt>
-                    <dd>
-                        A description list is perfect for defining terms.
+                    <dt>一、タブレットとスマホ簡単に始められます。</dt>
+                    <dd>アプリ版はAndroidのみ準備して今うs。
                     </dd>
-                    <dt>
-                        Euismod
-                    </dt>
-                    <dd>
-                        Vestibulum id ligula porta felis euismod semper eget lacinia odio sem nec elit.
+                    <dt>ニ、利用料は無料コースから。気軽に始められます。</dt>
+                    <dd>登録件数一日100件まで無料。
                     </dd>
-                    <dd>
-                        Donec id elit non mi porta gravida at eget metus.
-                    </dd>
-                    <dt>
-                        Malesuada porta
-                    </dt>
-                    <dd>
-                        Etiam porta sem malesuada magna mollis euismod.
-                    </dd>
-                    <dt>
-                        Felis euismod semper eget lacinia
-                    </dt>
-                    <dd>
-                        Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.
+                    <dt>三、発券プリンタ不要で維持費がかかりません。</dt>
+                    <dd>お客様の手書きサインが登録されますので、周辺機器不要。
                     </dd>
                 </dl>
             </div>
             <div class="col-md-5 column">
                 <div class="panel panel-default">
-                    <div class="panel-heading">ログイン<span class="pull-right">または<a>アカウントを作成</a></span></div>
+                    <div class="panel-heading">ログイン
+                        <span class="pull-right">または<a>アカウントを作成</a>
+                        </span>
+                    </div>
                     <div class="panel-body">
                         <form role="form">
                             <div class="form-group">
