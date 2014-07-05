@@ -7,7 +7,7 @@
     <div class="row row-9">
         <div class="col-md-12 col-xs-12">
             <div class="col-md-6 col-xs-6 nowrap-fix" ng-repeat="answer in questionService.currentQuestion().answers">
-                <a class="btn btn-default btn-question btn-block" 
+                <a class="btn btn-custom btn-question btn-block" 
                    ng-click="questionService.selectAnswer({{$index}}); nextStep();"
                    ng-class="{true:'btn - primary',false:''}[{{$index}}=== questionService.currentQuestion().selected]">{{answer}}</a>
             </div>
@@ -19,7 +19,7 @@
                 <a class="btn btn-default btn-block btn-lg btn-forward" ng-click="prevStep()">Forward</a>
             </div>
             <div class="col-md-5 col-sm-6 col-xs-8">
-                <a class="btn btn-primary btn-block btn-lg btn-next" 
+                <a class="btn btn-custom btn-block btn-lg btn-next" 
                    ng-click="nextStep()" 
                    ng-disabled="questionService.currentQuestion().selected == null">Next <span class="glyphicon glyphicon-arrow-right"></span></a>
             </div>
