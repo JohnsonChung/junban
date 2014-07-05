@@ -8,12 +8,12 @@
                         <span class="label label-primary">1</span>受付画面のメッセージ</a>
                 </li>
                 <li>
-                    <a href="#profile" data-toggle="tab">
+                    <a href="#question-edit" data-toggle="tab">
                         <span class="label label-primary">2</span>問題編集</a>
                 </li>
                 <li>
-                    <a href="#messages" data-toggle="tab">
-                        <span class="label label-primary">3</span>Messages</a>
+                    <a href="#complete" data-toggle="tab">
+                        <span class="label label-primary">3</span>完成画面</a>
                 </li>
                 <li>
                     <a href="#settings" data-toggle="tab">
@@ -27,7 +27,8 @@
                     <div class="panel-heading">
                         <div class="row">
                             <div class="col-sm-12">
-                                <blockquote class="blockquote-primary">これは説明内容の場所です、今は見通り何もありませんから、自分で何とかしよう。下のフォームはKioskアプリの受付画面を設定ができます、右下のプレビューを押して実際の画面が見えます。<a class="btn btn-question"><i class="fa fa-question"></i></a></blockquote>
+                                <blockquote class="blockquote-primary">これは説明内容の場所です、今は見通り何もありませんから、自分で何とかしよう。下のフォームはKioskアプリの受付画面を設定ができます、右下のプレビューを押して実際の画面が見えます。<a class="btn btn-question"><i class="fa fa-question"></i></a>
+                                </blockquote>
                             </div>
                         </div>
                     </div>
@@ -66,7 +67,7 @@
                                         <div class="col-xs-2">
                                             <div class="wrapper">
                                                 <div class="persudo-navs">
-                                                    <div class="persudo-nav"></div>
+                                                    <div class="persudo-nav active"></div>
                                                     <div class="persudo-nav"></div>
                                                     <div class="persudo-nav"></div>
                                                     <div class="persudo-nav"></div>
@@ -91,7 +92,7 @@
                     </div>
                     <!-- pane end -->
                 </div>
-                <div class="tab-pane" id="profile">
+                <div class="tab-pane" id="question-edit">
                     <!-- pane start -->
                     <div class="panel-heading">
                         <div class="row">
@@ -129,35 +130,33 @@
                                             </div>
                                         </div>
                                         <div class="col-sm-12">
-                                            <div class="row">
-                                                <ul>
-                                                    <li class="col-sm-6 has-success has-feedback">
-                                                        <input type="input" class="form-control" placeholder="Answer 1">
-                                                        <span class="glyphicon glyphicon-ok form-control-feedback"></span>
-                                                    </li>
-                                                    <li class="col-sm-6">
-                                                        <input type="input" class="form-control" placeholder="Answer 2">
-                                                    </li>
-                                                    <li class="col-sm-6">
-                                                        <input type="input" class="form-control" placeholder="Answer 3">
-                                                    </li>
-                                                    <li class="col-sm-6">
-                                                        <input type="input" class="form-control" placeholder="Answer 4">
-                                                    </li>
-                                                    <li class="col-sm-6">
-                                                        <input type="input" class="form-control" placeholder="Answer 5">
-                                                    </li>
-                                                    <li class="col-sm-6">
-                                                        <input type="input" class="form-control" placeholder="Answer 6">
-                                                    </li>
-                                                    <li class="col-sm-6">
-                                                        <input type="input" class="form-control" placeholder="Answer 7">
-                                                    </li>
-                                                    <li class="col-sm-6">
-                                                        <input type="input" class="form-control" placeholder="Answer 8">
-                                                    </li>
-                                                </ul>
-                                            </div>
+                                            <ul class="row">
+                                                <li class="col-sm-6 has-success has-feedback">
+                                                    <input type="input" class="form-control" placeholder="Answer 1">
+                                                    <span class="glyphicon glyphicon-ok form-control-feedback"></span>
+                                                </li>
+                                                <li class="col-sm-6">
+                                                    <input type="input" class="form-control" placeholder="Answer 2">
+                                                </li>
+                                                <li class="col-sm-6">
+                                                    <input type="input" class="form-control" placeholder="Answer 3">
+                                                </li>
+                                                <li class="col-sm-6">
+                                                    <input type="input" class="form-control" placeholder="Answer 4">
+                                                </li>
+                                                <li class="col-sm-6">
+                                                    <input type="input" class="form-control" placeholder="Answer 5">
+                                                </li>
+                                                <li class="col-sm-6">
+                                                    <input type="input" class="form-control" placeholder="Answer 6">
+                                                </li>
+                                                <li class="col-sm-6">
+                                                    <input type="input" class="form-control" placeholder="Answer 7">
+                                                </li>
+                                                <li class="col-sm-6">
+                                                    <input type="input" class="form-control" placeholder="Answer 8">
+                                                </li>
+                                            </ul>
                                         </div>
                                     </div>
                                 </div>
@@ -184,7 +183,73 @@
                     </div>
                     <!-- pane end -->
                 </div>
-                <div class="tab-pane" id="messages">...</div>
+                <!-- pane start -->
+                <div class="tab-pane" id="complete">
+                    <div class="panel-heading">
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <blockquote class="blockquote-primary">以下は完成画面のメッセージを変更するフォームです。<a class="btn btn-question"><i class="fa fa-question"></i></a>
+                                </blockquote>
+                            </div>
+                        </div>
+                    </div>
+                    <form role="form" class="panel-body">
+                        <div class="form-group">
+                            <div class="col-sm-12">
+                                <div class="panel panel-default">
+                                    <div class="panel-heading">
+                                        <div class="row">
+                                            <div class="col-xs-12">&nbsp</div>
+                                        </div>
+                                    </div>
+                                    <div class="panel-body">
+                                        <div class="col-xs-10">
+                                            <div class="row">
+                                                <div class="form-group">
+                                                    <input type="text" class="form-control" placeholder="- Your turn was successfully added -">
+                                                </div>
+                                                <div class="form-group">
+                                                    <input type="text" class="form-control" placeholder="Please patiently until your number is called">
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-center">
+                                                    <p>Do you want to trace List by Smartphone (QR code)?</p>
+                                                    <img src="img/3d-phone.png"  width="300" alt="">
+                                                </div>
+                                            </div>
+                                            <div class="col-xs-12 col-center">
+                                                <div class="btn btn-default btn-lg">Complete!</div>
+                                            </div>
+                                        </div>
+                                        <div class="col-xs-2">
+                                            <div class="wrapper">
+                                                <div class="persudo-navs">
+                                                    <div class="persudo-nav"></div>
+                                                    <div class="persudo-nav"></div>
+                                                    <div class="persudo-nav"></div>
+                                                    <div class="persudo-nav"></div>
+                                                    <div class="persudo-nav active"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                    <div class="panel-footer">
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <div class="form-groups  pull-right">
+                                    <div class="btn btn-default">Cancel</div>
+                                    <div class="btn btn-success">Save Change</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- pane end -->
+                </div>
                 <div class="tab-pane" id="settings">...</div>
             </div>
         </div>

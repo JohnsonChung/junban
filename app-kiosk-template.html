@@ -38,6 +38,7 @@
     <iframe id="template3" title="Question" src="template/template-customer-3.html"></iframe>
     <iframe id="template4" title="Complete" src="template/template-customer-4.html"></iframe>
     <iframe id="template5" title="QR" src="template/template-customer-5.html"></iframe>
+    <iframe id="template6" title="Closed" src="template/template-customer-6.html"></iframe>
 
 
     <!-- 選單 -->
@@ -103,6 +104,7 @@
                 <a id="button3" class="btn btn-primary btn-xs navbar-btn" type="button" data-target="template3">Question</a>
                 <a id="button4" class="btn btn-primary btn-xs navbar-btn" type="button" data-target="template4">Complete</a>
                 <a id="button5" class="btn btn-primary btn-xs navbar-btn" type="button" data-target="template5">QR</a>
+                <a id="button6" class="btn btn-primary btn-xs navbar-btn" type="button" data-target="template6">Closed</a>
             </div>
             <script>
             $(document).ready(function() {
@@ -125,10 +127,6 @@
                 $('#button5').bind('click', function() {
                     $('.list-group-item[name="complete"]').addClass('active');
                 });
-            });
-            // less.js bug?
-            $(document).load(function() {
-                $('#button3').trigger('click');
             });
             </script>
         </div>

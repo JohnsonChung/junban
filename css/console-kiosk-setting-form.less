@@ -15,10 +15,11 @@
 	.persudo-nav {		
 		.size(120px, 60px);
 		.box-shadow(~"inset 10px 0px #ddd");
+		position: relative;		
 		outline: 1px solid #eee;
 		background-color: @gray-lighter;
 
-		&:first-child {
+		&.active {			
 			.box-shadow(~"inset -10px 0 @{brand-primary}");
 			outline: none;
 			border: 1px solid #eee;
@@ -31,9 +32,9 @@
 				color: #ccc;
 				left: 40px; top: 25px;
 			}
-		}
-		&:last-child {
-
+			&:last-child:before {
+				content: 'Complete!';
+			}			
 		}
 	}
 }
