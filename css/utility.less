@@ -1,0 +1,23 @@
+// ====================================
+// Utility
+// ====================================
+
+
+// Design tools
+.border(@color:red; @width: 1px) {
+    border: @width solid @color;
+}
+.outline(@color: red; @width: 1px){
+    outline: @color solid @width;
+}
+
+
+// Style Reset
+.button-style-clean {
+	border: none;
+	.border-top-right-radius(0px);
+	.border-top-left-radius(0px);
+	.border-bottom-right-radius(0px);
+	.border-bottom-left-radius(0px);
+	margin-left: 0px !important;
+}

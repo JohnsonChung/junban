@@ -1,0 +1,122 @@
+//==================================
+// Vender user Extension
+//==================================
+
+
+//==================================
+// Normalizer
+//==================================
+ul {
+	padding: 0;
+}
+
+//==================================
+// bootstrap extend
+//==================================
+li[class^="col"] {
+	list-style: none;	
+	margin-bottom: 15px;
+}
+h3 {
+	margin: 0;
+	padding: 6px 0;
+}
+.container-full {
+  margin: 0 auto;
+  width: 100%;
+}
+.col-center {	
+	text-align: center;	
+}
+
+
+// Small navbar
+.navbar.navbar-sm {	
+	height: 40px;
+	min-height: 40px;
+	padding: 0;
+
+	.navbar-brand {
+		line-height: 20px;
+		height: 40px;
+		padding: 10px 15px;
+	}
+}
+
+// Buttion 
+.btn-question {
+	.button-variant( @brand-primary, white, @brand-primary);
+	.border-radius( 33px );
+	padding: 2px 1px 0px;
+
+	.fa {
+		margin-right: 2px;
+		font-size: 23px;
+		line-height: 23px;
+	}
+}
+
+
+// Tab
+.nav-tabs {	
+	> li > a {
+		margin-top: 5px;
+		padding-top: 5px;
+
+		background-color: darken( @gray-lighter, 3%);
+		border: 1px solid @gray-lighter;
+		border-width: 1px 1px 0;
+		&:focus {
+			outline: none;
+		}
+	}
+	li.active > a {
+		margin-top: 0px;
+		padding-top: 10px;
+	}
+}
+.tab-content {
+	margin-bottom: 20px;
+
+	.tab-pane {
+		position: relative;
+		background-color: white;
+		.border-bottom-right-radius( @border-radius-base );
+		.border-bottom-left-radius( @border-radius-base );
+
+		&.active {			
+		}
+	}
+}
+
+// span.Label 
+.label {
+	margin-right: 0.5em;
+}
+
+// blockquote
+.blockquote-primary {
+	border-color: @brand-primary;
+	background-color: #F4F4F4;
+}
+
+//==================================
+// FontAwesome
+//==================================
+.fa {
+	width: 1em;
+	font-size: 1.18em;
+}
+
+// other
+#footer {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	color: white;
+	margin-top: 40px;
+	margin-bottom: 0;
+	line-height: 50px;
+	background-color: rgba(255,255,255,0.3);
+}

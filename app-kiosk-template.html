@@ -7,16 +7,13 @@
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="viewport" content="width=device-width, initial-scale=1, miniumn-scale=1, maximum-scale=1.2">
-    <title>Kyosk</title>
+    <title>Kiosk</title>
 
     <!-- boilerplate -->
     <link rel="stylesheet" href="css/bootstrap.min.css">
 
     <!-- stylesheet -->
-    <link rel="stylesheet" type="text/less" href="css/combine-app-customer.less">
-
-    <!-- livePage extension -->
-    <!-- <linkrel="livePage" href="css/" /> -->
+    <link rel="stylesheet" type="text/less" href="css/combine-app-kiosk.less">
 
     <!-- vendor -->
     <script type="text/javascript" src="js/jquery.min.js"></script>
@@ -41,6 +38,7 @@
     <iframe id="template3" title="Question" src="template/template-customer-3.html"></iframe>
     <iframe id="template4" title="Complete" src="template/template-customer-4.html"></iframe>
     <iframe id="template5" title="QR" src="template/template-customer-5.html"></iframe>
+    <iframe id="template6" title="Closed" src="template/template-customer-6.html"></iframe>
 
 
     <!-- 選單 -->
@@ -54,16 +52,16 @@
             <div class="col-sm-2 col-xs-3 progress-nav">
                 <ul class="list-group">
                     <li href="#" name="home" class="list-group-item text-center">
-                        <h1 style="font-size:2em;" class="glyphicon glyphicon-home"></h1>
-                        <br/>Home
+                        <i class="fa fa-home"></i>
+                        <br/>ホーム
                     </li>
                     <li href="#" name="sign" class="list-group-item text-center">
-                        <h1 style="font-size:2em;" class="glyphicon glyphicon-pencil"></h1>
-                        <br/>Sign
+                        <i class="fa fa-pencil"></i>
+                        <br/>サイン
                     </li>
                     <li href="#" name="question" class="list-group-item text-center">
-                        <h1 style="font-size:2em;" class="glyphicon glyphicon-question-sign"></h1>
-                        <br/>Questions
+                        <i class="fa fa-question-circle"></i>
+                        <br/>質問
                         <br/>
                         <ul class="pagination question-pagination">
                             <li class="disabled"><a>1</a>
@@ -79,15 +77,15 @@
                         </ul>
                     </li>
                     <li href="#" name="complete" class="list-group-item text-center">
-                        <h1 style="font-size:2em;" class="glyphicon glyphicon-star"></h1>
-                        <br/>Complete
+                        <i class="fa fa-star"></i>
+                        <br/>完成
                     </li>
                 </ul>
                 <!-- btn-cancel -->
                 <div class="">
                     <a class="btn btn-default btn-cancel">
-                        <span class="glyphicon glyphicon-remove"></span>
-                        &nbspCancel</a>
+                        <i class="fa fa-times"></i>
+                        キャンセル</a>
                 </div>
             </div>
         </div>
@@ -106,6 +104,7 @@
                 <a id="button3" class="btn btn-primary btn-xs navbar-btn" type="button" data-target="template3">Question</a>
                 <a id="button4" class="btn btn-primary btn-xs navbar-btn" type="button" data-target="template4">Complete</a>
                 <a id="button5" class="btn btn-primary btn-xs navbar-btn" type="button" data-target="template5">QR</a>
+                <a id="button6" class="btn btn-primary btn-xs navbar-btn" type="button" data-target="template6">Closed</a>
             </div>
             <script>
             $(document).ready(function() {
@@ -128,10 +127,6 @@
                 $('#button5').bind('click', function() {
                     $('.list-group-item[name="complete"]').addClass('active');
                 });
-            });
-            // less.js bug?
-            $(document).load(function() {
-                $('#button3').trigger('click');
             });
             </script>
         </div>

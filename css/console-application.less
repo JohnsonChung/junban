@@ -1,36 +1,3 @@
-@import '../css/vender/lesshat.less';
-@import '../css/vender/variables.less';
-@import '../css/font-awesome.min.css';
-
-// @import '../css/media.less';
-@import 'style.less';
-
-
-//========Utility=========
-.button-style-clean {
-	border: none;
-	.border-top-right-radius(0px);
-	.border-top-left-radius(0px);
-	.border-bottom-right-radius(0px);
-	.border-bottom-left-radius(0px);
-	margin-left: 0px !important;
-}
-//======== Html, contianer adjust =========
-body {
-    position: relative;
-    padding-top: 85px;
-    padding-bottom: 120px;
-    background-color: #ddd;
-    background-image: url(../img/c12.jpg);
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-position: top center; 
-}
-
-.container {
-    padding-left: 60px;
-}
-
 //========Builder=========
 // button builder 
 .btn-builder {
@@ -46,7 +13,6 @@ body {
     .transition-duration(@duration-out);
     .box-shadow(~"0 @{btn-z} @{shadow-color}");
     background-color: @bg-color;
-    display: block;  
     position: relative;
     top: 0;
     @btn-z-2: @btn-z * .8;
@@ -71,14 +37,32 @@ body {
 //========Main=========
 @app-width: 220px;
 @app-height: 220px;
+@app-bg-color: #436F7C;
+@app-bg-shadow-color: #1B4667;
 .application {
+    position: relative;
     width: @app-width;
     margin: 0 auto;
-    padding: 0 0 45px 0;
+    margin-top: 20px;
+    padding: 0px 0 70px 0;
+    
+    &.disabled {        
+        .btn-app:after {
+            position: absolute;
+            top: 0; left: 0;
+            content: '';
+            display: inline-block;
+            height: 100%;
+            width: 100%;
+            background-color: rgba(0,0,0,0.3);
+        }
+    }
     .btn-app {
+        display: inline-block;
+        position: relative;        
         margin-bottom: 10px;
         color: white;
-        .btn-3d-builder(#436F7C, #1B4667);
+        .btn-3d-builder(@app-bg-color, @app-bg-shadow-color);
         .size(@app-width, @app-height);
         .app-icon {
         	color: white;
@@ -95,17 +79,28 @@ body {
             margin-top: -60px;
         }
     }
-    .app-info {
-        width: @app-width - 40px;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        .button-style-clean;
+    .app-switch {
+        position: absolute;    
+        right: 0px; top: -33px;
     }
-    .btn-cog {
-        top: -5px;
-        width: 40px;
-        .button-style-clean;
-        .btn-3d-builder(@gray-lighter; #555; 6px);
-        margin-top: -6px;
+    .app-control-group {
+        position: relative;        
+        display: table;
+        width: 100%;
+        > a {
+            display: table-cell; 
+        }
+        .btn-cog {
+            .border-radius(0);
+        }
+    }
+    .app-info {
+        margin-bottom: -30px;
+        padding: 5px 8px;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        text-align: left;
+        background-color: #eee;
     }
 }

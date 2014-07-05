@@ -2,11 +2,6 @@
 // rebuild with Fontawesome
 // ====================================
 
-
-.fa {
-	width: 1.5em;
-}
-
 /* if an icon anchor has a span, hide the span */
 // why ? ? ? If icon-font not work let inside span words function.
 .fa span {
@@ -14,6 +9,10 @@
 	height: 0;
 	display: block;
 	overflow: hidden;
+}
+
+#gn-menu > li > a > .fa {	
+	width: 1.5em;
 }
 
 ul.gn-menu .fa /*, .gn-icon::before*/ {
@@ -35,7 +34,18 @@ ul.gn-menu .fa /*, .gn-icon::before*/ {
 
 // spacial setting for menu icon
 .gn-trigger-btn .fa-bars {
-	margin-left: -15px;
-	vertical-align: -10px;
+	margin-left: -16px;
+	vertical-align: -12px;
 	font-size: 30px;
+}
+
+// ====================================
+// glyph-icon adjustment
+// ====================================
+.glyph-icon {
+	&:before, 
+	&:after {
+		margin-left: 15px;
+		margin-right: 15px;
+	}
 }
