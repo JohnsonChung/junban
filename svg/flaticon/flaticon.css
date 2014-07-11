@@ -17,15 +17,27 @@ margin-left: 20px;
 }.flaticon-8:before {
 	content: "\e000";
 }
-.flaticon-checklist5:before {
+.flaticon-arm1:before {
 	content: "\e001";
 }
-.flaticon-finger2:before {
+.flaticon-checklist5:before {
 	content: "\e002";
 }
-.flaticon-person170:before {
+.flaticon-dancing1:before {
 	content: "\e003";
 }
-.flaticon-screen40:before {
+.flaticon-finger2:before {
 	content: "\e004";
+}
+.flaticon-frontal7:before {
+	content: "\e005";
+}
+.flaticon-man41:before {
+	content: "\e006";
+}
+.flaticon-person170:before {
+	content: "\e007";
+}
+.flaticon-screen40:before {
+	content: "\e008";
 }

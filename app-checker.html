@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Checker</title>
+    <meta charset="utf-8">
+    <meta name="description" content="">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="livePage" href="css/app-checker.less" />
+
+    <!-- boilerplate -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- icon-font -->
+    <link type="text/css" href="svg/flaticon/flaticon.css" rel="stylesheet">
+
+    <!-- stylesheet -->
+    <link rel="stylesheet/less" type="text/css" href="css/app-checker.less">
+
+    <!-- script -->
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/less-1.7.3.min.js"></script>
+
+
+</head>
+
+<body>
+    <div class="container container-checker">
+        <div class="row">
+            <div class="panel clearfix">
+                <div class="col-md-12">
+                    <h1>吉野家 有楽町店</h1>
+                </div>
+            </div>
+            <div class="panel clearfix">
+                <div class="col-md-12">
+                    <p class="folding">本日のご来店ありがとうございます。
+                        <br>お客様の順番を下記の通り登録いたしました。
+                        <br>お呼び出しの順番が近付きましたら、受付の近くでお待ちいただきますようお願い致します。</p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="panel panel-label clearfix">
+                <div class="column column-table">
+                    <label class="serial">25</label>
+                    <span class="signature">
+                        <img src="http://placehold.it/240x110/efefef/cccccc&text=signature" alt="">
+                    </span>
+                </div>
+            </div>
+        </div>
+        <div class="row vertical-block">
+            <div class="panel vertical-block clearfix">
+                <div class="col-md-12 col-center col-vertical-middle">
+                    <div class="counter centerd">
+                        <h2>先に待っている方</h2>
+                        <h2>あと
+                            <span class="count-people-before">13</span>
+                            <span class="count-unit">組</span>
+                        </h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="panel clearfix">
+                <div class="graphic-counter">
+                    <div class="col-xs-3">
+                        <div class="wrapper">
+                            <i class="flaticon-dancing1 people-servicing"></i>
+                            <span class="people-servicing-serial">12</span>
+                        </div>
+                    </div>
+                    <div class="col-xs-6">
+                        <div class="people-line">
+                            <span class="flaticon-frontal7 people-waiting"></span>
+                            <span class="flaticon-frontal7 people-waiting"></span>
+                            <span class="flaticon-frontal7 people-waiting"></span>
+                            <span class="flaticon-frontal7 people-waiting"></span>
+                            <span class="flaticon-frontal7 people-waiting"></span>
+                        </div>
+                    </div>
+                    <div class="col-xs-3">
+                        <div class="wrapper">
+                            <i class="flaticon-man41 people-checker"></i>
+                            <span class="people-checker-serial">25</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <nav>
+        <div class="navbar navbar-default navbar-fixed-top">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#">順番チェッカー</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <script>
+    $(document).ready(function() {
+
+        $('.people-servicing').bind('click', function() {
+            $(this).animate({
+                left: -60
+            });
+        });
+        $('.people-waiting').bind('click', function() {
+            $(this).animate({
+                width: 'toggle'
+            });
+        });
+        $('p').click( function(){
+            $(this).toggleClass('folding');
+        })
+    })
+    </script>
+</body>
+
+</html>
