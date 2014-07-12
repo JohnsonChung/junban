@@ -124,6 +124,11 @@
                 width: 'toggle'
             });
         });
+
+        $('.people-checker').bind('click', function() {
+            $('.people-line').append('<span class="flaticon-frontal7 people-waiting"></span>');
+        });
+
         $('p').click( function(){
             $(this).toggleClass('folding');
         })
