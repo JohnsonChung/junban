@@ -121,9 +121,10 @@ body {
     @sign-h : 90em / 14;
     .column.column-table {
         display: table;  
+        width: 100%;
     }
     label.serial {
-        width: 90em / 14;
+        width: 90em / 14 / 2;
         max-height: 90em / 14;
         display: table-cell;  
         margin-bottom: 0;
@@ -137,11 +138,26 @@ body {
         font-family: arial,  sans-serif;
     }
     span.signature {
+        position: relative;        
         display: table-cell;    
         max-height: @sign-h;
         overflow: hidden;
         vertical-align: top;
+        text-align: center;
 
+        &:after {
+            .size(1.5em);
+
+            content: "様";
+            position: absolute;
+            right: 0; bottom: 0;
+
+            background-color: white;
+
+            line-height: 1.8em;
+            font-size: 1.4em;
+            text-align: center;            
+        }
         img {
             height: @sign-h;        
         }
@@ -255,7 +271,7 @@ body {
     }
 }
     
-@media (min-width: 800px) {
+@media (min-width: 600px) {
     body {
     }
     h1 {
@@ -266,5 +282,12 @@ body {
     }
     .counter {
         font-size: 2em;
+    }
+    label.serial {
+        .outline;
+        width: 50%;
+    }
+    span.signature {
+        width: 50%;
     }
 }
