@@ -83,22 +83,25 @@ body {
         color: @brand-primary;
     }
     p {
-        padding: 10px 0;
+        .transition(~"max-height 1s ease-out");
+        padding: 1em 0;
         margin: 0;
+        max-height: 999px;
     }
     p.folding {
+        .transition(~"max-height 1s ease-out");
         position: relative;
 
-        @val : 3px * 14 * @line-height-base + 23;
-        height: @val;
+        @val : 1em * 3 * @line-height-base + 2.1em;
+        max-height: @val;
         overflow: hidden;
         &:before {          
             content: "";
             position: absolute;
             bottom: 0; left: 0;
-            height: 15px;            
+            height: 1em;            
             width: 100%;
-            .box-shadow(~"inset 0 -15px rgba(255,255,255,1)");  
+            .box-shadow(~"inset 0 -1em rgba(255,255,255,1)");  
         }
         &:after {
             content: "Read more..."; 
@@ -115,13 +118,14 @@ body {
 // ====================================
 .container-checker {
     // second block : signature
-    @sign-h : 90px;
+    @sign-h : 90em / 14;
     .column.column-table {
         display: table;  
     }
     label.serial {
-        .size( @sign-h );
-        display: table-cell;      
+        width: 90em / 14;
+        max-height: 90em / 14;
+        display: table-cell;  
         margin-bottom: 0;
 
         background-color: @brand-primary;    
@@ -129,7 +133,7 @@ body {
         color: white;
         font-size: 4em;
         text-align: center;
-        line-height: @sign-h;
+        line-height: @sign-h / 4; // fz 4em make lineheight to be square.
         font-family: arial,  sans-serif;
     }
     span.signature {
@@ -177,7 +181,7 @@ body {
         color: @brand-primary;
 
         [class^="flaticon-"]:before {
-            font-size: 46px;
+            font-size: 46em / 14; // 46px(flaticon fz) / 14px(default fz) = 3.285714em
             margin: 0;
         }
         [class$="-serial"]:before{
@@ -214,7 +218,7 @@ body {
         }
         .people-line {
             position: relative; 
-            display: inline-block;
+            display: table;
             margin-left: -20px;
             width: 100%;
             
@@ -236,8 +240,13 @@ body {
                 font-size: 35px;
             }
 
-            .people-waiting {          
-                margin: 0 -16px;
+            .people-waiting {     
+                display: table-cell;                                          
+                text-align: center;
+
+                &:before {
+                    margin: 0 -20px;
+                }
             }
         }
         .wrapper {              
@@ -246,3 +255,16 @@ body {
     }
 }
     
+@media (min-width: 800px) {
+    body {
+    }
+    h1 {
+        font-size: 5em;
+    }
+    p {
+        font-size: 2em;
+    }
+    .counter {
+        font-size: 2em;
+    }
+}
