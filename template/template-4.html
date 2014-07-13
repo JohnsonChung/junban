@@ -8,16 +8,20 @@
                         <span class="label label-primary">1</span>受付画面のメッセージ</a>
                 </li>
                 <li>
+                    <a href="#signature" data-toggle="tab">
+                        <span class="label label-primary">2</span>サイン</a>
+                </li>
+                <li>
                     <a href="#question-edit" data-toggle="tab">
-                        <span class="label label-primary">2</span>問題編集</a>
+                        <span class="label label-primary">3</span>問題編集</a>
                 </li>
                 <li>
                     <a href="#complete" data-toggle="tab">
-                        <span class="label label-primary">3</span>完成画面</a>
+                        <span class="label label-primary">4</span>完成画面</a>
                 </li>
                 <li>
                     <a href="#settings" data-toggle="tab">
-                        <span class="label label-primary">4</span>Settings</a>
+                        <span class="label label-primary">5</span>Settings</a>
                 </li>
             </ul>
             <!-- Tab panes -->
@@ -71,6 +75,71 @@
                                                     <div class="persudo-nav"></div>
                                                     <div class="persudo-nav"></div>
                                                     <div class="persudo-nav"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                    <div class="panel-footer">
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <div class="form-groups  pull-right">
+                                    <div class="btn btn-default">Cancel</div>
+                                    <div class="btn btn-success">Save Change</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- pane end -->
+                </div>
+
+                <!-- pane start -->
+                <div class="tab-pane" id="signature">
+                    <div class="panel-heading">
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <blockquote class="blockquote-primary">以下はサイン画面のメッセージを変更するフォームです。<a class="btn btn-question"><i class="fa fa-question"></i></a>
+                                </blockquote>
+                            </div>
+                        </div>
+                    </div>
+                    <form role="form" class="panel-body">
+                        <div class="form-group">
+                            <div class="col-sm-12">
+                                <div class="panel panel-default">
+                                    <div class="panel-heading">
+                                        <div class="row">
+                                            <div class="col-xs-12">&nbsp</div>
+                                        </div>
+                                    </div>
+                                    <div class="panel-body">
+                                        <div class="col-xs-10">
+                                            <div class="row">
+                                                <div class="form-group">
+                                                    <input type="text" class="form-control text-center focus" placeholder="Please Sign Your Name">
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-xs-12">
+                                                    <div class="persudo-signarea"></div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-xs-12 col-center">
+                                                    <div class="btn btn-default btn-lg">forward</div>
+                                                    <div class="btn btn-default btn-lg">Next</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-xs-2">
+                                            <div class="wrapper">
+                                                <div class="persudo-navs">
+                                                    <div class="persudo-nav"></div>
+                                                    <div class="persudo-nav active"></div>
+                                                    <div class="persudo-nav"></div>
                                                     <div class="persudo-nav"></div>
                                                 </div>
                                             </div>
@@ -92,6 +161,7 @@
                     </div>
                     <!-- pane end -->
                 </div>
+
                 <div class="tab-pane" id="question-edit">
                     <!-- pane start -->
                     <div class="panel-heading">
@@ -183,6 +253,7 @@
                     </div>
                     <!-- pane end -->
                 </div>
+
                 <!-- pane start -->
                 <div class="tab-pane" id="complete">
                     <div class="panel-heading">
@@ -205,27 +276,36 @@
                                     <div class="panel-body">
                                         <div class="col-xs-10">
                                             <div class="row">
-                                                <div class="form-group">
-                                                    <input type="text" class="form-control" placeholder="- Your turn was successfully added -">
-                                                </div>
-                                                <div class="form-group">
-                                                    <input type="text" class="form-control" placeholder="Please patiently until your number is called">
+                                                <div class="col-xd-12">
+                                                    <br><br>
+                                                    <div class="form-group">
+                                                        <input type="text" class="form-control text-center focus" placeholder="- Your turn was successfully added -">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <input type="text" class="form-control text-center focus" placeholder="Please patiently until your number is called">
+                                                    </div>
+                                                    <br><br>
                                                 </div>
                                             </div>
                                             <div class="row">
-                                                <div class="col-center">
+                                                <div class="col-xs-12 col-center">
                                                     <p>Do you want to trace List by Smartphone (QR code)?</p>
-                                                    <img src="img/3d-phone.png"  width="300" alt="">
+
+                                                    <div class="wrapper">
+                                                        <span class="persudo-serial">1</span>
+                                                        <img src="img/3d-phone.png" width="200" alt="">
+                                                    </div>
+                                                    <br>
                                                 </div>
-                                            </div>
-                                            <div class="col-xs-12 col-center">
-                                                <div class="btn btn-default btn-lg">Complete!</div>
+                                            </div><div class="row">
+                                                <div class="col-xs-12 col-center">
+                                                    <div class="btn btn-default btn-lg">Complete!</div>
+                                                </div>
                                             </div>
                                         </div>
                                         <div class="col-xs-2">
                                             <div class="wrapper">
                                                 <div class="persudo-navs">
-                                                    <div class="persudo-nav"></div>
                                                     <div class="persudo-nav"></div>
                                                     <div class="persudo-nav"></div>
                                                     <div class="persudo-nav"></div>
@@ -250,6 +330,7 @@
                     </div>
                     <!-- pane end -->
                 </div>
+
                 <div class="tab-pane" id="settings">...</div>
             </div>
         </div>

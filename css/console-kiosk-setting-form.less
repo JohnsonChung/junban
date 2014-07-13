@@ -42,6 +42,28 @@
 	font-size: 4.5em;	
 }
 
+#signature {
+
+	.persudo-signarea {
+		height: 350px;
+		border: 8px dashed @brand-primary;
+		background-color: #eee;
+		margin-bottom: 10px;
+	}
+	.persudo-nav.active {
+		&:before {
+			content: "Sign";
+		}
+	}
+}
+#complete {
+	.persudo-serial {	
+		font-size: 8em;		
+		line-height: 14px * 8 ;
+		color: @brand-primary;
+		vertical-align: -35px;
+	}
+}
 .thumbnail-kiosk-logo {	
 	margin: auto -30px;
 	.kiosk-logo {
