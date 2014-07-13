@@ -134,8 +134,11 @@
             $(this).toggleClass('folding');
         })
 
+        $('.counter').append('<h2 class="toggler">あなたの順番になります！</h2>');
+        $('.toggler').toggle();
         $('.navbar-brand').click( function(){
             $('body').toggleClass('checker-alert');
+            $('.counter h2').toggle();
         })
     })
     </script>
