@@ -1,6 +1,7 @@
 // Vender =====================================
 @import '../css/vender/lesshat.less';
 @import '../css/vender/variables.less';
+@import '../css/animate.less';
 
 // Preset =====================================
 @import '../css/utility.less';
@@ -30,6 +31,8 @@ body {
     padding: 0;
     height: 100%;
     width: 100%;
+
+    .transition(~"max-height 0.4s ease-out");
     
     .row {
         display: table-row;   
@@ -66,7 +69,8 @@ body {
         }
     }
     .vertical-block {
-        height: 100%;  
+        height: 100%;
+        max-height: 100%;  
     }
     .wrapper {
         position: relative;
@@ -270,6 +274,34 @@ body {
         }
     }
 }
+
+
+
+// ====================================
+// Checker Alert
+// ====================================
+
+.checker-alert {
+    background-color: red;
+
+    .row {
+        max-height: auto;
+    }    
+    .panel {
+        display: none;
+
+        &.checker-alert-display {
+            display: block;
+             .animated; .rubberBand;
+
+             -webkit-animation-iteration-count: infinite;
+        }
+    }
+}
+
+body {
+}
+
     
 @media (min-width: 600px) {
     body {

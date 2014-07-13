@@ -20,6 +20,7 @@
 
     <!-- stylesheet -->
     <link rel="stylesheet/less" type="text/css" href="css/app-checker.less">
+    <link rel="stylesheet" href="css/animate.css">
 
     <!-- script -->
     <script type="text/javascript" src="js/jquery.min.js"></script>
@@ -31,12 +32,12 @@
 <body>
     <div class="container container-checker">
         <div class="row">
-            <div class="panel clearfix">
+            <div class="panel clearfix checker-alert-display">
                 <div class="col-md-12">
                     <h1>吉野家 有楽町店</h1>
                 </div>
             </div>
-            <div class="panel clearfix">
+            <div class="panel clearfix checker-alert-display">
                 <div class="col-md-12">
                     <p class="folding">本日のご来店ありがとうございます。
                         <br>お客様の順番を下記の通り登録いたしました。
@@ -45,7 +46,7 @@
             </div>
         </div>
         <div class="row">
-            <div class="panel panel-label clearfix">
+            <div class="panel panel-label clearfix checker-alert-display">
                 <div class="column column-table">
                     <label class="serial">25</label>
                     <span class="signature">
@@ -55,7 +56,7 @@
             </div>
         </div>
         <div class="row vertical-block">
-            <div class="panel vertical-block clearfix">
+            <div class="panel vertical-block clearfix checker-alert-display">
                 <div class="col-md-12 col-center col-vertical-middle">
                     <div class="counter centerd">
                         <h2>先に待っている方</h2>
@@ -131,6 +132,10 @@
 
         $('p').click( function(){
             $(this).toggleClass('folding');
+        })
+
+        $('.navbar-brand').click( function(){
+            $('.body').toggleClass('checker-alert');
         })
     })
     </script>
