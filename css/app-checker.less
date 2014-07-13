@@ -37,6 +37,7 @@ body {
     .row {
         display: table-row;   
         margin: 0; 
+        .animated; .flipInX;
         
         .panel {
             .border-radius(0);
@@ -82,9 +83,11 @@ body {
     // first block : store Title
 
     h1 {
+        .transition(~"1s ease-out");
+        .transition-property( margin);
         margin: 8px 0; padding: 0;
         font-size: 2em;
-        color: @brand-primary;
+        color: @brand-primary;        
     }
     p {
         .transition(~"max-height 1s ease-out");
@@ -282,20 +285,24 @@ body {
 // ====================================
 
 .checker-alert {
-    background-color: red;
 
-    .row {
-        max-height: auto;
-    }    
+    h1 {
+        margin: 1em auto;      
+    }        
     .panel {
-        display: none;
+        .animated; .flipOutX;
 
         &.checker-alert-display {
-            display: block;
-             .animated; .rubberBand;
-
-             -webkit-animation-iteration-count: infinite;
+            -webkit-animation-name: none;            
         }
+        label.serial {
+            .animated;
+            -webkit-animation: bounce 2s 2s infinite; 
+        }
+        .counter {
+            .animated;
+            -webkit-animation: bounce 2s infinite;      
+        }        
     }
 }
 
@@ -316,7 +323,6 @@ body {
         font-size: 2em;
     }
     label.serial {
-        .outline;
         width: 50%;
     }
     span.signature {

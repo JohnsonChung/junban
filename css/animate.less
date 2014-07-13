@@ -1941,19 +1941,26 @@ Copyright (c) 2014 Daniel Eden
 @-webkit-keyframes flipOutX {
   0% {
     -webkit-transform: perspective(400px);
-    transform: perspective(400px);
+    transform: perspective(400px);    
   }
 
   30% {
     -webkit-transform: perspective(400px) rotate3d(1, 0, 0, -20deg);
     transform: perspective(400px) rotate3d(1, 0, 0, -20deg);
-    opacity: 1;
+    opacity: 1;   
   }
 
+  60% {
+    -webkit-transform: perspective(400px) rotate3d(1, 0, 0, 90deg);
+    transform: perspective(400px) rotate3d(1, 0, 0, 90deg);
+    opacity: 0;
+    max-height: 999px;
+  }
   100% {
     -webkit-transform: perspective(400px) rotate3d(1, 0, 0, 90deg);
     transform: perspective(400px) rotate3d(1, 0, 0, 90deg);
     opacity: 0;
+    max-height: 0;
   }
 }
 
@@ -1987,6 +1994,7 @@ Copyright (c) 2014 Daniel Eden
   -webkit-backface-visibility: visible !important;
   -ms-backface-visibility: visible !important;
   backface-visibility: visible !important;
+  .transition(~"max-height 5s ease-out");
 }
 
 @-webkit-keyframes flipOutY {

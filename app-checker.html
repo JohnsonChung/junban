@@ -20,7 +20,6 @@
 
     <!-- stylesheet -->
     <link rel="stylesheet/less" type="text/css" href="css/app-checker.less">
-    <link rel="stylesheet" href="css/animate.css">
 
     <!-- script -->
     <script type="text/javascript" src="js/jquery.min.js"></script>
@@ -116,8 +115,9 @@
     $(document).ready(function() {
 
         $('.people-servicing').bind('click', function() {
-            $(this).animate({
-                left: -60
+            $(this).toggleClass('animated bounce');
+            $(this).one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function() {
+                $(this).removeClass('animated bounce');
             });
         });
         $('.people-waiting').bind('click', function() {
