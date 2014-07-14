@@ -18,23 +18,20 @@
 		position: relative;		
 		outline: 1px solid #eee;
 		background-color: @gray-lighter;
+		text-align: center;
+		color: #ccc;
 
 		&.active {			
 			.box-shadow(~"inset -10px 0 @{brand-primary}");
 			outline: none;
 			border: 1px solid #eee;
 			border-width: 1px 0 0 0 ;
-			background-color: white;
-
-			&:before {
-				content: 'Home';
-				position: absolute;
-				color: #ccc;
-				left: 40px; top: 25px;
-			}
-			&:last-child:before {
-				content: 'Complete!';
-			}			
+			background-color: white;	
+			color: black;	
+		}
+		span {
+			display: block;
+			margin: 0 auto;	
 		}
 	}
 }
@@ -49,11 +46,6 @@
 		border: 8px dashed @brand-primary;
 		background-color: #eee;
 		margin-bottom: 10px;
-	}
-	.persudo-nav.active {
-		&:before {
-			content: "Sign";
-		}
 	}
 }
 #complete {
