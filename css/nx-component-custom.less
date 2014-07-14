@@ -186,7 +186,8 @@
 .gn-menu-wrapper {
 	// position fixed vertical nav
 	position: fixed;
-	top: inherit;	bottom: 0;	left: 0;
+	top: @gn-nav-width;	bottom: 0;	left: 0;
+	z-index: @zindex-navbar-fixed;
 	
 	overflow: hidden;
 	width: @gn-nav-width;
