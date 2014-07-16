@@ -1,6 +1,7 @@
 @import '../css/vender/lesshat.less';
 @import '../css/vender/variables.less';
-@import 'style.less';
+@import '../css/animate.less';
+@import '../css/utility.less';
 
 //========Preset========
  html, body {
@@ -32,14 +33,14 @@ ul.monitor {
     padding-bottom: 0;
 
     // align by vertical
-    &.verti {
+    &.vertical {
         padding-left: 3%;
         overflow-y: scroll !important;
         overflow-x: hidden !important;
         text-align: center;
     }
     // align by horizontal
-    &.hori {     
+    &.horizontal {     
         overflow-y: hidden !important;
         overflow-x: scroll !important; 
 
@@ -69,7 +70,8 @@ ul.monitor {
 
         // font-weight: bold;
         list-style: none;
-        .transition(~"all 1s ease-out");
+        .transition(~"1s ease-out");
+        .transition-property( width, height, font-size);
 
         &.counter{            
             position: relative;            
@@ -133,6 +135,62 @@ ul.monitor {
             }
 
         }
+    }
+}
+.popout-serial-caller {
+    .opacity(0);
+    .transition(~".25s ease-out");
+    .transition-property( opacity, left );
+    .animation(hidden 0.01s steps(2) forwards);
+    .animation-delay(.75s);
+    position: fixed;    
+    z-index: 9999;
+    top: inherit;
+    left: 0; right: 0;
+    height: 100%;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    
+    &.active {
+        .opacity(1);
+        .transition(~".75s ease-out");
+        .animation(show 0.01s steps(2) forwards);
+
+        .panel {
+            .animated; 
+            .animation( fadeInDown 1s);
+        }
+    }        
+    .panel {
+        .animated; .fadeOutDown;
+
+        // padding: 1em 1.618em*1;
+    }
+    .label-serial {
+        font-size: 12em;
+        line-height: 100%;
+    }
+}
+
+.keyframes(~'hidden, from{ left: 0; } to{ left: 3333px }');
+.keyframes(~'show, from{ left: 3333px } to{ left: 0px }');
+
+// css trick centered in unknow utility
+.centered-in-unknow {
+    height: 100%;
+    text-align: center;    
+
+    &:before {
+    content: '';
+    display: inline-block;
+    vertical-align: middle; 
+    width: 0px; 
+    height: 100%;
+    }
+
+    .centered {
+        display: inline-block;
+        vertical-align: middle;        
     }
 }
 //======== Media =========

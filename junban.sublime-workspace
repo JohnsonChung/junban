@@ -152,35 +152,31 @@
 	"buffers":
 	[
 		{
-			"file": "index-template-load.html",
+			"file": "app-monitor.html",
 			"settings":
 			{
-				"buffer_size": 6466,
+				"buffer_size": 2733,
 				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "css/nx-component-custom.less",
-			"settings":
-			{
-				"buffer_size": 5067,
-				"line_ending": "Unix"
 			}
 		}
 	],
 	"build_system": "",
 	"command_palette":
 	{
-		"height": 392.0,
+		"height": 334.0,
 		"selected_items":
 		[
 			[
-				"list",
-				"Package Control: List Packages"
-			],
-			[
 				"install",
 				"Package Control: Install Package"
+			],
+			[
+				"plig",
+				"Package Control: Install Package"
+			],
+			[
+				"list",
+				"Package Control: List Packages"
 			],
 			[
 				"up",
@@ -243,7 +239,7 @@
 				"Package Control: Install Package"
 			]
 		],
-		"width": 464.0
+		"width": 1072.0
 	},
 	"console":
 	{
@@ -264,13 +260,43 @@
 	},
 	"file_history":
 	[
+		"/C/Users/Kamimusuhi/Documents/GitHub/junban-handheld/gulpfile.js",
+		"/C/Users/Kamimusuhi/Documents/GitHub/junban-handheld/.gitignore",
+		"/C/Users/Kamimusuhi/Documents/GitHub/junban-handheld/www/templates/tab-called-customer.html",
+		"/C/Users/Kamimusuhi/Documents/GitHub/junban-handheld/www/index.html",
+		"/C/Users/Kamimusuhi/Documents/GitHub/junban-handheld/www/templates/nav-buttons-right.html",
+		"/C/Users/Kamimusuhi/Documents/GitHub/junban-handheld/www/templates/tab-called.html",
+		"/C/Users/Kamimusuhi/Documents/GitHub/junban-handheld/www/templates/tab-missed.html",
+		"/C/Users/Kamimusuhi/Documents/GitHub/junban-handheld/www/templates/tab-missed-customer.html",
+		"/C/Users/Kamimusuhi/Documents/GitHub/junban-handheld/www/templates/tabs.html",
+		"/C/Users/Kamimusuhi/Documents/GitHub/junban-handheld/www/templates/tab-waiting.html",
+		"/C/Users/Kamimusuhi/Documents/GitHub/junban-handheld/www/templates/tab-waiting-customer.html",
+		"/C/Users/Kamimusuhi/Desktop/[APP]Line-9/APPLICATION/css/console-kiosk-setting-form.less",
+		"/C/Users/Kamimusuhi/Desktop/[APP]Line-9/APPLICATION/css/nx-component-custom.less",
+		"/C/Users/Kamimusuhi/Documents/GitHub/junban-handheld/www/templates/modal-customer-edit.html",
+		"/C/Users/Kamimusuhi/Documents/GitHub/junban-handheld/www/templates/friend-detail.html",
+		"/C/Users/Kamimusuhi/Documents/GitHub/junban-handheld/scss/ionic.app.scss",
+		"/C/Users/Kamimusuhi/Documents/GitHub/junban-handheld/www/lib/ionic/scss/_variables.scss",
+		"/C/Users/Kamimusuhi/Desktop/[APP]Line-9/APPLICATION/bower_components/bootstrap/less/variables.less",
+		"/C/Users/Kamimusuhi/Desktop/[APP]Line-9/APPLICATION/css/vender-extention.less",
+		"/C/Users/Kamimusuhi/Documents/GitHub/junban-handheld/www/lib/ionic/scss/_form.scss",
+		"/C/Users/Kamimusuhi/Documents/GitHub/junban-handheld/www/lib/ionic/scss/_action-sheet.scss",
+		"/C/Users/Kamimusuhi/Documents/GitHub/junban-handheld/www/lib/ionic/scss/_menu.scss",
+		"/C/Users/Kamimusuhi/Documents/GitHub/junban-handheld/www/lib/ionic/scss/_list.scss",
+		"/C/wamp/scripts/onlineOffline.php",
+		"/C/Program Files/Sublime Text 3/Data/Packages/User/Default (Windows).sublime-keymap",
+		"/C/wamp/bin/apache/apache2.4.9/conf/httpd.conf",
+		"/C/wamp/scripts/config.inc.php",
+		"/C/Users/Kamimusuhi/Documents/GitHub/junban-handheld/www/lib/ionic/scss/ionic.scss",
+		"/C/Users/Kamimusuhi/Desktop/[APP]Line-9/APPLICATION/index-template-load.html",
+		"/C/Program Files/Sublime Text 3/Data/Packages/Color Highlighter/ColorHighlighter.sublime-settings",
+		"/C/Program Files/Sublime Text 3/Data/Packages/View In Browser/View In Browser.sublime-settings",
+		"/C/Users/Kamimusuhi/Desktop/[APP]Line-9/APPLICATION/css/combine-app-kiosk.css",
 		"/C/Program Files/Sublime Text 3/Data/Packages/User/less2css.sublime-settings",
 		"/C/Program Files/Sublime Text 3/Data/Packages/Less2Css/less2css.sublime-settings",
 		"/C/Users/Kamimusuhi/Desktop/[APP]Line-9/APPLICATION/css/combine-console.less",
-		"/C/Users/Kamimusuhi/Desktop/[APP]Line-9/APPLICATION/css/console-kiosk-setting-form.less",
 		"/C/Users/Kamimusuhi/Desktop/[APP]Line-9/APPLICATION/template/template-customer-6.html",
 		"/C/Users/Kamimusuhi/Desktop/[APP]Line-9/APPLICATION/template/template-4.html",
-		"/C/Users/Kamimusuhi/Desktop/[APP]Line-9/APPLICATION/css/vender-extention.less",
 		"/C/Users/Kamimusuhi/Desktop/[APP]Line-9/APPLICATION/app-checker.html",
 		"/C/Users/Kamimusuhi/Desktop/[APP]Line-9/APPLICATION/app-kiosk-template.html",
 		"/C/Users/Kamimusuhi/Desktop/[APP]Line-9/APPLICATION/template/template-5.html",
@@ -281,12 +307,10 @@
 		"/C/Users/Kamimusuhi/Desktop/[APP]Line-9/APPLICATION/css/bootstrap.min.css",
 		"/C/Users/Kamimusuhi/Desktop/[APP]Line-9/APPLICATION/login.html",
 		"/C/Program Files/Sublime Text 3/Data/Packages/HTML-CSS-JS Prettify/Default (Windows).sublime-keymap",
-		"/C/Users/Kamimusuhi/Desktop/[APP]Line-9/APPLICATION/index-template-load.html",
 		"/C/Users/Kamimusuhi/Desktop/[APP]Line-9/APPLICATION/css/console-error.less",
 		"/C/Users/Kamimusuhi/Desktop/[APP]Line-9/APPLICATION/template/template-customer-1.html",
 		"/C/Users/Kamimusuhi/Desktop/[APP]Line-9/APPLICATION/css/app-kiosk-closed.less",
 		"/C/Users/Kamimusuhi/Desktop/[APP]Line-9/APPLICATION/template/template-6.html",
-		"/C/Users/Kamimusuhi/Desktop/[APP]Line-9/APPLICATION/css/nx-component-custom.less",
 		"/C/Users/Kamimusuhi/Desktop/[APP]Line-9/APPLICATION/css/landing-login.less",
 		"/C/Users/Kamimusuhi/Desktop/[APP]Line-9/APPLICATION/template/template-customer-3.html",
 		"/C/Users/Kamimusuhi/Desktop/[APP]Line-9/APPLICATION/template/template-customer-2.html",
@@ -341,15 +365,12 @@
 		"/C/Users/Kamimusuhi/Desktop/[APP]Line-9/APPLICATION/bower_components/bootstrap/less/alerts.less",
 		"/C/Users/Kamimusuhi/Documents/GitHub/junban/kiosk-demo/template-customer-1.html",
 		"/C/Users/Kamimusuhi/Desktop/[APP]Line-9/APPLICATION/css/grid-horizontal.less",
-		"/C/Users/Kamimusuhi/Desktop/[APP]Line-9/APPLICATION/bower_components/bootstrap/less/variables.less",
 		"/C/Users/Kamimusuhi/Desktop/[APP]Line-9/APPLICATION/css/media.less",
 		"/C/Users/Kamimusuhi/Desktop/[APP]Line-9/APPLICATION/bower_components/bootstrap/less/normalize.less",
 		"/C/Users/Kamimusuhi/Desktop/[APP]Line-9/APPLICATION/template/template-3.html",
 		"/C/Users/Kamimusuhi/Desktop/[APP]Line-9/APPLICATION/css/nx-search.less",
 		"/C/Users/Kamimusuhi/Desktop/[APP]Line-9/APPLICATION/css/nx-component.css",
 		"/C/Program Files/Sublime Text 3/Data/Packages/View in Browser/Default (Windows).sublime-keymap",
-		"/C/Program Files/Sublime Text 3/Data/Packages/View In Browser/View In Browser.sublime-settings",
-		"/C/Program Files/Sublime Text 3/Data/Packages/User/Default (Windows).sublime-keymap",
 		"/C/Users/Kamimusuhi/Desktop/[APP]Line-9/APPLICATION/新增資料夾/template-1.html",
 		"/C/Users/Kamimusuhi/Desktop/[APP]Line-9/APPLICATION/css/signpage.less",
 		"/C/Users/Kamimusuhi/Desktop/[APP]Line-9/APPLICATION/css/light-power-button.less",
@@ -381,6 +402,13 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"brand-primary",
+			"nav",
+			"$positive",
+			"#4a87ee",
+			"127.0.0.1",
+			"brand-pri",
+			"color",
 			"top:",
 			"top: 40",
 			"top: 0",
@@ -474,24 +502,24 @@
 	"groups":
 	[
 		{
-			"selected": 1,
+			"selected": 0,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "index-template-load.html",
+					"file": "app-monitor.html",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 6466,
+						"buffer_size": 2733,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								492,
-								492
+								2301,
+								2301
 							]
 						],
 						"settings":
@@ -499,14 +527,10 @@
 							"BracketHighlighterBusy": false,
 							"bh_regions":
 							[
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
 								"bh_regex",
 								"bh_regex_center",
 								"bh_regex_open",
@@ -515,34 +539,38 @@
 								"bh_square_center",
 								"bh_square_open",
 								"bh_square_close",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
 								"bh_angle",
 								"bh_angle_center",
 								"bh_angle_open",
 								"bh_angle_close",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
 								"bh_c_define",
 								"bh_c_define_center",
 								"bh_c_define_open",
 								"bh_c_define_close",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
 								"bh_tag",
 								"bh_tag_center",
 								"bh_tag_open",
-								"bh_tag_close"
+								"bh_tag_close",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close"
 							],
 							"codeintel": true,
 							"codeintel_config":
@@ -654,189 +682,7 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "css/nx-component-custom.less",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 5067,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								3496,
-								3496
-							]
-						],
-						"settings":
-						{
-							"BracketHighlighterBusy": false,
-							"bh_regions":
-							[
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_c_define",
-								"bh_c_define_center",
-								"bh_c_define_open",
-								"bh_c_define_close",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close"
-							],
-							"codeintel": true,
-							"codeintel_config":
-							{
-								"JavaScript":
-								{
-									"codeintel_max_recursive_dir_depth": 2,
-									"codeintel_scan_files_in_project": false,
-									"javascriptExtraPaths":
-									[
-									]
-								},
-								"PHP":
-								{
-									"codeintel_max_recursive_dir_depth": 5,
-									"codeintel_scan_files_in_project": false,
-									"phpExtraPaths":
-									[
-									]
-								},
-								"Python":
-								{
-									"env":
-									{
-									}
-								}
-							},
-							"codeintel_enabled_languages":
-							[
-								"JavaScript",
-								"Mason",
-								"XBL",
-								"XUL",
-								"RHTML",
-								"SCSS",
-								"Python",
-								"HTML",
-								"Ruby",
-								"Python3",
-								"XML",
-								"Sass",
-								"XSLT",
-								"Django",
-								"HTML5",
-								"Perl",
-								"CSS",
-								"Twig",
-								"Less",
-								"Smarty",
-								"Node.js",
-								"Tcl",
-								"TemplateToolkit",
-								"PHP"
-							],
-							"codeintel_live": true,
-							"codeintel_live_enabled_languages":
-							[
-								"JavaScript",
-								"Mason",
-								"XBL",
-								"XUL",
-								"RHTML",
-								"SCSS",
-								"Python",
-								"HTML",
-								"Ruby",
-								"Python3",
-								"XML",
-								"Sass",
-								"XSLT",
-								"Django",
-								"HTML5",
-								"Perl",
-								"CSS",
-								"Twig",
-								"Less",
-								"Smarty",
-								"Node.js",
-								"Tcl",
-								"TemplateToolkit",
-								"PHP"
-							],
-							"codeintel_max_recursive_dir_depth": 10,
-							"codeintel_scan_exclude_dir":
-							{
-								"JavaScript":
-								[
-									"/build/",
-									"/min/"
-								]
-							},
-							"codeintel_scan_files_in_project": true,
-							"codeintel_selected_catalogs":
-							[
-								"PyWin32",
-								"jQuery",
-								"Rails"
-							],
-							"codeintel_snippets": true,
-							"codeintel_syntax_map":
-							{
-								"Python Django": "Python"
-							},
-							"codeintel_tooltips": "popup",
-							"color_scheme": "Packages/User/Color Highlighter/themes/Monokai.tmTheme",
-							"sublime_auto_complete": true,
-							"syntax": "Packages/LESS/LESS.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 4253.0,
+						"translation.y": 1397.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
@@ -921,7 +767,7 @@
 	"show_open_files": false,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 294.0,
+	"side_bar_width": 246.0,
 	"status_bar_visible": true,
 	"template_settings":
 	{

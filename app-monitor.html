@@ -16,7 +16,7 @@
 
     <!-- vendor -->
     <script type="text/javascript" src="js/jquery.min.js"></script>
-    <script type="text/javascript" src="js/less-1.7.0.min.js"></script>
+    <script type="text/javascript" src="js/less-1.7.4.min.js"></script>
     <script type="text/javascript" src="js/holder.js"></script>
 
     <!-- javascript -->
@@ -29,17 +29,18 @@
         var span = $('li:last-child').html();
 
         // create multiple boxes        
-        for (var i = persudoCounts - 1 ; i > 0; i--) {
-            $('.monitor').append('<li>'+span+'</li>');
+        for (var i = persudoCounts - 1; i > 0; i--) {
+            $('.monitor').append('<li>' + span + '</li>');
         };
-        $('.number').each( function(i) {
+        $('.number').each(function(i) {
             i++;
-            $(this).html(i);            
+            $(this).html(i);
         });
 
         // hidden box --> change into class
         var number = persudoCounts;
         $('.counts').html(persudoCounts);
+
         function clear() {
             $(this).css({
                 "height": "0",
@@ -51,7 +52,7 @@
                 $(this).remove();
             });;
             number = number - 1;
-            $('.counts').html( number );
+            $('.counts').html(number);
         }
 
         // bind click event
@@ -59,7 +60,7 @@
         $('li:first-child').unbind("click");
 
         $('.btn-toggle').bind('click', function() {
-            $(".box").toggleClass('hori verti');
+            $(".box").toggleClass('horizontal vertical');
         })
     });
     </script>
@@ -76,19 +77,58 @@
         </div>
     </nav>
     <div class="container">
-        <ul class="box monitor hori">
+        <ul class="box monitor horizontal">
             <li class="counter">
                 <span class="counts">35</span>
             </li>
             <li>
-                <div class="spans">                   
-                    <span class="number">99</span><!-- 
-                     --><span class="signature"><div class="img"></div></span><!-- 
-                     --><span class="esquire">esq</span>
+                <div class="spans">
+                    <span class="number">99</span>
+                    <!-- 
+                     -->
+                    <span class="signature">
+                        <div class="img"></div>
+                    </span>
+                    <!-- 
+                     -->
+                    <span class="esquire">esq</span>
                 </div>
             </li>
         </ul>
     </div>
+    <div class="container">
+        <div class="popout-serial-caller centered-in-unknow">
+            <div class="panel panel-primary centered">
+                <div class="panel-heading">
+                    <h1>We are now serving</h1>
+                </div>
+                <div class="panel-body">
+                    <label class="label-serial">9</label>
+                </div>
+                <div class="panel-footer">
+                    <img src="http://placehold.it/300x95" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="btn btn-warning btn-popout">popout
+    </div>
+    <style>
+        .btn-popout { 
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            z-index: 99999;
+        }   
+    </style>
+    <script>
+        // template popout toggle
+        $(document).ready(function() {
+            $('.btn-popout').bind('click', function() {
+                $('.popout-serial-caller').toggleClass("active");
+            });
+        });
+    </script>
 </body>
 
 
