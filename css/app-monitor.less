@@ -194,31 +194,38 @@ ul.monitor {
 }
 .popout-serial-caller.active {
     .animated-loading-dotted {
-        padding: 0;
-        margin: 0;
-        margin-bottom: -10px;
 
         li {
             .animated;
-            height: 0;   
-            width: 20px;
-            line-height: 30px;
-            display: inline-block;        
-            font-size: 3em;
-            font-weight: bold;
-            list-style: none;
         }
         @length: 3s;
         @gap: @length / 3;
+        @animate: rubberBand; // good bounce, rubberBand
+        @steps: 2;
         li:nth-child(3n+1) {
-            .animation(bounce @length steps(2) infinite)
+            .animation(@animate @length steps(@steps) infinite)
         }
         li:nth-child(3n+2) {
-            .animation(bounce @length @gap steps(2) infinite)
+            .animation(@animate @length @gap steps(@steps) infinite)
         }
         li:nth-child(3n+3) {
-            .animation(bounce @length @gap * 2 steps(2) infinite)
+            .animation(@animate @length @gap * 2 steps(@steps) infinite)
         }
+    }
+}
+.animated-loading-dotted {
+    padding: 0;
+    margin: 0;
+    margin-bottom: -10px;
+
+    li {
+        height: 30px;   
+        width: 20px;
+        line-height: 30px;
+        display: inline-block;        
+        font-size: 3em;
+        font-weight: bold;
+        list-style: none;
     }
 }
 //======== Media =========
