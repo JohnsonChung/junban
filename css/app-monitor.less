@@ -163,7 +163,6 @@ ul.monitor {
     }        
     .panel {
         .animated; .fadeOutDown;
-
         // padding: 1em 1.618em*1;
     }
     .label-serial {
@@ -191,6 +190,35 @@ ul.monitor {
     .centered {
         display: inline-block;
         vertical-align: middle;        
+    }
+}
+.popout-serial-caller.active {
+    .animated-loading-dotted {
+        padding: 0;
+        margin: 0;
+        margin-bottom: -10px;
+
+        li {
+            .animated;
+            height: 0;   
+            width: 20px;
+            line-height: 30px;
+            display: inline-block;        
+            font-size: 3em;
+            font-weight: bold;
+            list-style: none;
+        }
+        @length: 3s;
+        @gap: @length / 3;
+        li:nth-child(3n+1) {
+            .animation(bounce @length steps(2) infinite)
+        }
+        li:nth-child(3n+2) {
+            .animation(bounce @length @gap steps(2) infinite)
+        }
+        li:nth-child(3n+3) {
+            .animation(bounce @length @gap * 2 steps(2) infinite)
+        }
     }
 }
 //======== Media =========
