@@ -3,6 +3,8 @@
 @import '../css/animate.less';
 @import '../css/utility.less';
 
+@import '../css/card-signature.less';
+
 //========Preset========
  html, body {
     height: 100%;
@@ -18,6 +20,7 @@ body {
 @sign-box-h: 90px;
 @sign-box-w: 32%;
 @box-margin: 1%;
+@box-margin-bottom: 20px;
 
 nav{
     position: fixed;    
@@ -63,11 +66,10 @@ ul.monitor {
     }
 
     & > li {
-        position: relative;
-        top: 0; left: auto;
-        float: left;        
         .size(@sign-box-w, @sign-box-h);
-        margin-bottom: 20px;
+        position: relative;
+        float: left;        
+        margin-bottom: @box-margin-bottom;
         margin-right: @box-margin;
 
         // font-weight: bold;
@@ -77,7 +79,7 @@ ul.monitor {
 
         &.counter{            
             position: relative;            
-            height: @sign-box-h * 2 + 20px;                         
+            height: @sign-box-h * 2 + @box-margin-bottom;                         
             text-align: center;
             color: white;
             .border-radius(20px);
@@ -95,26 +97,12 @@ ul.monitor {
                 padding-bottom: 0.6em;
             }
         }        
-        .spans {
-            display: table;            
+        .card {    
             height: 100%;
-            width: 100%;
-            white-space: nowrap;
-            .border-radius(10px);            
+            width: 100%;     
 
-            background-color: white;
-            overflow: hidden;
-
-            span {
-                display: table-cell;
-                vertical-align: middle;     
-                text-align: center; 
-                margin: 0;
-                padding: 0;
-            }
             .number {
                 // font-size: 3em; into media
-                font-weight: bold;
                 color: green;
                 width: 18%;                
             }
@@ -122,18 +110,12 @@ ul.monitor {
                 height: 100%;
                 width: 67%;
 
-                .img {                    
-                    height: 100%;
-                    width: 100%;
+                .img-signature {                    
                     background-image: url(../img/sign-template.png);
-                    background-repeat: no-repeat;
-                    background-size: auto 100%;
                 }
             }
             .esquire {
-                // font-size: 2em; into media
-                vertical-align: bottom;
-                padding-bottom: 5px;
+
             }
         }
     }
@@ -169,7 +151,7 @@ ul.monitor {
     }        
     .panel {
         .animated;
-        .animation( fadeOutDown 0.75s steps(10) );
+        .animation( fadeOutDown 0.75s steps(22) );
 
         // padding: 1em 1.618em*1;
     }
@@ -180,22 +162,6 @@ ul.monitor {
         line-height: 100%;
     }
     .signature {
-        position: relative;
-        display: inline-block;            
-        text-align: center;
-
-        &:after {
-            .size(1.5em);
-
-            content: "様";
-            position: absolute;
-            right: 0; bottom: 0;
-
-            background-color: white;
-            font-size: 1.8em;
-            text-align: center;     
-            font-weight: bold;                      
-        }
     }
 }
 
@@ -258,7 +224,7 @@ ul.monitor {
 }
 //======== Media =========
 @media (max-width: 600px){
-    .spans { 
+    .card { 
         .number {
             font-size: 2em !important;
         }
@@ -268,7 +234,7 @@ ul.monitor {
     }
 }
 @media (min-width: 600px){
-    .spans { 
+    .card {
         .number {
             font-size: 2em !important;
         }
@@ -279,7 +245,7 @@ ul.monitor {
 }
 
 @media (min-width: 780px){
-    .spans { 
+    .card {
         .number {
             font-size: 2.5em !important;
         }
@@ -290,7 +256,7 @@ ul.monitor {
 }
 
 @media (min-width: 1080px){
-    .spans { 
+    .card {
         .number {
             font-size: 3em !important;
         }

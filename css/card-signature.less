@@ -1,14 +1,20 @@
 // ====================================
 // Card of Signature
 // ====================================
-.card {
+
+.card-default {
+	@card-width-default: 400px;
+	@card-height-default: 90px;
+	@card-color: white;
+	.size( @card-width-default, @card-height-default);
+}
+.card {	
+	.card-default;
     .border-radius(10px); 
     display: table;            
-    height: 100%;
-    width: 100%;
-    white-space: nowrap;           
+    white-space: nowrap;
 
-    background-color: white;
+    background: @card-color;
     overflow: hidden;
 
 	.number,
@@ -22,43 +28,61 @@
 	}
 	.number {
 	    // font-size: 3em; into media
-	    font-weight: bold;
-	    color: green;
-	    width: 18%;                
+	    font-weight: bold;	    
+	    width: 90px; // default : square serial box
 	}
 	.signature {
 	    height: 100%;
-	    width: 67%;
+	    width: 100%; // default : block table sapce
 
-	    .img {                    
+	    .img-signature {                    
 	        height: 100%;
 	        width: 100%;
 	        background-image: url(../img/sign-template.png);
 	        background-repeat: no-repeat;
 	        background-size: auto 100%;
+	        background-position: center;
 	    }
 	}
 	.esquire {
 	    // font-size: 2em; into media
 	    vertical-align: bottom;
 	    padding-bottom: 5px;
+	    width: 60px;
 	}
 }
 
 // identity signature
-.signature {
-	
+.signature-default(@width: 520px; @height: 190px) {
+	width: @width;
+	height: @height;
+}
+
+.signature {    
+	.signature-default; 
+	position: relative;
+    display: inline-block;            
+    text-align: center;
+
+	.img-signature { 
+		display: block;	                                      
+        height: 100%;
+        width: 100%;
+        background-image: url(../img/sign-template.png);
+        background-repeat: no-repeat;
+        background-size: auto 100%;
+        background-position: center;
+    }
 	// signature with :after esquire
 	&.signature-esq {
 		&:after {
-			.size(1.5em);
 
 			content: "様";
 			position: absolute;
 			right: 0; bottom: 0;
+			padding: 0px 5px;
 
-			background-color: white;
-			font-size: 1.8em;
+			font-size: 2.5em;
 			text-align: center;     
 			font-weight: bold;                      
         }
