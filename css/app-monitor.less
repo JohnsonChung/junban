@@ -12,7 +12,9 @@ body {
     overflow: hidden;
 }
 
-//========Utility=========
+// ====================================
+// Monitor Main
+// ====================================
 @sign-box-h: 90px;
 @sign-box-w: 32%;
 @box-margin: 1%;
@@ -70,8 +72,8 @@ ul.monitor {
 
         // font-weight: bold;
         list-style: none;
-        .transition(~"1s ease-out");
-        .transition-property( width, height, font-size);
+        .transition(~"0.75s steps(25)");
+        .transition-property( width, height);
 
         &.counter{            
             position: relative;            
@@ -133,15 +135,23 @@ ul.monitor {
                 vertical-align: bottom;
                 padding-bottom: 5px;
             }
-
         }
     }
 }
+
+
+// ====================================
+// PopOut Caller
+// ====================================
+@panel-width: 45%;
+@panel-maxwidth: 530px;
+@panel-minwidth: 350px;
+
 .popout-serial-caller {
     .opacity(0);
-    .transition(~".25s ease-out");
+    .transition(~".25s steps(4)");
     .transition-property( opacity, left );
-    .animation(hidden 0.01s steps(2) forwards);
+    .animation(hidden 0.01s steps(1) forwards);
     .animation-delay(.75s);
     position: fixed;    
     z-index: 9999;
@@ -153,21 +163,46 @@ ul.monitor {
     
     &.active {
         .opacity(1);
-        .transition(~".75s ease-out");
-        .animation(show 0.01s steps(2) forwards);
+        .transition(~".75s steps(23)");
+        .animation(show 0.01s steps(1) forwards);
 
         .panel {
             .animated; 
-            .animation( fadeInDown 1s);
+            .animation( fadeInDown .75s steps(25));
         }
     }        
     .panel {
-        .animated; .fadeOutDown;
+        .animated;
+        .animation( fadeOutDown 0.75s steps(10) );
+
+        width: @panel-width;
+        max-width: @panel-maxwidth;
+        min-width: @panel-minwidth;
         // padding: 1em 1.618em*1;
     }
     .label-serial {
-        font-size: 12em;
+        font-size: 13em;
         line-height: 100%;
+    }
+    .msg-nowServing {
+    }
+    .signature {
+        position: relative;
+        display: inline-block;            
+        text-align: center;
+
+        &:after {
+            .size(1.5em);
+
+            content: "様";
+            position: absolute;
+            right: 0; bottom: 0;
+
+            background-color: white;
+            font-size: 1.8em;
+            text-align: center;     
+            font-weight: bold;                      
+        }
     }
 }
 

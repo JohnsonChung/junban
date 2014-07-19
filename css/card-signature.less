@@ -1,0 +1,66 @@
+// ====================================
+// Card of Signature
+// ====================================
+.card {
+    .border-radius(10px); 
+    display: table;            
+    height: 100%;
+    width: 100%;
+    white-space: nowrap;           
+
+    background-color: white;
+    overflow: hidden;
+
+	.number,
+	.signature, 
+	.esquire {
+		display: table-cell;
+	    vertical-align: middle;     
+	    text-align: center; 
+	    margin: 0;
+	    padding: 0;
+	}
+	.number {
+	    // font-size: 3em; into media
+	    font-weight: bold;
+	    color: green;
+	    width: 18%;                
+	}
+	.signature {
+	    height: 100%;
+	    width: 67%;
+
+	    .img {                    
+	        height: 100%;
+	        width: 100%;
+	        background-image: url(../img/sign-template.png);
+	        background-repeat: no-repeat;
+	        background-size: auto 100%;
+	    }
+	}
+	.esquire {
+	    // font-size: 2em; into media
+	    vertical-align: bottom;
+	    padding-bottom: 5px;
+	}
+}
+
+// identity signature
+.signature {
+	
+	// signature with :after esquire
+	&.signature-esq {
+		&:after {
+			.size(1.5em);
+
+			content: "様";
+			position: absolute;
+			right: 0; bottom: 0;
+
+			background-color: white;
+			font-size: 1.8em;
+			text-align: center;     
+			font-weight: bold;                      
+        }
+	}
+}
