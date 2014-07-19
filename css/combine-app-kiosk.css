@@ -1,4 +1,84 @@
 @import '../css/font-awesome.min.css';
+::-webkit-scrollbar {
+  height: 16px;
+  overflow: visible;
+  width: 16px;
+}
+::-webkit-scrollbar-button {
+  height: 0;
+  width: 0;
+}
+::-webkit-scrollbar-track {
+  background-clip: padding-box;
+  border: solid transparent;
+  border-width: 0 0 0 4px;
+}
+::-webkit-scrollbar-track:horizontal {
+  border-width: 4px 0 0;
+}
+::-webkit-scrollbar-track:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+  box-shadow: inset 1px 0 0 rgba(0, 0, 0, 0.1);
+}
+::-webkit-scrollbar-track:horizontal:hover {
+  box-shadow: inset 0 1px 0 rgba(0, 0, 0, 0.1);
+}
+::-webkit-scrollbar-track:active {
+  background-color: rgba(0, 0, 0, 0.05);
+  box-shadow: inset 1px 0 0 rgba(0, 0, 0, 0.14), inset -1px 0 0 rgba(0, 0, 0, 0.07);
+}
+::-webkit-scrollbar-track:horizontal:active {
+  box-shadow: inset 0 1px 0 rgba(0, 0, 0, 0.14), inset 0 -1px 0 rgba(0, 0, 0, 0.07);
+}
+::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.2);
+  background-clip: padding-box;
+  border: solid transparent;
+  border-width: 1px 1px 1px 6px;
+  min-height: 28px;
+  padding: 100px 0 0;
+  box-shadow: inset 1px 1px 0 rgba(0, 0, 0, 0.1), inset 0 -1px 0 rgba(0, 0, 0, 0.07);
+}
+::-webkit-scrollbar-thumb:horizontal {
+  border-width: 6px 1px 1px;
+  padding: 0 0 0 100px;
+  box-shadow: inset 1px 1px 0 rgba(0, 0, 0, 0.1), inset -1px 0 0 rgba(0, 0, 0, 0.07);
+}
+::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(0, 0, 0, 0.4);
+  box-shadow: inset 1px 1px 1px rgba(0, 0, 0, 0.25);
+}
+::-webkit-scrollbar-thumb:active {
+  background-color: rgba(0, 0, 0, 0.5);
+  box-shadow: inset 1px 1px 3px rgba(0, 0, 0, 0.35);
+}
+::-webkit-scrollbar-corner {
+  background: transparent;
+}
+body::-webkit-scrollbar-track-piece {
+  background-clip: padding-box;
+  background-color: #f5f5f5;
+  border: solid #fff;
+  border-width: 0 0 0 3px;
+  box-shadow: inset 1px 0 0 rgba(0, 0, 0, 0.14), inset -1px 0 0 rgba(0, 0, 0, 0.07);
+}
+body::-webkit-scrollbar-track-piece:horizontal {
+  border-width: 3px 0 0;
+  box-shadow: inset 0 1px 0 rgba(0, 0, 0, 0.14), inset 0 -1px 0 rgba(0, 0, 0, 0.07);
+}
+body::-webkit-scrollbar-thumb {
+  border-width: 1px 1px 1px 5px;
+}
+body::-webkit-scrollbar-thumb:horizontal {
+  border-width: 5px 1px 1px;
+}
+body::-webkit-scrollbar-corner {
+  background-clip: padding-box;
+  background-color: #f5f5f5;
+  border: solid #fff;
+  border-width: 3px 0 0 3px;
+  box-shadow: inset 1px 1px 0 rgba(0, 0, 0, 0.14);
+}
 ul {
   padding: 0;
 }
@@ -272,6 +352,82 @@ fieldset[disabled] .btn-question.active {
   display: inline-block;
   vertical-align: middle;
 }
+.card-default {
+  width: 330px;
+  height: 90px;
+}
+.card {
+  width: 330px;
+  height: 90px;
+  -webkit-border-radius: 10px;
+  -webkit-background-clip: padding-box;
+  -moz-border-radius: 10px;
+  -moz-background-clip: padding;
+  border-radius: 10px;
+  background-clip: padding-box;
+  display: table;
+  white-space: nowrap;
+  background: #ffffff;
+  overflow: hidden;
+}
+.card .serial,
+.card .signature,
+.card .esquire {
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+}
+.card .serial {
+  width: 90px;
+  font-weight: bold;
+  font-size: 3em;
+}
+.card .signature {
+  height: 100%;
+  width: auto;
+}
+.card .signature .img-signature {
+  height: 100%;
+  width: 100%;
+  background-image: url(../img/sign-template.png);
+  background-repeat: no-repeat;
+  background-size: auto 100%;
+  background-position: center;
+}
+.card .esquire {
+  vertical-align: bottom;
+  padding-bottom: 5px;
+  width: 1.4em;
+  font-size: 1.3em;
+}
+.signature {
+  width: 520px;
+  height: 190px;
+  position: relative;
+  display: inline-block;
+  text-align: center;
+}
+.signature .img-signature {
+  display: block;
+  height: 100%;
+  width: 100%;
+  background-image: url(../img/sign-template.png);
+  background-repeat: no-repeat;
+  background-size: auto 100%;
+  background-position: center;
+}
+.signature.signature-esq:after {
+  content: "様";
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  padding: 0px 5px;
+  font-size: 2.5em;
+  text-align: center;
+  font-weight: bold;
+}
 html,
 body {
   height: 100%;
@@ -292,6 +448,32 @@ body {
 .row-reset {
   margin: 0;
   padding: 0;
+}
+.container-fixed {
+  position: fixed;
+  display: table;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: 0;
+  padding: 0;
+  padding-top: 45px;
+  height: 100%;
+  width: 100%;
+}
+.table-cell {
+  display: table-cell;
+}
+.table-csc {
+  width: 360px;
+  vertical-align: top;
+}
+.table-csc .cards {
+  display: block;
+  height: 100%;
+  overflow: hidden;
+  overflow-y: scroll;
 }
 .navbar-custom {
   position: relative;
@@ -395,18 +577,6 @@ body {
   background-image: -moz-linear-gradient(linear, left top, left bottom, from(#ffffff), to(#e6e6e6));
   background-image: -o-linear-gradient(linear, left top, left bottom, from(#ffffff), to(#e6e6e6));
   background-image: linear-gradient(linear, left to bottom, left bottom, from(#ffffff), to(#e6e6e6));
-}
-.container-fixed {
-  position: fixed;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  margin: 0;
-  padding: 0;
-  padding-top: 45px;
-  height: 100%;
-  width: 100%;
 }
 .progress-nav {
   margin: 0;

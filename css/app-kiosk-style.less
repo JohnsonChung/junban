@@ -31,6 +31,32 @@ body {
 
 //======== Main =========
 
+// left content preset
+.container-fixed {
+    position: fixed;    
+    display: table;    
+    top: 0; bottom: 0;
+    left: 0; right: 0;
+    margin: 0;
+    padding: 0;
+    padding-top: 45px;
+    height: 100%;
+    width: 100%;
+}
+.table-cell {
+    display: table-cell;
+}
+.table-csc {
+    width: 360px;
+    vertical-align: top;
+    
+    .cards {
+        display: block;        
+        height: 100%;
+        overflow: hidden;    
+        overflow-y: scroll;
+    }
+}
 .navbar-custom {
     position: relative;    
     background-color: @brand-bar-color;
@@ -129,17 +155,6 @@ body {
     .background-image(linear-gradient(linear, left top, left bottom, from(white), to(darken(white,10%))));
 }
 
-// left content preset
-.container-fixed {
-    position: fixed;    
-    top: 0; bottom: 0;
-    left: 0; right: 0;
-    margin: 0;
-    padding: 0;
-    padding-top: 45px;
-    height: 100%;
-    width: 100%;
-}
 
 // ====================================
 // Vertical navigation list
