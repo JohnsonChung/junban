@@ -21,3 +21,24 @@
 	.border-bottom-left-radius(0px);
 	margin-left: 0px !important;
 }
+
+
+// css trick centered in unknow utility
+// vertical alignment tool
+.centered-in-unknow {
+    height: 100%;
+    text-align: center;    
+
+    &:before {
+    content: '';
+    display: inline-block;
+    vertical-align: middle; 
+    width: 0px; 
+    height: 100%;
+    }
+
+    .centered {
+        display: inline-block;
+        vertical-align: middle;        
+    }
+}

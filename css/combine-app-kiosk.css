@@ -257,6 +257,21 @@ fieldset[disabled] .btn-question.active {
   background-clip: padding-box;
   margin-left: 0px !important;
 }
+.centered-in-unknow {
+  height: 100%;
+  text-align: center;
+}
+.centered-in-unknow:before {
+  content: '';
+  display: inline-block;
+  vertical-align: middle;
+  width: 0px;
+  height: 100%;
+}
+.centered-in-unknow .centered {
+  display: inline-block;
+  vertical-align: middle;
+}
 html,
 body {
   height: 100%;
@@ -381,7 +396,7 @@ body {
   background-image: -o-linear-gradient(linear, left top, left bottom, from(#ffffff), to(#e6e6e6));
   background-image: linear-gradient(linear, left to bottom, left bottom, from(#ffffff), to(#e6e6e6));
 }
-.main-content {
+.container-fixed {
   position: fixed;
   top: 0;
   bottom: 0;
@@ -391,6 +406,7 @@ body {
   padding: 0;
   padding-top: 45px;
   height: 100%;
+  width: 100%;
 }
 .progress-nav {
   margin: 0;

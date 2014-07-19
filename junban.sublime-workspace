@@ -152,28 +152,27 @@
 	"buffers":
 	[
 		{
-			"file": "app-monitor.html",
+			"file": "app-kiosk-template.html",
 			"settings":
 			{
-				"buffer_size": 4567,
+				"buffer_size": 5816,
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "css/app-monitor.less",
+			"file": "css/vender-extention.less",
 			"settings":
 			{
-				"buffer_size": 7092,
+				"buffer_size": 1954,
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "css/card-signature.less",
+			"file": "css/app-kiosk-style.less",
 			"settings":
 			{
-				"buffer_size": 1433,
-				"line_ending": "Windows",
-				"name": "// ===================================="
+				"buffer_size": 5252,
+				"line_ending": "Windows"
 			}
 		}
 	],
@@ -277,11 +276,18 @@
 	},
 	"file_history":
 	[
+		"/C/Users/Kamimusuhi/Desktop/[APP]Line-9/APPLICATION/css-lab.html",
+		"/C/Users/Kamimusuhi/Desktop/[APP]Line-9/APPLICATION/css/lab.less",
+		"/C/Program Files/Sublime Text 3/Data/Packages/HTML-CSS-JS Prettify/Default (Windows).sublime-keymap",
+		"/C/Users/Kamimusuhi/Desktop/[APP]Line-9/APPLICATION/css/utility.less",
+		"/C/Users/Kamimusuhi/Desktop/[APP]Line-9/APPLICATION/css/app-kiosk-style.less",
+		"/C/Users/Kamimusuhi/Desktop/[APP]Line-9/APPLICATION/css/card-signature.less",
+		"/C/Users/Kamimusuhi/Desktop/[APP]Line-9/APPLICATION/app-kiosk-template.html",
+		"/C/Users/Kamimusuhi/Desktop/[APP]Line-9/APPLICATION/css/app-monitor.less",
+		"/C/Users/Kamimusuhi/Desktop/[APP]Line-9/APPLICATION/app-monitor.html",
 		"/C/Users/Kamimusuhi/Desktop/[APP]Line-9/APPLICATION/css/app-checker.less",
 		"/C/Users/Kamimusuhi/Documents/GitHub/junban/app-monitor.html",
 		"/C/Users/Kamimusuhi/Documents/GitHub/junban/css/app-monitor.less",
-		"/C/Users/Kamimusuhi/Desktop/[APP]Line-9/APPLICATION/css/app-monitor.less",
-		"/C/Users/Kamimusuhi/Desktop/[APP]Line-9/APPLICATION/app-monitor.html",
 		"/C/wamp/bin/apache/apache2.4.9/conf/original/extra/httpd-vhosts.conf",
 		"/C/wamp/bin/apache/apache2.4.9/conf/httpd.conf",
 		"/C/wamp/scripts/onlineOffline.php",
@@ -321,14 +327,12 @@
 		"/C/Users/Kamimusuhi/Desktop/[APP]Line-9/APPLICATION/template/template-customer-6.html",
 		"/C/Users/Kamimusuhi/Desktop/[APP]Line-9/APPLICATION/template/template-4.html",
 		"/C/Users/Kamimusuhi/Desktop/[APP]Line-9/APPLICATION/app-checker.html",
-		"/C/Users/Kamimusuhi/Desktop/[APP]Line-9/APPLICATION/app-kiosk-template.html",
 		"/C/Users/Kamimusuhi/Desktop/[APP]Line-9/APPLICATION/template/template-5.html",
 		"/C/Users/Kamimusuhi/Desktop/[APP]Line-9/APPLICATION/css/animate.less",
 		"/C/Users/Kamimusuhi/Desktop/[APP]Line-9/APPLICATION/css/animate.css",
 		"/C/Users/Kamimusuhi/Desktop/[APP]Line-9/APPLICATION/css/combine-app-kiosk.less",
 		"/C/Users/Kamimusuhi/Desktop/[APP]Line-9/APPLICATION/css/bootstrap.min.css",
 		"/C/Users/Kamimusuhi/Desktop/[APP]Line-9/APPLICATION/login.html",
-		"/C/Program Files/Sublime Text 3/Data/Packages/HTML-CSS-JS Prettify/Default (Windows).sublime-keymap",
 		"/C/Users/Kamimusuhi/Desktop/[APP]Line-9/APPLICATION/css/console-error.less",
 		"/C/Users/Kamimusuhi/Desktop/[APP]Line-9/APPLICATION/template/template-customer-1.html",
 		"/C/Users/Kamimusuhi/Desktop/[APP]Line-9/APPLICATION/css/app-kiosk-closed.less",
@@ -336,7 +340,6 @@
 		"/C/Users/Kamimusuhi/Desktop/[APP]Line-9/APPLICATION/css/landing-login.less",
 		"/C/Users/Kamimusuhi/Desktop/[APP]Line-9/APPLICATION/template/template-customer-3.html",
 		"/C/Users/Kamimusuhi/Desktop/[APP]Line-9/APPLICATION/template/template-customer-2.html",
-		"/C/Users/Kamimusuhi/Desktop/[APP]Line-9/APPLICATION/css/app-kiosk-style.less",
 		"/C/Users/Kamimusuhi/Desktop/[APP]Line-9/APPLICATION/.bowerrc",
 		"/C/Users/Kamimusuhi/Desktop/[APP]Line-9/APPLICATION/template/template-2.html",
 		"/C/Users/Kamimusuhi/Desktop/[APP]Line-9/APPLICATION/css/console-style.less",
@@ -345,7 +348,6 @@
 		"/C/Users/Kamimusuhi/Desktop/[APP]Line-9/APPLICATION/html-Starter.html",
 		"/C/Users/Kamimusuhi/Desktop/[APP]Line-9/APPLICATION/index-form.html",
 		"/C/Users/Kamimusuhi/Desktop/[APP]Line-9/APPLICATION/customer-screen.html",
-		"/C/Users/Kamimusuhi/Desktop/[APP]Line-9/APPLICATION/css/utility.less",
 		"/C/Users/Kamimusuhi/Desktop/[APP]Line-9/APPLICATION/css/app-kiosk-signpage.less",
 		"/C/Users/Kamimusuhi/Desktop/[APP]Line-9/APPLICATION/css/combine-app-customer.less",
 		"/C/Users/Kamimusuhi/Desktop/[APP]Line-9/APPLICATION/css/app-staff.less",
@@ -401,14 +403,11 @@
 		"/C/Users/Kamimusuhi/Desktop/[APP]Line-9/APPLICATION/nx.html",
 		"/C/Users/Kamimusuhi/Desktop/[APP]Line-9/APPLICATION/less/style.less",
 		"/C/Program Files/Sublime Text 3/Data/Packages/HTML-CSS-JS Prettify/HTMLPrettify.sublime-settings",
-		"/C/Program Files/Sublime Text 3/Data/Packages/HTML-CSS-JS Prettify/.jsbeautifyrc",
-		"/C/Program Files/Sublime Text 3/Data/Packages/User/View In Browser.sublime-settings",
-		"/C/Program Files/Sublime Text 3/Snippets/holderjs.sublime-snippet",
-		"/C/Program Files/Sublime Text 3/Data/Packages/Autoprefixer/Autoprefixer.sublime-settings"
+		"/C/Program Files/Sublime Text 3/Data/Packages/HTML-CSS-JS Prettify/.jsbeautifyrc"
 	],
 	"find":
 	{
-		"height": 40.0
+		"height": 43.0
 	},
 	"find_in_files":
 	{
@@ -532,24 +531,24 @@
 	"groups":
 	[
 		{
-			"selected": 1,
+			"selected": 0,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "app-monitor.html",
+					"file": "app-kiosk-template.html",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 4567,
+						"buffer_size": 5816,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								2900,
-								2900
+								1695,
+								1695
 							]
 						],
 						"settings":
@@ -557,46 +556,46 @@
 							"BracketHighlighterBusy": false,
 							"bh_regions":
 							[
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_c_define",
-								"bh_c_define_center",
-								"bh_c_define_open",
-								"bh_c_define_close",
 								"bh_angle",
 								"bh_angle_center",
 								"bh_angle_open",
 								"bh_angle_close",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
 								"bh_single_quote",
 								"bh_single_quote_center",
 								"bh_single_quote_open",
 								"bh_single_quote_close",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
 								"bh_default",
 								"bh_default_center",
 								"bh_default_open",
 								"bh_default_close",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
 								"bh_tag",
 								"bh_tag_center",
 								"bh_tag_open",
@@ -705,263 +704,159 @@
 								"Python Django": "Python"
 							},
 							"codeintel_tooltips": "popup",
+							"color_scheme": "Packages/User/Color Highlighter/themes/Monokai.tmTheme",
 							"sublime_auto_complete": true,
 							"syntax": "Packages/HTML/HTML.tmLanguage",
 							"tab_size": 4,
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 1824.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "css/app-monitor.less",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 7092,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								6599,
-								6599
-							]
-						],
-						"settings":
-						{
-							"BracketHighlighterBusy": false,
-							"bh_regions":
-							[
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_c_define",
-								"bh_c_define_center",
-								"bh_c_define_open",
-								"bh_c_define_close",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close"
-							],
-							"codeintel": true,
-							"codeintel_config":
-							{
-								"JavaScript":
-								{
-									"codeintel_max_recursive_dir_depth": 2,
-									"codeintel_scan_files_in_project": false,
-									"javascriptExtraPaths":
-									[
-									]
-								},
-								"PHP":
-								{
-									"codeintel_max_recursive_dir_depth": 5,
-									"codeintel_scan_files_in_project": false,
-									"phpExtraPaths":
-									[
-									]
-								},
-								"Python":
-								{
-									"env":
-									{
-									}
-								}
-							},
-							"codeintel_enabled_languages":
-							[
-								"JavaScript",
-								"Mason",
-								"XBL",
-								"XUL",
-								"RHTML",
-								"SCSS",
-								"Python",
-								"HTML",
-								"Ruby",
-								"Python3",
-								"XML",
-								"Sass",
-								"XSLT",
-								"Django",
-								"HTML5",
-								"Perl",
-								"CSS",
-								"Twig",
-								"Less",
-								"Smarty",
-								"Node.js",
-								"Tcl",
-								"TemplateToolkit",
-								"PHP"
-							],
-							"codeintel_live": true,
-							"codeintel_live_enabled_languages":
-							[
-								"JavaScript",
-								"Mason",
-								"XBL",
-								"XUL",
-								"RHTML",
-								"SCSS",
-								"Python",
-								"HTML",
-								"Ruby",
-								"Python3",
-								"XML",
-								"Sass",
-								"XSLT",
-								"Django",
-								"HTML5",
-								"Perl",
-								"CSS",
-								"Twig",
-								"Less",
-								"Smarty",
-								"Node.js",
-								"Tcl",
-								"TemplateToolkit",
-								"PHP"
-							],
-							"codeintel_max_recursive_dir_depth": 10,
-							"codeintel_scan_exclude_dir":
-							{
-								"JavaScript":
-								[
-									"/build/",
-									"/min/"
-								]
-							},
-							"codeintel_scan_files_in_project": true,
-							"codeintel_selected_catalogs":
-							[
-								"PyWin32",
-								"jQuery",
-								"Rails"
-							],
-							"codeintel_snippets": true,
-							"codeintel_syntax_map":
-							{
-								"Python Django": "Python"
-							},
-							"codeintel_tooltips": "popup",
-							"sublime_auto_complete": true,
-							"syntax": "Packages/LESS/LESS.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 6493.0,
+						"translation.y": 648.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
 					"type": "text"
 				},
 				{
-					"buffer": 2,
-					"file": "css/card-signature.less",
-					"semi_transient": false,
+					"buffer": 1,
+					"file": "css/vender-extention.less",
+					"semi_transient": true,
 					"settings":
 					{
-						"buffer_size": 1433,
+						"buffer_size": 1954,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								175,
-								175
+								567,
+								567
 							]
 						],
 						"settings":
 						{
 							"BracketHighlighterBusy": false,
-							"auto_name": "// ====================================",
 							"bh_regions":
 							[
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_c_define",
-								"bh_c_define_center",
-								"bh_c_define_open",
-								"bh_c_define_close",
 								"bh_angle",
 								"bh_angle_center",
 								"bh_angle_open",
 								"bh_angle_close",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
 								"bh_single_quote",
 								"bh_single_quote_center",
 								"bh_single_quote_open",
 								"bh_single_quote_close",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
 								"bh_default",
 								"bh_default_center",
 								"bh_default_open",
 								"bh_default_close",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close"
+							],
+							"color_scheme": "Packages/User/Color Highlighter/themes/Monokai.tmTheme",
+							"syntax": "Packages/LESS/LESS.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": -0.0,
+						"translation.y": 432.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "css/app-kiosk-style.less",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 5252,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								3518,
+								3518
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"bh_regions":
+							[
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
 								"bh_tag",
 								"bh_tag_center",
 								"bh_tag_open",
@@ -1070,11 +965,14 @@
 								"Python Django": "Python"
 							},
 							"codeintel_tooltips": "popup",
+							"color_scheme": "Packages/User/Color Highlighter/themes/Monokai.tmTheme",
 							"sublime_auto_complete": true,
-							"syntax": "Packages/LESS/LESS.tmLanguage"
+							"syntax": "Packages/LESS/LESS.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 3456.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 2,
@@ -1159,7 +1057,7 @@
 	"show_open_files": false,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 184.0,
+	"side_bar_width": 267.0,
 	"status_bar_visible": true,
 	"template_settings":
 	{

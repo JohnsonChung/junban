@@ -13,17 +13,20 @@
     <link rel="stylesheet" href="css/bootstrap.min.css">
 
     <!-- stylesheet -->
-    <link rel="stylesheet" type="text/less" href="css/combine-app-kiosk.less">
+    <link rel="stylesheet" type="text/css" href="css/combine-app-kiosk.css">
 
     <!-- vendor -->
     <script type="text/javascript" src="js/jquery.min.js"></script>
-    <script type="text/javascript" src="js/less-1.7.0.min.js"></script>
+    <script type="text/javascript" src="js/less-1.7.3.min.js"></script>
     <script type="text/javascript" src="js/holder.js"></script>
     <script type="text/javascript" src="bower_components/handlebars/handlebars.js"></script>
 
     <!-- javascript -->
     <script src="js/modernizr.custom.js"></script>
     <script src="js/template-load.js"></script>
+
+    <!-- Clear local-Storage -->
+    <script> /* Provisory for dev environment: */ localStorage.clear(); </script>
 </head>
 
 <body>
@@ -44,7 +47,7 @@
     <!-- 選單 -->
 
     <!-- 內容顯示區 -->
-    <div class="container container-full main-content">
+    <div class="container container-fixed">
         <div class="row row-table">
             <div id="content" class="col-sm-10 col-xs-9 col-table">
 

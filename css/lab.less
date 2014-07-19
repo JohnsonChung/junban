@@ -1,0 +1,62 @@
+@import '../css/vender/lesshat.less';
+@import '../css/utility.less';
+
+// ====================================
+// CSS Lab
+// ====================================
+html, body {
+    height: 100%;
+}
+body {
+    min-height: 100%;
+    background: #aaa;
+}
+.container-full-screen {
+    height: 100%;
+}
+
+@ball-size: 300px;
+.spinning-led-ball {
+    position: relative;
+     .size(@ball-size);
+
+     .ball-arm {
+        .ball {
+            .size(@ball-size);
+            .border-radius(50%);
+            border: 20px dashed #FF8AEE;
+        }
+     }
+    @z-spin-rate: 0.05s;
+    .ball-arm:nth-child(1) {
+        position: absolute;
+
+        .animation( z-spin @z-spin-rate linear infinite);
+        .ball {
+            .animation( spin 1s linear infinite);
+            border-color: #A8FF8A;
+        }
+    }    
+    .ball-arm:nth-child(2) {
+        position: absolute;
+
+        .animation( z-spin @z-spin-rate 0.05s linear infinite);
+        .ball {
+            .animation( spin 2s linear infinite);
+            border-color: #FF8AEE;
+        }
+    } 
+    .ball-arm:nth-child(3) {
+        position: absolute;
+
+        .animation( z-spin @z-spin-rate 0.13s linear infinite);
+        .ball {
+            .animation( spin 2s linear infinite);
+            border-color: #60DFFF;
+        }
+    }
+}
+// 2d 360 spin
+.keyframes(~"spin, from{transform: rotate(0deg)} to{transform: rotate(360deg)}");
+// 3d 360 z spin
+.keyframes(~"z-spin, from{transform:rotateX(0deg) rotateY(0deg) rotateZ(0deg);} to{transform: rotateX(180deg) rotateY(180deg) rotateZ(180deg);}");
