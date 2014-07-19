@@ -143,10 +143,6 @@ ul.monitor {
 // ====================================
 // PopOut Caller
 // ====================================
-@panel-width: 45%;
-@panel-maxwidth: 530px;
-@panel-minwidth: 350px;
-
 .popout-serial-caller {
     .opacity(0);
     .transition(~".25s steps(4)");
@@ -175,16 +171,13 @@ ul.monitor {
         .animated;
         .animation( fadeOutDown 0.75s steps(10) );
 
-        width: @panel-width;
-        max-width: @panel-maxwidth;
-        min-width: @panel-minwidth;
         // padding: 1em 1.618em*1;
     }
-    .label-serial {
-        font-size: 13em;
-        line-height: 100%;
-    }
     .msg-nowServing {
+    }
+    .label-serial {
+        font-size: 22em;
+        line-height: 100%;
     }
     .signature {
         position: relative;
