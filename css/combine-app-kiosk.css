@@ -366,6 +366,7 @@ fieldset[disabled] .btn-question.active {
   border-radius: 10px;
   background-clip: padding-box;
   display: table;
+  margin-bottom: 16px;
   white-space: nowrap;
   background: #ffffff;
   overflow: hidden;
@@ -442,6 +443,9 @@ body {
   overflow: hidden;
   -webkit-font-smoothing: antialiased;
 }
+ul {
+  list-style: none;
+}
 .height-100 {
   height: 100%;
 }
@@ -451,7 +455,6 @@ body {
 }
 .container-fixed {
   position: fixed;
-  display: table;
   top: 0;
   bottom: 0;
   left: 0;
@@ -462,10 +465,14 @@ body {
   height: 100%;
   width: 100%;
 }
+.container-table {
+  display: table;
+}
 .table-cell {
   display: table-cell;
 }
 .table-csc {
+  display: none;
   width: 360px;
   vertical-align: top;
 }
@@ -474,6 +481,10 @@ body {
   height: 100%;
   overflow: hidden;
   overflow-y: scroll;
+}
+.table-csc .cards .card {
+  margin: auto;
+  margin-bottom: 13px;
 }
 .navbar-custom {
   position: relative;
@@ -1020,6 +1031,11 @@ lesshat-selector {
   .container h6,
   .container .h6 {
     font-size: 12px;
+  }
+}
+@media (min-width: 1500px) {
+  .container .table-csc {
+    display: table-cell;
   }
 }
 h1,

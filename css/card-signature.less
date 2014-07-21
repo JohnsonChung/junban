@@ -5,13 +5,15 @@
 .card-default {
 	@card-width-default: 330px;
 	@card-height-default: 90px;
+	@card-margin-bottom: 16px;
 	@card-color: white;
 	.size( @card-width-default, @card-height-default);
 }
 .card {	
 	.card-default;
     .border-radius(10px);     
-    display: table;            
+    display: table;      
+    margin-bottom: @card-margin-bottom;       
     white-space: nowrap;
 
     background: @card-color;

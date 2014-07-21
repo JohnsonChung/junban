@@ -17,8 +17,9 @@ body {
   overflow: hidden;
   -webkit-font-smoothing: antialiased;
 } 
-
-
+ul {
+    list-style: none;  
+}
 //======== Utility =========
 .height-100 {
     height: 100%;
@@ -31,10 +32,9 @@ body {
 
 //======== Main =========
 
-// left content preset
+// 一個固定在畫面的 container 
 .container-fixed {
-    position: fixed;    
-    display: table;    
+    position: fixed;            
     top: 0; bottom: 0;
     left: 0; right: 0;
     margin: 0;
@@ -43,10 +43,16 @@ body {
     height: 100%;
     width: 100%;
 }
+.container-table {
+    display: table;
+}
 .table-cell {
     display: table-cell;
 }
+// change name
+// problem change template table a little shaking
 .table-csc {
+    display: none;    
     width: 360px;
     vertical-align: top;
     
@@ -55,6 +61,11 @@ body {
         height: 100%;
         overflow: hidden;    
         overflow-y: scroll;
+
+        .card {
+            margin: auto;
+            margin-bottom: 13px;            
+        }
     }
 }
 .navbar-custom {
