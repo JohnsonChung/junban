@@ -454,6 +454,7 @@ ul {
   padding: 0;
 }
 .container-fixed {
+  display: block;
   position: fixed;
   top: 0;
   bottom: 0;
@@ -464,27 +465,44 @@ ul {
   padding-top: 45px;
   height: 100%;
   width: 100%;
+  overflow: hidden;
 }
 .container-table {
-  display: table;
+  display: block;
 }
-.table-cell {
-  display: table-cell;
-}
-.table-csc {
+.col-left {
   display: none;
+  position: relative;
+  z-index: 1;
+  float: left;
+  margin-right: -100%;
   width: 360px;
-  vertical-align: top;
+  height: 100%;
 }
-.table-csc .cards {
+.col-left .cards {
   display: block;
   height: 100%;
-  overflow: hidden;
+  overflow-x: hidden;
   overflow-y: scroll;
 }
-.table-csc .cards .card {
+.col-left .cards .card {
   margin: auto;
   margin-bottom: 13px;
+}
+.col-right {
+  display: block;
+  float: left;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+@media (min-width: 1500px) {
+  .col-left {
+    display: block;
+  }
+  .col-right {
+    padding-left: 360px;
+  }
 }
 .navbar-custom {
   position: relative;
@@ -1031,11 +1049,6 @@ lesshat-selector {
   .container h6,
   .container .h6 {
     font-size: 12px;
-  }
-}
-@media (min-width: 1500px) {
-  .container .table-csc {
-    display: table-cell;
   }
 }
 h1,

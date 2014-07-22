@@ -34,6 +34,7 @@ ul {
 
 // 一個固定在畫面的 container 
 .container-fixed {
+    display: block;    
     position: fixed;            
     top: 0; bottom: 0;
     left: 0; right: 0;
@@ -42,30 +43,48 @@ ul {
     padding-top: 45px;
     height: 100%;
     width: 100%;
+    overflow: hidden;    
 }
 .container-table {
-    display: table;
+    display: block;    
 }
-.table-cell {
-    display: table-cell;
-}
-// change name
-// problem change template table a little shaking
-.table-csc {
-    display: none;    
+.col-left {
+    // display: block;
+    display: none;
+    position: relative;
+    z-index: 1;    
+    float: left;
+    margin-right: -100%;
     width: 360px;
-    vertical-align: top;
-    
+    height: 100%;
+
     .cards {
         display: block;        
         height: 100%;
-        overflow: hidden;    
+        overflow-x: hidden;    
         overflow-y: scroll;
 
         .card {
             margin: auto;
             margin-bottom: 13px;            
         }
+    }
+}
+.col-right {
+    display: block;   
+    float: left;    
+    height: 100%;
+    width: 100%;
+    overflow: hidden;      
+}
+
+// 寬螢幕時顯示左方簽名列表
+@media (min-width: 1500px ) {    
+    .col-left {
+      display: block;      
+    }
+    .col-right {
+        padding-left: 360px;
     }
 }
 .navbar-custom {

@@ -26,7 +26,10 @@
     <script src="js/template-load.js"></script>
 
     <!-- Clear local-Storage -->
-    <script> /* Provisory for dev environment: */ localStorage.clear(); </script>
+    <script>
+    /* Provisory for dev environment: */
+    localStorage.clear();
+    </script>
 </head>
 
 <body>
@@ -45,31 +48,31 @@
 
 
     <!-- 內容顯示區 -->
-    <div class="container container-fixed container-table">
+    <div class="container container-fixed">
         <!-- working part -->
-        <div class="table-cell table-csc">
+        <div class="col-left">
             <ul class="cards">
                 <li>
                     <div class="card">
                         <span class="serial">99</span>
                         <!-- 
-                         -->
+                             -->
                         <span class="signature">
                             <div class="img-signature"></div>
                         </span>
                         <!-- 
-                         -->
+                             -->
                         <span class="esquire">様</span>
                     </div>
                 </li>
             </ul>
         </div>
         <!-- working part -->
-        <div class="table-cell">
+        <div class="col-right">
             <!-- before part -->
             <div class="row row-table">
                 <div id="content" class="col-sm-10 col-xs-9 col-table">
-            
+
                 </div>
                 <div class="col-sm-2 col-xs-3 progress-nav">
                     <ul class="list-group">
@@ -107,7 +110,8 @@
                     <div class="">
                         <a class="btn btn-default btn-cancel">
                             <i class="fa fa-times"></i>
-                            キャンセル</a>
+                            キャンセル
+                        </a>
                     </div>
                 </div>
             </div>
@@ -152,13 +156,15 @@
                 });
             });
             </script>
-            <script>    
+
+            <!-- for dev create Cards -->
+            <script>
             $(document).ready(function() {
                 var card = $('.card').parent().html();
                 for (var i = 18 - 1; i >= 0; i--) {
-                    $('.cards').append('<li>' + card + '</li>');                    
+                    $('.cards').append('<li>' + card + '</li>');
                 };
-                $('.cards .serial').each( function(i) {
+                $('.cards .serial').each(function(i) {
                     $(this).html(i + 3);
                 })
             })
