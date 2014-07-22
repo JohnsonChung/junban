@@ -17,11 +17,11 @@
     <link rel="stylesheet" href="css/FlipSwitch.css">
 
     <!-- stylesheet -->">
-    <link rel="stylesheet" type="text/less" href="css/combine-console.less">
+    <link rel="stylesheet" type="text/css" href="css/combine-console.css">
 
     <!-- vendor -->
     <script src="js/jquery.min.js"></script>
-    <script src="js/less-1.7.0.min.js"></script>
+    <!-- // <script src="js/less-1.7.0.min.js"></script> -->
     <script src="js/bootstrap.min.js"></script>
     <script src="js/holder.js"></script>
     <script src="bower_components/handlebars/handlebars.js"></script>
@@ -30,6 +30,11 @@
     <script src="js/modernizr.custom.js"></script>
     <script src="js/template-load.js"></script>
 
+    <!-- Clear local-Storage -->
+    <script>
+    /* Provisory for dev environment: */
+    localStorage.clear();
+    </script>
 </head>
 
 <body>
@@ -91,25 +96,35 @@
                     <div class="gn-scroller">
                         <ul class="gn-menu">
                             <li>
-                                <a class="active"><i class="fa fa-child"></i>Application<i class="fa fa-child"></i></a>
+                                <a class="active"><i class="fa fa-home"></i>ホームページ</a>
                             </li>
-                            <li><a class="disabled"><i class="fa fa-child"></i>Statistics</a>
-                            </li>
-                            <li><a><i class="fa fa-child"></i>Config</a>
+                            <li><a><i class="fa fa-child"></i>会員情報</a>
                                 <ul class="gn-submenu">
-                                    <li><a class="gn-icon gn-icon-illustrator"><i class="fa fa-child"></i>Vector Illustrations</a>
+                                    <li><a class="gn-icon gn-icon-illustrator"><i class="fa fa-yen"></i>請求書</a>
                                     </li>
-                                    <li><a class="gn-icon gn-icon-photoshop"><i class="fa fa-child"></i>Photoshop files</a>
+                                    <li><a class="gn-icon gn-icon-photoshop"><i class="fa fa-key"></i>パスワード変更</a>
                                     </li>
                                 </ul>
+                            </li>                            
+                            <li><a><i class="fa fa-th-large"></i>アプリ</a>
+                                <ul class="gn-submenu">
+                                    <li><a class="gn-icon gn-icon-illustrator"><i class="glyph-icon flaticon-finger2"></i>受付画面</a>
+                                    </li>
+                                    <li><a class="gn-icon gn-icon-photoshop"><i class="glyph-icon flaticon-checklist5"></i>スタッフ用</a>
+                                    </li>                      
+                                    <li><a class="gn-icon gn-icon-photoshop"><i class="glyph-icon flaticon-8"></i>順番チェッカー</a>
+                                    </li>
+                                    <li><a class="gn-icon gn-icon-photoshop"><i class="glyph-icon flaticon-screen40"></i>モニター</a>
+                                    </li>              
+                                </ul>
+                            </li>
+                            <li><a><i class="fa fa-bar-chart-o"></i>統計データ</a>
                             </li>
                             <li class="line-block"></li>
-                            <li><a><i class="fa fa-child"></i>About</a>
-                            </li>
                             <li>
-                                <a class="active"><i class="fa fa-child"></i>Archives</a>
+                                <a class="active"><i class="fa fa-child"></i>サイト管理</a>
                                 <ul class="gn-submenu">
-                                    <li><a class="active"><i class="fa fa-child"></i>Articles</a>
+                                    <li><a class="active"><i class="fa fa-list-alt"></i>Articles</a>
                                     </li>
                                     <li><a><i class="fa fa-child"></i>Images</a>
                                     </li>

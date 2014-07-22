@@ -181,6 +181,8 @@ fieldset[disabled] .btn-question.active {
 .tab-content .tab-pane {
   position: relative;
   background-color: white;
+  border: 1px solid #ddd;
+  border-width: 0 1px 1px 1px;
   -webkit-border-bottom-right-radius: 4px;
   -moz-border-radius-bottomright: 4px;
   border-bottom-right-radius: 4px;
@@ -483,7 +485,7 @@ ul {
   display: block;
   height: 100%;
   overflow-x: hidden;
-  overflow-y: scroll;
+  overflow-y: auto;
 }
 .col-left .cards .card {
   margin: auto;
