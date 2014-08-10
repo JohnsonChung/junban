@@ -354,11 +354,8 @@ fieldset[disabled] .btn-question.active {
   display: inline-block;
   vertical-align: middle;
 }
-.card-default {
-  width: 330px;
-  height: 90px;
-}
 .card {
+  font-size: 16px;
   width: 330px;
   height: 90px;
   -webkit-border-radius: 10px;
@@ -368,9 +365,11 @@ fieldset[disabled] .btn-question.active {
   border-radius: 10px;
   background-clip: padding-box;
   display: table;
+  margin: 0 auto;
   margin-bottom: 16px;
   white-space: nowrap;
   background: #ffffff;
+  border: 1px solid #ccc;
   overflow: hidden;
 }
 .card .serial,
@@ -404,6 +403,23 @@ fieldset[disabled] .btn-question.active {
   padding-bottom: 5px;
   width: 1.4em;
   font-size: 1.3em;
+}
+.card-primary .serial {
+  background-color: #428bca;
+  color: #fff;
+}
+.card-default {
+  font-size: 16px;
+  width: 330px;
+  height: 90px;
+}
+.card-lg {
+  font-size: 28.8px;
+  width: 495px;
+  height: 135px;
+}
+.card-lg .serial {
+  width: 135px;
 }
 .signature {
   width: 520px;
@@ -692,6 +708,93 @@ ul {
 .progress-nav .list-group-item i {
   font-size: 2em;
 }
+@media (max-width: 767px) {
+  .container h1,
+  .container .h1 {
+    font-size: 30px;
+  }
+  .container h2,
+  .container .h2 {
+    font-size: 24px;
+  }
+  .container h3,
+  .container .h3 {
+    font-size: 18px;
+  }
+  .container h4,
+  .container .h4 {
+    font-size: 14px;
+  }
+}
+@media (min-width: 768px) {
+  .container h1,
+  .container .h1 {
+    font-size: 30px;
+  }
+  .container h2,
+  .container .h2 {
+    font-size: 24px;
+  }
+  .container h3,
+  .container .h3 {
+    font-size: 18px;
+  }
+  .container h4,
+  .container .h4 {
+    font-size: 14px;
+  }
+}
+@media (min-width: 992px) {
+  .container h1,
+  .container .h1 {
+    font-size: 30px;
+  }
+  .container h2,
+  .container .h2 {
+    font-size: 24px;
+  }
+  .container h3,
+  .container .h3 {
+    font-size: 18px;
+  }
+  .container h4,
+  .container .h4 {
+    font-size: 14px;
+  }
+  .container h5,
+  .container .h5 {
+    font-size: 12px;
+  }
+}
+@media (min-width: 1200px) {
+  .container h1,
+  .container .h1 {
+    font-size: 36px;
+  }
+  .container h2,
+  .container .h2 {
+    font-size: 30px;
+  }
+  .container h3,
+  .container .h3 {
+    font-size: 24px;
+  }
+  .container h4,
+  .container .h4 {
+    font-size: 18px;
+  }
+  .container h5,
+  .container .h5 {
+    font-size: 14px;
+  }
+  .container h6,
+  .container .h6 {
+    font-size: 12px;
+  }
+}
+.text-lg {
+  font-size: 44px !important;
+}
 .nowrap-fix {
   position: relative;
   height: 6em;
@@ -968,108 +1071,6 @@ lesshat-selector {
 }
 .row-qr {
   font-size: 10em;
-}
-@media (max-width: 767px) {
-  .container h1,
-  .container .h1 {
-    font-size: 30px;
-  }
-  .container h2,
-  .container .h2 {
-    font-size: 24px;
-  }
-  .container h3,
-  .container .h3 {
-    font-size: 18px;
-  }
-  .container h4,
-  .container .h4 {
-    font-size: 14px;
-  }
-}
-@media (min-width: 768px) {
-  .container h1,
-  .container .h1 {
-    font-size: 30px;
-  }
-  .container h2,
-  .container .h2 {
-    font-size: 24px;
-  }
-  .container h3,
-  .container .h3 {
-    font-size: 18px;
-  }
-  .container h4,
-  .container .h4 {
-    font-size: 14px;
-  }
-}
-@media (min-width: 992px) {
-  .container h1,
-  .container .h1 {
-    font-size: 30px;
-  }
-  .container h2,
-  .container .h2 {
-    font-size: 24px;
-  }
-  .container h3,
-  .container .h3 {
-    font-size: 18px;
-  }
-  .container h4,
-  .container .h4 {
-    font-size: 14px;
-  }
-  .container h5,
-  .container .h5 {
-    font-size: 12px;
-  }
-}
-@media (min-width: 1200px) {
-  .container h1,
-  .container .h1 {
-    font-size: 36px;
-  }
-  .container h2,
-  .container .h2 {
-    font-size: 30px;
-  }
-  .container h3,
-  .container .h3 {
-    font-size: 24px;
-  }
-  .container h4,
-  .container .h4 {
-    font-size: 18px;
-  }
-  .container h5,
-  .container .h5 {
-    font-size: 14px;
-  }
-  .container h6,
-  .container .h6 {
-    font-size: 12px;
-  }
-}
-h1,
-.h1 {
-  line-height: 1;
-  margin-top: 10px;
-  margin-bottom: 5px;
-}
-h2,
-.h2 {
-  line-height: 1;
-  margin-top: 5px;
-  margin-bottom: 3.33333333px;
-}
-h3,
-.h3 {
-  line-height: 1;
-  margin-top: 2.5px;
-  margin-bottom: 2.22222222px;
 }
 .closed-message {
   -webkit-user-select: none;

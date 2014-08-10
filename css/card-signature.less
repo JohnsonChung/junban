@@ -2,21 +2,22 @@
 // Card of Signature
 // ====================================
 
-.card-default {
-	@card-width-default: 330px;
-	@card-height-default: 90px;
-	@card-margin-bottom: 16px;
-	@card-color: white;
-	.size( @card-width-default, @card-height-default);
-}
+@card-width-default: 330px;
+@card-height-default: 90px;
+@card-margin-bottom: 16px;
+@card-color: white;
+@card-font-size: 16px;
+
 .card {	
 	.card-default;
     .border-radius(10px);     
     display: table;      
+    margin: 0 auto;
     margin-bottom: @card-margin-bottom;       
     white-space: nowrap;
-
+	
     background: @card-color;
+    border: 1px solid #ccc;
     overflow: hidden;
 
 	.serial,
@@ -30,7 +31,7 @@
 	}
 	.serial {
 	    // font-size: 3em; into media
-	    width: 90px; // default : square serial box
+	    width: @card-height-default; // default : square serial box
 	    font-weight: bold;	    
 	    font-size: 3em;
 	}
@@ -53,6 +54,25 @@
 	    padding-bottom: 5px;
 	    width: 1.4em;
 	    font-size: 1.3em;
+	}
+}
+// card style 
+.card-primary {
+	.serial {
+		background-color: @brand-primary;
+		color: #fff;
+	}
+}
+.card-default {
+	font-size: @card-font-size;
+	.size( @card-width-default, @card-height-default);
+}
+.card-lg {	
+	font-size: @card-font-size * 1.8;
+	.size( @card-width-default * 1.5 , @card-height-default * 1.5);
+	
+	.serial {
+		width: @card-height-default * 1.5;
 	}
 }
 

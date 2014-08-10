@@ -18,7 +18,6 @@
     <!-- vendor -->
     <script type="text/javascript" src="js/jquery.min.js"></script>
     <!-- <script type="text/javascript" src="js/less-1.7.3.min.js"></script> -->
-    <script type="text/javascript" src="js/holder.js"></script>
     <script type="text/javascript" src="bower_components/handlebars/handlebars.js"></script>
 
     <!-- javascript -->
@@ -28,7 +27,7 @@
     <!-- Clear local-Storage -->
     <script>
     /* Provisory for dev environment: */
-    localStorage.clear();
+    // localStorage.clear();
     </script>
 </head>
 
@@ -44,6 +43,7 @@
     <iframe id="template3" title="Question" src="template/template-customer-3.html"></iframe>
     <iframe id="template4" title="Complete" src="template/template-customer-4.html"></iframe>
     <iframe id="template5" title="QR" src="template/template-customer-5.html"></iframe>
+    <iframe id="template7" title="Final-Remind" src="template/template-customer-7-final-remind.html"></iframe>
     <iframe id="template6" title="Closed" src="template/template-customer-6.html"></iframe>
 
 
@@ -131,6 +131,7 @@
                 <a id="button3" class="btn btn-primary btn-xs navbar-btn" type="button" data-target="template3">Question</a>
                 <a id="button4" class="btn btn-primary btn-xs navbar-btn" type="button" data-target="template4">Complete</a>
                 <a id="button5" class="btn btn-primary btn-xs navbar-btn" type="button" data-target="template5">QR</a>
+                <a id="button7" class="btn btn-primary btn-xs navbar-btn" type="button" data-target="template7">Remind</a>
                 <a id="button6" class="btn btn-primary btn-xs navbar-btn" type="button" data-target="template6">Closed</a>
             </div>
             <script>
@@ -168,6 +169,14 @@
                     $(this).html(i + 3);
                 })
             })
+            </script>
+
+            <!-- editing template -->
+            <script>
+            $(window).load( function() {
+                var template = getTemplate('#button7');
+                setContent(template());
+            });
             </script>
         </div>
     </nav>
