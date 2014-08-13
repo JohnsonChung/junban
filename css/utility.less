@@ -28,6 +28,8 @@
 .centered-in-unknow {
     height: 100%;
     text-align: center;
+    // fixed inline-block gap 
+    white-space: nowrap;
 
     &:before {
       content: '';
@@ -35,13 +37,13 @@
       vertical-align: middle; 
       width: 0px; 
       height: 100%;
-      margin-right: -0.25em;
+      // fixed inline-block gap 
+      // margin-right: -0.25em;
     }
 
     .centered {
       display: inline-block;
-      vertical-align: middle; 
-      .outline;
+      vertical-align: middle;
     }
 }
 
