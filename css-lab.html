@@ -28,20 +28,97 @@
 </head>
 
 <body>
-    <div class="container container-full-screen centered-in-unknow">
-        <div class="spinning-led-ball centered">
-            <div class="ball-arm">
-                <div class="ball">asd</div>
+    <div class="smartphone">
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="smart-navbar">                    
+                    <i class="glyphicon glyphicon-comment"></i>
+                    <div class="pull-right">
+                        <i class="glyphicon glyphicon-flash"></i>
+                        <i class="glyphicon glyphicon-signal"></i>
+                        <i class="glyphicon glyphicon-time"></i>
+                        <span>11:25</span>
+                    </div>
+                </div>
             </div>
-            <div class="ball-arm">
-                <div class="ball">asd</div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12">Junban</div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12">
+                <textarea name="" class="form-control" id="" cols="53" rows="5" ></textarea>
             </div>
-            <div class="ball-arm">
-                <div class="ball">asd</div>
-            </div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-xs-3">7</div>
+            <div class="col-xs-8">Johnson</div>
+            <div class="col-xs-1">様</div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-xs-10 col-xs-offset-1">Message!</div>
         </div>
     </div>
 
+    <style type="text/css">
+    [class^="col-"] {
+        outline: 1px solid #efefef;
+        padding: 0;
+    }
+    .smart-navbar {
+        background-color: #444;
+        color: white;
+        padding: 0 10px;
+    }
+    .row {
+        margin: 0;
+    }
+    .smartphone {
+        background: #fff;
+        width: 350px;
+        margin: 30px auto;
+        height: 650px;
+        border-top: 25px solid black;
+        border-bottom: 65px solid black;
+        border-left: 4px solid black;
+        border-right: 4px solid black;
+        border-radius: 10px;
+        position: relative;
+    }
+    .smartphone:before {
+        content: "";
+        display: block;
+        position: absolute;
+        top: -13px;
+        left: 50%;
+        margin-left: -18px;
+        background: #ccc;
+        height: 3px;
+        width: 36px;
+        border-radius: 4px;
+    }
+    .smartphone:after {
+        content: "\e157";
+        display: block;
+        position: absolute;
+        bottom: -55px;
+        left: 50%;
+        padding-left: 14px;
+        margin-left: -22.5px;
+        background: inherit;
+        width: 45px;
+        height: 45px;
+        border: 1px solid #444;
+        border-radius: 50%;
+        font-family: 'Glyphicons Halflings';
+        line-height: 45px;
+        color: #999;
+        font-size: 18px;
+        background: -webkit-linear-gradient(top, rgb(24,24,24) 43%,rgb(65,65,65) 95%); /* Chrome10+,Safari5.1+ */                
+    }
+    </style>
 </body>
 
 

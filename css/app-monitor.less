@@ -52,8 +52,8 @@ ul.monitor {
         display: -webkit-flex;
         display: flex;
 
-        -webkit-align-items: center;
-        align-items: center;
+        -webkit-align-items: flex-start;
+        align-items: flex-start;
 
         // -webkit-justify-content: center;
         // justify-content: center;
@@ -67,6 +67,7 @@ ul.monitor {
 
     & > li {
         .size(@sign-box-w, @sign-box-h);
+        .animated;
         position: relative;
         float: left;        
         margin-bottom: @box-margin-bottom;
@@ -75,7 +76,7 @@ ul.monitor {
         // font-weight: bold;
         list-style: none;
         .transition(~"0.75s steps(25)");
-        .transition-property( width, height);
+        .transition-property( width, height, font-size);
 
         &.counter{            
             position: relative;            
@@ -96,7 +97,14 @@ ul.monitor {
                 width: 100%;
                 padding-bottom: 0.6em;
             }
-        }        
+        }    
+        &.clear {
+            height: 0;   
+            margin-bottom: 0;
+            font-size: 0;  
+            line-height: 0;       
+            .animation( zoomOutLeft 1s steps(22));
+        }
         .card {    
             height: 100%;
             width: 100%;     

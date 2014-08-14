@@ -26,14 +26,14 @@
     <script type="text/javascript">
     $(function() {
 
-        var persudoCounts = 40;
+        var persudoCounts = 21;
         var span = $('li:last-child').html();
 
         // create multiple boxes        
         for (var i = persudoCounts - 1; i > 0; i--) {
             $('.monitor').append('<li>' + span + '</li>');
         };
-        $('.number').each(function(i) {
+        $('.serial').each(function(i) {
             i++;
             $(this).html(i);
         });
@@ -43,13 +43,7 @@
         $('.counts').html(persudoCounts);
 
         function clear() {
-            $(this).css({
-                "height": "0",
-                "width": "0",
-                "top": "40px",
-                "font-size": "0",
-                "margin": "0"
-            }).delay(1000).queue(function() {
+            $(this).addClass("clear").delay(1000).queue(function() {
                 $(this).remove();
             });;
             number = number - 1;
