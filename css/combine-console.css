@@ -1,4 +1,5 @@
 @import '../css/font-awesome.min.css';
+@import '../svg/flaticon/flaticon.css';
 @import url(https://fonts.googleapis.com/css?family=Give+You+Glory);
 ::-webkit-scrollbar {
   height: 16px;
@@ -244,6 +245,7 @@ fieldset[disabled] .btn-question.active {
 .centered-in-unknow {
   height: 100%;
   text-align: center;
+  white-space: nowrap;
 }
 .centered-in-unknow:before {
   content: '';
@@ -255,6 +257,99 @@ fieldset[disabled] .btn-question.active {
 .centered-in-unknow .centered {
   display: inline-block;
   vertical-align: middle;
+}
+.card {
+  font-size: 16px;
+  width: 330px;
+  height: 90px;
+  -webkit-border-radius: 10px;
+  -webkit-background-clip: padding-box;
+  -moz-border-radius: 10px;
+  -moz-background-clip: padding;
+  border-radius: 10px;
+  background-clip: padding-box;
+  display: table;
+  margin: 0 auto;
+  margin-bottom: 16px;
+  white-space: nowrap;
+  background: #ffffff;
+  border: 1px solid #ccc;
+  overflow: hidden;
+}
+.card .serial,
+.card .signature,
+.card .esquire {
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+}
+.card .serial {
+  width: 90px;
+  font-weight: bold;
+  font-size: 3em;
+}
+.card .signature {
+  height: 100%;
+  width: auto;
+}
+.card .signature .img-signature {
+  height: 100%;
+  width: 100%;
+  background-image: url(../img/sign-template.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+}
+.card .esquire {
+  vertical-align: bottom;
+  padding-bottom: 5px;
+  width: 1.4em;
+  font-size: 1.3em;
+}
+.card-primary .serial {
+  background-color: #428bca;
+  color: #fff;
+}
+.card-default {
+  font-size: 16px;
+  width: 330px;
+  height: 90px;
+}
+.card-lg {
+  font-size: 28.8px;
+  width: 495px;
+  height: 135px;
+}
+.card-lg .serial {
+  width: 135px;
+}
+.signature {
+  width: 520px;
+  height: 190px;
+  position: relative;
+  display: inline-block;
+  text-align: center;
+}
+.signature .img-signature {
+  display: block;
+  height: 100%;
+  width: 100%;
+  background-image: url(../img/sign-template.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+}
+.signature.signature-esq:after {
+  content: "様";
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  padding: 0px 5px;
+  font-size: 2.5em;
+  text-align: center;
+  font-weight: bold;
 }
 /* if an icon anchor has a span, hide the span */
 .fa span {
@@ -714,6 +809,143 @@ ul.gn-menu .fa {
 .tab-content blockquote {
   margin-bottom: 0px;
   margin-top: 10px;
+}
+.smartphone {
+  width: 350px;
+  height: 650px;
+  position: relative;
+  margin: 30px auto;
+  background: #fff;
+  border: solid #428bca;
+  border-width: 25px 4px 65px;
+  border-radius: 10px;
+}
+.smartphone [class^="col-"] {
+  padding: 0;
+}
+.smartphone:before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: -13px;
+  left: 50%;
+  margin-left: -18px;
+  background: #ccc;
+  height: 3px;
+  width: 36px;
+  border-radius: 4px;
+}
+.smartphone:after {
+  display: block;
+  position: absolute;
+  bottom: -55px;
+  left: 50%;
+  width: 45px;
+  height: 45px;
+  background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/PjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiB2aWV3Qm94PSIwIDAgMSAxIiBwcmVzZXJ2ZUFzcGVjdFJhdGlvPSJub25lIj48bGluZWFyR3JhZGllbnQgaWQ9Imxlc3NoYXQtZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPjxzdG9wIG9mZnNldD0iNDMlIiBzdG9wLWNvbG9yPSIjMzU3ZWJkIiBzdG9wLW9wYWNpdHk9IjEiLz48c3RvcCBvZmZzZXQ9Ijk1JSIgc3RvcC1jb2xvcj0iIzZhYTNkNSIgc3RvcC1vcGFjaXR5PSIxIi8+PC9saW5lYXJHcmFkaWVudD48cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iMSIgaGVpZ2h0PSIxIiBmaWxsPSJ1cmwoI2xlc3NoYXQtZ2VuZXJhdGVkKSIgLz48L3N2Zz4=);
+  background-image: -webkit-linear-gradient(top, #357ebd 43%, #6aa3d5 95%);
+  background-image: -moz-linear-gradient(top, #357ebd 43%, #6aa3d5 95%);
+  background-image: -o-linear-gradient(top, #357ebd 43%, #6aa3d5 95%);
+  background-image: linear-gradient(to bottom, #357ebd 43%, #6aa3d5 95%);
+  padding-left: 14px;
+  margin-left: -22.5px;
+  border: 1px solid #357ebd;
+  border-radius: 50%;
+  content: "\e157";
+  font-family: 'Glyphicons Halflings';
+  line-height: 45px;
+  color: #999;
+  font-size: 18px;
+}
+.smartphone .navbar {
+  margin-top: -10px;
+  margin-bottom: 10px;
+}
+.smartphone .phone-navbar {
+  background-color: #444;
+  color: white;
+  padding: 0 10px;
+  margin: 0 -5px;
+}
+.smartphone .row {
+  margin: 0;
+  margin-bottom: 10px;
+  padding: 0 5px;
+}
+.smartphone h2 {
+  color: #428bca;
+}
+.smartphone .graphic-counter {
+  color: #428bca;
+}
+.smartphone .graphic-counter [class^="flaticon-"]:before {
+  font-size: 3.28571429em;
+  margin: 0;
+}
+.smartphone .graphic-counter [class$="-serial"]:before {
+  position: absolute;
+  top: -28px;
+  content: 'No.';
+  font-size: 0.5em;
+}
+.smartphone .graphic-counter .people-servicing,
+.smartphone .graphic-counter .people-checker {
+  position: relative;
+  display: block;
+  text-align: center;
+}
+.smartphone .graphic-counter .people-servicing-serial,
+.smartphone .graphic-counter .people-checker-serial {
+  width: 60px;
+  height: 45px;
+  position: relative;
+  font-size: 2em;
+  line-height: 58px;
+  top: -8px;
+}
+.smartphone .graphic-counter .people-checker:after {
+  content: 'あなた';
+  position: absolute;
+  top: -3px;
+  margin: 0 0;
+  display: block;
+  width: 100%;
+  font-size: 10px;
+  font-family: 'メイリオ', sans-serif;
+  text-align: center;
+}
+.smartphone .graphic-counter .people-line {
+  position: relative;
+  display: table;
+  margin-left: -20px;
+  width: 100%;
+  white-space: nowrap;
+}
+.smartphone .graphic-counter .people-line:before {
+  content: '';
+  position: absolute;
+  right: -10px;
+  top: 0;
+  height: 80px;
+  width: 90px;
+}
+.smartphone .graphic-counter .people-line:after {
+  content: '...';
+  position: absolute;
+  left: 100%;
+  top: 5px;
+  font-weight: bold;
+  font-size: 35px;
+}
+.smartphone .graphic-counter .people-line .people-waiting {
+  display: table-cell;
+  text-align: center;
+}
+.smartphone .graphic-counter .people-line .people-waiting:before {
+  margin: 0 -20px;
+}
+.smartphone .graphic-counter .wrapper {
+  text-align: center;
 }
 body {
   position: relative;
