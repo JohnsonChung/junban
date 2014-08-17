@@ -11,14 +11,15 @@ $(window).load(function() {
         var template = getTemplate(this); //取得樣板函數
         setContent(template(someData)); //指定內容
     });
-    
+
     // 自動抓取 html button 數量
     var count = $('[data="template-count"]').children().length;
     console.log("template button: " + count);
     for (var i = count; i >= 0; i--) {
         $("#button" + i).bind('click', function() {
             var template = getTemplate(this);
-            setContent(template());            
+            setContent(template());
+            fadeOutLeft($('#content').children()[0], 1);
         })
     };
 });
@@ -31,5 +32,8 @@ function getTemplate(that) {
 }
 
 function setContent(html) {
-    $("#content").html(html);
+    setTimeout(function() {
+        $("#content").html(html);       
+        fadeInRight($('#content').children()[0], 1);
+    }, 900);
 }
