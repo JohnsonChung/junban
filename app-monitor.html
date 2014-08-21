@@ -13,52 +13,19 @@
     <link rel="stylesheet" href="css/bootstrap.min.css">
 
     <!-- stylesheet -->
-    <link rel="stylesheet" type="text/less" href="css/app-monitor.less">
+    <link rel="stylesheet" type="text/css" href="css/app-monitor.css">
 
     <!-- vendor -->
     <script type="text/javascript" src="js/jquery.min.js"></script>
-    <script type="text/javascript" src="js/less-1.7.3.min.js"></script>
-    <script type="text/javascript" src="js/holder.js"></script>
+    <!-- // <script type="text/javascript" src="js/less-1.7.3.min.js"></script> -->
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/web-animations.js"></script>
+    <script type="text/javascript" src="js/web-animations-css-animation-extension.js"></script>
 
     <!-- javascript -->
     <script src="js/modernizr.custom.js"></script>
 
-    <script type="text/javascript">
-    $(function() {
 
-        var persudoCounts = 21;
-        var span = $('li:last-child').html();
-
-        // create multiple boxes        
-        for (var i = persudoCounts - 1; i > 0; i--) {
-            $('.monitor').append('<li>' + span + '</li>');
-        };
-        $('.serial').each(function(i) {
-            i++;
-            $(this).html(i);
-        });
-
-        // hidden box --> change into class
-        var number = persudoCounts;
-        $('.counts').html(persudoCounts);
-
-        function clear() {
-            $(this).addClass("clear").delay(1000).queue(function() {
-                $(this).remove();
-            });;
-            number = number - 1;
-            $('.counts').html(number);
-        }
-
-        // bind click event
-        $('li').bind('click', clear);
-        $('li:first-child').unbind("click");
-
-        $('.btn-toggle').bind('click', function() {
-            $(".box").toggleClass('horizontal vertical');
-        })
-    });
-    </script>
 </head>
 
 <body>
@@ -75,6 +42,20 @@
         <ul class="box monitor horizontal">
             <li class="counter">
                 <span class="counts">35</span>
+
+                <!-- Button trigger modal -->
+                <a class="btn" data-toggle="modal" data-target="#myModal">
+                    <span class="glyphicon-cog glyphicon"></span>
+                    <style>
+                    [data-target="#myModal"] {
+                        position: absolute;
+                        z-index: 9999;
+                        left: 10px;
+                        top: 10px;
+                        color: white;
+                    }
+                    </style>
+                </a>
             </li>
             <li>
                 <div class="card">
@@ -111,7 +92,7 @@
                 <div class="panel-body">
                     <label class="label-serial">9</label>
                 </div>
-                <div class="panel-footer">                    
+                <div class="panel-footer">
                     <span class="signature signature-esq">
                         <span class="img-signature"></span>
                     </span>
@@ -120,24 +101,124 @@
         </div>
     </div>
 
-    <!-- template popout btn -->
-    <div class="btn btn-warning btn-popout">popout
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">
+                        <span aria-hidden="true">&times;</span>
+                        <span class="sr-only">Close</span>
+                    </button>
+                    <h4 class="modal-title" id="myModalLabel">Monitor Setting</h4>
+                </div>
+                <div class="modal-body">
+                    <form class="form-horizontal" role="form">
+                        <label class="col-xs-12">
+                            <h3>
+                                <span class="glyphicon glyphicon-volume-up"></span>&nbsp提示音設定</h3>
+                        </label>
+                        <div class="form-group">
+                            <label class="col-xs-4 control-label">客人呼叫提示</label>
+                            <div class="col-xs-8">
+                                <div class="onoffswitch">
+                                    <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="switch_1">
+                                    <label class="onoffswitch-label" for="switch_1">
+                                        <span class="onoffswitch-inner">
+                                            <span class="onoffswitch-active">
+                                                <span class="onoffswitch-switch">ON</span>
+                                            </span>
+                                            <span class="onoffswitch-inactive">
+                                                <span class="onoffswitch-switch">OFF</span>
+                                            </span>
+                                        </span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-xs-4 control-label">人數增加提示</label>
+                            <div class="col-xs-8">
+                                <div class="onoffswitch">
+                                    <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="switch_2">
+                                    <label class="onoffswitch-label" for="switch_2">
+                                        <span class="onoffswitch-inner">
+                                            <span class="onoffswitch-active">
+                                                <span class="onoffswitch-switch">ON</span>
+                                            </span>
+                                            <span class="onoffswitch-inactive">
+                                                <span class="onoffswitch-switch">OFF</span>
+                                            </span>
+                                        </span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
     </div>
-    <style>
-        .btn-popout { 
-            position: fixed;
-            top: 10px;
-            right: 10px;
-            z-index: 99999;
-        }   
-    </style>
-    <script>
-        // template popout toggle
-        $(document).ready(function() {
-            $('.btn-popout').bind('click', function() {
-                $('.popout-serial-caller').toggleClass("active");
-            });
+
+    <script type="text/javascript">
+    $('#myModal').modal('toggle');
+    $(function() {
+        var persudoCounts = 40;
+        var span = $('li:last-child').html();
+
+        // create multiple boxes        
+        for (var i = persudoCounts - 1; i > 0; i--) {
+            $('.monitor').append('<li>' + span + '</li>');
+        };
+        $('.serial').each(function(i) {
+            i++;
+            $(this).html(i);
         });
+
+        // put number into .counts
+        var number = persudoCounts;
+        $('.counts').html(persudoCounts);
+
+        // bind click event
+        $('li').bind('click', call);
+        $('li:first-child').unbind("click");
+
+        $('.btn-toggle').bind('click', function() {
+            $(".box").toggleClass('horizontal vertical');
+        })
+
+        function clear() {
+            var $elem = $(this);
+
+            zoomOutUp($elem[0], 1);
+            $elem.css({
+                'height': '0',
+                'width': '0',
+                'font-size': '0',
+                'margin': '0'
+            }).delay(700).queue(function() {
+                $(this).remove();                
+            }).dequeue();
+
+            number = number - 1;
+            $('.counts').html(number);
+        }
+
+        function call() {
+            $(this)
+                .queue(popout)
+                .delay(3000)
+                .queue(popout)
+                .delay(500)
+                .queue(clear);
+        }
+
+        function popout(next) {
+            $('.popout-serial-caller').toggleClass('active');
+            next();
+        }
+
+    });
     </script>
 </body>
 

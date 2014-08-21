@@ -34,6 +34,6 @@ function getTemplate(that) {
 function setContent(html) {
     setTimeout(function() {
         $("#content").html(html);       
-        fadeInRight($('#content').children()[0], 1);
+        flipInX($('#content').children()[0], 1);
     }, 900);
 }

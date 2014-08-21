@@ -4,7 +4,7 @@ function moveText() {
     // var textToAnimate = document.querySelector(".ball").value;
     // var hold = document.querySelector("#textContainerText");
     // if (textToAnimate != "") {
-    //     hold.innerHTML = textToAnimate;
+    //     hold.innerHTML = textToAnim
     // }
     var elem = document.querySelector('.ball');
     var iterations = 1;
@@ -39,6 +39,9 @@ function bounce(elem, iterations) {
         transform: 'translate3d(0,0,0)',
         offset: 1
     }];
+    // 可設定的屬性太少
+    // 想要一次擴充可設定的內容
+    // 且不修改這個 js
     var timing = {
         duration: 900,
         iterations: iterations,
