@@ -1,4 +1,5 @@
 @import '../css/font-awesome.min.css';
+@import '../css/FlipSwitch.css';
 @import '../svg/flaticon/flaticon.css';
 @import url(https://fonts.googleapis.com/css?family=Give+You+Glory);
 ::-webkit-scrollbar {
@@ -165,6 +166,19 @@ fieldset[disabled] .btn-question.active {
 .input-xlg {
   height: auto;
   font-size: 75px;
+}
+.panel.panel-app-info {
+  background: #eee;
+  margin-bottom: 28px;
+  -webkit-border-radius: 0;
+  -webkit-background-clip: padding-box;
+  -moz-border-radius: 0;
+  -moz-background-clip: padding;
+  border-radius: 0;
+  background-clip: padding-box;
+}
+.panel.panel-app-info .panel-body ul {
+  margin-bottom: 0;
 }
 .nav-tabs > li > a {
   margin-top: 5px;
@@ -814,7 +828,7 @@ ul.gn-menu .fa {
   width: 350px;
   height: 650px;
   position: relative;
-  margin: 30px auto;
+  margin: 0px auto;
   background: #fff;
   border: solid #428bca;
   border-width: 25px 4px 65px;

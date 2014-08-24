@@ -1,5 +1,3 @@
-// Code goes here
-
 $(window).load(function() {
     $("#button1").click(function() {
         //樣板資料
@@ -11,15 +9,14 @@ $(window).load(function() {
         var template = getTemplate(this); //取得樣板函數
         setContent(template(someData)); //指定內容
     });
-
+    
     // 自動抓取 html button 數量
     var count = $('[data="template-count"]').children().length;
     console.log("template button: " + count);
     for (var i = count; i >= 0; i--) {
         $("#button" + i).bind('click', function() {
             var template = getTemplate(this);
-            setContent(template());
-            fadeOutLeft($('#content').children()[0], 1);
+            setContent(template());            
         })
     };
 });
@@ -32,8 +29,5 @@ function getTemplate(that) {
 }
 
 function setContent(html) {
-    setTimeout(function() {
-        $("#content").html(html);       
-        flipInX($('#content').children()[0], 1);
-    }, 900);
+    $("#content").html(html);
 }

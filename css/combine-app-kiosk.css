@@ -158,6 +158,19 @@ fieldset[disabled] .btn-question.active {
   height: auto;
   font-size: 75px;
 }
+.panel.panel-app-info {
+  background: #eee;
+  margin-bottom: 28px;
+  -webkit-border-radius: 0;
+  -webkit-background-clip: padding-box;
+  -moz-border-radius: 0;
+  -moz-background-clip: padding;
+  border-radius: 0;
+  background-clip: padding-box;
+}
+.panel.panel-app-info .panel-body ul {
+  margin-bottom: 0;
+}
 .nav-tabs > li > a {
   margin-top: 5px;
   padding-top: 5px;
@@ -342,6 +355,7 @@ fieldset[disabled] .btn-question.active {
 .centered-in-unknow {
   height: 100%;
   text-align: center;
+  white-space: nowrap;
 }
 .centered-in-unknow:before {
   content: '';
@@ -794,6 +808,14 @@ ul {
 }
 .text-lg {
   font-size: 44px !important;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  word-break: break-all;
 }
 .nowrap-fix {
   position: relative;
