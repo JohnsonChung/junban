@@ -39,15 +39,12 @@ function bounce(elem, iterations) {
         transform: 'translate3d(0,0,0)',
         offset: 1
     }];
-    // 可設定的屬性太少
-    // 想要一次擴充可設定的內容
-    // 且不修改這個 js
     var timing = {
         duration: 900,
         iterations: iterations,
         easing: 'cubic-bezier(0.215, 0.610, 0.355, 1.000)'
     };
-    return elem.animate(keyframes, timing);
+    return keyframes;
 }
 
 function bounceIn(elem, iterations) {

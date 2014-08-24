@@ -82,7 +82,7 @@ ul.monitor {
 
         &.counter{            
             position: relative;            
-            height: @sign-box-h * 2 + @box-margin-bottom;                         
+            height: @sign-box-h * 2 + @box-margin-bottom * 1;                         
             text-align: center;
             color: white;
             .border-radius(20px);
@@ -98,7 +98,10 @@ ul.monitor {
                 bottom: 0; left: 0;
                 width: 100%;
                 padding-bottom: 0.6em;
-            }
+            }    
+            .msg-counter {
+                display: none;                
+            } 
         }    
         &.clear {
             height: 0; 
@@ -128,6 +131,39 @@ ul.monitor {
             .esquire {
 
             }
+        }
+    }
+    .monitor-cog-btn {
+        position: absolute;
+        z-index: 10;
+        left: 10px;
+        top: 10px;
+        color: white;
+    }
+
+    &.monitor-closed {
+        li.counter {            
+            height: @sign-box-h * 2 + @box-margin-bottom ;    
+
+            .counts {
+                line-height: 1.8;
+                font-size: 110px;
+            }
+            .msg-counter {                
+                position: absolute;
+                display: block;
+                width: 100%;                                                
+                background: white;       
+                margin-top: 0;                
+                font-size: 2em;
+                white-space: nowrap;
+                overflow: hidden;     
+                color: @brand-primary;                                           
+            }
+
+        }
+        .monitor-cog-btn {
+            color: @brand-primary;
         }
     }
 }

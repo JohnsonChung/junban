@@ -2991,6 +2991,9 @@ ul.monitor > li.counter:after {
   width: 100%;
   padding-bottom: 0.6em;
 }
+ul.monitor > li.counter .msg-counter {
+  display: none;
+}
 ul.monitor > li.clear {
   height: 0;
   width: 0;
@@ -3016,6 +3019,34 @@ ul.monitor > li .card .signature {
 }
 ul.monitor > li .card .signature .img-signature {
   background-image: url(../img/sign-template.png);
+}
+ul.monitor .monitor-cog-btn {
+  position: absolute;
+  z-index: 10;
+  left: 10px;
+  top: 10px;
+  color: white;
+}
+ul.monitor.monitor-closed li.counter {
+  height: 200px;
+}
+ul.monitor.monitor-closed li.counter .counts {
+  line-height: 1.8;
+  font-size: 110px;
+}
+ul.monitor.monitor-closed li.counter .msg-counter {
+  position: absolute;
+  display: block;
+  width: 100%;
+  background: white;
+  margin-top: 0;
+  font-size: 2em;
+  white-space: nowrap;
+  overflow: hidden;
+  color: #428bca;
+}
+ul.monitor.monitor-closed .monitor-cog-btn {
+  color: #428bca;
 }
 .popout-serial-caller {
   zoom: 1;
