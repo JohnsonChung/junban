@@ -158,19 +158,6 @@ fieldset[disabled] .btn-question.active {
   height: auto;
   font-size: 75px;
 }
-.panel.panel-app-info {
-  background: #eee;
-  margin-bottom: 28px;
-  -webkit-border-radius: 0;
-  -webkit-background-clip: padding-box;
-  -moz-border-radius: 0;
-  -moz-background-clip: padding;
-  border-radius: 0;
-  background-clip: padding-box;
-}
-.panel.panel-app-info .panel-body ul {
-  margin-bottom: 0;
-}
 .nav-tabs > li > a {
   margin-top: 5px;
   padding-top: 5px;
