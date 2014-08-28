@@ -1,22 +1,35 @@
 //======== Closed Message =========
 .closed-message {
-	.user-select( none );
-	position: fixed;
-	z-index: 9999;
-	top: 0; 
-	left: 0; right: 0;
+    .user-select(none);
+    position: fixed;
+    z-index: 9999;
+    top: 0;
+    left: 0;
+    right: 0;
+    padding: 0;
+    margin: 0;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    .closed-heading {
+        font-size: 8em;
+        padding: 10px 0;
+    }
 
-	padding: 0;
-	margin: 0;	
-	height: 100%;
-	width: 100%;
-
-	background-color: rgba(0, 0, 0, 0.8);
-
-	color: white;
-
-	.closed-heading {
-		font-size: 8em;
-		padding: 10px 0;
-	}
+    // free limit message
+    .row-msg {
+        background-color: black;
+    }
+	.msg-freelimit {
+        display: inline-block;
+        margin: 8px auto;
+        line-height: 1.5;
+        font-size: 22px;
+        .glyphicon-warning-sign {
+            float: left;
+            font-size: 60px;
+            color: @brand-warning;
+        }
+    }
 }

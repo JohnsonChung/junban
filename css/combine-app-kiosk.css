@@ -1102,6 +1102,20 @@ lesshat-selector {
   font-size: 8em;
   padding: 10px 0;
 }
+.closed-message .row-msg {
+  background-color: black;
+}
+.closed-message .msg-freelimit {
+  display: inline-block;
+  margin: 8px auto;
+  line-height: 1.5;
+  font-size: 22px;
+}
+.closed-message .msg-freelimit .glyphicon-warning-sign {
+  float: left;
+  font-size: 60px;
+  color: #f0ad4e;
+}
 body {
   font-family: "Arial Black", Roboto, DroidSans, 'メイリオ', Meiryo, 'ＭＳ Ｐゴシック', sans-serif;
   -webkit-font-smoothing: antialiased;
