@@ -128,6 +128,7 @@
 
 // Brick
 .brick {
+    .clearfix;
     margin: auto -8px;
     margin-bottom: 10px;
     padding: 3px 5px;
@@ -190,6 +191,23 @@
     margin-bottom: 12px;
     border-bottom: 1px solid #eee;
 }
+
+// bootstrap reset
+.brick {
+    .progress {
+        margin-bottom: 0;
+        text-shadow: 1px 1px rgba(0,0,0,0.5) ;
+    }
+    .progress-sm {
+        margin-top: 4px;
+        height: 14px;
+        
+        .progress-bar {
+            line-height: 14px;
+        }
+    }
+}
+
 @media (max-width: 768px) {
     .panel-app-info {
         margin: auto;

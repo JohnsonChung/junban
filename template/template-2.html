@@ -51,10 +51,37 @@
                                         </div>
                                     </div>
                                     <div class="row">
-                                        <div class="col-sm-12">                                            
+                                        <div class="col-md-6 col-sm-7 col-xs-6">
                                             <div class="brick brick-strong">
-                                                <strong>每日人數/上限：</strong><span>15人</span> / <span>90人</span>
-                                            </div>                                                    
+                                                <strong>每日人數/上限：</strong>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 col-sm-5 col-xs-6">
+                                            <div class="brick">
+                                                <!-- progress bar 是 float 物件 -->
+                                                <!-- 要讓東西放在同一行也要有float屬性 所以加了pull-left -->
+                                                <span class="pull-left">現在&nbsp</span>
+                                                <div class="progress">
+                                                    <div class="progress-bar" role="progressbar" aria-valuenow="2" aria-valuemin="0" aria-valuemax="100" style="width: 25%;">
+                                                        22人
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-12">
+                                            <div class="brick brick-strong">
+                                                <strong>每日上限：</strong>
+                                                <span>90人</span>
+                                                <br>
+                                                <strong class="pull-left">現在：</strong>
+                                                <div class="progress progress-sm">
+                                                    <div class="progress-bar" role="progressbar" aria-valuenow="2" aria-valuemin="0" aria-valuemax="100" style="width: 80%;">
+                                                        72人
+                                                    </div>
+                                                </div>
+                                            </div>
                                             <div class="brick brick-strong">
                                                 <strong>統計資料：</strong>
                                                 <span>無法使用</span>

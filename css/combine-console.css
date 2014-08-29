@@ -744,6 +744,22 @@ ul.gn-menu .fa {
   padding: 3px 5px;
   background-color: #fcfcfc;
 }
+.brick:before,
+.brick:after {
+  content: " ";
+  display: table;
+}
+.brick:after {
+  clear: both;
+}
+.brick:before,
+.brick:after {
+  content: " ";
+  display: table;
+}
+.brick:after {
+  clear: both;
+}
 .brick ul {
   margin-left: 20px;
 }
@@ -806,6 +822,17 @@ ul.gn-menu .fa {
   margin-top: 0;
   margin-bottom: 12px;
   border-bottom: 1px solid #eee;
+}
+.brick .progress {
+  margin-bottom: 0;
+  text-shadow: 1px 1px rgba(0, 0, 0, 0.5);
+}
+.brick .progress-sm {
+  margin-top: 4px;
+  height: 14px;
+}
+.brick .progress-sm .progress-bar {
+  line-height: 14px;
 }
 @media (max-width: 768px) {
   .panel-app-info {
