@@ -827,6 +827,9 @@ ul.gn-menu .fa {
   margin-bottom: 0;
   text-shadow: 1px 1px rgba(0, 0, 0, 0.5);
 }
+.brick .progress .progress-bar {
+  white-space: nowrap;
+}
 .brick .progress-sm {
   margin-top: 4px;
   height: 14px;
