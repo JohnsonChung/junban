@@ -22,6 +22,9 @@
 .btn-start { 
 	position: relative;
 	z-index: 9999;
+	cursor: pointer;
+	.user-select(none);
+
 
 	.wrapper:before {
 	    content:"";
@@ -34,24 +37,24 @@
 	    top: 50%;
 	    z-index: -1;
 	}
-	a:focus {
+	span:focus {
 	    text-decoration: none;
 	    outline: none;
 	}
-	a:hover {
+	span:hover {
 	    text-decoration: none;
 	    outline: none;
 	    color: #555;
 	    background: #f5f5f5;
 
 	}
-	a:active {
+	span:active {
 	    text-decoration: none;
 	    outline: none;
 	    color: @brand-primary;
 	    background: #fff;
 	}
-	a:before {
+	span:before {
 	    content:"";
 	    display: block;
 	    background: #fff;
@@ -66,7 +69,7 @@
 	    border-radius: 70px;
 	    .box-shadow(~"0px 8px 48px #ddd inset, 0px 5px 5px #aaa inset");
 	}
-	a {
+	span {
 	  display: inline-block;  
 	  position: relative;
 	  
