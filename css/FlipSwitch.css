@@ -5,6 +5,11 @@
     -moz-user-select:none;
     -ms-user-select: none;
 }
+.onoffswitch.switch-inline {
+    display: inline-block; 
+    vertical-align: middle;
+    margin: 0 10px;
+}
 .onoffswitch-checkbox {
     display: none;
 }

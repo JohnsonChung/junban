@@ -120,68 +120,67 @@
         </div>
     </div>
 
+    <div id="btn-group-template-load" data="template-count" >
+        <a id="button1" class="btn btn-primary btn-xs navbar-btn" type="button" data-target="template1">Start</a>
+        <a id="button2" class="btn btn-primary btn-xs navbar-btn" type="button" data-target="template2">Sign</a>
+        <a id="button3" class="btn btn-primary btn-xs navbar-btn" type="button" data-target="template3">Question</a>
+        <a id="button4" class="btn btn-primary btn-xs navbar-btn" type="button" data-target="template4">Complete</a>
+        <a id="button5" class="btn btn-primary btn-xs navbar-btn" type="button" data-target="template5">QR</a>
+        <a id="button7" class="btn btn-primary btn-xs navbar-btn" type="button" data-target="template7">Remind</a>
+        <a id="button6" class="btn btn-primary btn-xs navbar-btn" type="button" data-target="template6">Closed</a>
+        <style>
+            #btn-group-template-load {
+                position: fixed;                  
+                top: 0;
+                right: 20px;;
+            }        
+        </style>
+    </div>
 
-    <!-- nav-top -->
-    <nav class="navbar navbar-custom navbar-sm navbar-fixed-top" role="navigation">
-        <div class="container container-full">
-            <div class="navbar-header">
-                <a class="navbar-brand" href="#">吉野家 - ようこそ！</a>
-            </div>
-            <div class="pull-right" data="template-count">
-                <a id="button1" class="btn btn-primary btn-xs navbar-btn" type="button" data-target="template1">Start</a>
-                <a id="button2" class="btn btn-primary btn-xs navbar-btn" type="button" data-target="template2">Sign</a>
-                <a id="button3" class="btn btn-primary btn-xs navbar-btn" type="button" data-target="template3">Question</a>
-                <a id="button4" class="btn btn-primary btn-xs navbar-btn" type="button" data-target="template4">Complete</a>
-                <a id="button5" class="btn btn-primary btn-xs navbar-btn" type="button" data-target="template5">QR</a>
-                <a id="button7" class="btn btn-primary btn-xs navbar-btn" type="button" data-target="template7">Remind</a>
-                <a id="button6" class="btn btn-primary btn-xs navbar-btn" type="button" data-target="template6">Closed</a>
-            </div>
-            <script>
-            $(document).ready(function() {
-                function resetActive() {
-                    $('.list-group-item').removeClass('active');
-                }
-                $('[id^="button"]').bind('click', resetActive);
-                $('#button1').bind('click', function() {
-                    $('.list-group-item[name="home"]').addClass('active');
-                });
-                $('#button2').bind('click', function() {
-                    $('.list-group-item[name="sign"]').addClass('active');
-                });
-                $('#button3').bind('click', function() {
-                    $('.list-group-item[name="question"]').addClass('active');
-                });
-                $('#button4').bind('click', function() {
-                    $('.list-group-item[name="complete"]').addClass('active');
-                });
-                $('#button5').bind('click', function() {
-                    $('.list-group-item[name="complete"]').addClass('active');
-                });
-            });
-            </script>
+    <script>
+    $(document).ready(function() {
+        function resetActive() {
+            $('.list-group-item').removeClass('active');
+        }
+        $('[id^="button"]').bind('click', resetActive);
+        $('#button1').bind('click', function() {
+            $('.list-group-item[name="home"]').addClass('active');
+        });
+        $('#button2').bind('click', function() {
+            $('.list-group-item[name="sign"]').addClass('active');
+        });
+        $('#button3').bind('click', function() {
+            $('.list-group-item[name="question"]').addClass('active');
+        });
+        $('#button4').bind('click', function() {
+            $('.list-group-item[name="complete"]').addClass('active');
+        });
+        $('#button5').bind('click', function() {
+            $('.list-group-item[name="complete"]').addClass('active');
+        });
+    });
+    </script>
 
-            <!-- for dev create Cards -->
-            <script>
-            $(document).ready(function() {
-                var card = $('.card').parent().html();
-                for (var i = 18 - 1; i >= 0; i--) {
-                    $('.cards').append('<li>' + card + '</li>');
-                };
-                $('.cards .serial').each(function(i) {
-                    $(this).html(i + 3);
-                })
-            })
-            </script>
+    <!-- for dev create Cards -->
+    <script>
+    $(document).ready(function() {
+        var card = $('.card').parent().html();
+        for (var i = 18 - 1; i >= 0; i--) {
+            $('.cards').append('<li>' + card + '</li>');
+        };
+        $('.cards .serial').each(function(i) {
+            $(this).html(i + 3);
+        })
+    })
+    </script>
 
-            <!-- editing template -->
-            <script>
-            $(window).load( function() {
-                var template = getTemplate('#button7');
-                setContent(template());
-            });
-            </script>
-        </div>
-    </nav>
+    <!-- editing template -->
+    <script>
+    $(window).load( function() {
+        var template = getTemplate('#button2');
+        setContent(template());
+    });
+    </script>
 </body>
 
 

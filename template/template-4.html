@@ -31,7 +31,10 @@
                     <div class="panel-heading">
                         <div class="row">
                             <div class="col-sm-12">
-                                <blockquote class="blockquote-primary">これは説明内容の場所です、今は見通り何もありませんから、自分で何とかしよう。下のフォームはKioskアプリの受付画面を設定ができます、右下のプレビューを押して実際の画面が見えます。<a class="btn btn-question"><i class="fa fa-question"></i></a>
+                                <blockquote class="blockquote-primary">受付機に最初に表示される画面です。
+                                    <br>ロゴマークやご案内の内容を画像にしてアップロードしてください。
+                                    <br>（画像の大きさは自動で調整されますが、縦横の比率は、縦１：横3ぐらいを推奨します）
+                                    <a class="btn btn-question"><i class="fa fa-question"></i></a>
                                 </blockquote>
                             </div>
                         </div>
@@ -40,16 +43,7 @@
                         <div class="form-group">
                             <div class="col-sm-12">
                                 <div class="panel panel-default">
-                                    <div class="panel-heading">
-                                        <div class="row">
-                                            <div class="col-sm-3 col-xs-4">
-                                                <input type="text" class="form-control focus" placeholder="吉野家">
-                                            </div>
-                                            <div class="col-sm-8 col-xs-8">
-                                                <input type="text" class="form-control focus" placeholder="ようこそ!">
-                                            </div>
-                                        </div>
-                                    </div>
+                                    <div class="panel-heading">&nbsp</div>
                                     <div class="panel-body">
                                         <div class="col-xs-10">
                                             <div class="col-md-12">
@@ -112,7 +106,8 @@
                     <div class="panel-heading">
                         <div class="row">
                             <div class="col-sm-12">
-                                <blockquote class="blockquote-primary">以下はサイン画面のメッセージを変更するフォームです。<a class="btn btn-question"><i class="fa fa-question"></i></a>
+                                <blockquote class="blockquote-primary">サインを書いていただく画面です。画面上部のテキストが編集できます。
+                                    <a class="btn btn-question"><i class="fa fa-question"></i></a>
                                 </blockquote>
                             </div>
                         </div>
@@ -282,7 +277,7 @@
                     <div class="panel-heading">
                         <div class="row">
                             <div class="col-sm-12">
-                                <blockquote class="blockquote-primary">以下は完成画面のメッセージを変更するフォームです。<a class="btn btn-question"><i class="fa fa-question"></i></a>
+                                <blockquote class="blockquote-primary">完成画面のメッセージを変更するフォームです。<a class="btn btn-question"><i class="fa fa-question"></i></a>
                                 </blockquote>
                             </div>
                         </div>
@@ -290,10 +285,10 @@
                     <form role="form" class="panel-body">
                         <div class="form-group">
                             <div class="col-sm-12">
-                                登録完了時の画面にスマートフォン用QRコードの発行画面を表示しますか?
-                                <div class="onoffswitch">
-                                    <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch">
-                                    <label class="onoffswitch-label" for="myonoffswitch">
+                                <span>登録完了時の画面にスマートフォン用QRコードの発行画面を表示しますか?</span>
+                                <div class="onoffswitch switch-inline">
+                                    <input type="checkbox" name="qr-switch" class="onoffswitch-checkbox" id="qr-switch" checked>
+                                    <label class="onoffswitch-label" for="qr-switch">
                                         <span class="onoffswitch-inner">
                                             <span class="onoffswitch-active">
                                                 <span class="onoffswitch-switch">する</span>
@@ -307,17 +302,19 @@
                             </div>
 
                             <!-- 表示します ON -->
-                            <div class="col-sm-12">
+                            <div class="col-sm-12" id="form-qr-on">
                                 <div class="panel panel-default">
                                     <div class="panel-heading">
                                         <div class="row">
-                                            <div class="col-xs-12"><strong>表示する</strong>。QRコード発行「する」「しない」を選択できます。</div>
+                                            <div class="col-xs-12">
+                                                <strong>「表示する」</strong>。QRコード発行「する」「しない」を選択できます。</div>
                                         </div>
                                     </div>
                                     <div class="panel-body">
                                         <div class="col-xs-10">
                                             <div class="row">
                                                 <div class="col-xd-12">
+                                                    <br>
                                                     <br>
                                                     <br>
                                                     <div class="form-group">
@@ -333,21 +330,19 @@
                                             <div class="row">
                                                 <div class="col-xs-12 col-center">
                                                     <div class="wrapper">
-                                                        <div class="card card-primary">
-                                                            <span class="serial">99</span>
-                                                            <span class="signature">
-                                                                <div class="img-signature"></div>
-                                                            </span>
-                                                            <span class="esquire">様</span>
-                                                        </div>
-                                                        <img src="img/qrcode.png" height="150" width="150" alt="">
+                                                        <img src="img/card-template.png" alt="">&nbsp
+                                                        <img src="img/arrow-right.png" alt="">&nbsp
+                                                        <img src="img/qrcode.png" height="120" width="120" alt="">
+                                                        <br>
+                                                        <br>
+                                                        <p>QRコードの撮影が終わったら下のボタンを押してください。</p>
+                                                        <br>
                                                     </div>
-                                                    <br>
                                                 </div>
                                             </div>
                                             <div class="row">
                                                 <div class="col-xs-12 col-center">
-                                                    <div class="btn btn-default btn-lg">Complete!</div>
+                                                    <div class="btn btn-default btn-lg">最初の画面に戻る</div>
                                                 </div>
                                             </div>
                                         </div>
@@ -378,17 +373,19 @@
                             </div>
 
                             <!-- 表示しません OFF -->
-                            <div class="col-sm-12">
+                            <div class="col-sm-12" 　id="form-qr-off">
                                 <div class="panel panel-default">
                                     <div class="panel-heading">
                                         <div class="row">
-                                            <div class="col-xs-12"><strong>表示しない</strong>。QRコード発行選択を表示されず、完了画面になります。</div>
+                                            <div class="col-xs-12">
+                                                <strong>「表示しない」</strong>。QRコード発行選択を表示されず、完了画面になります。</div>
                                         </div>
                                     </div>
                                     <div class="panel-body">
                                         <div class="col-xs-10">
                                             <div class="row">
                                                 <div class="col-xd-12">
+                                                    <br>
                                                     <br>
                                                     <br>
                                                     <div class="form-group">
@@ -399,23 +396,22 @@
                                                     </div>
                                                     <br>
                                                     <br>
-                                                </div>
-                                            </div>
-                                            <div class="row">
-                                                <div class="col-xs-12 col-center">
-                                                    <div class="card card-primary">
-                                                        <span class="serial">99</span>
-                                                        <span class="signature">
-                                                            <div class="img-signature"></div>
-                                                        </span>
-                                                        <span class="esquire">様</span>
-                                                    </div>
                                                     <br>
                                                 </div>
                                             </div>
                                             <div class="row">
                                                 <div class="col-xs-12 col-center">
-                                                    <div class="btn btn-default btn-lg">Complete!</div>
+                                                    <img src="img/card-template.png" alt="">
+                                                    <br>
+                                                    <br>
+                                                    <br>
+                                                    <br>
+                                                    <br>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-xs-12 col-center">
+                                                    <div class="btn btn-default btn-lg">最初の画面に戻る</div>
                                                 </div>
                                             </div>
                                         </div>
