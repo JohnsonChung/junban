@@ -500,6 +500,7 @@ ul {
 .col-left .cards {
   display: block;
   height: 100%;
+  padding-top: 15px;
   overflow-x: hidden;
   overflow-y: auto;
 }
