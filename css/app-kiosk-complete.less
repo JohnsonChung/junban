@@ -7,24 +7,37 @@
 .row-qr {
     font-size: 10em;
     .card {	    	
-    	margin-left: -60px;
-    	margin-right: 80px;
     }
     .image-qrcode {
-    	position: relative;
-    	
-    	&:after {
-    		position: absolute;
-    		top: 50%;
-    		left: -75px;
-    		margin-top: -32px;
-    		content: "";
-    		width: 0px;
-			height: 0px;
-			border-style: solid;
-			border-width: 32px 0 32px 32px;
-			border-color: transparent transparent transparent @brand-primary;
-    	}
-    	display: inline-block;
+    }
+    .css-arrow-right {
+        position: relative;
+        display: table;
+        
+        height: 100%;
+        
+        &:after {     
+            position: absolute;            
+            top: 50%;
+            left: -15px;
+            margin-top: -38px;
+            content: " ";
+            width: 0px;
+            height: 0px;
+            border-style: solid;
+            border-width: 32px 0 32px 32px;
+            border-color: transparent transparent transparent @brand-primary;
+        }
+    }
+    .table {
+        display: table;
+        height: 100%;
+
+        .table-cell {
+            display: table-cell;      
+            vertical-align: middle;
+            text-align: center;
+            
+        }
     }
 }
