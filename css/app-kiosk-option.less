@@ -1,0 +1,96 @@
+//======== Main =========
+
+// Fix bootstrap btn content too long to cause grid system collape.
+.nowrap-fix {
+	position: relative;	
+	height: 80px;	
+	margin-bottom: 3%;
+
+	.btn-wrapper {		
+		position: absolute;    		
+        left: 50%;
+        top: 0;
+        margin-left: -48%;  
+
+	    background-color: #525252;
+	    display: block;
+	    width: 96%;	   
+	    padding: 0 5px 12px 5px;
+	    border: 3px solid rgba(0,0,0,0.3);
+	    border-width: 3px 0 0 3px;
+	    .border-radius(20px);	
+	}
+}
+.btn-kiosk-option {
+    @btn-color: #7fd2f1;
+    @btn-shadow: #377A93;
+
+    .transition(~"0.1s ease-out");
+    .transition-property( height, top, margin, padding, box-shadow, text-shadow);
+    width: 100%;
+    height: 100%;
+    display: block;
+    padding: 14px 0;
+    .user-select(none);
+    cursor: pointer;    
+    text-decoration: none;
+
+    background-color:#3bb3e0;
+    top: -18px;
+    position:relative;
+    // http://stack3.com/web-design/css_font_family_body.html
+    font-family:  Verdana, Roboto, 'Droid Sans', Meiryo, 'ＭＳ Ｐゴシック', 'Hiragino Kaku Gothic ProN', sans-serif;
+    font-size:12px;
+    text-shadow: 1px 2px 0px black;
+    text-decoration:none;
+    color:#fff;
+    .background-image( linear-gradient(bottom top, #9DD2E5 0%, rgb(62,184,229) 100%) );
+
+    .box-shadow(~"inset 0px 1px 0px @{btn-color}, inset 0px -1px 0px @{btn-color}, 0px 18px 0px @{btn-shadow};");
+    .border-radius(18px);
+    
+    &:active, &:hover, &:focus {
+        text-decoration: none;        
+    }
+    &:active, &.active {
+        color: #FFFA22 !important;
+        text-shadow: -1px -2px 0px black;
+        background: rgb(44, 160, 202);
+        .box-shadow(~"inset 0px 1px 0px @{btn-color}, 0px 6px 0px @{btn-shadow};");
+        top: 3px;
+    }
+
+    &:focus {
+        // reset brower foucs style
+        outline: none;
+    }
+    &:hover {
+        color: #fff;
+    }
+}
+.btn-kiosk-option {
+	overflow: hidden;
+	white-space: nowrap;
+	-ms-text-overflow: ellipsis;
+	text-overflow: ellipsis;
+    font-size: 3em;
+    line-height: 1;
+    font-weight: bold;
+}
+.btn-question {
+	overflow: hidden;
+	white-space: nowrap;
+	-ms-text-overflow: ellipsis;
+	text-overflow: ellipsis;
+    font-size: 3em;
+    line-height: 1;
+    font-weight: bold;
+}
+.pagination li {
+	display: inline-block;
+	text-align: center;
+	
+	a {	
+		border-radius: 20px !important;	
+	}
+}
