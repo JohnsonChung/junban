@@ -10,6 +10,7 @@
 		background-color: #ececec;
 		height: 98%;		
 		width: 100%;
+		overflow: hidden;		
 	}	
 	.signature-area-writable{
 		position: relative;		
@@ -27,26 +28,50 @@
 // every stroke delay
 .loop(@counter) when (@counter > 0) {
   .loop((@counter - 1));    // next iteration
-  #svg-signature g:nth-child(@{counter}) .path{
+  #svg-signature .path:nth-child(@{counter}) {
   	.animation-delay(250 * @counter);
   }  
 }
 
-// hand animation
-.animate {
+// svg (suziki)
+#svg-signature {	
 	position: absolute;
-	top: 45%;
-	left: 25%;	
-	z-index:  @zindex-tooltip + 1;	
-	
-	.glyph-icon {
-		position: relative;
-	}
-	.glyph-icon:before {
-		font-size: 10em;
-	}
+ 	z-index: @zindex-tooltip;
+ 	top: 0; 	
+ 	left: 5%;
+ 	width: 90%; 	
+ 	height: 100%;
+	.outline;
 }
 
+// how long of one stroke
+@stroke-long: 300;
+.path {
+	stroke: @brand-primary;
+	stroke-dasharray: @stroke-long;
+	stroke-dashoffset: @stroke-long;
+	stroke-width: 7px;
+	.animation( dash 0.5s linear alternate forwards);
+}
+
+// suzuki is 7 stroke
+.loop(7);
+
+// after dash animation fade out svg-signature
+#svg-signature {	
+	.animation( fadeout 1s linear normal forwards);
+	.animation-delay(3500); // 300 * 10 wait 500
+}
+
+// stoke animation
+.keyframes(~'dash,	0% { stroke-dashoffset: @{stroke-long}; } 100% {  stroke-dashoffset: 0; }');
+
+// fade out
+.keyframes(~'fadeout,  0% {  display: block; -webkit-opacity: 1; -moz-opacity: 1; opacity: 1; } 50% {  -webkit-opacity: 0; -moz-opacity: 0; opacity: 0; height: 100%; } 100% { -webkit-opacity: 0; -moz-opacity: 0; opacity: 0; height: 0; }');
+
+
+
+// Useless
 .stylie {
   -webkit-animation-name: stylie-keyframes;
   -webkit-animation-duration: 2700ms;
@@ -65,40 +90,3 @@
   99% { top: 45%; left: 25%; height: auto; opacity: 0;-webkit-transform:translate(379px, 96px) rotateX(0deg) rotateY(0deg) rotateZ(0deg) translate(-50%, -50%);}
   100% { top:-1000px; left:-1000px; height:0; opacity: 0;-webkit-transform:translate(379px, 96px) rotateX(0deg) rotateY(0deg) rotateZ(0deg) translate(-50%, -50%);}
 }
-
-
-// svg (suziki)
-#svg-signature {	
-	position: absolute;
- 	z-index: @zindex-tooltip;
- 	height: 100%;
- 	width: 100%;
-	left: -8%;
-	top: -15%;
-}
-
-// how long of one stroke
-@stroke-long: 600;
-.path {
-	stroke: @brand-primary;
-	stroke-dasharray: @stroke-long;
-	stroke-dashoffset: @stroke-long;
-	stroke-width: 6px;
-	.animation( dash 0.5s linear alternate forwards);
-}
-
-// suzuki is 9 stroke
-.loop(9);
-
-// after dash animation fade out svg-signature
-#svg-signature {	
-	.animation( fadeout 1s linear normal forwards);
-	.animation-delay(3000); // 250 * 10 wait 500
-}
-
-// stoke animation
-.keyframes(~'dash,	0% { stroke-dashoffset: @{stroke-long}; } 100% {  stroke-dashoffset: 0; }');
-
-// fade out
-.keyframes(~'fadeout,  0% {  display: block; -webkit-opacity: 1; -moz-opacity: 1; opacity: 1; } 50% {  -webkit-opacity: 0; -moz-opacity: 0; opacity: 0; height: 100%; } 100% { -webkit-opacity: 0; -moz-opacity: 0; opacity: 0; height: 0; }');
-
