@@ -41,7 +41,7 @@
     }
     </style>
     <!-- <iframe id="template1" title="Start" src="template/template-kiosk-1-start.html"></iframe> -->
-    <!-- <iframe id="template2" title="Sign" src="template/template-kiosk-2-sign.html"></iframe> -->
+    <iframe id="template2" title="Sign" src="template/template-kiosk-2-sign.html"></iframe>
     <iframe id="template3" title="Question" src="template/template-kiosk-3-question.html"></iframe>
     <!-- <iframe id="template4" title="Complete" src="template/template-kiosk-4-complete.html"></iframe> -->
     <!-- <iframe id="template5" title="Complete-QR" src="template/template-kiosk-4-complete-QR.html"></iframe> -->
@@ -52,7 +52,7 @@
 
     <!-- 內容顯示區 -->
     <div class="container container-fixed">
-        <!-- working part -->
+        <!-- 左方欄 / 隊列一覽 小畫面隱藏 -->
         <div class="col-left">
             <ul class="cards">
                 <li>
@@ -70,13 +70,14 @@
                 </li>
             </ul>
         </div>
-        <!-- working part -->
+        <!-- 右方欄 / kiosk -->
         <div class="col-right">
-            <!-- before part -->
             <div class="row row-table">
+                <!-- kiosk 主要介面 -->
                 <div id="content" class="col-sm-10 col-xs-9 col-table">
 
                 </div>
+                <!-- kiosk 垂直導覽 -->
                 <div class="col-sm-2 col-xs-3 progress-nav">
                     <ul class="list-group">
                         <li href="#" name="home" class="list-group-item text-center">
@@ -121,6 +122,7 @@
         </div>
     </div>
 
+    <!-- 切換樣板按鈕 -->
     <div id="btn-group-template-load" data="template-count" >
         <a id="button1" class="btn btn-primary btn-xs navbar-btn" type="button" data-target="template1">Start</a>
         <a id="button2" class="btn btn-primary btn-xs navbar-btn" type="button" data-target="template2">Sign</a>
@@ -139,6 +141,7 @@
         </style>
     </div>
 
+    <!-- 切換垂直導覽 -->
     <script>
     $(document).ready(function() {
         function resetActive() {
@@ -162,7 +165,8 @@
         });
     });
     </script>
-
+    
+    <!-- 在左方隊列狀態製造一堆卡片 -->
     <!-- for dev create Cards -->
     <script>
     $(document).ready(function() {
