@@ -1,0 +1,123 @@
+//	==============================
+//	アプリ＠キオスク 
+//	ボタンスタイル
+//	==============================
+
+
+//======== Main =========
+// Create a hole to contain the button.
+.btn-wrapper {		
+	position: relative;		  	
+    background-color: #525252;    
+    display: inline-block;
+    text-align: center;
+    padding: 0 5px 12px 5px;
+    border: 3px solid rgba(0,0,0,0.3);
+    border-width: 3px 0 0 3px;        
+    .border-radius(20px);	
+}
+// 3d btn preset
+.btn-kiosk, 
+.btn-kiosk-option {
+    @btn-color: #7fd2f1;
+    @btn-shadow: #377A93;
+	
+	//	=========== Preset 	===========
+	.btn-kiosk-nm;
+	position: relative;	
+    display: block;	
+    overflow: hidden;
+
+    cursor: pointer;   
+    .user-select(none);
+
+	//  =========== Style ===========
+    background-color: #3bb3e0;    
+    .background-image( linear-gradient(bottom top, #9DD2E5 0%, rgb(62,184,229) 100%) );    
+    .box-shadow(~"inset 0px 1px 0px @{btn-color}, inset 0px -1px 0px @{btn-color}, 0px 18px 0px @{btn-shadow};");
+    
+
+    //	=========== Font ============
+    // http://stack3.com/web-design/css_font_family_body.html
+    font-family:  Verdana, Roboto, 'Droid Sans', Meiryo, 'ＭＳ Ｐゴシック', 'Hiragino Kaku Gothic ProN', sans-serif;   
+    font-size: 3em;
+    font-weight: bold;
+    text-shadow: 1px 2px 0px black;
+	-ms-text-overflow: ellipsis;
+	text-overflow: ellipsis;
+    line-height: 1;
+	white-space: nowrap;
+    color:#fff;
+
+	// =========== Animation ===========
+    .transition(~"0.1s ease-out");
+    .transition-property( height, top, margin, padding, box-shadow, text-shadow);
+
+    // =========== State ===========
+    &, &:active, &:hover, &:focus {
+        text-decoration: none;        
+    }
+    &:active, &.active {
+        color: #FFFA22 !important;
+        text-shadow: -1px -2px 0px black;
+        background: rgb(44, 160, 202);
+        .box-shadow(~"inset 0px 1px 0px @{btn-color}, 0px 6px 0px @{btn-shadow};");
+        top: 3px;
+    }
+    &:focus {
+        // reset brower foucs style
+        outline: none;
+    }
+    &:hover {
+        color: #fff;
+    }
+	&.disabled,
+	&[disabled],
+	fieldset[disabled] & {
+		cursor: not-allowed;
+		pointer-events: none; // Future-proof disabling of clicks
+		text-shadow: -1px -2px 0px rgba(0,0,0,0.4);
+		color: @gray-lighter;
+		.opacity(.9);
+		.filter(grayscale(0.8));
+	}
+}
+
+//	==============================
+//	Another Button Style
+//	==============================
+.btn-kiosk-start {
+
+}
+.btn-kiosk-option {
+	.btn-kiosk-flex;
+
+}
+
+//	==============================
+//	Another Button Size
+//	==============================
+.btn-kiosk-nm {
+    top: -18px;
+    padding: 14px 0;
+    .border-radius(18px);
+}
+.btn-kiosk-flex {
+    width: 100%;
+    height: 100%;
+}
+.btn-kiosk-lg {
+ 	a.btn-kiosk {		
+	    font-size: 4.5em;
+	    padding: 0.7em 2.3em;
+	    .background-image( linear-gradient(bottom top, #F8CF8B 0%, #3EB8E5 100%) );    
+ 	}	
+}
+
+//	==============================
+//	Special Button Style 
+//	==============================
+.btn-kiosk-start {	
+	overflow: visible;
+
+}
