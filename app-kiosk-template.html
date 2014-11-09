@@ -25,6 +25,7 @@
     <script src="js/template-load.js"></script>
     <script src="js/web-animations.js"></script>
     <script src="js/web-animations-css-animation-extension.js"></script>
+    <script src="js/verticalNavBar.js"></script>
 
     <!-- Clear local-Storage -->
     <script>
@@ -42,7 +43,7 @@
     </style>
     <iframe id="template1" title="Start" src="template/template-kiosk-1-Start.html"></iframe>
     <iframe id="template2" title="Sign" src="template/template-kiosk-2-sign.html"></iframe>
-    <iframe id="template3" title="Question" src="template/template-kiosk-3-question.html"></iframe>
+    <!-- <iframe id="template3" title="Question" src="template/template-kiosk-3-question.html"></iframe> -->
     <!-- <iframe id="template4" title="Complete" src="template/template-kiosk-4-complete.html"></iframe> -->
     <!-- <iframe id="template5" title="Complete-QR" src="template/template-kiosk-4-complete-QR.html"></iframe> -->
     <!-- <iframe id="template7" title="QR" src="template/template-kiosk-5-QRCode.html"></iframe> -->
@@ -79,47 +80,55 @@
                 </div>
                 <!-- kiosk 垂直導覽 -->
                 <div class="col-sm-2 col-xs-3 progress-nav">
-                    <ul class="list-group">
-                        <li href="#" name="home" class="list-group-item text-center">
-                            <i class="fa fa-home"></i>
-                            <br/>ホーム
-                        </li>
-                        <li href="#" name="sign" class="list-group-item text-center">
-                            <i class="fa fa-pencil"></i>
-                            <br/>サイン
-                        </li>
-                        <li href="#" name="question" class="list-group-item text-center">
-                            <i class="fa fa-question-circle"></i>
-                            <br/>質問
-                            <br/>
-                            <ul class="pagination question-pagination">
-                                <li class="disabled"><a>1</a>
-                                </li>
-                                <li class="disabled"><a>2</a>
-                                </li>
-                                <li class="active disabled"><a>3</a>
-                                </li>
-                                <li class="disabled"><a>4</a>
-                                </li>
-                                <li class="disabled"><a>5</a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li href="#" name="complete" class="list-group-item text-center">
-                            <i class="fa fa-star"></i>
-                            <br/>完成
-                        </li>
-                    </ul>
-                    <!-- btn-cancel -->
-                    <div class="">
-                        <a class="btn btn-default btn-cancel">
-                            <i class="fa fa-times"></i>
-                            キャンセル
-                        </a>
+                    <div class="progress-meter">
+                        <div class="track">
+                            <span class="progress"></span>
+                        </div>
+                        <ol class="progress-points" data-current="4">
+                            <li class="progress-point active done" data-point="1">
+                                <div class="point">
+                                    <div class="wrapper">
+                                        <span class="icon-indicator glyphicon glyphicon-arrow-down"></span>
+                                    </div>
+                                    <span class="label">スタート</span>
+                                    <span class="glyphicon glyphicon-ok active"></span>
+                                </div>
+                            </li>
+                            <li class="progress-point done" data-point="2">
+                                <div class="point">
+                                    <div class="wrapper">
+                                        <span class="icon-indicator glyphicon glyphicon-pencil"></span>
+                                    </div>
+                                    <span class="label">サイン</span>
+                                    <span class="glyphicon glyphicon-ok"></span>
+                                </div>
+                            </li>
+                            <li class="progress-point" data-point="3">
+                                <div class="point">
+                                    <div class="wrapper">
+                                        <span class="icon-indicator glyphicon glyphicon-question-sign"></span>
+                                    </div>
+                                    <span class="label label-questions" data-percent="2/4">質問</span>
+                                    <span class="glyphicon glyphicon-ok"></span>
+                                </div>
+                            </li>
+                            <li class="progress-point complete-point" data-point="4">
+                                <div class="point">
+                                    <div class="wrapper">
+                                        <span class="icon-indicator glyphicon glyphicon-star"></span>
+                                    </div>
+                                    <span class="label">完成</span>
+                                    <span class="glyphicon glyphicon-ok"></span>
+                                </div>
+                            </li>
+                        </ol>
                     </div>
+                    <button class="btn-cancel">取り消し
+                        <br />メイン画面に戻る</button>
                 </div>
             </div>
         </div>
+    </div>
     </div>
 
     <!-- 切換樣板按鈕 -->
@@ -165,7 +174,7 @@
         });
     });
     </script>
-    
+
     <!-- 在左方隊列狀態製造一堆卡片 -->
     <!-- for dev create Cards -->
     <script>
@@ -182,7 +191,7 @@
 
     <!-- editing template -->
     <script>
-    $(window).load( function() {
+    $(window).load(function() {
         var template = getTemplate('#button1');
         setContent(template());
     });

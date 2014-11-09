@@ -465,6 +465,9 @@ body {
 ul {
   list-style: none;
 }
+ol {
+  padding-left: 0;
+}
 .height-100 {
   height: 100%;
 }
@@ -572,110 +575,10 @@ ul {
   color: #4480e1;
   background: #9cbcef;
 }
-.btn-cancel {
-  position: absolute;
-  z-index: 0;
-  right: 5px;
-  bottom: 5px;
-  left: 5px;
-  padding-top: 20px;
-  padding-bottom: 20px;
-  margin: 5px;
-  font-size: 1.3em;
-  -webkit-border-radius: 0;
-  -webkit-background-clip: padding-box;
-  -moz-border-radius: 0;
-  -moz-background-clip: padding;
-  border-radius: 0;
-  background-clip: padding-box;
-  background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/PjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiB2aWV3Qm94PSIwIDAgMSAxIiBwcmVzZXJ2ZUFzcGVjdFJhdGlvPSJub25lIj48bGluZWFyR3JhZGllbnQgaWQ9Imxlc3NoYXQtZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPjxzdG9wIG9mZnNldD0iMCUiIHN0b3AtY29sb3I9IiNmZmZmZmYiIHN0b3Atb3BhY2l0eT0iMSIvPjxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iI2U2ZTZlNiIgc3RvcC1vcGFjaXR5PSIxIi8+PC9saW5lYXJHcmFkaWVudD48cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iMSIgaGVpZ2h0PSIxIiBmaWxsPSJ1cmwoI2xlc3NoYXQtZ2VuZXJhdGVkKSIgLz48L3N2Zz4=);
-  background-image: -webkit-linear-gradient(linear, left top, left bottom, from(#ffffff), to(#e6e6e6));
-  background-image: -moz-linear-gradient(linear, left top, left bottom, from(#ffffff), to(#e6e6e6));
-  background-image: -o-linear-gradient(linear, left top, left bottom, from(#ffffff), to(#e6e6e6));
-  background-image: linear-gradient(linear, left to bottom, left bottom, from(#ffffff), to(#e6e6e6));
-}
 .progress-nav {
   margin: 0;
   padding: 0;
   height: 100%;
-}
-.progress-nav .list-group-item {
-  -webkit-transition: background 1s ease-out;
-  -moz-transition: background 1s ease-out;
-  -o-transition: background 1s ease-out;
-  transition: background 1s ease-out;
-  -webkit-transition-property: background, color;
-  -moz-transition-property: background, color;
-  -o-transition-property: background, color;
-  transition-property: background, color;
-  -webkit-box-shadow: 1em 0 #eeeeee inset;
-  -moz-box-shadow: 1em 0 #eeeeee inset;
-  box-shadow: 1em 0 #eeeeee inset;
-  -webkit-border-radius: 0;
-  -webkit-background-clip: padding-box;
-  -moz-border-radius: 0;
-  -moz-background-clip: padding;
-  border-radius: 0;
-  background-clip: padding-box;
-  padding-top: 10px;
-  padding-bottom: 5px;
-  background-color: #F3F3F3;
-  color: #999999;
-  z-index: 1000;
-  font-size: 1.5em;
-}
-.progress-nav .list-group-item .pagination {
-  margin: 5px auto;
-}
-.progress-nav .list-group-item .pagination a {
-  padding: 3px 8px;
-  cursor: pointer;
-}
-.progress-nav .list-group-item .pagination .disabled a {
-  cursor: default;
-}
-.progress-nav .list-group-item.active {
-  border: none;
-  background-color: white;
-  z-index: 1010;
-  border-bottom: 1px solid #dddddd;
-  color: black;
-  -webkit-transition: background 0.5s ease-in, color 1s linear, -webkit-box-shadow 0.3s ease-in;
-  -moz-transition: background 0.5s ease-in, color 1s linear, -moz-box-shadow 0.3s ease-in;
-  -o-transition: background 0.5s ease-in, color 1s linear, box-shadow 0.3s ease-in;
-  transition: background 0.5s ease-in, color 1s linear, box-shadow 0.3s ease-in;
-  -webkit-box-shadow: 1em 0 rgba(255,255,255,0) inset, -1em 0 #e8ca3e inset, 1px 0.5em #eeeeee;
-  -moz-box-shadow: 1em 0 rgba(255,255,255,0) inset, -1em 0 #e8ca3e inset, 1px 0.5em #eeeeee;
-  box-shadow: 1em 0 rgba(255,255,255,0) inset, -1em 0 #e8ca3e inset, 1px 0.5em #eeeeee;
-}
-.progress-nav .list-group-item.active:last-child:before,
-.progress-nav .list-group-item.active:last-child:after {
-  display: none;
-}
-.progress-nav .list-group-item:after {
-  content: '';
-  position: absolute;
-  left: 50%;
-  top: 100%;
-  margin-left: -2em;
-  border-left: 0;
-  border-top: 0em solid white;
-  border-right: 2em solid transparent;
-  border-left: 2em solid transparent;
-}
-.progress-nav .list-group-item:before {
-  content: '';
-  position: absolute;
-  left: 50%;
-  top: 100%;
-  margin-left: -2.2em;
-  border-left: 0;
-  border-top: 0em solid #dddddd;
-  border-right: 2.2em solid transparent;
-  border-left: 2.2em solid transparent;
-}
-.progress-nav .list-group-item i {
-  font-size: 2em;
 }
 .btn-wrapper {
   position: relative;
@@ -1035,6 +938,238 @@ h6 {
   background-image: -o-linear-gradient(top, #f7f7f7, #e7e7e7);
   border-radius: 50px;
   box-shadow: 0px 3px 8px #aaa, inset 0px 2px 3px #fff;
+}
+/* This parent can be any width and height */
+.centering-in-unknown {
+  text-align: center;
+  height: 100%;
+}
+.centering-in-unknown:before {
+  content: '';
+  display: inline-block;
+  height: 100%;
+  vertical-align: middle;
+  margin-right: -0.25em;
+  /* Adjusts for spacing */
+}
+.centering-in-unknown .centered {
+  display: inline-block;
+  vertical-align: middle;
+}
+.centered {
+  display: inline-block;
+  vertical-align: middle;
+}
+.progress-nav {
+  background-color: rgba(0, 0, 0, 0.15);
+  box-shadow: inset 15px 0 10px -10px rgba(0, 0, 0, 0.3);
+}
+.progress-meter {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  display: inline-block;
+  vertical-align: middle;
+  outline: #0000ff solid 1px;
+}
+.progress-meter .track {
+  height: 100%;
+  width: 13px;
+  margin: 0 auto;
+  position: absolute;
+  z-index: 10;
+  left: 50%;
+  margin-left: -6.5px;
+}
+.progress-meter .track span.progress {
+  position: relative;
+  display: block;
+  background-color: green;
+  overflow: visible;
+  height: 0;
+  width: 100%;
+}
+.progress-meter .track span.progress:before,
+.progress-meter .track span.progress:after {
+  position: absolute;
+  display: block;
+  content: '';
+  width: 0;
+  height: 0;
+}
+.progress-meter .track span.progress:before {
+  bottom: -10px;
+  left: 50%;
+  margin-left: -20px;
+  border-style: solid;
+  border-width: 20px 20px 0 20px;
+  border-color: green transparent transparent transparent;
+}
+.progress-meter ol.progress-points {
+  position: relative;
+  z-index: 20;
+  height: 100%;
+  padding: 0 40px;
+}
+.progress-meter ol.progress-points .progress-point {
+  display: inline-block;
+  list-style-type: none;
+  text-align: center;
+  width: 100%;
+  height: 25%;
+  padding-top: 15px;
+  outline: #ff0000 solid 1px;
+}
+.progress-meter ol.progress-points .progress-point .point {
+  position: relative;
+  height: 18vh;
+  width: 18vh;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.2);
+  transition: box-shadow 0.4s linear;
+}
+.progress-meter ol.progress-points .progress-point .point .wrapper {
+  text-align: center;
+  height: 100%;
+}
+.progress-meter ol.progress-points .progress-point .point .wrapper:before {
+  content: '';
+  display: inline-block;
+  height: 100%;
+  vertical-align: middle;
+  margin-right: -0.25em;
+  /* Adjusts for spacing */
+}
+.progress-meter ol.progress-points .progress-point .point .wrapper .centered {
+  display: inline-block;
+  vertical-align: middle;
+}
+.progress-meter ol.progress-points .progress-point .label {
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  margin-bottom: 7px;
+  transform: translateX(-50%) translateY(97px);
+  display: block;
+  font-size: 1.8vw;
+  color: gray;
+}
+.progress-meter ol.progress-points .progress-point .label-questions:after {
+  display: none;
+  position: absolute;
+  top: 100%;
+  right: 0;
+  left: 0;
+  content: attr(data-percent);
+  color: gray;
+  font-size: 0.8em;
+}
+.progress-meter ol.progress-points .progress-point .icon-indicator {
+  display: inline-block;
+  vertical-align: middle;
+  font-size: 25px;
+  transition: ease-out 0.5s;
+  color: gray;
+}
+.progress-meter ol.progress-points .progress-point .glyphicon-ok {
+  position: absolute;
+  font-size: 1.8vw;
+  top: 100%;
+  right: 2.3vw;
+  margin-top: -1.5em;
+  line-height: 1;
+  width: 50px;
+  visibility: hidden;
+}
+.progress-meter ol.progress-points .progress-point .glyphicon-ok:before,
+.progress-meter ol.progress-points .progress-point .glyphicon-ok:after {
+  position: absolute;
+  content: "\e013";
+  color: rgba(0, 0, 0, 0.5);
+  line-height: inherit;
+  z-index: 2;
+  transform-origin: 0 50%;
+}
+.progress-meter ol.progress-points .progress-point .glyphicon-ok::before {
+  transition: none;
+  transform: scale(1, 1) skew(0deg, 0deg);
+}
+.progress-meter ol.progress-points .progress-point .glyphicon-ok::after {
+  color: white;
+  transition: none;
+  transform: rotateY(0deg);
+  color: #ffffff;
+  text-shadow: 0 0 0 rgba(0, 0, 0, 0.6);
+}
+.progress-meter ol.progress-points .progress-point.done .point {
+  box-shadow: inset 0 0 0 98px green;
+}
+.progress-meter ol.progress-points .progress-point.done .point .label {
+  font-size: 0.6em;
+  left: 0;
+  top: 25px;
+  transform: translateX(0) translateY(0);
+  color: white;
+}
+.progress-meter ol.progress-points .progress-point.done .point .label-questions::after {
+  display: none;
+}
+.progress-meter ol.progress-points .progress-point.done .point .icon-indicator {
+  color: black;
+}
+.progress-meter ol.progress-points .progress-point.done:after {
+  top: 100%;
+  left: 50%;
+  margin-top: 30px;
+  margin-left: -20px;
+  border: 20px solid;
+  border-color: blue transparent transparent transparent;
+}
+.progress-meter ol.progress-points .progress-point.done .glyphicon-ok {
+  visibility: visible;
+}
+.progress-meter ol.progress-points .progress-point.done .glyphicon-ok::before {
+  transition: all 0.3s linear 0.3s;
+  transform: scale(0.85, 1) skew(0deg, 25deg);
+}
+.progress-meter ol.progress-points .progress-point.done .glyphicon-ok::after {
+  color: white;
+  transition: all 0.3s linear 0.3s;
+  transform: rotateY(-25deg);
+  text-shadow: 0 4px 0 rgba(0, 0, 0, 0.6);
+}
+.progress-meter ol.progress-points .progress-point.active .point {
+  background-color: yellow;
+  border-color: #0e83cd;
+}
+.progress-meter ol.progress-points .progress-point.active .point .label {
+  color: black;
+  margin-bottom: 0px;
+}
+.progress-meter ol.progress-points .progress-point.active .point .label-questions:after {
+  display: block;
+}
+.progress-meter ol.progress-points .progress-point.active .point .icon-indicator {
+  position: relative;
+  top: -5px;
+  font-size: 46px;
+  color: orange;
+  text-shadow: 0px 2px 0 rgba(0, 0, 0, 0.4);
+}
+.btn-cancel {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+}
+@-webkit-keyframes cardFlip {
+  0%,
+  100% {
+    -webkit-transform: rotateY(0);
+  }
+  50% {
+    -webkit-transform: rotateY(90deg) rotateX(30deg);
+  }
 }
 .row-answer .signature-area {
   position: relative;

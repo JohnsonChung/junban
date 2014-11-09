@@ -1,0 +1,263 @@
+//	==============================
+//	アプリ＠キオスク 
+//	右の縦ナヴィ
+//	==============================
+
+//// Utility ////
+/* This parent can be any width and height */
+.centering-in-unknown {	
+	text-align: center;
+	height: 100%;
+
+	&:before {
+		content: '';
+		display: inline-block;
+		height: 100%;
+		vertical-align: middle;
+		margin-right: -0.25em; /* Adjusts for spacing */
+	}
+	.centered {
+		display: inline-block;
+		vertical-align: middle;
+	}
+}
+.centered {
+	display: inline-block;
+	vertical-align: middle;
+}
+
+//// Preset ////
+
+.progress-nav {
+   background-color: rgba(0,0,0,0.15);
+   box-shadow: inset 15px 0 10px -10px rgba(0,0,0,0.3);
+}
+//// main ////
+.progress-meter { 
+  // Variable
+  @z1: 10;
+  @z2: 20;
+  @z3: 30;
+  @size: 97px;
+  @meter-height: 100%;
+  
+  position: relative;
+  height: @meter-height; 
+  width: 100%;
+  display: inline-block;
+  vertical-align: middle;  
+  .outline(blue);
+  
+  .track {
+    height: 100%;
+    width: 13px;
+    margin: 0 auto;
+    position: absolute;
+    z-index: @z1;
+    left: 50%;
+    margin-left: -6.5px;
+    
+    span.progress {  
+      position: relative;
+      display: block;
+      background-color: green;
+      overflow: visible;
+      height: 0;
+      width: 100%;  
+      
+      //// Progress Pointer Arrow ////
+      &:before, &:after {
+        position: absolute;
+        display: block;            
+        content: '';   
+        width: 0; height: 0;
+      }
+      &:before {
+        bottom: -10px;
+        left: 50%;
+        margin-left: -20px;
+        border-style: solid;
+        border-width: 20px 20px 0 20px;
+        border-color: green transparent transparent transparent;
+      }
+    }
+  }
+  ol.progress-points {
+    position: relative;
+    z-index: @z2;
+    height: 100%;
+    padding: 0 40px;
+   
+    .progress-point {
+      display: inline-block;      
+      list-style-type: none;   
+      text-align: center;
+      width: 100%;
+      height: 25%;
+      padding-top: 15px;
+      .outline;
+       
+      //// default state ////
+      .point {   
+      	position: relative;        
+      	height: 18vh;
+      	width: 18vh;
+        border-radius: 50%;   
+        background-color: rgba(255,255,255,0.2);       
+        transition: box-shadow 0.4s linear;
+        
+        // & { 
+        //   -webkit-animation-name: cardFlip;
+        //   -webkit-animation-duration: 1000ms;
+        //   -webkit-animation-timing-function: cubic-bezier(.29,1.44,.86,1.06);
+        //   -webkit-animation-iteration-count: 1;	
+        //   -webkit-animation-direction: normal;
+        //   -webkit-animation-delay: 0;
+        // }
+
+        .wrapper {
+        	.centering-in-unknown;        	
+        }
+      }
+      .label {
+        position: absolute;
+        bottom: 100%; left: 50%;
+        margin-bottom: 7px;
+        transform: translateX(-50%) translateY(@size);
+        display: block;
+        font-size: 1.8vw;     
+        color: gray;
+        
+        &-questions {
+          &:after {
+            display: none;
+            position: absolute;
+            top: 100%;
+            right: 0; left: 0;
+            content: attr(data-percent);
+            color: gray;
+            font-size: 0.8em;
+          }
+        }
+      }
+      .icon-indicator {
+        .centered;
+        font-size: 25px;     
+        transition: ease-out 0.5s;
+        color: gray;
+      }
+      .glyphicon-ok {
+        position: absolute;
+        font-size: 1.8vw;
+        top: 100%; right: 2.3vw;
+        margin-top: -1.5em;
+        line-height: 1;
+        width: 50px;
+        visibility: hidden;
+        
+        //// Aniamte Opening Type ////
+        &:before, &:after {
+          position: absolute;
+          content: "\e013";
+          color: hsla(0, 0%, 0%, 0.5);
+          line-height: inherit;
+          z-index: 2; 
+          transform-origin: 0 50%;
+        }
+        &::before {  
+          transition: none;
+          transform: scale(1,1) skew(0deg,0deg);
+        }
+        &::after {
+          color: white;
+          transition: none; 
+          transform: rotateY(0deg);
+          color: rgba(255,255,255,1);
+          text-shadow: 0 0 0 rgba(0,0,0,0.6);
+        }
+      }
+      
+      //// Done State ////
+      &.done {
+        .point {
+           box-shadow: inset 0 0 0 98px green;
+          
+          .label {
+            font-size: 0.6em;
+            left: 0; top: 25px;
+            transform: translateX(0) translateY(0);
+            color: white;
+            &-questions::after {
+              display: none;
+            }
+          }
+          .icon-indicator {
+            color: black;
+          }
+        }
+          &:after {
+            top: 100%;
+            left: 50%;
+            margin-top: 30px;
+            margin-left: -20px;
+            border: 20px solid;            
+            border-color:  blue transparent transparent transparent;
+          }          
+        .glyphicon-ok {
+          visibility: visible;
+          &::before {  
+            transition: all 0.3s linear 0.3s;         
+            transform: scale(0.85,1) skew(0deg,25deg);
+          }
+          &::after {
+            color: white;
+            transition: all 0.3s linear 0.3s; 
+            transform: rotateY(-25deg);
+            text-shadow: 0 4px 0 rgba(0,0,0,0.6);
+          }
+        }
+      }
+      &.active {
+        .point {
+          background-color: yellow; 
+          border-color: #0e83cd;   
+          
+          .label {
+            color: black;
+            margin-bottom: -0px;
+            &-questions {
+              &:after {
+                 display: block;
+              }
+            }
+          }
+          .icon-indicator { 
+            position: relative;
+            top: -5px;
+            font-size: 46px;
+            color: orange;
+            text-shadow: 0px 2px 0 rgba(0,0,0,0.4);
+          }
+          
+        }
+      }
+    }
+  }
+}
+.btn-cancel {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+}
+//// card Flip Animation ////
+@-webkit-keyframes cardFlip {
+    0%, 100%{
+       -webkit-transform: rotateY(0);
+    }
+    50% {      
+       -webkit-transform: rotateY(90deg) rotateX(30deg); 
+    }
+}
+
+
