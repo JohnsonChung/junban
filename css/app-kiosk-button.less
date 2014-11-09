@@ -89,10 +89,26 @@
 .btn-kiosk-start {
 
 }
+.btn-kiosk-next {
+        
+}
 .btn-kiosk-option {
 	.btn-kiosk-flex;
-
 }
+.btn-kiosk-warning {
+    @btn-color: gray;
+    @btn-shadow: gray;
+    .background-image( linear-gradient(bottom top, #FFA540 0%, #F78F33 100%) );    
+    .box-shadow(~"inset 0px 1px 0px @{btn-color}, inset 0px -1px 0px @{btn-color}, 0px 18px 0px @{btn-shadow};");
+}
+.btn-kiosk-default {
+    @btn-color: gray;
+    @btn-shadow: gray;
+    .background-image( linear-gradient(bottom top, #FFD082 0%, #FD9F20 100%) );    
+    .box-shadow(~"inset 0px 1px 0px @{btn-color}, inset 0px -1px 0px @{btn-color}, 0px 18px 0px @{btn-shadow};");
+}
+
+
 
 //	==============================
 //	Another Button Size

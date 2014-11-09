@@ -46,7 +46,8 @@
   width: 100%;
   display: inline-block;
   vertical-align: middle;  
-  .outline(blue);
+  cursor: default;
+  .user-select(none);
   
   .track {
     height: 100%;
@@ -86,20 +87,19 @@
     position: relative;
     z-index: @z2;
     height: 100%;
-    padding: 0 40px;
+    text-align: center;    
    
     .progress-point {
       display: inline-block;      
-      list-style-type: none;   
-      text-align: center;
+      list-style-type: none; 
       width: 100%;
       height: 25%;
       padding-top: 15px;
-      .outline;
        
       //// default state ////
       .point {   
-      	position: relative;        
+      	position: relative;      
+      	margin: 0 auto;  
       	height: 18vh;
       	width: 18vh;
         border-radius: 50%;   
@@ -121,9 +121,9 @@
       }
       .label {
         position: absolute;
-        bottom: 100%; left: 50%;
+        bottom: 0; left: 50%;
         margin-bottom: 7px;
-        transform: translateX(-50%) translateY(@size);
+        transform: translateX(-50%);
         display: block;
         font-size: 1.8vw;     
         color: gray;
@@ -142,17 +142,15 @@
       }
       .icon-indicator {
         .centered;
-        font-size: 25px;     
+        font-size: 2.2vw;     
         transition: ease-out 0.5s;
         color: gray;
       }
       .glyphicon-ok {
         position: absolute;
-        font-size: 1.8vw;
-        top: 100%; right: 2.3vw;
-        margin-top: -1.5em;
-        line-height: 1;
-        width: 50px;
+        font-size: 4.2vw;
+        top: 10vh; left: 10vh;        
+        line-height: 1.2;
         visibility: hidden;
         
         //// Aniamte Opening Type ////
@@ -183,8 +181,8 @@
            box-shadow: inset 0 0 0 98px green;
           
           .label {
-            font-size: 0.6em;
-            left: 0; top: 25px;
+            font-size: 1.4vw;
+            left: 0; top: 2.8vw;
             transform: translateX(0) translateY(0);
             color: white;
             &-questions::after {
@@ -234,7 +232,8 @@
           .icon-indicator { 
             position: relative;
             top: -5px;
-            font-size: 46px;
+            
+    		font-size: 3.5vw;  
             color: orange;
             text-shadow: 0px 2px 0 rgba(0,0,0,0.4);
           }
@@ -248,7 +247,13 @@
   position: absolute;
   bottom: 0;
   left: 0;
-  width: 100%;
+  width: 90%;
+  margin: 0 10px 10px;
+  font-size: 0.8vw;
+  line-height: 1.2;
+  display: none;  
+  z-index: 100;
+  text-align: center;
 }
 //// card Flip Animation ////
 @-webkit-keyframes cardFlip {

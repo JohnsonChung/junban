@@ -550,30 +550,13 @@ ol {
   box-shadow: 0 8px white, 0 16px white;
 }
 .btn-forward,
-.btn-next,
 .btn-question {
   padding: 0.3em .5em;
   font-size: 2em;
 }
 .btn-forward .glyphicon,
-.btn-next .glyphicon,
 .btn-question .glyphicon {
   font-size: 0.8em;
-}
-.btn-next {
-  background: #4480e1;
-  background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/PjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiB2aWV3Qm94PSIwIDAgMSAxIiBwcmVzZXJ2ZUFzcGVjdFJhdGlvPSJub25lIj48bGluZWFyR3JhZGllbnQgaWQ9Imxlc3NoYXQtZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPjxzdG9wIG9mZnNldD0iMCUiIHN0b3AtY29sb3I9IiM0NDgwZTEiIHN0b3Atb3BhY2l0eT0iMSIvPjxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iIzFlNWFiYiIgc3RvcC1vcGFjaXR5PSIxIi8+PC9saW5lYXJHcmFkaWVudD48cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iMSIgaGVpZ2h0PSIxIiBmaWxsPSJ1cmwoI2xlc3NoYXQtZ2VuZXJhdGVkKSIgLz48L3N2Zz4=);
-  background-image: -webkit-linear-gradient(linear, left top, left bottom, from(#4480e1), to(#1e5abb));
-  background-image: -moz-linear-gradient(linear, left top, left bottom, from(#4480e1), to(#1e5abb));
-  background-image: -o-linear-gradient(linear, left top, left bottom, from(#4480e1), to(#1e5abb));
-  background-image: linear-gradient(linear, left to bottom, left bottom, from(#4480e1), to(#1e5abb));
-  -webkit-box-shadow: 0px 3px 5px rgba(16, 47, 99, 0.5) , inset 0px 2px 3px #fff;
-  -moz-box-shadow: 0px 3px 5px rgba(16, 47, 99, 0.5) , inset 0px 2px 3px #fff;
-  box-shadow: 0px 3px 5px rgba(16, 47, 99, 0.5) , inset 0px 2px 3px #fff;
-}
-.btn-next:active {
-  color: #4480e1;
-  background: #9cbcef;
 }
 .progress-nav {
   margin: 0;
@@ -693,6 +676,26 @@ fieldset[disabled] .btn-kiosk-option {
 .btn-kiosk-option {
   width: 100%;
   height: 100%;
+}
+.btn-kiosk-warning {
+  background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/PjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiB2aWV3Qm94PSIwIDAgMSAxIiBwcmVzZXJ2ZUFzcGVjdFJhdGlvPSJub25lIj48bGluZWFyR3JhZGllbnQgaWQ9Imxlc3NoYXQtZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPjxzdG9wIG9mZnNldD0iMCUiIHN0b3AtY29sb3I9IiNmZmE1NDAiIHN0b3Atb3BhY2l0eT0iMSIvPjxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iI2Y3OGYzMyIgc3RvcC1vcGFjaXR5PSIxIi8+PC9saW5lYXJHcmFkaWVudD48cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iMSIgaGVpZ2h0PSIxIiBmaWxsPSJ1cmwoI2xlc3NoYXQtZ2VuZXJhdGVkKSIgLz48L3N2Zz4=);
+  background-image: -webkit-linear-gradient(bottom top, #ffa540 0%, #f78f33 100%);
+  background-image: -moz-linear-gradient(bottom top, #ffa540 0%, #f78f33 100%);
+  background-image: -o-linear-gradient(bottom top, #ffa540 0%, #f78f33 100%);
+  background-image: linear-gradient(bottom to bottom, #ffa540 0%, #f78f33 100%);
+  -webkit-box-shadow: inset 0px 1px 0px #808080, inset 0px -1px 0px #808080, 0px 18px 0px #808080;;
+  -moz-box-shadow: inset 0px 1px 0px #808080, inset 0px -1px 0px #808080, 0px 18px 0px #808080;;
+  box-shadow: inset 0px 1px 0px #808080, inset 0px -1px 0px #808080, 0px 18px 0px #808080;;
+}
+.btn-kiosk-default {
+  background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/PjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiB2aWV3Qm94PSIwIDAgMSAxIiBwcmVzZXJ2ZUFzcGVjdFJhdGlvPSJub25lIj48bGluZWFyR3JhZGllbnQgaWQ9Imxlc3NoYXQtZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPjxzdG9wIG9mZnNldD0iMCUiIHN0b3AtY29sb3I9IiNmZmQwODIiIHN0b3Atb3BhY2l0eT0iMSIvPjxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iI2ZkOWYyMCIgc3RvcC1vcGFjaXR5PSIxIi8+PC9saW5lYXJHcmFkaWVudD48cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iMSIgaGVpZ2h0PSIxIiBmaWxsPSJ1cmwoI2xlc3NoYXQtZ2VuZXJhdGVkKSIgLz48L3N2Zz4=);
+  background-image: -webkit-linear-gradient(bottom top, #ffd082 0%, #fd9f20 100%);
+  background-image: -moz-linear-gradient(bottom top, #ffd082 0%, #fd9f20 100%);
+  background-image: -o-linear-gradient(bottom top, #ffd082 0%, #fd9f20 100%);
+  background-image: linear-gradient(bottom to bottom, #ffd082 0%, #fd9f20 100%);
+  -webkit-box-shadow: inset 0px 1px 0px #808080, inset 0px -1px 0px #808080, 0px 18px 0px #808080;;
+  -moz-box-shadow: inset 0px 1px 0px #808080, inset 0px -1px 0px #808080, 0px 18px 0px #808080;;
+  box-shadow: inset 0px 1px 0px #808080, inset 0px -1px 0px #808080, 0px 18px 0px #808080;;
 }
 .btn-kiosk-nm {
   top: -18px;
@@ -970,7 +973,11 @@ h6 {
   width: 100%;
   display: inline-block;
   vertical-align: middle;
-  outline: #0000ff solid 1px;
+  cursor: default;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 .progress-meter .track {
   height: 100%;
@@ -1009,19 +1016,18 @@ h6 {
   position: relative;
   z-index: 20;
   height: 100%;
-  padding: 0 40px;
+  text-align: center;
 }
 .progress-meter ol.progress-points .progress-point {
   display: inline-block;
   list-style-type: none;
-  text-align: center;
   width: 100%;
   height: 25%;
   padding-top: 15px;
-  outline: #ff0000 solid 1px;
 }
 .progress-meter ol.progress-points .progress-point .point {
   position: relative;
+  margin: 0 auto;
   height: 18vh;
   width: 18vh;
   border-radius: 50%;
@@ -1046,10 +1052,10 @@ h6 {
 }
 .progress-meter ol.progress-points .progress-point .label {
   position: absolute;
-  bottom: 100%;
+  bottom: 0;
   left: 50%;
   margin-bottom: 7px;
-  transform: translateX(-50%) translateY(97px);
+  transform: translateX(-50%);
   display: block;
   font-size: 1.8vw;
   color: gray;
@@ -1067,18 +1073,16 @@ h6 {
 .progress-meter ol.progress-points .progress-point .icon-indicator {
   display: inline-block;
   vertical-align: middle;
-  font-size: 25px;
+  font-size: 2.2vw;
   transition: ease-out 0.5s;
   color: gray;
 }
 .progress-meter ol.progress-points .progress-point .glyphicon-ok {
   position: absolute;
-  font-size: 1.8vw;
-  top: 100%;
-  right: 2.3vw;
-  margin-top: -1.5em;
-  line-height: 1;
-  width: 50px;
+  font-size: 4.2vw;
+  top: 10vh;
+  left: 10vh;
+  line-height: 1.2;
   visibility: hidden;
 }
 .progress-meter ol.progress-points .progress-point .glyphicon-ok:before,
@@ -1105,9 +1109,9 @@ h6 {
   box-shadow: inset 0 0 0 98px green;
 }
 .progress-meter ol.progress-points .progress-point.done .point .label {
-  font-size: 0.6em;
+  font-size: 1.4vw;
   left: 0;
-  top: 25px;
+  top: 2.8vw;
   transform: translateX(0) translateY(0);
   color: white;
 }
@@ -1152,7 +1156,7 @@ h6 {
 .progress-meter ol.progress-points .progress-point.active .point .icon-indicator {
   position: relative;
   top: -5px;
-  font-size: 46px;
+  font-size: 3.5vw;
   color: orange;
   text-shadow: 0px 2px 0 rgba(0, 0, 0, 0.4);
 }
@@ -1160,7 +1164,13 @@ h6 {
   position: absolute;
   bottom: 0;
   left: 0;
-  width: 100%;
+  width: 90%;
+  margin: 0 10px 10px;
+  font-size: 0.8vw;
+  line-height: 1.2;
+  display: none;
+  z-index: 100;
+  text-align: center;
 }
 @-webkit-keyframes cardFlip {
   0%,
@@ -1174,7 +1184,7 @@ h6 {
 .row-answer .signature-area {
   position: relative;
   z-index: 1010;
-  border: 8px dashed #e8ca3e;
+  border: 8px dashed #428bca;
   background-color: #ececec;
   height: 98%;
   width: 100%;

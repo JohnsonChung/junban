@@ -122,7 +122,7 @@ ol {
 // ====================================
 // Button
 // ====================================
-.btn-forward, .btn-next, .btn-question {  
+.btn-forward, .btn-question {  
     padding: 0.3em .5em;
     font-size: 2em;
 
@@ -130,20 +130,6 @@ ol {
         font-size: 0.8em;
     }
 }
-.btn-next {
-    &:active {
-        color: @pagination-color;
-        background: lighten(@pagination-color,20%);
-    }   
-    & {
-        background: @pagination-color;
-        .background-image(linear-gradient(linear, left top, left bottom, from(@pagination-color), to(darken(@pagination-color,15%))));
-
-        @shadow-darken: fade(darken(@pagination-color,35%), 50%);
-        .box-shadow(~"0px 3px 5px @{shadow-darken} , inset 0px 2px 3px #fff");
-    }
-}
-
 
 // ====================================
 // Vertical navigation list
