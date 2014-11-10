@@ -1098,12 +1098,10 @@ h6 {
   transform-origin: 0 50%;
 }
 .progress-meter ol.progress-points .progress-point .glyphicon-ok::before {
-  transition: none;
   transform: scale(1, 1) skew(0deg, 0deg);
 }
 .progress-meter ol.progress-points .progress-point .glyphicon-ok::after {
   color: white;
-  transition: none;
   transform: rotateY(0deg);
   color: #ffffff;
   text-shadow: 0 0 0 rgba(0, 0, 0, 0.6);
@@ -1133,12 +1131,10 @@ h6 {
   visibility: visible;
 }
 .progress-meter ol.progress-points .progress-point.done .glyphicon-ok::before {
-  transition: all 0.3s linear 0.3s;
   transform: scale(0.85, 1) skew(0deg, 25deg);
 }
 .progress-meter ol.progress-points .progress-point.done .glyphicon-ok::after {
   color: white;
-  transition: all 0.3s linear 0.3s;
   transform: rotateY(-25deg);
   text-shadow: 0 4px 0 rgba(0, 0, 0, 0.6);
 }
