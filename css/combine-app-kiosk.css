@@ -811,6 +811,9 @@ fieldset[disabled] .btn-kiosk-option {
 .text-lg {
   font-size: 44px !important;
 }
+.text-vw-lg {
+  font-size: 3.7vw !important;
+}
 h1,
 h2,
 h3,
