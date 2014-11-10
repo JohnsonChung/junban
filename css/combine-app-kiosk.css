@@ -985,12 +985,12 @@ h6 {
 }
 .progress-meter .track {
   height: 100%;
-  width: 13px;
+  width: 18px;
   margin: 0 auto;
   position: absolute;
   z-index: 10;
   left: 50%;
-  margin-left: -6.5px;
+  margin-left: -9px;
 }
 .progress-meter .track span.progress {
   position: relative;
@@ -1011,9 +1011,9 @@ h6 {
 .progress-meter .track span.progress:before {
   bottom: -10px;
   left: 50%;
-  margin-left: -20px;
+  margin-left: -30px;
   border-style: solid;
-  border-width: 20px 20px 0 20px;
+  border-width: 25px 30px 0 30px;
   border-color: green transparent transparent transparent;
 }
 .progress-meter ol.progress-points {
@@ -1034,9 +1034,8 @@ h6 {
   margin: 0 auto;
   height: 18vh;
   width: 18vh;
-  border-radius: 50%;
+  border-radius: 230px;
   background-color: rgba(255, 255, 255, 0.2);
-  transition: box-shadow 0.4s linear;
 }
 .progress-meter ol.progress-points .progress-point .point .wrapper {
   text-align: center;
@@ -1109,9 +1108,6 @@ h6 {
   color: #ffffff;
   text-shadow: 0 0 0 rgba(0, 0, 0, 0.6);
 }
-.progress-meter ol.progress-points .progress-point.done .point {
-  box-shadow: inset 0 0 0 98px green;
-}
 .progress-meter ol.progress-points .progress-point.done .point .label {
   font-size: 1.4vw;
   left: 0;
@@ -1168,13 +1164,17 @@ h6 {
   position: absolute;
   bottom: 0;
   left: 0;
-  width: 90%;
-  margin: 0 10px 10px;
-  font-size: 0.8vw;
+  width: 97%;
+  margin: 0 4px 4px;
+  font-size: 0.78vw;
   line-height: 1.2;
   display: none;
   z-index: 100;
   text-align: center;
+}
+.btn-cancel .btn-kiosk {
+  text-overflow: clip;
+  padding: 28px inherit;
 }
 @-webkit-keyframes cardFlip {
   0%,
