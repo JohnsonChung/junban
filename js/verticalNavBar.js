@@ -14,7 +14,7 @@ $(function() {
   ////==== End Preset ====////
   
 
-  //// reset Point State ////
+  // 重設所有 .progressPoint 還有 .point 的狀態 並執行重設狀態的 animate //  
   function resetState(){
     $progressPoint.each( function(){
       if ( $(this).hasClass('done') ) {  
@@ -24,18 +24,19 @@ $(function() {
     $progressPoint.removeClass('active done');    
   }
   
-  //// check Meter is Runing or not ////
+  // 確認列表有沒有 done 或 active 狀態 
   function meterRunningCheck() {
     meterRunningState = $progressPoint.hasClass('done') && $progressPoint.hasClass('active');
   }
-  //// check complete State ////
+
+  // 確認 .compeltePoint 是否有 active 狀態 並執行/ 重設 animate
   function completeStateCheck() {
     if( completeState === true) { resetCompleteAnimate() } 
-    completeState = $completePoint.hasClass('active');
+    completeState = $completePoint.hasClass('active' || 'done');
     if( completeState === true) { startCompleteAnimate() }
   }
   
-  //// hide or show Cancel Button (.btn-cancel) ////
+  // 顯示隱藏 .btn-cancel 
   function hideShowBtnCancel() {
     if( meterRunningState === true ) {
       $btnCancel.show();
@@ -43,7 +44,13 @@ $(function() {
       $btnCancel.hide();
     }
   }
-  
+
+  // 取得節點頂端相對座標
+  function getPosition(e) {
+    var dataPoint = $('[data-point=' + e + ']').position(); 
+    return dataPoint.top ;      
+  }
+
   ////==== Animate Objects ====////
 
   // Cache anime target
@@ -53,14 +60,17 @@ $(function() {
   var $rightBar = $('.progress-nav');  
   
   // Animation
+  // 移動整個 progressMeter 至節點
   var animeMeterMove = {
     timing: { delay: 1300, duration: 900, iterations: 1, fill: 'forwards', easing: 'cubic-bezier(0.215, 0.610, 0.355, 1.000)'}
   };
 
+  // 移動 progress Track (箭頭) 至節點
   var animeProgressTrackMove = {    
     timing: { delay: 0, duration: 900, iterations: 1, fill: 'forwards', easing: 'cubic-bezier(0.215, 0.610, 0.355, 1.000)'}
   };
 
+  // 重設/執行 .progressPoint.active 動畫
   var animePointActiveOriginal = {
     anime: [],
     timing: {}
@@ -70,6 +80,7 @@ $(function() {
     timing: {}
   };
 
+  // 重設/執行 .progressPoint.done 動畫
   var animePointDoneOriginal = {
     anime: [
       { boxShadow: 'inset 0 0 0 0 green' }    
@@ -84,6 +95,7 @@ $(function() {
     timing: { delay: 0, duration: 500, iterations: 1, fill: 'forwards' } 
   }
   
+  // 重設/執行 完成背景動畫
   // 保存原本的STYLE
   var rightBarOriginalAnimation = {
     anime: [{ backgroundColor: $rightBar.css('background-color')}],
@@ -121,40 +133,33 @@ $(function() {
     function startAnimePointDone(target) {
       return target.animate( animePointDone.anime, animePointDone.timing );
     }
-
     function resetAnimePointDone(target) {
       return target.animate( animePointDoneOriginal.anime, animePointDoneOriginal.timing );
-    }
-
-
-    // Get data-point
-    function getPosition(e) {
-      var dataPoint = $('[data-point=' + e + ']').position(); 
-      return dataPoint.top ;      
     }
 
   ////==== End Animate Objects ====////
   
 
-  //// bind Click Events ////
+  ////==== bind Click Events ====////
     function bindReturnPos() {      
-      $progressPoint.on('click', function() {
+      $progressPoint.bind('click', function() {
         var point = $(this).attr("data-point");
+        // progress meter 移動到目標節點
         meterTranslateY(point);
+        // progress Track 移動到目標節點
         trackTransform(point);
-        hideShowBtnCancel();
         completeStateCheck();
       })
     } 
     
     function bindReturnHome() {
-      $('.btn-cancel').on('click', function() {
+      $('.btn-cancel').bind('click', function() {
         resetState();
         meterTranslateY(1);
-        trackTransform(1); 
-        meterRunningCheck();
+        trackTransform(1);         
+        meterRunningState = false;
         hideShowBtnCancel();
-        completeStateCheck();
+        completeStateCheck();   
       })
     }  
 
@@ -180,7 +185,7 @@ $(function() {
           }
         });
 
-        // 判斷哪些point 要加上或移除 active 狀態 ( .done/ .active / 都沒有)
+        // 判斷哪些 point 要加上或移除 active 狀態 ( .done/ .active / 都沒有)
         var done = $(this).hasClass('done');
         var active = $(this).hasClass('active');        
         var normal = !(done || active);
@@ -191,10 +196,17 @@ $(function() {
 
         } else if (done === true ){           
           $(this).addClass('active');           
-        }        
-        meterRunningCheck();         
+        }                
+        // 確認有沒有結點是 active 或 done 狀態
+        meterRunningCheck(); 
+        // 隱藏/顯示 .btn-cancel 
+        hideShowBtnCancel();
+        // 確認最後的完成 .complete-point 是不是 active 狀態
+        completeStateCheck();    
       });
     }
+  ////==== end bind Click Events ====////
+
     
   //// Active Function ////
   resetState(); 
