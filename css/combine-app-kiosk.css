@@ -722,10 +722,10 @@ fieldset[disabled] .btn-kiosk-option {
   overflow: visible;
 }
 .text-blink {
-  -webkit-animation: textBlink 0.75s linear 5;
-  -moz-animation: textBlink 0.75s linear 5;
-  -o-animation: textBlink 0.75s linear 5;
-  animation: textBlink 0.75s linear 5;
+  -webkit-animation: textBlink 0.7s linear 3;
+  -moz-animation: textBlink 0.7s linear 3;
+  -o-animation: textBlink 0.7s linear 3;
+  animation: textBlink 0.7s linear 3;
 }
 lesshat-selector {
   -lh-property: 0; } 
