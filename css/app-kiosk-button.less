@@ -58,8 +58,8 @@
     &, &:active, &:hover, &:focus {
         text-decoration: none;        
     }
-    &:active, &.active {
-        color: #FFFA22 !important;
+    &:active, &.active, &.active:hover {
+        color: #FFFA22;
         text-shadow: -1px -2px 0px black;
         background: rgb(44, 160, 202);
         .box-shadow(~"inset 0px 1px 0px @{btn-color}, 0px 6px 0px @{btn-shadow};");
@@ -137,3 +137,13 @@
 	overflow: visible;
 
 }
+
+
+//  ==============================
+//  Animate State
+//  ==============================
+.text-blink {
+    .animation(textBlink 0.75s linear 5);
+}
+
+.keyframes(~'textBlink, 0%{color: yellow} 50%{color: white; text-shadow:none; background: #488398} 100%{color: yellow}');

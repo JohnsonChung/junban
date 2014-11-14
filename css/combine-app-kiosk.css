@@ -637,8 +637,10 @@ ol {
 .btn-kiosk:active,
 .btn-kiosk-option:active,
 .btn-kiosk.active,
-.btn-kiosk-option.active {
-  color: #FFFA22 !important;
+.btn-kiosk-option.active,
+.btn-kiosk.active:hover,
+.btn-kiosk-option.active:hover {
+  color: #FFFA22;
   text-shadow: -1px -2px 0px #000000;
   background: #2ca0ca;
   -webkit-box-shadow: inset 0px 1px 0px #7fd2f1, 0px 6px 0px #377a93;;
@@ -718,6 +720,19 @@ fieldset[disabled] .btn-kiosk-option {
 }
 .btn-kiosk-start {
   overflow: visible;
+}
+.text-blink {
+  -webkit-animation: textBlink 0.75s linear 5;
+  -moz-animation: textBlink 0.75s linear 5;
+  -o-animation: textBlink 0.75s linear 5;
+  animation: textBlink 0.75s linear 5;
+}
+lesshat-selector {
+  -lh-property: 0; } 
+@-webkit-keyframes textBlink{ 0%{color: yellow} 50%{color: white; text-shadow:none; background: #488398} 100%{color: yellow}}
+@-moz-keyframes textBlink{ 0%{color: yellow} 50%{color: white; text-shadow:none; background: #488398} 100%{color: yellow}}
+@-o-keyframes textBlink{ 0%{color: yellow} 50%{color: white; text-shadow:none; background: #488398} 100%{color: yellow}}
+@keyframes textBlink{ 0%{color: yellow} 50%{color: white; text-shadow:none; background: #488398} 100%{color: yellow};
 }
 @media (max-width: 767px) {
   .container h1,
