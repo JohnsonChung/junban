@@ -1255,6 +1255,18 @@ h6 {
   -o-animation-delay: 1750ms;
   animation-delay: 1750ms;
 }
+#svg-signature .path:nth-child(8) {
+  -webkit-animation-delay: 2000ms;
+  -moz-animation-delay: 2000ms;
+  -o-animation-delay: 2000ms;
+  animation-delay: 2000ms;
+}
+#svg-signature .path:nth-child(9) {
+  -webkit-animation-delay: 2250ms;
+  -moz-animation-delay: 2250ms;
+  -o-animation-delay: 2250ms;
+  animation-delay: 2250ms;
+}
 #svg-signature {
   -webkit-animation: fadeout 1s linear normal forwards;
   -moz-animation: fadeout 1s linear normal forwards;
