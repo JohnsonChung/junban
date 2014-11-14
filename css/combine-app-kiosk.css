@@ -664,17 +664,6 @@ fieldset[disabled] .btn-kiosk,
 fieldset[disabled] .btn-kiosk-option {
   cursor: not-allowed;
   pointer-events: none;
-  text-shadow: -1px -2px 0px rgba(0, 0, 0, 0.4);
-  color: #eeeeee;
-  zoom: 1;
-  filter: alpha(opacity=90);
-  -webkit-opacity: 0.9;
-  -moz-opacity: 0.9;
-  opacity: 0.9;
-  -webkit-filter: grayscale(0.8);
-  -moz-filter: grayscale(0.8);
-  -ms-filter: grayscale(0.8);
-  filter: grayscale(0.8);
 }
 .btn-kiosk-option {
   width: 100%;
