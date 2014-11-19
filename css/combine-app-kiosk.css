@@ -1199,6 +1199,9 @@ h6 {
   -ms-user-select: none;
   user-select: none;
 }
+.row-pagination > [class^="col-"] {
+  padding-top: 15px;
+}
 #svg-signature {
   position: absolute;
   z-index: 1030;
