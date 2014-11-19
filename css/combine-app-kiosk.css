@@ -813,6 +813,9 @@ lesshat-selector {
 .text-vw-lg {
   font-size: 3.7vw !important;
 }
+.text-shadow-blue {
+  text-shadow: 1px 1px #2FD7FF;
+}
 h1,
 h2,
 h3,
