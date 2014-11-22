@@ -31,9 +31,9 @@ $(function() {
 
   // 確認 .compeltePoint 是否有 active 狀態 並執行/ 重設 animate
   function completeStateCheck() {
-    if( completeState === true) { resetCompleteAnimate() } 
+    if( completeState === true) { resetCompleteAnimate(); }
     completeState = $completePoint.hasClass('active' || 'done');
-    if( completeState === true) { startCompleteAnimate() }
+    if( completeState === true) { startCompleteAnimate(); }
   }
   
   // 顯示隱藏 .btn-cancel 
@@ -154,12 +154,14 @@ $(function() {
     
     function bindReturnHome() {
       $('.btn-cancel').bind('click', function() {
-        resetState();
-        meterTranslateY(1);
-        trackTransform(1);         
-        meterRunningState = false;
-        hideShowBtnCancel();
-        completeStateCheck();   
+        setTimeout( function() { 
+          resetState();
+          meterTranslateY(1);
+          trackTransform(1);         
+          meterRunningState = false;
+          hideShowBtnCancel();
+          completeStateCheck();          
+        }, 300);
       })
     }  
 
