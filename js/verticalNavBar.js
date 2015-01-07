@@ -10,6 +10,7 @@ $(function() {
   var $progressPoint = $('.progress-point');
   var $completePoint = $('.complete-point');
   var $btnCancel = $('.btn-cancel');
+  
 
   ////==== End Preset ====////
   

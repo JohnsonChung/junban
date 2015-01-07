@@ -41,26 +41,22 @@
         display: none;
     }
     </style>
-    <!-- <iframe id="template1" title="Login" src="template/template-1.html"></iframe> -->
-    <iframe id="template2" title="APP" src="template/template-2.html"></iframe>
-    <iframe id="template3" title="Forms" src="template/template-3.html"></iframe>
-    <iframe id="template4" title="user-Setting" src="template/template-4.html"></iframe>
-    <iframe id="template5" title="Forms" src="template/template-5.html"></iframe>
-    <!-- <iframe id="template6" title="Forms" src="template/template-6.html"></iframe> -->
-    <iframe id="template7" title="Forms-checker" src="template/template-7.html"></iframe>
+    <iframe id="template1" title="APP" src="template/template-index-application.html"></iframe>
+    <iframe id="template2" title="kiosk-Setting" src="template/template-index-kioskSetting.html"></iframe>
+    <iframe id="template3" title="Forms" src="template/template-index-checkerSetting.html"></iframe>
+    <iframe id="template4" title="Error" src="template/template-index-error.html"></iframe>
+    <iframe id="template5" title="Statistics" src="template/template-index-statistics.html"></iframe>
 
 
     <!-- 選單 -->
     <div class="container">
         <div class="row">
             <div class="col-md-12 col-center" data="template-count">
-                <a id="button1" class="btn btn-primary" type="button" data-target="template1">Login</a>
-                <a id="button2" class="btn btn-primary" type="button" data-target="template2">Application</a>
-                <a id="button3" class="btn btn-primary" type="button" data-target="template3">Forms</a>
-                <a id="button7" class="btn btn-primary" type="button" data-target="template7">Forms - Checker</a>
-                <a id="button4" class="btn btn-primary" type="button" data-target="template4">User-Setting</a>
-                <a id="button5" class="btn btn-primary" type="button" data-target="template5">Setting</a>
-                <a id="button6" class="btn btn-primary" type="button" data-target="template6">ERROR</a>
+                <a id="button1" class="btn btn-primary" type="button" data-target="template1">Application</a>
+                <a id="button2" class="btn btn-primary" type="button" data-target="template2">kiosk-setting</a>
+                <a id="button3" class="btn btn-primary" type="button" data-target="template3">checker-setting</a>
+                <a id="button4" class="btn btn-danger" type="button" data-target="template4">Error</a>
+                <a id="button5" class="btn btn-info" type="button" data-target="template5">Statistics</a>
             </div>
         </div>
     </div>
@@ -176,9 +172,9 @@
 
     <script>
     $(window).load(function() {
-        var template = getTemplate('#button4');
+        var template = getTemplate('#button5');
         setContent(template());
-    })
+    });
     </script>
 </body>
 
