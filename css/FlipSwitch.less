@@ -1,0 +1,133 @@
+// Color variables (appears count calculates by raw css)
+@color0: #a1a1a1; // Appears 3 times
+@color1: #00c4ff; // Appears 3 times
+@color2: #ffffff; // Appears 2 times
+@color3: #c2c2c2; // Appears 2 times
+@color4: #999999; // Appears 2 times
+
+
+
+.onoffswitch {
+    -moz-user-select:none;
+    -ms-user-select: none;
+    -webkit-user-select:none;
+    position: relative;
+    width: 100px;
+}
+.onoffswitch.switch-inline {
+    display: inline-block;
+    margin: 0 10px;
+    vertical-align: middle;
+}
+.onoffswitch-checkbox {
+    display: none;
+    &:checked+.onoffswitch-label {
+        .onoffswitch-inner {
+            margin-left: 0;
+        }
+    }
+}
+.onoffswitch-label {
+    border-radius: 0px;
+    border: 0px solid @color4;
+    cursor: pointer;
+    display: block;
+    overflow: hidden;
+}
+.onoffswitch-inner {
+    -moz-transition: margin 0.3s ease-in 0s;
+    -o-transition: margin 0.3s ease-in 0s;
+    -webkit-transition: margin 0.3s ease-in 0s;
+    display: block;
+    margin-left: -100%;
+    transition: margin 0.3s ease-in 0s;
+    width: 200%;
+    .onoffswitch-active {
+        background-color: @color3;
+        color: @color2;
+        padding-left: 15px;
+    }
+    .onoffswitch-inactive {
+        background-color: @color3;
+        color: @color2;
+        padding-right: 15px;
+        text-align: right;
+    }
+}
+.onoffswitch-inner>span {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    color: white;
+    display: block;
+    float: left;
+    font-family: Trebuchet, Arial, sans-serif;
+    font-size: 14px;
+    font-weight: bold;
+    height: 30px;
+    line-height: 30px;
+    padding: 0;
+    position: relative;
+    width: 50%;
+}
+.onoffswitch-switch {
+    border-radius: 0px;
+    border: 0px solid @color4;
+    bottom: 0;
+    display: block;
+    margin: 0px;
+    position: absolute;
+    text-align: center;
+    top: 0;
+    width: 40px;
+}
+.onoffswitch-active {
+    .onoffswitch-switch {
+        background: @color1;
+        left: 0;
+        &:before {
+            border-color: @color1 transparent transparent @color1;
+            border-style: solid;
+            border-width: 15px 10px;
+            content:" ";
+            left: 40px;
+            position: absolute;
+            top: 0;
+        }
+    }
+}
+.onoffswitch-inactive {
+    .onoffswitch-switch {
+        background: @color0;
+        right: 0;
+        &:before {
+            border-color: transparent @color0 @color0 transparent;
+            border-style: solid;
+            border-width: 15px 10px;
+            content:" ";
+            position: absolute;
+            right: 40px;
+            top: 0;
+        }
+    }
+}
+
+// =============================
+// Sizing
+// =============================
+.onoffswitch-lg {
+    width: 125px;
+    .onoffswitch-switch {
+        width: 60px;        
+    }
+    .onoffswitch-active {        
+        .onoffswitch-switch:before {
+            left: 60px;
+        }
+    }
+    .onoffswitch-inactive {
+        .onoffswitch-switch:before {            
+            right: 60px;
+        }
+    }
+}
