@@ -8,7 +8,7 @@
     <meta name="description" content="">
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="viewport" content="width=device-width , initial-scale=1, maximum-scale=1, user-scalable=no">    
+    <meta name="viewport" content="width=device-width , initial-scale=1, maximum-scale=1, user-scalable=no">
 
     <link rel="livePage" href="css/app-checker.less" />
 
@@ -72,23 +72,18 @@
         </div>
         <div class="row">
             <div class="panel clearfix">
-                <div class="graphic-counter">
-                    <div class="col-xs-3">
+                <div class="graphic-counter nobody">
+                    <div class="col-xs-3 col-left">
                         <div class="wrapper">
                             <i class="flaticon-dancing1 people-servicing"></i>
                             <span class="people-servicing-serial">12</span>
                         </div>
                     </div>
-                    <div class="col-xs-6">
-                        <div class="people-line">
-                            <span class="flaticon-frontal7 people-waiting"></span>
-                            <span class="flaticon-frontal7 people-waiting"></span>
-                            <span class="flaticon-frontal7 people-waiting"></span>
-                            <span class="flaticon-frontal7 people-waiting"></span>
-                            <span class="flaticon-frontal7 people-waiting"></span>
+                    <div class="col-xs-6 col-center">
+                        <div class="people-line folded">
                         </div>
                     </div>
-                    <div class="col-xs-3">
+                    <div class="col-xs-3 col-right">
                         <div class="wrapper">
                             <i class="flaticon-man41 people-checker"></i>
                             <span class="people-checker-serial">25</span>
@@ -109,58 +104,134 @@
                         <span class="icon-bar"></span>
                     </button>
                     <a class="navbar-brand" href="#">順番チェッカー</a>
+                    <a class="btn btn-default navbar-btn" id="addP">+</a>
+                    <a class="btn btn-default navbar-btn" id="removeP">-</a>
+                    <a class="btn btn-default navbar-btn" id="foldP">・・・</a>
                 </div>
             </div>
         </div>
     </nav>
 
     <script>
-    $(document).ready(function() {    
-       var $pServicing = $('.people-servicing');
-       var $pLine = $('.people-line');
-       var $pWaiting = $('.people-waiting');
-       var $pChecker = $('.people-checker');
-        
+    $(document).ready(function() {
+        var $graphicCounter = $('.graphic-counter');
+        var $pServicing = $('.people-servicing');
+        var $pLine = $('.people-line');
+        var $pWaiting = $('.people-waiting');
+        var $pChecker = $('.people-checker');
+        var $add = $('#addP');
+        var $remove = $('#removeP');
+        var $foldP = $('#foldP');
 
+        // 輪到你的提示動畫
         $pServicing.bind('click', function() {
             $(this).toggleClass('animated bounce');
             $(this).one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function() {
                 $(this).removeClass('animated bounce');
             });
         });
-        $pWaiting.bind('click', function() {
-            var $that = $(this);
-            $that.animate({width: 'toggle'});
-            tools.wait( function() {
-                $that.remove();
-                if (tools.hasNoChild($pLine[0])) {
-                    $pLine.removeClass('.nobody').addClass('nobody');
-                }
-            }, 1000);
-        });
-        $pChecker.bind('click', function() {
 
-            $pLine.removeClass('nobody').append('<span class="flaticon-frontal7 people-waiting"></span>');
+        // 增加,減少小人,顯示隱藏・・・
+        $remove.bind('click', function() {
+            $pLine.children().last().remove();
+        })
+        $add.bind('click', function() {
+            _create.pWaiting($pLine[0]);
         });
-        $('p').click( function(){
+        $foldP.bind('click', function() {
+            $pLine.toggleClass('folded');
+        })
+
+        // 收折展開 店家說明內文
+        $('p').click(function() {
             $(this).toggleClass('folding');
         });
+
+        // 提示訊息
         $('.counter').append('<h2 class="toggler">あなたの順番になります！</h2>');
         $('.toggler').toggle();
-        $('.navbar-brand').click( function(){
+        $('.navbar-brand').click(function() {
             $('body').toggleClass('checker-alert');
             $('.counter h2').toggle();
-        });
+        });        
+        
+        // 確認隊列裡面有沒有人，沒人的話加上 nobody 屬性
+        function isNobody() {
+            $pLine[0].addEventListener('DOMSubtreeModified', function() {
+                if (tools.hasNoChild($pLine[0])){ 
+                    $graphicCounter.addClass('nobody');
+                } else { 
+                    $graphicCounter.removeClass('nobody');
+                }
+                console.log('modified');
+            });
+        }
+        isNobody();
 
+        // 建立element
+        var _create = {
+            pWaiting: function (e) {
+                var node = document.createElement("span");
+                node.className = node.className + "flaticon-frontal7 people-waiting";
+                node.onclick = function(){ this.remove(); };
+                e.appendChild(node);
+            }
+        };
+        // 動畫 Object
+        var anime = {
+            bounce: function(elem, iterations) {
+                var keyframes = [
+                    {transform: 'translate3d(0,0,0)', offset: 0}, 
+                    {transform: 'translate3d(0,0,0)', offset: 0.2},
+                    {transform: 'translate3d(0,-30px,0)', offset: 0.4},
+                    {transform: 'translate3d(0,-30px,0)', offset: 0.43},
+                    {transform: 'translate3d(0,0,0)', offset: 0.53},
+                    {transform: 'translate3d(0,-15px,0)', offset: 0.7},
+                    {transform: 'translate3d(0,0,0)', offset: 0.8},
+                    {transform: 'translate3d(0,-15px,0)', offset: 0.9},
+                    {transform: 'translate3d(0,0,0)', offset: 1}];
+                var timing = {duration: 900, iterations: iterations, easing: 'cubic-bezier(0.215, 0.610, 0.355, 1.000)'};
+                return elem.animate(keyframes, timing);
+            },
+            flash: function(elem, iterations) {
+                var keyframes = [
+                    {opacity: '1', offset: 0}, 
+                    {opacity: '0', offset: 0.25}, 
+                    {opacity: '1', offset: 0.5}, 
+                    {opacity: '0', offset: 0.75}, 
+                    {opacity: '1', offset: 1}];
+                var timing = {duration: 900, iterations: iterations};
+                return elem.animate(keyframes, timing);
+            },
+            fadeOutLeft:  function(elem, iterations) {
+                var keyframes = [
+                    {opacity: '0', transform: 'translate3d(-100%, 0, 0)', offset: 0}, 
+                    {opacity: '1', transform: 'none', offset: 1}];
+                var timing = {duration: 900, iterations: iterations};
+                return elem.animate(keyframes, timing);
+            },
+            toggleOutNobody: function(elem, iterations, direction) {
+                var keyframes = [
+                    {transform: 'scaleX(1)', offset: 0},                     
+                    {transform: 'scaleX(0)', offset: 1}];
+                var timing = {duration: 900, iterations: iterations, fill: 'forwards', direction: direction};
+                return elem.animate(keyframes, timing);
+            }
+        };
+        // 小工具
         var tools = {
-            wait: function(e, time){
-                setTimeout( function(){ e(); }, time);
+            wait: function(e, time) {
+                setTimeout(function() {
+                    e();
+                }, time);
             },
             hasNoChild: function(e) {
                 var count = e.childElementCount;
+                console.log('linecount: '+ count);
                 return count === 0 ? true : false;
             }
         };
+
     });
     </script>
 </body>
