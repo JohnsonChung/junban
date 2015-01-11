@@ -198,11 +198,22 @@ body {
 .container-checker {
     // forth block : graphic-counter
     .graphic-counter {
+        position: relative;        
         height: 110px;
         padding-top: 5px;
         overflow: hidden;
         color: @brand-primary;
 
+        > [class^="col-"] {
+            transition: all 0.3s linear;
+        }
+        .col-right {
+        }
+        &.nobody { 
+            .col-left{ transform: scaleX(0); dispaly: none }
+            .col-center{ transform: scaleX(0); dispaly: none }      
+            .col-right{ position:absolute; left: 50%; transform: translateX(-50%);}            
+        }
         [class^="flaticon-"]:before {
             font-size: 46em / 14; // 46px(flaticon fz) / 14px(default fz) = 3.285714em
             margin: 0;
@@ -255,14 +266,15 @@ body {
                 width: 90px;
                 .box-shadow(~"inset -58px 0px 30px -25px rgba(255,255,255,1)");
             }
-            &:after {
-                content: '...';
-                position: absolute;
-                left: 100%; top: 5px;
-                font-weight: bold;
-                font-size: 35px;
+            &.folded {
+                &:after {
+                    content: '...';
+                    position: absolute;
+                    left: 100%; top: 5px;
+                    font-weight: bold;
+                    font-size: 35px;
+                }
             }
-
             .people-waiting {     
                 display: table-cell;                                          
                 text-align: center;

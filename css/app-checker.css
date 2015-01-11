@@ -2990,10 +2990,27 @@ body {
   font-size: 1.6em;
 }
 .container-checker .graphic-counter {
+  position: relative;
   height: 110px;
   padding-top: 5px;
   overflow: hidden;
   color: #428bca;
+}
+.container-checker .graphic-counter > [class^="col-"] {
+  transition: all 0.3s linear;
+}
+.container-checker .graphic-counter.nobody .col-left {
+  transform: scaleX(0);
+  dispaly: none;
+}
+.container-checker .graphic-counter.nobody .col-center {
+  transform: scaleX(0);
+  dispaly: none;
+}
+.container-checker .graphic-counter.nobody .col-right {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
 }
 .container-checker .graphic-counter [class^="flaticon-"]:before {
   font-size: 3.28571429em;
@@ -3049,7 +3066,7 @@ body {
   -moz-box-shadow: inset -58px 0px 30px -25px rgba(255,255,255,1);
   box-shadow: inset -58px 0px 30px -25px rgba(255,255,255,1);
 }
-.container-checker .graphic-counter .people-line:after {
+.container-checker .graphic-counter .people-line.folded:after {
   content: '...';
   position: absolute;
   left: 100%;
