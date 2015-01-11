@@ -19,11 +19,10 @@
     <link type="text/css" href="svg/flaticon/flaticon.css" rel="stylesheet">
 
     <!-- stylesheet -->
-    <link rel="stylesheet/less" type="text/css" href="css/app-checker.less">
+    <link rel="stylesheet" type="text/css" href="css/app-checker.css">
 
     <!-- script -->
     <script type="text/javascript" src="js/jquery.min.js"></script>
-    <script type="text/javascript" src="js/less-1.7.3.min.js"></script>
 
     <!-- Clear local-Storage -->
     <script>
@@ -116,35 +115,53 @@
     </nav>
 
     <script>
-    $(document).ready(function() {
+    $(document).ready(function() {    
+       var $pServicing = $('.people-servicing');
+       var $pLine = $('.people-line');
+       var $pWaiting = $('.people-waiting');
+       var $pChecker = $('.people-checker');
+        
 
-        $('.people-servicing').bind('click', function() {
+        $pServicing.bind('click', function() {
             $(this).toggleClass('animated bounce');
             $(this).one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function() {
                 $(this).removeClass('animated bounce');
             });
         });
-        $('.people-waiting').bind('click', function() {
-            $(this).animate({
-                width: 'toggle'
-            });
+        $pWaiting.bind('click', function() {
+            var $that = $(this);
+            $that.animate({width: 'toggle'});
+            tools.wait( function() {
+                $that.remove();
+                if (tools.hasNoChild($pLine[0])) {
+                    $pLine.removeClass('.nobody').addClass('nobody');
+                }
+            }, 1000);
         });
+        $pChecker.bind('click', function() {
 
-        $('.people-checker').bind('click', function() {
-            $('.people-line').append('<span class="flaticon-frontal7 people-waiting"></span>');
+            $pLine.removeClass('nobody').append('<span class="flaticon-frontal7 people-waiting"></span>');
         });
-
         $('p').click( function(){
             $(this).toggleClass('folding');
-        })
-
+        });
         $('.counter').append('<h2 class="toggler">あなたの順番になります！</h2>');
         $('.toggler').toggle();
         $('.navbar-brand').click( function(){
             $('body').toggleClass('checker-alert');
             $('.counter h2').toggle();
-        })
-    })
+        });
+
+        var tools = {
+            wait: function(e, time){
+                setTimeout( function(){ e(); }, time);
+            },
+            hasNoChild: function(e) {
+                var count = e.childElementCount;
+                return count === 0 ? true : false;
+            }
+        };
+    });
     </script>
 </body>
 
