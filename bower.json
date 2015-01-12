@@ -12,10 +12,9 @@
   ],
   "dependencies": {
     "jquery": "latest",
-    "less": "~1.7.3",
+    "less": "latest",
     "bootstrap": "latest",
     "holderjs": "latest",
-    "lesshat": "~3.0.1",
-    "spin.js": "~2.0.1"
+    "lesshat": "latest"
   }
 }

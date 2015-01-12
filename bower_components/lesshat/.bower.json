@@ -20,6 +20,6 @@
     "commit": "ee58f199f7a8d787198046036345732ac84f4398"
   },
   "_source": "git://github.com/csshat/lesshat.git",
-  "_target": "~3.0.1",
+  "_target": "*",
   "_originalSource": "lesshat"
 }
