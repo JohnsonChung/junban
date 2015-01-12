@@ -1,16 +1,13 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
     <meta charset="utf-8">
     <title>Checker</title>
-    <meta charset="utf-8">
     <meta name="description" content="">
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="viewport" content="width=device-width , initial-scale=1, maximum-scale=1, user-scalable=no">
-
-    <link rel="livePage" href="css/app-checker.less" />
 
     <!-- boilerplate -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -23,12 +20,6 @@
 
     <!-- script -->
     <script type="text/javascript" src="js/jquery.min.js"></script>
-
-    <!-- Clear local-Storage -->
-    <script>
-    /* Provisory for dev environment: */
-    // localStorage.clear();
-    </script>
 </head>
 
 <body>
@@ -60,19 +51,19 @@
         <div class="row vertical-block">
             <div class="panel vertical-block clearfix checker-alert-display">
                 <div class="col-md-12 col-center centered-in-unknow">
-                    <div class="counter centered">
-                        <h2>先に待っている方</h2>
+                    <div class="counter centered" id="tipContent" tip-status="waiting">
+                        <!-- <h2>先に待っている方</h2>
                         <h2>あと
                             <span class="count-people-before">13</span>
                             <span class="count-unit">組</span>
-                        </h2>
+                        </h2> -->
                     </div>
                 </div>
             </div>
         </div>
         <div class="row">
             <div class="panel clearfix">
-                <div class="graphic-counter nobody">
+                <div class="graphic-counter">
                     <div class="col-xs-3 col-left">
                         <div class="wrapper">
                             <i class="flaticon-dancing1 people-servicing"></i>
@@ -81,6 +72,8 @@
                     </div>
                     <div class="col-xs-6 col-center">
                         <div class="people-line folded">
+                            <span class="flaticon-frontal7 people-waiting"></span>
+                            <span class="flaticon-frontal7 people-waiting"></span>
                         </div>
                     </div>
                     <div class="col-xs-3 col-right">
@@ -112,18 +105,52 @@
         </div>
     </nav>
 
-    <script>
-    $(document).ready(function() {
-        var $graphicCounter = $('.graphic-counter');
+    <script>        
+    var $tipContent = document.querySelector('#tipContent');
+
+    var $graphicCounter = $('.graphic-counter');
         var $pServicing = $('.people-servicing');
         var $pLine = $('.people-line');
         var $pWaiting = $('.people-waiting');
         var $pChecker = $('.people-checker');
-        var $add = $('#addP');
-        var $remove = $('#removeP');
-        var $foldP = $('#foldP');
 
-        // 輪到你的提示動畫
+    var $add = $('#addP');
+    var $remove = $('#removeP');
+    var $foldP = $('#foldP');
+
+    // 不同狀態的，提示訊息內容
+    var tipContents = {
+        waiting:    "<h2>先に待っている方</h2><h2>あと<span class='count-people-before'>13</span><span class='count-unit'>組</span></h2>", // 在你前面還有N組人
+        nextisyou: "<h2>あなたの番は次です！</h2>", // 下一個就是你了
+        isyou: "<h1>あなたの順番になります！</h1>" // 輪到你了
+    };
+
+    $(document).ready(function() {
+        // 更改提示訊息內容 依據 #tipContent[tip-status] 的 value 來更改
+        function changeTip(t) {            
+            var attr = $tipContent.getAttribute('tip-status');
+            console.log('tip-status: ' + attr + ' || ' + tipContents[attr]);
+            if(t) {
+                $tipContent.innerHTML = tipContents[t];
+                $tipContent.setAttribute('tip-status', t );                
+            } else { 
+                $tipContent.innerHTML = tipContents[attr];
+            }
+        }
+        changeTip();
+
+        // 增加,減少小人,顯示隱藏・・・
+        $remove.bind('click', function() {
+            $pLine.children().last().remove();
+        });
+        $add.bind('click', function() {
+            _create.pWaiting($pLine[0]);
+        });
+        $foldP.bind('click', function() {
+            $pLine.toggleClass('folded');
+        });
+
+        // 讓左下方小人跳的動畫
         $pServicing.bind('click', function() {
             $(this).toggleClass('animated bounce');
             $(this).one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function() {
@@ -131,28 +158,17 @@
             });
         });
 
-        // 增加,減少小人,顯示隱藏・・・
-        $remove.bind('click', function() {
-            $pLine.children().last().remove();
-        })
-        $add.bind('click', function() {
-            _create.pWaiting($pLine[0]);
-        });
-        $foldP.bind('click', function() {
-            $pLine.toggleClass('folded');
-        })
-
         // 收折展開 店家說明內文
         $('p').click(function() {
             $(this).toggleClass('folding');
         });
 
-        // 提示訊息
-        $('.counter').append('<h2 class="toggler">あなたの順番になります！</h2>');
-        $('.toggler').toggle();
-        $('.navbar-brand').click(function() {
-            $('body').toggleClass('checker-alert');
-            $('.counter h2').toggle();
+        // 輪到你了!
+        $('.navbar-brand').click(function() {            
+            $('body').toggleClass('checker-alert');            
+            if ( $('body').hasClass('checker-alert') ) {                
+                changeTip('isyou')                
+            } else { changeTip('waiting') }      
         });        
         
         // 確認隊列裡面有沒有人，沒人的話加上 nobody 屬性
@@ -160,8 +176,10 @@
             $pLine[0].addEventListener('DOMSubtreeModified', function() {
                 if (tools.hasNoChild($pLine[0])){ 
                     $graphicCounter.addClass('nobody');
+                    changeTip('nextisyou')
                 } else { 
                     $graphicCounter.removeClass('nobody');
+                    changeTip('waiting')
                 }
                 console.log('modified');
             });
