@@ -72,8 +72,8 @@
                     </div>
                     <div class="col-xs-6 col-center">
                         <div class="people-line folded">
-                            <div class="people-waiting"></div>
-                            <div class="people-waiting"></div>
+                            <span class="flaticon-frontal7 people-waiting"></span>
+                            <span class="flaticon-frontal7 people-waiting"></span>
                         </div>
                     </div>
                     <div class="col-xs-3 col-right">
@@ -148,7 +148,7 @@
             });
             $foldP.bind('click', function() {
                 $pLine.toggleClass('folded');
-                // foreceRender(document.querySelector('.people-line'));
+                foreceRender($graphicCounter[0]);
             });
 
             // 輪到你了! click 左上角 brand 切換 checker-alert 狀態
@@ -183,7 +183,7 @@
                         $graphicCounter.removeClass('nobody');
                         changeTip('waiting')
                     }
-                    foreceRender(document.querySelector('.graphic-counter .col-center'));
+                    foreceRender($graphicCounter[0]);
                     console.log('modified');
                 });
             }
@@ -194,13 +194,12 @@
                 sel.style.display='none';
                 sel.offsetHeight; // no need to store this anywhere, the reference is enough
                 sel.style.display='';
-                console.log('Forece Rendered')
             }
             // 建立element
             var _create = {
                 pWaiting: function (e) {
-                    var node = document.createElement("div");
-                    node.className = node.className + "people-waiting";
+                    var node = document.createElement("span");
+                    node.className = node.className + "flaticon-frontal7 people-waiting";
                     e.appendChild(node);
                 }
             };
