@@ -3050,9 +3050,10 @@ body {
 }
 .container-checker .graphic-counter .people-line {
   position: relative;
-  display: table;
+  display: flex;
   margin-left: -20px;
   width: 100%;
+  justify-content: space-around;
   white-space: nowrap;
 }
 .container-checker .graphic-counter .people-line:before {
@@ -3075,11 +3076,13 @@ body {
   font-size: 35px;
 }
 .container-checker .graphic-counter .people-line .people-waiting {
-  display: table-cell;
   text-align: center;
-}
-.container-checker .graphic-counter .people-line .people-waiting:before {
-  margin: 0 -20px;
+  width: 45px;
+  height: 48px;
+  background: transparent;
+  background-image: url(../svg/flaticon-frontal7.svg);
+  background-size: auto 46px;
+  background-position: center center;
 }
 .container-checker .graphic-counter .wrapper {
   text-align: center;

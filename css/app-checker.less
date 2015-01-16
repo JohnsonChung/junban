@@ -250,9 +250,10 @@ body {
         }
         .people-line {
             position: relative; 
-            display: table;
+            display: flex;
             margin-left: -20px;
             width: 100%;
+            justify-content: space-around;
             
             white-space: nowrap;
 
@@ -274,11 +275,17 @@ body {
                 }
             }
             .people-waiting {     
-                display: table-cell;                                          
+                // display: table-cell;                                          
                 text-align: center;
+                width: 45px;
+                height: 48px;
+                background: transparent;
+                background-image: url(../svg/flaticon-frontal7.svg);
+                background-size: auto 46px;    
+                background-position: center center; 
 
                 &:before {
-                    margin: 0 -20px;
+                    // margin: 0 -20px;
                 }
             }
         }
@@ -314,9 +321,6 @@ body {
             -webkit-animation: bounce 2s infinite;      
         }        
     }
-}
-
-body {
 }
 
     
