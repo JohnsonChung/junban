@@ -1,7 +1,6 @@
 // Vender =====================================
 @import '../css/vender/lesshat.less';
 @import '../css/vender/variables.less';
-@import '../css/animate.less';
 
 // Preset =====================================
 @import '../css/utility.less';
@@ -37,7 +36,6 @@ body {
     .row {
         display: table-row;   
         margin: 0; 
-        .animated; .flipInX;
         
         .panel {
             .border-radius(0);
@@ -300,17 +298,14 @@ body {
         margin: 1em auto;      
     }        
     .panel {
-        .animated; .flipOutX;
 
         &.checker-alert-display {
             -webkit-animation-name: none;            
         }
         label.serial {
-            .animated;
             -webkit-animation: bounce 2s 2s infinite; 
         }
         .counter {
-            .animated;
             -webkit-animation: bounce 2s infinite;      
         }        
     }

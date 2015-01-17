@@ -148,7 +148,6 @@
             });
             $foldP.bind('click', function() {
                 $pLine.toggleClass('folded');
-                foreceRender($graphicCounter[0]);
             });
 
             // 輪到你了! click 左上角 brand 切換 checker-alert 狀態
@@ -183,7 +182,6 @@
                         $graphicCounter.removeClass('nobody');
                         changeTip('waiting')
                     }
-                    foreceRender($graphicCounter[0]);
                     console.log('modified');
                 });
             }
