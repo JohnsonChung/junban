@@ -32,7 +32,10 @@
             </div>
             <div class="panel clearfix checker-alert-display">
                 <div class="col-md-12">
-                    <p class="folding">本日のご来店ありがとうございます。
+                    <p class="folding">
+                    <a class="btn btn-default btn-xs" id="addP">+</a>
+                    <a class="btn btn-default btn-xs" id="removeP">-</a>
+                    <a class="btn btn-default btn-xs" id="foldP">・・・</a>本日のご来店ありがとうございます。
                         <br>お客様の順番を下記の通り登録いたしました。
                         <br>お呼び出しの順番が近付きましたら、受付の近くでお待ちいただきますようお願い致します。</p>
                 </div>
@@ -89,17 +92,8 @@
     <nav>
         <div class="navbar navbar-default navbar-fixed-top">
             <div class="container-fluid">
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <a class="navbar-brand" href="#">順番チェッカー</a>
-                    <a class="btn btn-default navbar-btn" id="addP">+</a>
-                    <a class="btn btn-default navbar-btn" id="removeP">-</a>
-                    <a class="btn btn-default navbar-btn" id="foldP">・・・</a>
+                <div class="navbar-header text-center">
+                    <img class="brand navbar-btn" src="img/logo-combine.png" height="34" width="auto" alt="">
                 </div>
             </div>
         </div>
@@ -122,7 +116,7 @@
         var tipContents = {
             waiting:    "<h2>先に待っている方</h2><h2>あと<span class='count-people-before'>13</span><span class='count-unit'>組</span></h2>", // 在你前面還有N組人
             nextisyou: "<h2>あなたの番は次です！</h2>", // 下一個就是你了
-            isyou: "<h1>あなたの順番になります！</h1>" // 輪到你了
+            isyou: "<h1>あなたの順番です！</h1>" // 輪到你了
         };
 
         $(document).ready(function() {
@@ -150,8 +144,8 @@
                 $pLine.toggleClass('folded');
             });
 
-            // 輪到你了! click 左上角 brand 切換 checker-alert 狀態
-            $('.navbar-brand').click(function() {            
+            // 輪到你了! click brand 切換 checker-alert 狀態
+            $('.brand').click(function() {            
                 $('body').toggleClass('checker-alert');            
                 if ( $('body').hasClass('checker-alert') ) {                
                     changeTip('isyou')                
