@@ -20,9 +20,9 @@ body {
     padding: 0 10px;
     padding-top: 55px;
     background-color: #ccc;
-
-    font-family: 'メイリオ', sans-serif;
-        .transition(~"all 0.4s ease-out");
+    font-family: Verdana, Roboto, MotoyaLMaru, 'Droid Sans', 'メイリオ', Meiryo, 'ＭＳ Ｐゴシック', 'ヒラギノ角ゴ Pro W3', 'Hiragino Kaku Gothic ProN', sans-serif;
+    // font-family:  "モトヤLシーダ3等幅", MotoyaLCedar,"ProN W3", HiraKakuProN-W3, "MS Pゴシック", "MS PGothic", Verdana, sans-serif;
+    .transition(~"all 0.4s ease-out");
 }
 
 .container-checker {
@@ -203,11 +203,11 @@ body {
         color: @brand-primary;
 
         > [class^="col-"] {
-            transition: all 0.3s linear;
+            transition: all 0.3s linear;            
         }
         &.nobody { 
             .col-left{ transform: scaleX(0); dispaly: none }
-            .col-center{ transform: scaleX(0); dispaly: none }      
+            .col-center{ transform: scaleX(0); dispaly: none;}      
             .col-right{ position:absolute; left: 50%; transform: translateX(-50%);}            
         }
         [class^="flaticon-"]:before {
@@ -216,7 +216,7 @@ body {
         }
         [class$="-serial"]:before{
             position: absolute;
-            top: -28px;
+            top: -2.2em;
             content: 'No.';
             font-size: 0.5em;            
         }
@@ -247,12 +247,13 @@ body {
             text-align: center;
         }
         .people-line {
-            position: relative; 
-            display: table;
+            position: relative;             
             margin-left: -20px;
             width: 100%;
-            
-            white-space: nowrap;
+            white-space: nowrap;            
+            .display(flex);
+            .justify-content(space-around);
+
 
             &:before {
                 content: '';
@@ -262,7 +263,7 @@ body {
                 width: 90px;
                 .box-shadow(~"inset -58px 0px 30px -25px rgba(255,255,255,1)");
             }
-            &.folded {
+            &.folded { 
                 &:after {
                     content: '...';
                     position: absolute;
@@ -271,8 +272,7 @@ body {
                     font-size: 35px;
                 }
             }
-            .people-waiting {     
-                display: table-cell;                                          
+            .people-waiting {                                         
                 text-align: center;
 
                 &:before {

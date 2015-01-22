@@ -44,7 +44,7 @@ body {
   padding: 0 10px;
   padding-top: 55px;
   background-color: #ccc;
-  font-family: 'メイリオ', sans-serif;
+  font-family: Verdana, Roboto, MotoyaLMaru, 'Droid Sans', 'メイリオ', Meiryo, 'ＭＳ Ｐゴシック', 'ヒラギノ角ゴ Pro W3', 'Hiragino Kaku Gothic ProN', sans-serif;
   -webkit-transition: all 0.4s ease-out;
   -moz-transition: all 0.4s ease-out;
   -o-transition: all 0.4s ease-out;
@@ -235,7 +235,7 @@ body {
 }
 .container-checker .graphic-counter [class$="-serial"]:before {
   position: absolute;
-  top: -28px;
+  top: -2.2em;
   content: 'No.';
   font-size: 0.5em;
 }
@@ -267,10 +267,19 @@ body {
 }
 .container-checker .graphic-counter .people-line {
   position: relative;
-  display: table;
   margin-left: -20px;
   width: 100%;
   white-space: nowrap;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -moz-box-pack: justify;
+  -ms-flex-pack: distribute;
+  -webkit-justify-content: space-around;
+  justify-content: space-around;
 }
 .container-checker .graphic-counter .people-line:before {
   content: '';
@@ -292,7 +301,6 @@ body {
   font-size: 35px;
 }
 .container-checker .graphic-counter .people-line .people-waiting {
-  display: table-cell;
   text-align: center;
 }
 .container-checker .graphic-counter .people-line .people-waiting:before {

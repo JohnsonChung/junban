@@ -4,6 +4,10 @@
 		"selected_items":
 		[
 			[
+				"logo",
+				"logo-combine.png	w:314 h:46"
+			],
+			[
 				"log",
 				"logo-cut.png	w:160 h:268"
 			],
@@ -236,18 +240,26 @@
 			}
 		},
 		{
-			"file": "template/template-index-statistics.html",
+			"file": "app-checker.html",
 			"settings":
 			{
-				"buffer_size": 229,
+				"buffer_size": 10812,
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"contents": "\n# 設定項目_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/\n# 普通は特に設定する必要はありません。\nclass Game_Actor\n  CREATE_KS_METHOD = true# minus_state_set  add_state  remove_state  をエリアス用に定義する設定\nend\nclass Game_Enemy\n  CREATE_KS_METHOD = true# add_state  remove_state  をエリアス用に定義する設定\nend\nclass Numeric\n  # 何もない。と見なすタイルＩＤ。0はタイルセットＢの左上。\n  # 1544は、タイルセットＡの壁オートタイルの下にある、黒塗りの１マス下。\n  BLANK_TILE_IDS = [0,1544]\nend\n\n=begin\n任意のオブジェクトクラスに、メモを設定するためのメソッドを定義できます。\n設定の一部といえるのでここに書きますが、結構な文章量になるであろう事から\n実際には別のセクションにまとめて記述した方が良いでしょう。\n\n例）アクター(RPG::Actor)に、ＩＤに応じたメモを設定するメソッド。\nclass RPG::Actor\n  def get_note(id = @id)# RPG::Actor\n    result = Vocab::EmpStr\n    case id\n    when 1\nresult = \"\n<通常攻撃 207>\n<選択攻撃 -1 207>\n<追加攻撃属性 15 40>\n<属性強度 15,40:50>\n<対弱点耐性 15,40:80>\n<行動毎ステート 255:30>\n\"\n    when 3\nresult = \"\n<通常攻撃 372>\n<選択攻撃 -1 372>\n<被弾毎ステート 256:50>\n\"\n    end\n    return result\n  end\nend\n=end\n\n# 設定終了_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/\n\n\n=begin\n\n★ks_基本スクリプト\n最終更新日 2011/01/13\n2011/01/13  (Array).or?(target_array) 系の説明と機能が変だったので変更。\n2011/01/12  Array･Stringクラスに新メソッド。\n\n□===制作・著作===□\nMaidensnowOnline  暴兎\n単体では特に機能のないスクリプトなので、著作権表記は必要ありません。\n\n□===配置場所===□\nMaidensowOnline 製スクリプトの中で最も上、\n可能な限り\"▼ 素材\"の下、近くに配置してください。\n\n□===説明・使用方法===□\nMaidensnowOnlineでよく使用されているメソッドを集めたもの。\nほかのスクリプトの前提になることが多い。\n\nセーブデータをロードした際に、各オブジェクトに対して\n新たなインスタンス変数を必要に応じて追加する機能の基礎部分を含みます。\n\nまた、あらゆるオブジェクトにメモ(@note)を定義、参照できるようになります。\nGame_Actor、Game_Enemyに関しては、それぞれ対応するRPG::Actor、RPG::Enemyの\nメモを返すように定義されています。\n\n\n\n□===新規定義している主なメソッド===□\nGame_Actor\n  add_state\n  remove_state\n  minus_state_set\nGame_Enemy\n  add_state\n  remove_state\n(これ以降のメソッドでエリアスするために、空メソッドを新規定義しています。)\n\nString\n  clear\n(機能的には最低限なので、他で同じ機能がある場合はコメントアウトしてください)\n\n\n\n□===利用できる新規メソッド===□\n\nマップ名を取得する\n  $game_map.name(map_id)\n\n指定した座標のマップタイルＩＤを取得する\n  $game_map.r_dat(x,y,z)  # 座標を round_x(x) round_y(y) で判定する。\n  $game_map.m_dat(x,y,z)  # round_ の判定を行わず、軽い。\n指定した座標のマップタイルＩＤを取得する。オートタイルなら基本タイルのＩＤを取得。\n  $game_map.b_dat(x,y,z)  # 座標を round_x(x) round_y(y) で判定する。\n  $game_map.mb_dat(x,y,z)  # round_ の判定を行わず、軽い。\n\nEquips[slot]等と同様の機能を持つが、配列を作成しないので処理が軽い。\n  (Game_Actor).equip(slot)\n  (Game_Actor).weapon(slot)\n  (Game_Actor).armor(slot)\n\n(target_array & self) == judge_array と同様の判定を、新たな配列を生成せずに行う。\nただし、配列内の要素の順番は考慮しない。\n  (Array).and?(target_array, judge_array)\n(target_array & self).empty? と同様の（略\n  (Array).and_empty?(target_array)\n  \n!(target_array | self) == judge_array と同様の（略\n  (Array).or?(target_array, judge_array)\n  \n配列の中で、\"最小値\"よりも後で値がnilの位置を返す。\n  (Array).first_free_pos(最小値)\n上のハッシュ版。他の数値以外のキーは考慮しない。\n  (Hash).first_free_key(最小値)\n\n新規クラス Hash_And_Array\n  keys values の返り値を使い捨てではなく、記録してある配列によって返す。\n\nが使えます。\n\n\nまた、一時計算用の配列やハッシュを定数で保持するようになっています。\nmodule Vocab  内の記述を読んで、使ってみようと思った方は使ってみてください。\n詳しい解説や注意点は、ブログの\nhttp://maidensnow.blog100.fc2.com/blog-entry-11.html\nを参照してください。\n若干ややこしいですが、毎フレーム配列やハッシュを返すようなメソッドに\n組み込む事でかなりの軽量化が可能になるようです。\n\n=end\n\n\n$imported = {} unless $imported\n\nmodule Vocab\n  PerStr = \"%s\"\n  EmpStr = \"\"\n  EmpAry = []\n  EmpHas = {}\n  MAXER = []\n  MINER = []\n  if $TEST\n    PerStr.freeze\n    EmpStr.freeze\n    EmpAry.freeze\n    EmpHas.freeze\n  end\n  def self.maxer\n    return MAXER.clear\n  end\n  def self.miner\n    return MINER.clear\n  end\n  TmpStr = \"\"\n  TmpAry = []\n  (5).times do TmpAry << [] end\n  TmpHas = []\n  (2).times do TmpHas << {} end\n  def self.t_ary(i)\n    return TmpAry[i].clear\n  end\n  def self.t_has(i)\n    return TmpHas[i].clear\n  end\n  \n  C_Ary = []\n  @@e_ary_index = -1\n  (20).times do C_Ary << [] end\n  C_AryGI = []\n  @@e_arygi_index = -1\n  (10).times do C_AryGI << [] end\n  C_AryEQ = []\n  @@e_aryeq_index = -1\n  (10).times do C_AryEQ << [] end\n  C_Ary2 = []\n  @@e_ary2_index = -1\n  (5).times do C_Ary2 << [] end\n  C_Has = []\n  @@c_has_index = -1\n  (5).times do C_Has << {} end\n  def Vocab.e_ary# 値がしばらく保持される必要があるものに使用する\n    @@e_ary_index = (@@e_ary_index + 1) % C_Ary.size\n    return C_Ary[@@e_ary_index].clear\n  end\n  def Vocab.e_arygi# Game_Item クラスの高回転データに使う\n    @@e_arygi_index = (@@e_arygi_index + 1) % C_AryGI.size\n    return C_AryGI[@@e_arygi_index].clear\n  end\n  def Vocab.e_aryeq# Game_Actor クラスの高回転な装備データに使う\n    @@e_aryeq_index = (@@e_aryeq_index + 1) % C_AryEQ.size\n    return C_AryEQ[@@e_aryeq_index].clear\n  end\n  def Vocab.e_ary2# 未使用\n    @@e_ary2_index = (@@e_ary2_index + 1) % C_Ary2.size\n    return C_Ary2[@@e_ary2_index].clear\n  end\n  def Vocab.e_has\n    @@c_has_index = (@@c_has_index + 1) % C_Has.size\n    return C_Has[@@c_has_index].clear\n  end\nend\n\n\nmodule Kernel\n  def note# Kernel\n    if @note == nil\n      @note = get_note(@id)\n    end\n    return @note\n  end\n  def get_note(id = @id)# Kernel\n    return Vocab::EmpStr\n  end\n  def pm(*args)# Kernel\n    return unless $TEST\n    $scene.message(\"#{args}\")\n    p *args if Input::press?(Input::F8) && $scene.is_a?(Scene_Map)\n    #p *args\n  end\n  def pp(*args)# Kernel\n    return unless $TEST\n    $scene.message(\"#{args}\")\n    p *args if Input::press?(Input::F7) && $scene.is_a?(Scene_Map)\n    #p *args\n  end\n  def non_action# Kernel\n  end\n  def serial_obj# Kernel\n    return self\n  end\n  def serial_id# Kernel\n    return self\n  end\n  def id_to_battler\n    return self\n  end\n  def real_name\n    return @real_name if @real_name\n    return @name\n  end\n  def description\n    return Vocab::EmpStr if @description == nil\n    return @description\n  end\n  def create_ks_param_cache# Kernel\n    @__ks_cache_done = true\n    self.note.split(/[\\r\\n]+/).each { |line|\n      judge_note_line(line)\n    }\n  end\n  def judge_note_line(line)# Kernel\n  end\n  def adjust_save_data# Kernel\n  end\nend\n\n\nclass NilClass\n  def <=>(v)# NilClass\n    pp \"#{v} が nil と比較された\", caller\n    return 0 <=> v\n  end\n  def serial_obj# NilClass\n    return nil\n  end\n  def animation_id# NilClass\n    return -1\n  end\n  def name\n    return Vocab::EmpStr\n  end\n  def battler_to_id\n    return 0\n  end\n  def id_to_battler\n    return nil\n  end\nend\n\n\n#==============================================================================\n# ■ Ks_Value_Applyer note:好像是一個控制技能效果的func\n#==============================================================================\nclass Ks_Value_Applyer\n  # 独立関数\n  attr_accessor :value #雙向變數\n  attr_accessor :value2 \n  attr_reader   :target_set #唯獨變數\n  attr_reader   :ignore_set\n  attr_reader   :flags\n  def value\n    return (100 + @value) / 2 if @flags[:half]\n    return @value\n  end\n  def value2\n    return @value2 / 2 if @flags[:half]\n    return @value2\n  end\n  def initialize(value = 100, target_set = [], ignore_set = [], value2 = nil)\n    @value = value\n    @value2 = value2 if value2\n    @target_set = target_set\n    @ignore_set = ignore_set\n    @flags = {}# Ks_Value_Applyer initialize\n  end\n  def valid?(judge_set)\n    if judge_set\n      return false if !@target_set.empty? && (@target_set & judge_set).empty?\n      return false if !@ignore_set.empty? && !(@ignore_set & judge_set).empty?\n    end\n    return true\n  end\n  PER_STR = /\\d+%/ #10進数字\n  TA_E_STR = /属性\\d+/\n  IG_E_STR = /除外\\d+/\n  FLAGS_STR = {\n    /技能無視/=>[:ignore_battler], \n    /とどめ/=>[:need_finish], \n    /命中時/=>[:need_hit], \n    /別目標/=>[:new_target], \n    /無消費/=>[:cost_free], \n    /無条件/=>[:cost_free, :can_use_free], \n    /無判定/=>[:can_use_free], \n  }\n  def make_flags(str)\n    facts = str.split(\",\")\n    vv = facts.find {|str| str =~ PER_STR}\n    vv = 100 unless vv\n    va = facts.find {|str| str =~ TA_E_STR}\n    vi = facts.find {|str| str =~ IG_E_STR}\n    if va\n      vva = []\n      for i in va.scan(/\\d{3}/)\n        vva << i.to_i\n      end\n      va = vva\n    else\n      va = Vocab::EmpAry\n    end\n    if vi\n      vva = []\n        for i in vi.scan(/\\d{3}/)\n          vva << i.to_i\n        end\n      vi = vva\n    else\n      vi = Vocab::EmpAry\n    end\n    @probability = vv.to_i\n    @target_set = va\n    @ignore_set = vi\n    #dat = Ks_Action_Applyer.new(num[0].to_i, vv.to_i, va, vi)\n    facts.each {|str| FLAGS_STR.keys.each {|key|\n      next unless str =~ key\n      for ket in FLAGS_STR[key]\n        if ket.is_a?(Array)\n          set_flag(ket[0], ket[1])\n        else\n          set_flag(ket)\n        end\n      end\n    }}\n    #p vv, va, vi, self\n  end\n  def set_flag(flag, value = true)\n    @flags[flag] = value\n  end\n  def [](flag)\n    return @flags[flag]\n  end\n  def []=(flag, value)\n    @flags[flag] = value\n  end\n  def method_missing(nam, *args)\n    return @flags[nam]\n  end\n  def dup# Ks_Value_Applyer\n    n_obj = super\n    n_obj.instance_variable_set(:@flags, @flags.dup)\n    return n_obj\n  end\nend\n\n#==============================================================================\n# ■ Ks_Action_Applyer\n#==============================================================================\nclass Ks_Action_Applyer < Ks_Value_Applyer\n  attr_accessor :skill_id\n  attr_accessor :probability\n  attr_accessor :element_set\n  attr_reader   :ignore_set\n  attr_reader   :flags\n  attr_accessor :target_set\n  def initialize(skill_id, probability = 100, target_set = Vocab::EmpAry, ignore_set = Vocab::EmpAry)\n    @skill_id = skill_id\n    @probability = probability\n    @target_set = target_set\n    @ignore_set = ignore_set\n    @flags = {}# Ks_Action_Applyer initialize\n  end\n  def skill\n    return $data_skills[@skill_id] if @skill_id > 0\n    return nil \n  end\n  def valid?(user, judge_set = nil, opponent = nil, obj = nil)\n    return false unless rand(100) < @probability\n    return false unless super(judge_set)\n    last_flags = user.set_applyer_flags(self)\n    usable = self.can_use_free || !skill || user.skill_can_use?(skill)\n    user.restre_applyer_flags(last_flags)\n    return usable\n  end\nend\n\n\n\n#==============================================================================\n# ■ Game_Temp\n#==============================================================================\nclass Game_Temp\n  attr_accessor :flags\n  def create_default_flag# Game_Temp 新規定義\n    @flags[:update_objects] = []\n    @flags[:reserved_events] = []\n  end\n  def dispose_window(window)# Game_Temp 新規定義\n    @flags[:update_objects].delete(window)\n  end\nend\n\n\n\n#==============================================================================\n# ■ Game_Party\n#==============================================================================\nclass Game_Party\n  attr_reader   :actors# パーティメンバーIDの配列\nend\n\n\n\n#==============================================================================\n# ■ Game_Troop\n#==============================================================================\nclass Game_Troop\n  def adjust_save_data# Game_Troop\n    super\n    @flags = {} unless @flags# Game_Troop adjust_save_data\n  end\nend\n\n\n\n#==============================================================================\n# ■ Game_Battler\n#==============================================================================\nclass Game_Battler\n  attr_accessor :luncher\n  def adjust_save_data# Game_Battler\n    super\n    @flags = {} unless @flags.is_a?(Hash)# Game_Battler adjust_save_data\n    action.adjust_save_data\n  end\n  def true_weapon(except_free = false) ; return nil ; end# Game_Battler\n  def active_weapon ; return nil ; end# Game_Battler\n  def active_weapon_name ; return Vocab::EmpStr ; end# Game_Battler\n  def hand_symbol(except_free = false)# Game_Battler\n    if @free_hand_exec && !except_free\n      return (@off_hand_exec ? 2 : 1) + @free_hand_exec.object_id * 10\n    end\n    return 2 if @off_hand_exec\n    return 1\n  end\n  def former_action\n    result = @action.dup\n    result.flags = @action.flags.dup\n    return result\n  end\n  def action_swap(former_action)\n    @action = former_action\n    @action.battler = self\n  end\n  def record_hand(obj, reset = true)\n    res = [@off_hand_exec, @free_hand_exec]\n    start_free_hand_attack?(obj) if reset\n    return res\n  end\n  def luncher\n    initialize_luncher\n    return @luncher\n  end\n  def initialize_luncher\n  end\nend\n#==============================================================================\n# ■ KS_Extend_Data\n#==============================================================================\nmodule KS_Extend_Data\n  def create_ks_param_cache# KS_Extend_Battler\n    @minus_state_set = [] unless @minus_state_set.is_a?(Array)\n    super\n  end\nend\n#==============================================================================\n# ■ KS_Extend_Battler\n#==============================================================================\nmodule KS_Extend_Battler\n  attr_reader   :two_swords_style\n  def create_ks_param_cache# KS_Extend_Battler\n    @plus_state_set = [] unless @plus_state_set.is_a?(Array)\n    @__attack_element_set = [1] unless @__attack_element_set.is_a?(Array)\n    @animation_id = 1\n    super\n  end\n  def plus_state_set ; create_ks_param_cache unless @__ks_cache_done\n    return @plus_state_set\n  end\n  def minus_state_set ; create_ks_param_cache unless @__ks_cache_done\n    return @minus_state_set\n  end\nend\n#==============================================================================\n# ■ RPG::Actor\n#==============================================================================\nclass RPG::Actor\n  include KS_Extend_Battler\n  include KS_Extend_Data\n  def create_ks_param_cache ; super ; end# RPG::Actor\n  def hit\n    return 95\n  end\n  def attack_element_set ; create_ks_param_cache unless @__ks_cache_done\n    return @__attack_element_set ; end\n  def animation_id ; create_ks_param_cache unless @__ks_cache_done\n    return @animation_id ; end\nend\nclass RPG::Enemy\n  include KS_Extend_Battler\n  include KS_Extend_Data\n  def create_ks_param_cache ; super ; end# RPG::Enemy\n  def animation_id ; create_ks_param_cache unless @__ks_cache_done\n    return @animation_id ; end\nend\n#==============================================================================\n# ■ RPG::Class\n#==============================================================================\nclass RPG::Class\n  def create_ks_param_cache ; super ; end# RPG::Class\n  def note\n    if @note == nil\n      @note = get_note(@id)\n    end\n    return @note\n  end\n  def get_note(id)\n    return Vocab::EmpStr\n  end\nend\n#==============================================================================\n# ■ Game_Actor\n#==============================================================================\nclass Game_Actor\n  def note#Game_Actor\n    return actor.note\n  end\n  def battler_to_id# Game_Actor 新規定義\n    return id + 1000\n  end\n  def clone# Game_Actor super\n    return Marshal.load(Marshal.dump(self))\n  end\n  def dup# Game_Actor super\n    return Marshal.load(Marshal.dump(self))\n  end\n  def equip(equip_slot, ignore_legal = false)# Game_Actor 新規定義\n    wepmax = two_swords_style ? 2 : 1\n    return weapon(equip_slot, ignore_legal) if equip_slot < wepmax\n    return armor(equip_slot - 1, ignore_legal)\n  end\n  WEAPON_VARIABLES = [:@weapon_id, :@armor1_id, :@luncher, :@weapon2_id]\n  def weapon(equip_slot, ignore_legal = false)# Game_Actor 新規定義\n    equip_slot = equip_slot.abs * -1 if $imported[:real_two_swords_style]\n    id = instance_variable_get(WEAPON_VARIABLES[equip_slot])\n    id = $data_weapons[id] if id.is_a?(Numeric)\n    return id\n  end\n  Armor_Variables = [:@armor1_id, :@armor2_id, :@armor3_id, :@armor4_id]\n  def armor(equip_slot, ignore_legal = false)# Game_Actor 新規定義\n    if equip_slot < 4\n      id = instance_variable_get(Armor_Variables[equip_slot])\n    else\n      id = extra_armor_id[equip_slot - 4]\n      return nil if !id\n    end\n    id = $data_armors[id] if id.is_a?(Numeric)\n    return id\n  end\n  def armor_k(kind, ignore_legal = false)# Game_Actor 新規定義\n    return armor(KGC::EquipExtension::EQUIP_TYPE.index(kind), ignore_legal)\n  end\n  def active_weapon# Game_Actor 新規定義\n    if @free_hand_exec\n      return @luncher if @free_hand_exec == :luncher\n      return true_weapon.shift_weapons[@free_hand_exec] if true_weapon && @free_hand_exec.is_a?(Array)\n      return nil\n    end\n    return weapon(-1) if @off_hand_exec\n    return weapon(0)\n  end\n  def active_weapon_name# Game_Actor 新規定義\n    return active_weapon.name unless active_weapon == nil\n    names = actor.weapon_name\n    if names\n      return names[0] unless @off_hand_exec\n      return names[1 % names.size] if @off_hand_exec\n    end\n    return Vocab::EmpStr\n  end\n  def true_weapon(except_free = false)\n    return weapon(-2) if !except_free && @free_hand_exec == :luncher\n    return weapon(0) unless @off_hand_exec\n    return weapon(-1) if @off_hand_exec\n    return nil\n  end\n  def bonus_weapon\n    if @free_hand_exec\n      return true_weapon.shift_weapons[@free_hand_exec] if true_weapon && @free_hand_exec.is_a?(Array)\n      return nil if @free_hand_exec == 0\n    end\n    return weapons[0] unless @off_hand_exec\n    return weapons[1] if @off_hand_exec\n    return nil\n  end\n  def weapons\n    result = Vocab.e_ary#\n    result.push($data_weapons[@weapon_id])\n    result.push($data_weapons[@armor1_id]) if !$imported[:real_two_swords_style] && two_swords_style\n    result.push($data_weapons[@weapon2_id]) if @weapon2_id.is_a?(Numeric)\n    return result\n  end\n  def armors# Game_Actor 再定義\n    result = Vocab.e_ary#\n    result.push($data_armors[@armor1_id]) unless !$imported[:real_two_swords_style] && two_swords_style\n    result.push($data_armors[@armor2_id])\n    result.push($data_armors[@armor3_id])\n    result.push($data_armors[@armor4_id])\n    return result\n  end\nif CREATE_KS_METHOD\n  def add_state(state_id)# Game_Actor エリアス用に定義\n    super\n  end\n  def remove_state(state_id)# Game_Actor エリアス用に定義\n    super\n  end\n  def minus_state_set# Game_Actor エリアス用に定義\n    super\n  end\n  remove_const(:CREATE_KS_METHOD)\nend# if CREATE_KS_METHOD\nend\nmodule KGC\n  module EquipExtension\n    EQUIP_TYPE = [0, 1, 2, 3] unless defined?(:EQUIP_TYPE)\n  end\nend\n#==============================================================================\n# ■ Game_Enemy\n#==============================================================================\nclass Game_Enemy\n  def note#Game_Enemy\n    return enemy.note\n  end\n  def battler_to_id# Game_Actor 新規定義\n    return @index\n  end\n  def active_weapon_name\n    names = enemy.weapon_name\n    if names\n      return Vocab::EmpStr if @free_hand_exec\n      return names[0] unless @off_hand_exec\n      return names[1 % names.size] if @off_hand_exec\n    end\n    return active_weapon.name\n  end\nif CREATE_KS_METHOD\n  def add_state(state_id)# Game_Enemy エリアス用に定義\n    super\n  end\n  def remove_state(state_id)# Game_Enemy エリアス用に定義\n    super\n  end\n  remove_const(:CREATE_KS_METHOD)\nend# if CREATE_KS_METHOD\nend\n#==============================================================================\n# ■ Game_BattleAction\n#==============================================================================\nclass Game_BattleAction\n  attr_accessor :flags\n  def adjust_save_data# Game_BattleAction\n    super\n    @flags = {} unless @flags.is_a?(Hash)# Game_BattleAction Game_BattleAction\n  end\nend\n\n\n\n#==============================================================================\n# ■ RPG::BaseItem\n#==============================================================================\nclass RPG::BaseItem\n  include KS_Extend_Data\n  def create_ks_param_cache ; super ; end# RPG::BaseItem\nend\n#==============================================================================\n# ■ RPG::Weapon\n#==============================================================================\nclass RPG::Weapon\n  def create_ks_param_cache ; super ; end# RPG::Weapon\n  def minus_state_set ; create_ks_param_cache unless @__ks_cache_done\n    return @minus_state_set\n  end\nend\n#==============================================================================\n# ■ RPG::Armor\n#==============================================================================\nclass RPG::Armor\n  def create_ks_param_cache ; super ; end# RPG::Armor\nend\n#==============================================================================\n# ■ RPG::UsableItem\n#==============================================================================\nclass RPG::UsableItem\n  def create_ks_param_cache ; super ; end# RPG::Item\nend\n#==============================================================================\n# ■ RPG::Item\n#==============================================================================\nclass RPG::Item\n  def create_ks_param_cache ; super ; end# RPG::Item\nend\n#==============================================================================\n# ■ RPG::Skill\n#==============================================================================\nclass RPG::Skill\n  def create_ks_param_cache ; super ; end# RPG::Skill\nend\n#==============================================================================\n# ■ RPG::State\n#==============================================================================\nclass RPG::State\n  include KS_Extend_Data\n  def create_ks_param_cache ; super ; end# RPG::State\nend\n\n\n\n#==============================================================================\n# ■ Game_Screen\n#==============================================================================\nclass Game_Screen\n  attr_reader   :tone_target                     # 色調\nend\n\n\n\n#==============================================================================\n# ■ Game_Map\n#==============================================================================\nclass Game_Map\n  attr_reader   :map               #元マップデータ\n  #--------------------------------------------------------------------------\n  # ★ 追加\n  #--------------------------------------------------------------------------\n  def name(id = @map_id)# Game_Map 新規定義\n    map = load_data(\"Data/MapInfos.rvdata\")\n    return map[id].name\n  end\n  def m_dat(x,y,z)# Game_Map 新規定義\n    return @map.data[x, y, z]\n  end\n  def r_dat(x,y,z)# Game_Map 新規定義\n    return @map.data[round_x(x), round_y(y), z]\n  end\n  def b_dat(x,y,z)# Game_Map 新規定義\n    return r_dat(x,y,z).base_tile_id\n  end\n  def mb_dat(x,y,z)# Game_Map 新規定義\n    return m_dat(x,y,z).base_tile_id\n  end\n  \n  def xy_h(x, y)  ; return x * 1000 + y ; end\n  def rxy_h(x, y) ; return round_x(x) * 1000 + round_y(y) ; end\n  def next_xy(x, y, dir, times = 1)\n    return [round_x(next_x(x, dir, times)), round_y(next_y(y, dir, times))]\n  end\n  def next_x(x, dir, times = 1)\n    return round_x(x + times * dir.shift_x)\n  end\n  def next_y(y, dir, times = 1)\n    return round_y(y + times * dir.shift_y)\n  end\n  \n  #--------------------------------------------------------------------------\n  # ● ループ補正後の X 座標計算\n  #--------------------------------------------------------------------------\n  def round_x(x)\n    if loop_horizontal?\n      return x % width\n    else\n      return x\n    end\n  end\n  #--------------------------------------------------------------------------\n  # ● ループ補正後の Y 座標計算\n  #--------------------------------------------------------------------------\n  def round_y(y)\n    if loop_vertical?\n      return y % height\n    else\n      return y\n    end\n  end\n  #--------------------------------------------------------------------------\n  # 指定座標から 指定座標2 への x距離を返す\n  #--------------------------------------------------------------------------\n  def distance_x_from_x(bx, tx)\n    w = $game_map.width\n    bx = round_x(bx)\n    tx = round_x(tx)\n    sx = bx - tx\n    if $game_map.loop_horizontal? && sx.abs > w >> 1\n      sx -= w * (sx <=> 0)\n    end\n    return sx\n  end\n  #--------------------------------------------------------------------------\n  # 指定座標から 指定座標2 への y距離を返す\n  #--------------------------------------------------------------------------\n  def distance_y_from_y(by, ty)\n    h = $game_map.height\n    by = round_y(by)\n    ty = round_y(ty)\n    sy = by - ty\n    if $game_map.loop_vertical? && sy.abs > h >> 1\n      sy -= h * (sy <=> 0)\n    end\n    return sy\n  end\n  DIST_DIRS = [\n    [5,8,2],[4,7,1],[6,9,3], \n  ]\n  def direction_to_xy(bx, by, tx, ty)\n    # base から見た target の方向を返す\n    dist_x = distance_x_from_x(bx, tx)\n    dist_y = distance_y_from_y(by, ty)\n    return DIST_DIRS[dist_x <=> 0][dist_y <=> 0]\n  end\nend\n#==============================================================================\n# ■ Game_Character\n#==============================================================================\nclass Game_Character\n  def xy_h  ; return $game_map.xy_h(@x, @y)  ; end\n  def rxy_h ; return $game_map.rxy_h(@x, @y) ; end\n    \n  # 色々な距離算出(算出先でRTPのスクリプトの間違いも修正)\n  def next_xy(x, y, dir = direction_8dir, times = 1) ; return $game_map.next_xy(x, y, dir, times) ; end\n  def distance_x_from_player ; return $game_map.distance_x_from_x(@x, $game_player.x) ; end\n  def distance_y_from_player ; return $game_map.distance_y_from_y(@y, $game_player.y) ; end\n  def distance_x_from_target(target)\n    if target.is_a?(Numeric)\n      target = $game_map.interpreter.get_character(target)\n    end\n    return $game_map.distance_x_from_x(@x, target.x)\n  end\n  def distance_y_from_target(target)\n    if target.is_a?(Numeric)\n      target = $game_map.interpreter.get_character(target)\n    end\n    return $game_map.distance_y_from_y(@y, target.y)\n  end\n  def distance_x_from_x(target_x) ; return $game_map.distance_x_from_x(@x, target_x) ; end\n  def distance_y_from_y(target_y) ; return $game_map.distance_y_from_y(@y, target_y) ; end\n  def direction_to_char(target) ; return $game_map.direction_to_xy(@x, @y, target.x, target.y) ; end\n  def direction_to_xy(x, y, distance = nil) ; return $game_map.direction_to_xy(@x, @y, x, y) ; end\nend\n#==============================================================================\n# ■ Game_Event\n#==============================================================================\nclass Game_Event < Game_Character\n  def name# Game_Event 新規定義\n    return @event.name\n  end\nend\n\n\n\n#==============================================================================\n# ■ Window_Item\n#==============================================================================\nclass Window_Item\n  #--------------------------------------------------------------------------\n  # ● オブジェクト初期化\n  #--------------------------------------------------------------------------\n  def initialize(x, y, width, height)# Window_Item 再定義\n    unless @column_max\n      cm = true\n      @column_max = 2\n      super(x, y, width, height)\n      @column_max = 2\n    else\n      super(x, y, width, height)\n    end\n    self.index = 0\n    if cm\n      refresh\n    end\n  end\nend\n\n\n\n#==============================================================================\n# ■ Scene_Base\n#==============================================================================\nclass Scene_Base\n  def update_windows_for_temp\n    for window in $game_temp.flags[:update_objects]\n      window.update\n    end\n  end\n  def adjust_save_data(include_map)# Scene_Base\n    $game_system.adjust_save_data\n    $game_message.adjust_save_data\n    $game_map.adjust_save_data if include_map\n    $game_actors.adjust_save_data\n    $game_party.adjust_save_data\n    $game_troop.adjust_save_data\n    $game_player.adjust_save_data\n    $game_map.vehicles.each {|character| character.adjust_save_data}\n    $game_map.events.values.each {|character| character.adjust_save_data}\n  end\nend\nif defined?(Scene_Battle) && Scene_Battle.is_a?(Class)\nclass Scene_Battle# if Scene_Battle.is_a?(Class)\n  attr_reader   :action_battlers# Scene_Battle\nend\nend\n\n\n\n\n\nclass Game_Actor ; def serial_id ; return self.id + 6000 ; end ; end\nclass Game_Enemy ; def serial_id ; return self.enemy.serial_id ; end ; end\nclass RPG::State ; def serial_id ; return self.id + 7000 ; end ; end\nclass RPG::Actor ; def serial_id ; return self.id + 6000 ; end ; end\nclass RPG::Enemy ; def serial_id ; return self.id + 5000 ; end ; end\nclass RPG::Actor ; def serial_id ; return self.id + 4000 ; end ; end\nclass RPG::Armor ; def serial_id ; return self.id + 3000 ; end ; end\nclass RPG::Weapon; def serial_id ; return self.id + 2000 ; end ; end\nclass RPG::Item  ; def serial_id ; return self.id + 1000 ; end ; end\nclass RPG::Skill ; def serial_id ; return self.id ; end ; end\nclass NilClass ; def serial_id ; return -1 ; end ; end\n\n\n#==============================================================================\n# ■ Numeric\n#==============================================================================\nclass Numeric\n  def name# Numeric 新規定義\n    return to_s\n  end\n  def id_to_battler\n    return $game_actors[self - 1000] if self > 1000\n    return $game_troop.enemies[self]\n  end\n  def set_bit(bit, value = true)\n    if value == true\n      return self | (0b1 << bit)\n    else\n      vv = 0b1 << bit\n      return (self | vv) ^ vv\n    end\n  end\n#~ a = 0b0100.set_bit(0)\n#~ b = 0b10000.set_bit(3)\n#~ c = 0b11.set_bit(0, 0)\n#~ p a, b, c\n# | でビットをオンにできる\n# | 後 ^ でビットをオフにできる\n  def serial_obj# Numeric 新規定義\n    return nil if self < 0\n    case self / 1000\n    when 6 ; return $game_actors[self % 1000]\n    when 5 ; return $data_enemies[self % 1000]\n    when 4 ; return $data_actors[self % 1000]\n    when 3 ; return $data_armors[self % 1000]\n    when 2 ; return $data_weapons[self % 1000]\n    when 1 ; return $data_items[self % 1000]\n    else   ; return $data_skills[self % 1000]\n    end\n  end\n  \n  def apply_percent(per, ignore_zero = false)\n    result = self * 100\n    case per <=> 100\n    when 1\n      perr = per\n      while perr > 100\n        if perr >= 200\n          per = 200\n        else\n          per = perr % 100 + 100\n        end\n        case result\n        when 5000...10000\n          result = 10000 - (10000 - result) * 100 / per\n        when 1..5000\n          res = result * per / 100\n          if res > 5000\n            diff = 5000 * 100 / result\n            perr -= diff - 100\n            result = 5000\n            next\n          end\n          result = res\n        else\n          return self if ignore_zero\n          result += per * 10\n        end\n        perr -= 100\n      end\n    when -1\n      result = result * per / 100\n    end\n    return result / 100\n  end\n  \n  HXY = []\n  def h_xy# Numeric 新規定義\n    result = HXY.clear\n    result << self / 1000\n    result << self % 1000\n    return result\n  end\n  \n  def base_tile_id# Numeric 新規定義\n    if self.auto_tile_id?\n      id = ((self - 2048) / 48) * 48 + 2048\n    else\n      id = self\n    end\n    return id\n  end\n  def blank_tile_id? ; return BLANK_TILE_IDS.include?(self) ; end\n  def auto_tile_id? ; return (2048...8192) === self ; end\n  def wall_tile_id? ; return (4352...8192) === self ; end\n  def water_tile_id? ; return (2048...2816) === self ; end\n  def no_auto_shadow? ; return wall_face_id? || ((1536...1551) === self && self != 1544) ; end\n  def wall_top_id?\n    return true if self == 1022\n    return (wall_tile_id? && ((self - 4352) % 768) / 384 < 1)\n  end\n  def wall_face_id?\n    return (wall_tile_id? && ((self - 4352) % 768) / 384 > 0)\n  end\n  def water_fall_id?\n    return (2240...2816) === self && ((self - 2240) % 96) / 48 > 0\n  end\n  def shift_x# Numeric 新規定義\n    case self\n    when 2,8   ; return 0\n    when 1,4,7 ; return -1\n    when 3,6,9 ; return 1\n    end\n    return 5\n  end\n  def shift_y# Numeric 新規定義\n    case self\n    when 1,2,3 ; return 1\n    when 4,6   ; return 0\n    when 7,8,9 ; return -1\n    end\n    return 5\n  end\nend\n#==============================================================================\n# ■ Array\n#==============================================================================\nclass Array\n  def first_free_pos(minid = 0)# Array 新規定義\n    return minid if self.size == 0\n    for i in minid..self.size\n      return i if self[i].nil?\n    end\n    return i + 1\n  end\n  def to_s# Array 新規定義\n    result = \"\"\n    result += \"[\"\n    for i in 0...self.size\n      obj = self[i]\n      result += obj.to_s unless i.nil?\n      result += \"nil\" if i.nil?\n      result += \",\" unless i == self.size - 1\n    end\n    result += \"]\"\n  end\n  def rand_in ; return self[rand(self.size)] ; end\n  def sum# Array 新規定義\n    sum = 0\n    for num in self\n      sum += num if num.is_a?(Numeric)\n    end\n    return sum\n  end\n  \n  def or?(target_array, judge_array)\n    for i in judge_array\n      return false unless target_array.include?(i) || self.include?(i)\n    end\n    return true\n  end\n  \n  def and?(target_array, judge_array)\n    for i in judge_array\n      return false unless target_array.include?(i) && self.include?(i)\n    end\n    return true\n  end\n  def and_empty?(target_array)\n    for i in target_array\n      return false if self.include?(i)\n    end\n    return true\n  end\n  \n  # マップ用\n  def xy_h ; return self[0] * 1000 + self[1] ; end\n  def rxy_h ; return $game_map.round_x(self[0]) * 1000 + $game_map.round_y(self[1]) ; end\nend\n#~ a = [1,2,3,4,5,11,22]#,33,44,55,111,222,333,444,555\n#~ b = [6,7]#,8,9,0,66,77,88,99,00,666,777,888,999,000\n#~ while !a.empty?\n#~ t = Time.now\n#~ for i in 0...10000\n#~   tt = (a & b).empty?\n#~ end\n#~ p a.size, :a, Time.now - t, tt\n#~ t = Time.now\n#~ for i in 0...10000\n#~   tt = a.and_empty?(b)\n#~ end\n#~ p a.size, :b, Time.now - t, tt\n#~ a.shift\n#~ end\n\n#==============================================================================\n# ■ Hash\n#==============================================================================\nclass Hash\n  def first_free_key(minid = 0)# Hash 新規定義\n    return minid if self.size == 0\n    for i in minid..self.size\n      return i if self[i].nil?\n    end\n    return i + 1\n  end\n  def to_s# Hash 新規定義\n    result = \"\"\n    result += \"{\"\n    for key in self.keys\n      result += \"#{key}=>#{self[key]}\"\n      result += \", \" unless self.keys[-1] == key\n    end\n    result += \"}\"\n    return result\n  end\n  def jointed_str(suf = \"\", sc = \"･\")# Hash 新規定義\n    strs = {}\n    for i in keys\n      if strs[self[i]]\n        strs[self[i]] += \"#{sc}#{i}\"\n      else\n        strs[self[i]] = i.to_s\n      end\n    end\n    str = \"\"\n    for i in strs.keys.sort{|a,b| b<=>a}\n      #next if i == 0\n      next unless i.abs > 1#i < -1 || (view && i.abs > 1)\n      str += \" \" unless str.empty?\n      str += \"#{strs[i]}#{i}#{suf}\"\n    end\n    #p self, str\n    return str\n  end\nend\n#==============================================================================\n# ■ Hash_And_Array\n#==============================================================================\nclass Hash_And_Array < Hash\n  attr_reader   :array\n  def initialize(*values)\n    @keys = []\n    @values = []\n    super\n    @keys = self.keys\n    @values = self.values\n  end\n  def []=(key,value)\n    super\n    if @keys.include?(key)\n      @values[@keys.index(key)] = value\n    else\n      @keys << key\n      @values << value\n    end\n  end\n  def clear\n    @values.clear\n    @keys.clear\n    return super\n  end\n  def delete(key)\n    return unless super\n    @values.delete_at(@keys.index(key))\n    @keys.delete(key)\n  end\n  def keys\n    return @keys\n  end\n  def values\n    return @values\n  end\nend\n\n\nclass String\n  def clear# String\n    self.replace(Vocab::EmpStr)\n  end\nend\n",
+			"file": "css/app-checker.less",
 			"settings":
 			{
-				"buffer_size": 34287,
+				"buffer_size": 10225,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "template/template-index-statistics.html",
+			"settings":
+			{
+				"buffer_size": 229,
 				"line_ending": "Windows"
 			}
 		}
@@ -255,16 +267,20 @@
 	"build_system": "",
 	"command_palette":
 	{
-		"height": 127.0,
+		"height": 173.0,
 		"selected_items":
 		[
 			[
-				"upad",
-				"Package Control: Upgrade Package"
-			],
-			[
 				"install",
 				"Package Control: Install Package"
+			],
+			[
+				"instal",
+				"Package Control: Install Package"
+			],
+			[
+				"upad",
+				"Package Control: Upgrade Package"
 			],
 			[
 				"remove",
@@ -315,10 +331,6 @@
 				"Package Control: Install Package"
 			],
 			[
-				"instal",
-				"Package Control: Install Package"
-			],
-			[
 				"script",
 				"Snippet: HTML - Script"
 			],
@@ -366,6 +378,7 @@
 	],
 	"file_history":
 	[
+		"/R/PCGame/[Doujin-game]/Dungeons and Prisoners/Help/index.jpg",
 		"/C/Users/Kamimusuhi/Documents/GitHub/junban-mailform/mailform-welcome.html",
 		"/C/Users/Kamimusuhi/Documents/GitHub/junban/app-checker.html",
 		"/C/Users/Kamimusuhi/Documents/GitHub/junban/css/app-checker.less",
@@ -492,8 +505,7 @@
 		"/C/Users/Kamimusuhi/Desktop/[APP]Line-9/APPLICATION/template/template-5.html",
 		"/C/Users/Kamimusuhi/Desktop/[APP]Line-9/APPLICATION/css/animate.less",
 		"/C/Users/Kamimusuhi/Desktop/[APP]Line-9/APPLICATION/css/animate.css",
-		"/C/Users/Kamimusuhi/Desktop/[APP]Line-9/APPLICATION/css/combine-app-kiosk.less",
-		"/C/Users/Kamimusuhi/Desktop/[APP]Line-9/APPLICATION/css/bootstrap.min.css"
+		"/C/Users/Kamimusuhi/Desktop/[APP]Line-9/APPLICATION/css/combine-app-kiosk.less"
 	],
 	"find":
 	{
@@ -888,7 +900,7 @@
 						"translation.y": 1920.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 3,
+					"stack_index": 4,
 					"type": "text"
 				},
 				{
@@ -913,61 +925,61 @@
 							"BracketHighlighterBusy": false,
 							"bh_regions":
 							[
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_square_content",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_default_content",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_single_quote_content",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_round_content",
-								"bh_c_define",
-								"bh_c_define_center",
-								"bh_c_define_open",
-								"bh_c_define_close",
-								"bh_c_define_content",
 								"bh_regex",
 								"bh_regex_center",
 								"bh_regex_open",
 								"bh_regex_close",
 								"bh_regex_content",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_tag_content",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_angle_content",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_double_quote_content",
 								"bh_curly",
 								"bh_curly_center",
 								"bh_curly_open",
 								"bh_curly_close",
 								"bh_curly_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
 								"bh_unmatched",
 								"bh_unmatched_center",
 								"bh_unmatched_open",
 								"bh_unmatched_close",
-								"bh_unmatched_content"
+								"bh_unmatched_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content"
 							],
 							"codeintel": true,
 							"codeintel_config":
@@ -1116,14 +1128,194 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 3861.0,
+						"translation.y": 2781.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 2,
+					"stack_index": 3,
 					"type": "text"
 				},
 				{
 					"buffer": 2,
+					"file": "app-checker.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 10812,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								4854,
+								4854
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"bh_regions":
+							[
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content"
+							],
+							"color_scheme": "Packages/User/Color Highlighter/themes/Monokai (SL).tmTheme",
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 2077.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "css/app-checker.less",
+					"semi_transient": true,
+					"settings":
+					{
+						"buffer_size": 10225,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"bh_regions":
+							[
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content"
+							],
+							"color_scheme": "Packages/User/Color Highlighter/themes/Monokai (SL).tmTheme",
+							"syntax": "Packages/LESS/LESS.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 385.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
 					"file": "template/template-index-statistics.html",
 					"semi_transient": false,
 					"settings":
@@ -1135,8 +1327,8 @@
 						"selection":
 						[
 							[
-								213,
-								213
+								229,
+								229
 							]
 						],
 						"settings":
@@ -1144,11 +1336,31 @@
 							"BracketHighlighterBusy": false,
 							"bh_regions":
 							[
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
 								"bh_curly",
 								"bh_curly_center",
 								"bh_curly_open",
 								"bh_curly_close",
 								"bh_curly_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
 								"bh_tag",
 								"bh_tag_center",
 								"bh_tag_open",
@@ -1159,41 +1371,21 @@
 								"bh_round_open",
 								"bh_round_close",
 								"bh_round_content",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_double_quote_content",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_square_content",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_regex_content",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_single_quote_content",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_unmatched_content",
 								"bh_default",
 								"bh_default_center",
 								"bh_default_open",
 								"bh_default_close",
 								"bh_default_content",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_angle_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
 								"bh_c_define",
 								"bh_c_define_center",
 								"bh_c_define_open",
@@ -1348,238 +1540,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 1,
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 34287,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1840,
-								1840
-							]
-						],
-						"settings":
-						{
-							"BracketHighlighterBusy": false,
-							"auto_name": "",
-							"bh_regions":
-							[
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_curly_content",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_tag_content",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_round_content",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_double_quote_content",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_square_content",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_regex_content",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_single_quote_content",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_unmatched_content",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_default_content",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_angle_content",
-								"bh_c_define",
-								"bh_c_define_center",
-								"bh_c_define_open",
-								"bh_c_define_close",
-								"bh_c_define_content"
-							],
-							"codeintel": true,
-							"codeintel_config":
-							{
-								"JavaScript":
-								{
-									"codeintel_max_recursive_dir_depth": 2,
-									"codeintel_scan_files_in_project": false,
-									"javascriptExtraPaths":
-									[
-									]
-								},
-								"PHP":
-								{
-									"codeintel_max_recursive_dir_depth": 5,
-									"codeintel_scan_files_in_project": false,
-									"phpExtraPaths":
-									[
-									]
-								},
-								"Python":
-								{
-									"env":
-									{
-									}
-								}
-							},
-							"codeintel_database_dir": "~/.codeintel",
-							"codeintel_enabled_languages":
-							[
-								"JavaScript",
-								"SCSS",
-								"Python",
-								"HTML",
-								"Ruby",
-								"Python3",
-								"XML",
-								"Sass",
-								"HTML5",
-								"Perl",
-								"CSS",
-								"Twig",
-								"Less",
-								"Node.js",
-								"TemplateToolkit",
-								"PHP"
-							],
-							"codeintel_exclude_scopes_from_complete_triggers":
-							[
-								"comment"
-							],
-							"codeintel_language_settings":
-							{
-								"JavaScript":
-								{
-									"codeintel_max_recursive_dir_depth": 2,
-									"codeintel_scan_exclude_dir":
-									[
-										"/build/",
-										"/min/"
-									],
-									"codeintel_scan_extra_dir":
-									[
-									],
-									"codeintel_scan_files_in_project": false,
-									"codeintel_selected_catalogs":
-									[
-										"jQuery"
-									]
-								},
-								"PHP":
-								{
-									"codeintel_max_recursive_dir_depth": 15,
-									"codeintel_scan_exclude_dir":
-									[
-										"/Applications/MAMP/bin/php/php5.5.3/"
-									],
-									"codeintel_scan_extra_dir":
-									[
-									],
-									"codeintel_scan_files_in_project": true,
-									"php": "/Applications/MAMP/bin/php/php5.5.3/bin/php"
-								},
-								"Python3":
-								{
-									"codeintel_scan_extra_dir":
-									[
-										"/Applications/Sublime Text.app/Contents/MacOS",
-										"~/Library/Application Support/Sublime Text 3/Packages/SublimeCodeIntel/arch",
-										"~/Library/Application Support/Sublime Text 3/Packages/SublimeCodeIntel/libs"
-									],
-									"codeintel_scan_files_in_project": true,
-									"codeintel_selected_catalogs":
-									[
-									],
-									"python3": "/usr/local/bin/python3.3"
-								}
-							},
-							"codeintel_live": true,
-							"codeintel_live_enabled_languages":
-							[
-								"JavaScript",
-								"Mason",
-								"XBL",
-								"XUL",
-								"RHTML",
-								"SCSS",
-								"Python",
-								"HTML",
-								"Ruby",
-								"Python3",
-								"XML",
-								"Sass",
-								"XSLT",
-								"Django",
-								"HTML5",
-								"Perl",
-								"CSS",
-								"Twig",
-								"Less",
-								"Smarty",
-								"Node.js",
-								"Tcl",
-								"TemplateToolkit",
-								"PHP"
-							],
-							"codeintel_max_recursive_dir_depth": 10,
-							"codeintel_scan_exclude_dir":
-							[
-							],
-							"codeintel_scan_files_in_project": true,
-							"codeintel_selected_catalogs":
-							[
-							],
-							"codeintel_snippets": false,
-							"codeintel_syntax_map":
-							{
-								"Python Django": "Python"
-							},
-							"codeintel_tooltips": "popup",
-							"codeintel_word_completions": "buffer",
-							"color_scheme": "Packages/User/Color Highlighter/themes/Monokai (SL).tmTheme",
-							"sublime_auto_complete": true,
-							"syntax": "Packages/Ruby/Ruby.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 2181.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 0,
+					"stack_index": 2,
 					"type": "text"
 				}
 			]

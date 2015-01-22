@@ -118,6 +118,14 @@
             nextisyou: "<h2>あなたの順番は次です！</h2>", // 下一個就是你了
             isyou: "<h1>あなたの順番です！</h1>" // 輪到你了
         };
+        // 塞小人
+        (function() {
+            var n = 30;
+            while(n>0) {
+                $pLine.append('<span class="flaticon-frontal7 people-waiting"></span>');
+                n--;
+            }
+        })();
 
         $(document).ready(function() {
             // 更改提示訊息內容 依據 #tipContent[tip-status] 的 value 來更改
