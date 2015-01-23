@@ -1,0 +1,115 @@
+html {
+  height: 100%;
+  width: 100%;
+}
+body {
+  position: relative;
+  font-family: 'メイリオ', sans-serif;
+  min-height: 100%;
+  width: 100%;
+}
+body:after {
+  content: '';
+  position: fixed;
+  z-index: -1;
+  bottom: 115px;
+  height: 45px;
+  width: 100%;
+  background-color: #DBFCAF;
+  border-top: 10px solid #CAF4FF;
+}
+h1 {
+  margin: 1em auto;
+  color: #00b7ee;
+  line-height: 1em;
+}
+dl {
+  padding: 0 0 10px 0;
+}
+dl dt {
+  color: #00b7ee;
+  font-size: 1.5em;
+  margin-bottom: 10px;
+}
+dl dd {
+  color: #999;
+  margin-left: 3em;
+  margin-bottom: 30px;
+}
+dl dd:last-child {
+  margin-bottom: 0;
+}
+footer:after {
+  content: ' ';
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  background-image: url('../img/comic/login-comic.png');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center bottom;
+  background-size: auto 415px;
+  height: 100%;
+  width: 100%;
+}
+.container {
+  position: relative;
+  z-index: 2;
+}
+.col-sm-7 {
+  background-color: rgba(255, 255, 255, 0.8);
+}
+/* Extra small devices (phones, less than 768px) */
+/* No media query since this is the default in Bootstrap */
+/* xSmall devices (tablets, 768px and up) */
+@media (max-width: 768px) {
+  footer {
+    height: 190px;
+  }
+  footer:after {
+    position: fixed;
+    top: 0;
+    background-size: auto 190px;
+  }
+  body:after {
+    bottom: 45px;
+    height: 45px;
+  }
+}
+/* Small devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+  footer:after {
+    background-size: auto 250px;
+  }
+  body:after {
+    bottom: 65px;
+    height: 45px;
+  }
+  dl {
+    font-size: 0.78em;
+  }
+}
+/* Medium devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+  footer:after {
+    background-size: auto 345px;
+  }
+  body:after {
+    bottom: 105px;
+    height: 45px;
+  }
+  dl {
+    font-size: 1em;
+  }
+}
+/* Large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+  footer:after {
+    background-size: auto 415px;
+  }
+  body:after {
+    bottom: 125px;
+    height: 45px;
+  }
+}
