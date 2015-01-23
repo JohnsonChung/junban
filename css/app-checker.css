@@ -155,27 +155,36 @@ body {
   text-decoration: underline;
 }
 .container-checker .column.column-table {
-  display: table;
+  display: block;
   width: 100%;
+  white-space: nowrap;
+  word-spacing: 0;
+  font-size: 0;
 }
 .container-checker label.serial {
-  width: 3.21428571em;
-  max-height: 6.42857143em;
-  display: table-cell;
+  width: 90px;
+  height: 90px;
+  display: block;
+  float: left;
   margin-bottom: 0;
+  margin-right: -100%;
   background-color: #428bca;
   color: white;
-  font-size: 4em;
+  font-size: 64px;
   text-align: center;
-  line-height: 1.60714286em;
+  line-height: 90px;
   font-family: arial, sans-serif;
+  vertical-align: top;
 }
 .container-checker span.signature {
   position: relative;
-  display: table-cell;
-  max-height: 6.42857143em;
+  display: block;
+  float: left;
+  width: 100%;
+  padding-left: 90px;
+  line-height: 90px;
+  height: 90px;
   overflow: hidden;
-  vertical-align: top;
   text-align: center;
 }
 .container-checker span.signature:after {
@@ -187,11 +196,16 @@ body {
   bottom: 0;
   background-color: white;
   line-height: 1.8em;
-  font-size: 1.4em;
+  font-size: 23px !important;
   text-align: center;
 }
 .container-checker span.signature img {
-  height: 6.42857143em;
+  width: 100%;
+  height: 100%;
+  background-image: url(../img/sign-template.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 .container-checker .counter {
   display: inline-block;

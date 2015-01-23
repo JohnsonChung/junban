@@ -123,31 +123,44 @@ body {
 // ====================================
 .container-checker {
     // second block : signature
-    @sign-h : 90em / 14;
+    @sign-h : 90px;
+    
     .column.column-table {
-        display: table;  
+        display: block;        
         width: 100%;
+        white-space: nowrap;
+        word-spacing: 0;
+        font-size: 0;
     }
-    label.serial {
-        width: 90em / 14 / 2;
-        max-height: 90em / 14;
-        display: table-cell;  
+    label.serial {        
+        .size(@sign-h);
+        display: block;     
+        float: left;
+        
         margin-bottom: 0;
+        margin-right: -100%;
 
         background-color: @brand-primary;    
 
         color: white;
-        font-size: 4em;
+        font-size: 64px;
         text-align: center;
-        line-height: @sign-h / 4; // fz 4em make lineheight to be square.
-        font-family: arial,  sans-serif;
+        line-height: @sign-h;
+        font-family: arial,  sans-serif;        
+        vertical-align: top;
     }
     span.signature {
         position: relative;        
-        display: table-cell;    
-        max-height: @sign-h;
+        display: block;            
+        float: left;
+
+        width: 100%;
+        
+        padding-left: @sign-h;
+        line-height: @sign-h;
+
+        height: @sign-h;
         overflow: hidden;
-        vertical-align: top;
         text-align: center;
 
         &:after {
@@ -160,11 +173,15 @@ body {
             background-color: white;
 
             line-height: 1.8em;
-            font-size: 1.4em;
-            text-align: center;            
+            font-size: 23px !important;
+            text-align: center;                        
         }
         img {
-            height: @sign-h;        
+            .size(100%);
+            background-image: url(../img/sign-template.png);
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
         }
     }
 }
