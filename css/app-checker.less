@@ -121,9 +121,9 @@ body {
 
 
 // ====================================
+@sign-h : 90px;
 .container-checker {
     // second block : signature
-    @sign-h : 90px;
     
     .column.column-table {
         display: block;        
@@ -143,7 +143,7 @@ body {
         background-color: @brand-primary;    
 
         color: white;
-        font-size: 64px;
+        font-size: @sign-h - 38;
         text-align: center;
         line-height: @sign-h;
         font-family: arial,  sans-serif;        
@@ -331,27 +331,119 @@ body {
 body {
 }
 
-    
-@media (min-width: 600px) {
+// ====================================
+// Media Query
+// ====================================
+
+// Breakpoints
+// ------------------------- Source: http://codepen.io/ericrasch/pen/HzoEx
+@highdensity: ~"only screen and (-webkit-min-device-pixel-ratio: 1.5)",
+              ~"only screen and (min--moz-device-pixel-ratio: 1.5)",
+              ~"only screen and (-o-min-device-pixel-ratio: 3/2)",
+              ~"only screen and (min-device-pixel-ratio: 1.5)";
+@mobile:      ~"only screen and (max-width: 529px)";
+@tablet:      ~"only screen and (min-width: 530px) and (max-width: 949px)";
+@desktop:     ~"only screen and (min-width: 950px) and (max-width: 1128px)";
+@desktop-xl:  ~"only screen and (min-width: 1129px)";
+
+@media @desktop-xl, @highdensity {
+    @em: 2.5em;
+    @r: 2.5;
     body {
     }
     h1 {
-        font-size: 5em;
+        font-size: @em;
     }
     p {
-        font-size: 2em;
+        font-size: @em;
     }
     .counter {
-        font-size: 2em;
+        font-size: @em;
     }
-    label.serial {
-        width: 50%;
+    label.serial {        
+        .size(@sign-h*@r) !important;
+        line-height: @sign-h*@r !important;
+        font-size: (@sign-h - 40 )*@r !important;
     }
     span.signature {
-        width: 50%;
+        padding-left: @sign-h*@r !important;
+        line-height: @sign-h*@r !important;
+        height: @sign-h*@r !important;
     }
 }
-
+@media @desktop {
+    @em: 1.5em;
+    @r: 1.5;
+    body {
+    }
+    h1 {
+        font-size: @em;
+    }
+    p {
+        font-size: @em;
+    }
+    .counter {
+        font-size: @em;
+    }
+    label.serial {        
+        .size(@sign-h*@r) !important;
+        line-height: @sign-h*@r !important;
+        font-size: (@sign-h - 40 )*@r !important;
+    }
+    span.signature {
+        padding-left: @sign-h*@r !important;
+        line-height: @sign-h*@r !important;
+        height: @sign-h*@r !important;
+    }
+}
+@media @tablet{
+    @r: 1.32;
+    body {
+    }
+    h1 {
+        font-size: 2.5em;
+    }
+    p {
+        font-size: 1.5em;
+    }
+    .counter {
+        font-size: 1.5em;
+    }
+    label.serial {        
+        .size(@sign-h*@r) !important;
+        line-height: @sign-h*@r !important;        
+        font-size: (@sign-h - 40 )*@r !important;
+    }
+    span.signature {
+        padding-left: @sign-h*@r !important;
+        line-height: @sign-h*@r !important;
+        height: @sign-h*@r !important;
+    }
+}
+@media @mobile{
+    @r: 1;
+    body {
+    }
+    h1 {
+        font-size: 1em;
+    }
+    p {
+        font-size: 1em;
+    }
+    .counter {
+        font-size: 1em;
+    }    
+    label.serial {        
+        .size(@sign-h*@r) !important;
+        line-height: @sign-h*@r !important;        
+        font-size: (@sign-h - 40 )*@r !important;
+    }
+    span.signature {
+        padding-left: @sign-h*@r !important;
+        line-height: @sign-h*@r !important;
+        height: @sign-h*@r !important;
+    }
+}
 
 
 // ====================================

@@ -170,7 +170,7 @@ body {
   margin-right: -100%;
   background-color: #428bca;
   color: white;
-  font-size: 64px;
+  font-size: 52px;
   text-align: center;
   line-height: 90px;
   font-family: arial, sans-serif;
@@ -335,21 +335,92 @@ body {
 .checker-alert .panel .counter {
   -webkit-animation: bounce 2s infinite;
 }
-@media (min-width: 600px) {
+@media only screen and (min-width: 1129px), only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min--moz-device-pixel-ratio: 1.5), only screen and (-o-min-device-pixel-ratio: 3/2), only screen and (min-device-pixel-ratio: 1.5) {
   h1 {
-    font-size: 5em;
+    font-size: 2.5em;
   }
   p {
-    font-size: 2em;
+    font-size: 2.5em;
   }
   .counter {
-    font-size: 2em;
+    font-size: 2.5em;
   }
   label.serial {
-    width: 50%;
+    width: 225px !important;
+    height: 225px !important;
+    line-height: 225px !important;
+    font-size: 125px !important;
   }
   span.signature {
-    width: 50%;
+    padding-left: 225px !important;
+    line-height: 225px !important;
+    height: 225px !important;
+  }
+}
+@media only screen and (min-width: 950px) and (max-width: 1128px) {
+  h1 {
+    font-size: 1.5em;
+  }
+  p {
+    font-size: 1.5em;
+  }
+  .counter {
+    font-size: 1.5em;
+  }
+  label.serial {
+    width: 135px !important;
+    height: 135px !important;
+    line-height: 135px !important;
+    font-size: 75px !important;
+  }
+  span.signature {
+    padding-left: 135px !important;
+    line-height: 135px !important;
+    height: 135px !important;
+  }
+}
+@media only screen and (min-width: 530px) and (max-width: 949px) {
+  h1 {
+    font-size: 2.5em;
+  }
+  p {
+    font-size: 1.5em;
+  }
+  .counter {
+    font-size: 1.5em;
+  }
+  label.serial {
+    width: 118.8px !important;
+    height: 118.8px !important;
+    line-height: 118.8px !important;
+    font-size: 66px !important;
+  }
+  span.signature {
+    padding-left: 118.8px !important;
+    line-height: 118.8px !important;
+    height: 118.8px !important;
+  }
+}
+@media only screen and (max-width: 529px) {
+  h1 {
+    font-size: 1em;
+  }
+  p {
+    font-size: 1em;
+  }
+  .counter {
+    font-size: 1em;
+  }
+  label.serial {
+    width: 90px !important;
+    height: 90px !important;
+    line-height: 90px !important;
+    font-size: 50px !important;
+  }
+  span.signature {
+    padding-left: 90px !important;
+    line-height: 90px !important;
+    height: 90px !important;
   }
 }
 .animated {
