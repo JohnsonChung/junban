@@ -2983,7 +2983,7 @@ ul.monitor > li.counter .counts {
   font-size: 120px;
 }
 ul.monitor > li.counter:after {
-  content: 'parties waiting';
+  content: 'お待ちです';
   font-size: 1.8em;
   position: absolute;
   bottom: 0;
@@ -3031,8 +3031,22 @@ ul.monitor.monitor-closed li.counter {
   height: 200px;
 }
 ul.monitor.monitor-closed li.counter .counts {
+  position: relative;
   line-height: 1.8;
   font-size: 110px;
+  padding-right: 0.5em;
+}
+ul.monitor.monitor-closed li.counter .counts:after {
+  content: '/組';
+  display: inline-block;
+  white-space: nowrap;
+  font-size: 0.35em;
+  line-height: 1em;
+  padding-bottom: 0.6em;
+  position: absolute;
+  bottom: 0;
+  left: 100%;
+  margin-left: -1.3em;
 }
 ul.monitor.monitor-closed li.counter .msg-counter {
   position: absolute;

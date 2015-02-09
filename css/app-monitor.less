@@ -90,9 +90,9 @@ ul.monitor {
 
             .counts {
                 font-size: 120px;
-            }
+            }       
             &:after {
-                content: 'parties waiting';
+                content: 'お待ちです';
                 font-size: 1.8em;
                 position: absolute;
                 bottom: 0; left: 0;
@@ -146,8 +146,22 @@ ul.monitor {
             height: @sign-box-h * 2 + @box-margin-bottom ;    
 
             .counts {
+                position: relative;                
                 line-height: 1.8;
                 font-size: 110px;
+                padding-right: 0.5em;
+
+                &:after {                    
+                    content: '/組';
+                    display: inline-block;
+                    white-space: nowrap;
+                    font-size: 0.35em;
+                    line-height: 1em;
+                    padding-bottom: 0.6em;
+                    position: absolute;
+                    bottom: 0; left: 100%;
+                    margin-left: -1.3em;
+                }
             }
             .msg-counter {                
                 position: absolute;

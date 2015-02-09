@@ -247,7 +247,7 @@
 			"file": "app-checker.html",
 			"settings":
 			{
-				"buffer_size": 10980,
+				"buffer_size": 10984,
 				"line_ending": "Windows"
 			}
 		},
@@ -255,7 +255,7 @@
 			"file": "css/app-checker.less",
 			"settings":
 			{
-				"buffer_size": 13354,
+				"buffer_size": 12896,
 				"line_ending": "Windows"
 			}
 		},
@@ -274,12 +274,20 @@
 				"buffer_size": 229,
 				"line_ending": "Windows"
 			}
+		},
+		{
+			"contents": "\n// Constants\nvar CARD_HEIGHT = 100;\nvar CARD_WIDTH = 60;\nvar CARD_COUNT = 40;\n\nvar WIDTH = 800;\nvar HEIGHT = 600;\nvar BOTTOM = 400;\n\nvar TILT = Math.PI/8;\nvar PYTH_ANGLE = Math.PI/2 - TILT;\n\nvar TILTED_CARD_HEIGHT = Math.sin(PYTH_ANGLE) * CARD_HEIGHT + 2;\nvar TILTED_CARD_WIDTH = Math.cos(PYTH_ANGLE) * CARD_HEIGHT;\nvar CARD_SPACING = 2;\nvar PYRAMID_WIDTH = TILTED_CARD_WIDTH * 2 + CARD_SPACING * 2;\n\nfunction update_sizes() {\n  var c = document.getElementById('container');\n  WIDTH = c.clientWidth;\n  HEIGHT = c.clientHeight;\n  CARD_WIDTH = WIDTH * 0.05;\n  CARD_HEIGHT = HEIGHT * 0.15;\n  TILTED_CARD_HEIGHT = Math.sin(PYTH_ANGLE) * CARD_HEIGHT + 2;\n  TILTED_CARD_WIDTH = Math.cos(PYTH_ANGLE) * CARD_HEIGHT;\n  PYRAMID_WIDTH = TILTED_CARD_WIDTH * 2 + CARD_SPACING * 2;\n  for(var i=0;i<Deck.cards.length;++i) {\n    Deck.card_at(i).style.height = CARD_HEIGHT + 'px';\n    Deck.card_at(i).style.width = CARD_WIDTH + 'px';\n  }\n};\n\nvar COLORS = randomColor({\n  count: 40,\n  luminosity: 'dark',\n});\n\n\n// Formations\nvar PILE = 1;\nvar HOUSE = 2;\nvar WALL = 3;\nvar CYLINDER = 4;\nvar current_mode = PILE;\n\nvar formation_builders = {};\nformation_builders[PILE] = pile_positions;\nformation_builders[HOUSE] = house_positions;\nformation_builders[WALL] = wall_positions;\nformation_builders[CYLINDER] = cylinder_positions;\n\nfunction create_card(container, index) {\n  var card = document.createElement('div');\n  card.className = 'card';\n  card.style.background = COLORS[index % COLORS.length];\n\n  container.appendChild(card);\n  return card;\n}\n\n// Deck\nvar Deck = (function() {\n  this.cards = [];\n  this.card_index = [];\n\n  for(var i=0;i<CARD_COUNT;++i) {\n    var container = document.getElementById('surface');\n    this.cards.push(create_card(container, i));\n  }\n\n  this.next_card = function() {\n    if(this.card_index > 51)\n      return;\n    return this.cards[this.card_index++];\n  };\n\n  this.card_at = function(index) {\n    return this.cards[index];\n  };\n\n  this.reset = function() {\n    this.card_index = 0;\n  };\n  return this;\n})();\n\nfunction build_formation(positions) {\n  Deck.reset();\n  for(i=0;i<positions.length;++i) {\n    snabbt(Deck.next_card(), {\n      position: positions[i].position,\n      rotation: positions[i].rotation,\n      easing: 'ease',\n      delay: i * 50\n    });\n  }\n}\n\nfunction set_mode(mode) {\n  update_sizes();\n  if(mode == current_mode) {\n    return;\n  }\n  \n  positions = formation_builders[mode]();\n  build_formation(positions);\n\n  current_mode = mode;\n}\n\nfunction rotate_container() {\n  var container = document.getElementById('surface');\n  snabbt(container, {\n    rotation: [0, 2*Math.PI, 0],\n    duration: 10000,\n    perspective: 2000,\n    loop: Infinity\n  });\n}\n\nfunction pile_positions() {\n  Deck.reset();\n  var positions = [];\n\n  var i=0;\n  var card=Deck.next_card();\n  var center = (WIDTH - CARD_WIDTH)/2;\n  var y = HEIGHT - HEIGHT*0.2;\n  while(card) {\n    positions.push({\n      position: [center, y - i*0.5, WIDTH*0.1],\n      rotation: [Math.PI/2, 0, 0],\n    });\n    ++i;\n    card = Deck.next_card();\n  }\n  return positions;\n}\n\nfunction house_positions() {\n  Deck.reset();\n\n  var floors = 5;\n  var y = (floors - 1) * TILTED_CARD_HEIGHT + TILTED_CARD_HEIGHT/2;\n  var z = -WIDTH * 0.2;\n  var x = (WIDTH - PYRAMID_WIDTH * floors) / 2 - TILTED_CARD_WIDTH;\n\n  var positions = [];\n  var i;\n  for(i=0;i<floors;++i) {\n    var _x = x + i * TILTED_CARD_WIDTH + i * CARD_SPACING;\n    var _y = y - i * TILTED_CARD_HEIGHT - i * CARD_SPACING;\n    positions = positions.concat(house_row_positions(floors - i, _x, _y, z));\n  }\n\n  return positions;\n}\n\nfunction house_row_positions(count, x, y, z) {\n  var positions = [];\n  var i;\n  // Tilted cards\n  for(i=0;i<count;++i) {\n    card_positions = pyramid_postions(x + i*PYRAMID_WIDTH, y, z);\n    positions.push({\n      position: card_positions[0].position,\n      rotation: card_positions[0].rotation,\n    });\n    positions.push({\n      position: card_positions[1].position,\n      rotation: card_positions[1].rotation,\n    });\n  }\n  // Bridge cards\n  for(i=0;i<count-1;++i) {\n    positions.push({\n      position: [x + i*PYRAMID_WIDTH + TILTED_CARD_WIDTH, y - TILTED_CARD_HEIGHT/2 - CARD_SPACING/2, z],\n      rotation: [Math.PI/2, Math.PI/2, 0],\n    });\n  }\n  return positions;\n}\n\nfunction pyramid_postions(x, y, z) {\n  // Firefox flickers if elements overlap\n  var spacing = (TILTED_CARD_WIDTH / 2) + CARD_SPACING/2;\n\n  return [{\n    position: [x - spacing, y, z],\n    rotation: [-TILT, Math.PI/2, 0],\n  }, {\n    position: [x + spacing, y, z],\n    rotation: [TILT, Math.PI/2, 0],\n  }];\n}\n\n\nfunction wall_positions() {\n  var positions = [];\n  var w = CARD_WIDTH + 10;\n  var h = CARD_HEIGHT + 10;\n  var start_x = (WIDTH - 10 * w) / 2;\n  var start_y = (HEIGHT - 4 * h) / 2;\n  for(var i=0;i<CARD_COUNT;++i) {\n    var x = (i % 10) * w + start_x;\n    var y = (Math.floor(i/10)) * h + start_y;\n    positions.push({\n      position: [x, y, 0],\n      rotation: [0, 0, 0]\n    });\n  }\n  return positions;\n}\n\nfunction cylinder_positions() {\n  var positions = [];\n  var start_x = WIDTH / 2;\n  var start_y = HEIGHT * 0.1;\n  var radius = WIDTH*0.2;\n  for(var i=0;i<CARD_COUNT;++i) {\n    var angle = ((i % 10) / 10) * 2 * Math.PI;\n    var x = Math.cos(angle) * radius + start_x;\n    var z = Math.sin(angle) * radius;\n    var y = Math.floor(i / 10) * 1.2 * CARD_HEIGHT + start_y;\n    positions.push({\n      position: [x, y, z],\n      rotation: [0, Math.PI/2 + angle, 0],\n    });\n  }\n  return positions;\n}\n\nfunction build_wall() {\n  set_mode(WALL);\n}\n\nfunction build_house() {\n  set_mode(HOUSE);\n}\n\nfunction build_pile() {\n  set_mode(PILE);\n}\n\nfunction init() {\n  update_sizes();\n  Deck.reset();\n  build_wall();\n  rotate_container();\n\n  // Initialize fast click\n  FastClick.attach(document.body);\n\n  // Event handlers\n  var buttons = {\n    \"pile_button\": PILE,\n    \"house_button\": HOUSE,\n    \"wall_button\": WALL,\n    \"cylinder_button\": CYLINDER\n  };\n\n  var click_handler = function(key) {\n    document.getElementById('pile_button').className = '';\n    document.getElementById('house_button').className = '';\n    document.getElementById('wall_button').className = '';\n    document.getElementById('cylinder_button').className = '';\n    document.getElementById(key).className = 'button-primary';\n    set_mode(buttons[key]);\n  };\n\n  for(var key in buttons) {\n    document.getElementById(key).addEventListener('click', click_handler.bind(undefined, key));\n  }\n}\n",
+			"settings":
+			{
+				"buffer_size": 6387,
+				"line_ending": "Windows"
+			}
 		}
 	],
 	"build_system": "",
 	"command_palette":
 	{
-		"height": 173.0,
+		"height": 392.0,
 		"selected_items":
 		[
 			[
@@ -385,11 +393,12 @@
 	"expanded_folders":
 	[
 		"/C/Users/Kamimusuhi/Documents/GitHub/junban",
-		"/C/Users/Kamimusuhi/Documents/GitHub/junban/css",
 		"/C/Users/Kamimusuhi/Documents/GitHub/junban/js"
 	],
 	"file_history":
 	[
+		"/R/PCGame/Kancolle/KanColleViewer ver.2.6/KanColleViewer.VisualElementsManifest.xml",
+		"/R/PCGame/Kancolle/KanColleViewer ver.2.6/KanColleViewer.exe.config",
 		"/C/Users/Kamimusuhi/Documents/GitHub/junban/css/app-kiosk-signpage.less",
 		"/R/PCGame/[Doujin-game]/Dungeons and Prisoners/Help/index.jpg",
 		"/C/Users/Kamimusuhi/Documents/GitHub/junban-mailform/mailform-welcome.html",
@@ -515,9 +524,7 @@
 		"/C/Users/Kamimusuhi/Desktop/[APP]Line-9/APPLICATION/template/template-4.html",
 		"/C/Users/Kamimusuhi/Desktop/[APP]Line-9/APPLICATION/app-checker.html",
 		"/C/Users/Kamimusuhi/Desktop/[APP]Line-9/APPLICATION/template/template-5.html",
-		"/C/Users/Kamimusuhi/Desktop/[APP]Line-9/APPLICATION/css/animate.less",
-		"/C/Users/Kamimusuhi/Desktop/[APP]Line-9/APPLICATION/css/animate.css",
-		"/C/Users/Kamimusuhi/Desktop/[APP]Line-9/APPLICATION/css/combine-app-kiosk.less"
+		"/C/Users/Kamimusuhi/Desktop/[APP]Line-9/APPLICATION/css/animate.less"
 	],
 	"find":
 	{
@@ -535,6 +542,8 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"WALL",
+			"set_mode",
 			"height",
 			"signature",
 			"no.",
@@ -660,9 +669,7 @@
 			"-variant",
 			"-varie",
 			"overflow: hidden",
-			".active",
-			"sub",
-			"darken"
+			".active"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -681,7 +688,7 @@
 	"groups":
 	[
 		{
-			"selected": 3,
+			"selected": 4,
 			"sheets":
 			[
 				{
@@ -912,7 +919,7 @@
 						"translation.y": 1920.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 5,
+					"stack_index": 6,
 					"type": "text"
 				},
 				{
@@ -937,31 +944,51 @@
 							"BracketHighlighterBusy": false,
 							"bh_regions":
 							[
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_curly_content",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_double_quote_content",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_regex_content",
 								"bh_square",
 								"bh_square_center",
 								"bh_square_open",
 								"bh_square_close",
 								"bh_square_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
 								"bh_angle",
 								"bh_angle_center",
 								"bh_angle_open",
 								"bh_angle_close",
 								"bh_angle_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
 								"bh_single_quote",
 								"bh_single_quote_center",
 								"bh_single_quote_open",
@@ -971,27 +998,7 @@
 								"bh_unmatched_center",
 								"bh_unmatched_open",
 								"bh_unmatched_close",
-								"bh_unmatched_content",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_default_content",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_round_content",
-								"bh_c_define",
-								"bh_c_define_center",
-								"bh_c_define_open",
-								"bh_c_define_close",
-								"bh_c_define_content",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_tag_content"
+								"bh_unmatched_content"
 							],
 							"codeintel": true,
 							"codeintel_config":
@@ -1152,7 +1159,7 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 10980,
+						"buffer_size": 10984,
 						"regions":
 						{
 						},
@@ -1169,51 +1176,26 @@
 							"auto_complete": false,
 							"bh_regions":
 							[
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_curly_content",
-								"bh_c_define",
-								"bh_c_define_center",
-								"bh_c_define_open",
-								"bh_c_define_close",
-								"bh_c_define_content",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_default_content",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_double_quote_content",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_angle_content",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_unmatched_content",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_single_quote_content",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_round_content",
 								"bh_square",
 								"bh_square_center",
 								"bh_square_open",
 								"bh_square_close",
 								"bh_square_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
 								"bh_regex",
 								"bh_regex_center",
 								"bh_regex_open",
@@ -1223,7 +1205,32 @@
 								"bh_tag_center",
 								"bh_tag_open",
 								"bh_tag_close",
-								"bh_tag_content"
+								"bh_tag_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content"
 							],
 							"codeintel": true,
 							"codeintel_database_dir": "~/.codeintel",
@@ -1319,10 +1326,10 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 621.0,
+						"translation.y": 165.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 1,
+					"stack_index": 5,
 					"type": "text"
 				},
 				{
@@ -1331,7 +1338,7 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 13354,
+						"buffer_size": 12896,
 						"regions":
 						{
 						},
@@ -1348,61 +1355,61 @@
 							"auto_complete": true,
 							"bh_regions":
 							[
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_curly_content",
-								"bh_c_define",
-								"bh_c_define_center",
-								"bh_c_define_open",
-								"bh_c_define_close",
-								"bh_c_define_content",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_default_content",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_double_quote_content",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_angle_content",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_unmatched_content",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_single_quote_content",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_round_content",
 								"bh_square",
 								"bh_square_center",
 								"bh_square_open",
 								"bh_square_close",
 								"bh_square_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
 								"bh_regex",
 								"bh_regex_center",
 								"bh_regex_open",
 								"bh_regex_close",
 								"bh_regex_content",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_tag_content"
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content"
 							],
 							"codeintel": true,
 							"codeintel_database_dir": "~/.codeintel",
@@ -1501,7 +1508,7 @@
 						"translation.y": 8909.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 0,
+					"stack_index": 4,
 					"type": "text"
 				},
 				{
@@ -1517,8 +1524,8 @@
 						"selection":
 						[
 							[
-								399,
-								399
+								1194,
+								1194
 							]
 						],
 						"settings":
@@ -1526,51 +1533,21 @@
 							"BracketHighlighterBusy": false,
 							"bh_regions":
 							[
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_curly_content",
-								"bh_c_define",
-								"bh_c_define_center",
-								"bh_c_define_open",
-								"bh_c_define_close",
-								"bh_c_define_content",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_default_content",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_double_quote_content",
 								"bh_angle",
 								"bh_angle_center",
 								"bh_angle_open",
 								"bh_angle_close",
 								"bh_angle_content",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_unmatched_content",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_single_quote_content",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_round_content",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_square_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
 								"bh_regex",
 								"bh_regex_center",
 								"bh_regex_open",
@@ -1580,7 +1557,37 @@
 								"bh_tag_center",
 								"bh_tag_open",
 								"bh_tag_close",
-								"bh_tag_content"
+								"bh_tag_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content"
 							],
 							"codeintel": true,
 							"codeintel_database_dir": "~/.codeintel",
@@ -1674,10 +1681,10 @@
 							"syntax": "Packages/LESS/LESS.tmLanguage"
 						},
 						"translation.x": 0.0,
-						"translation.y": 672.0,
+						"translation.y": 1056.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 2,
+					"stack_index": 0,
 					"type": "text"
 				},
 				{
@@ -1702,61 +1709,61 @@
 							"BracketHighlighterBusy": false,
 							"bh_regions":
 							[
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_curly_content",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_double_quote_content",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_regex_content",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_square_content",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_angle_content",
 								"bh_single_quote",
 								"bh_single_quote_center",
 								"bh_single_quote_open",
 								"bh_single_quote_close",
 								"bh_single_quote_content",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_unmatched_content",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_default_content",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_round_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
 								"bh_c_define",
 								"bh_c_define_center",
 								"bh_c_define_open",
 								"bh_c_define_close",
 								"bh_c_define_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
 								"bh_tag",
 								"bh_tag_center",
 								"bh_tag_open",
 								"bh_tag_close",
-								"bh_tag_content"
+								"bh_tag_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content"
 							],
 							"codeintel": true,
 							"codeintel_config":
@@ -1906,7 +1913,186 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 4,
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 6387,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								5433,
+								5433
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"auto_complete": true,
+							"auto_name": "",
+							"bh_regions":
+							[
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content"
+							],
+							"codeintel": true,
+							"codeintel_database_dir": "~/.codeintel",
+							"codeintel_enabled_languages":
+							[
+								"JavaScript",
+								"SCSS",
+								"Python",
+								"HTML",
+								"Ruby",
+								"Python3",
+								"XML",
+								"Sass",
+								"HTML5",
+								"Perl",
+								"CSS",
+								"Twig",
+								"Less",
+								"Node.js",
+								"TemplateToolkit",
+								"PHP"
+							],
+							"codeintel_exclude_scopes_from_complete_triggers":
+							[
+								"comment"
+							],
+							"codeintel_language_settings":
+							{
+								"JavaScript":
+								{
+									"codeintel_max_recursive_dir_depth": 2,
+									"codeintel_scan_exclude_dir":
+									[
+										"/build/",
+										"/min/"
+									],
+									"codeintel_scan_extra_dir":
+									[
+									],
+									"codeintel_scan_files_in_project": false,
+									"codeintel_selected_catalogs":
+									[
+										"jQuery"
+									]
+								},
+								"PHP":
+								{
+									"codeintel_max_recursive_dir_depth": 15,
+									"codeintel_scan_exclude_dir":
+									[
+										"/Applications/MAMP/bin/php/php5.5.3/"
+									],
+									"codeintel_scan_extra_dir":
+									[
+									],
+									"codeintel_scan_files_in_project": true,
+									"php": "/Applications/MAMP/bin/php/php5.5.3/bin/php"
+								},
+								"Python3":
+								{
+									"codeintel_scan_extra_dir":
+									[
+										"/Applications/Sublime Text.app/Contents/MacOS",
+										"~/Library/Application Support/Sublime Text 3/Packages/SublimeCodeIntel/arch",
+										"~/Library/Application Support/Sublime Text 3/Packages/SublimeCodeIntel/libs"
+									],
+									"codeintel_scan_files_in_project": true,
+									"codeintel_selected_catalogs":
+									[
+									],
+									"python3": "/usr/local/bin/python3.3"
+								}
+							},
+							"codeintel_live": true,
+							"codeintel_max_recursive_dir_depth": 10,
+							"codeintel_scan_exclude_dir":
+							[
+							],
+							"codeintel_scan_files_in_project": true,
+							"codeintel_selected_catalogs":
+							[
+							],
+							"codeintel_snippets": true,
+							"codeintel_syntax_map":
+							{
+								"Python Django": "Python"
+							},
+							"codeintel_tooltips": "popup",
+							"codeintel_word_completions": "buffer",
+							"color_scheme": "Packages/User/Color Highlighter/themes/Monokai (SL).tmTheme",
+							"syntax": "Packages/6to5/JavaScript 6to5.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 5413.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
 					"type": "text"
 				}
 			]
@@ -1971,7 +2157,7 @@
 				"C:\\Users\\Kamimusuhi\\Documents\\GitHub\\junban-landing\\junban-landing.sublime-project"
 			]
 		],
-		"width": 380.0
+		"width": 793.0
 	},
 	"select_symbol":
 	{
