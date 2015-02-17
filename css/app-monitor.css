@@ -2980,7 +2980,22 @@ ul.monitor > li.counter {
   box-shadow: inset 0 0 0 10px white;
 }
 ul.monitor > li.counter .counts {
-  font-size: 120px;
+  position: relative;
+  line-height: 1.8;
+  font-size: 110px;
+  padding-right: 0.5em;
+}
+ul.monitor > li.counter .counts:after {
+  content: '/組';
+  display: inline-block;
+  white-space: nowrap;
+  font-size: 0.35em;
+  line-height: 1em;
+  padding-bottom: 0.6em;
+  position: absolute;
+  bottom: 0;
+  left: 100%;
+  margin-left: -1.3em;
 }
 ul.monitor > li.counter:after {
   content: 'お待ちです';
@@ -3035,18 +3050,6 @@ ul.monitor.monitor-closed li.counter .counts {
   line-height: 1.8;
   font-size: 110px;
   padding-right: 0.5em;
-}
-ul.monitor.monitor-closed li.counter .counts:after {
-  content: '/組';
-  display: inline-block;
-  white-space: nowrap;
-  font-size: 0.35em;
-  line-height: 1em;
-  padding-bottom: 0.6em;
-  position: absolute;
-  bottom: 0;
-  left: 100%;
-  margin-left: -1.3em;
 }
 ul.monitor.monitor-closed li.counter .msg-counter {
   position: absolute;
