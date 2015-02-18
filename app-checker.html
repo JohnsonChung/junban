@@ -16,7 +16,7 @@
 
     <!-- stylesheet -->
     <link type="text/css" href="css/app-checker.css" rel="stylesheet">
-
+    <script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script>
     <!-- script -->
     <!-- <script type="text/javascript" src="bower_components/less/dist/less.min.js"></script> -->
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
@@ -99,7 +99,7 @@
         </div>
     </nav>
 
-    <script>        
+    <script>
         var $tipContent = document.querySelector('#tipContent');
 
         var $graphicCounter = $('.graphic-counter');
@@ -129,13 +129,13 @@
 
         $(document).ready(function() {
             // 更改提示訊息內容 依據 #tipContent[tip-status] 的 value 來更改
-            function changeTip(t) {            
+            function changeTip(t) {
                 var attr = $tipContent.getAttribute('tip-status');
                 console.log('tip-status: ' + attr);
                 if(t) {
                     $tipContent.innerHTML = tipContents[t];
-                    $tipContent.setAttribute('tip-status', t );                
-                } else { 
+                    $tipContent.setAttribute('tip-status', t );
+                } else {
                     $tipContent.innerHTML = tipContents[attr];
                 }
             }
@@ -153,13 +153,13 @@
             });
 
             // 輪到你了! click brand 切換 checker-alert 狀態
-            $('.brand').click(function() {            
-                $('body').toggleClass('checker-alert');            
-                if ( $('body').hasClass('checker-alert') ) {                
-                    changeTip('isyou')                
-                } else { changeTip('waiting') }      
-            });        
-            
+            $('.brand').click(function() {
+                $('body').toggleClass('checker-alert');
+                if ( $('body').hasClass('checker-alert') ) {
+                    changeTip('isyou')
+                } else { changeTip('waiting') }
+            });
+
             // 讓左下方小人跳的動畫
             $pServicing.bind('click', function() {
                 $(this).toggleClass('animated bounce');
@@ -177,10 +177,10 @@
             // 監視隊列裡面有沒有人，沒人的話加上 nobody 屬性
             function isNobody() {
                 $pLine[0].addEventListener('DOMSubtreeModified', function() {
-                    if (tools.hasNoChild($pLine[0])){ 
+                    if (tools.hasNoChild($pLine[0])){
                         $graphicCounter.addClass('nobody');
                         changeTip('nextisyou')
-                    } else { 
+                    } else {
                         $graphicCounter.removeClass('nobody');
                         changeTip('waiting')
                     }
@@ -189,7 +189,7 @@
             }
             isNobody();
 
-            // force render 
+            // force render
             var foreceRender = function (sel) {
                 sel.style.display='none';
                 sel.offsetHeight; // no need to store this anywhere, the reference is enough
@@ -207,7 +207,7 @@
             var anime = {
                 bounce: function(elem, iterations) {
                     var keyframes = [
-                        {transform: 'translate3d(0,0,0)', offset: 0}, 
+                        {transform: 'translate3d(0,0,0)', offset: 0},
                         {transform: 'translate3d(0,0,0)', offset: 0.2},
                         {transform: 'translate3d(0,-30px,0)', offset: 0.4},
                         {transform: 'translate3d(0,-30px,0)', offset: 0.43},
@@ -221,24 +221,24 @@
                 },
                 flash: function(elem, iterations) {
                     var keyframes = [
-                        {opacity: '1', offset: 0}, 
-                        {opacity: '0', offset: 0.25}, 
-                        {opacity: '1', offset: 0.5}, 
-                        {opacity: '0', offset: 0.75}, 
+                        {opacity: '1', offset: 0},
+                        {opacity: '0', offset: 0.25},
+                        {opacity: '1', offset: 0.5},
+                        {opacity: '0', offset: 0.75},
                         {opacity: '1', offset: 1}];
                     var timing = {duration: 900, iterations: iterations};
                     return elem.animate(keyframes, timing);
                 },
                 fadeOutLeft:  function(elem, iterations) {
                     var keyframes = [
-                        {opacity: '0', transform: 'translate3d(-100%, 0, 0)', offset: 0}, 
+                        {opacity: '0', transform: 'translate3d(-100%, 0, 0)', offset: 0},
                         {opacity: '1', transform: 'none', offset: 1}];
                     var timing = {duration: 900, iterations: iterations};
                     return elem.animate(keyframes, timing);
                 },
                 toggleOutNobody: function(elem, iterations, direction) {
                     var keyframes = [
-                        {transform: 'scaleX(1)', offset: 0},                     
+                        {transform: 'scaleX(1)', offset: 0},
                         {transform: 'scaleX(0)', offset: 1}];
                     var timing = {duration: 900, iterations: iterations, fill: 'forwards', direction: direction};
                     return elem.animate(keyframes, timing);
@@ -259,7 +259,7 @@
             };
 
         });
-    
+
     </script>
 </body>
 

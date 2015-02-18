@@ -15,7 +15,7 @@ html, body {
     margin: 0;
 }
 body {
-    min-height: 100%;    
+    min-height: 100%;
 
     padding: 0 10px;
     padding-top: 55px;
@@ -26,17 +26,17 @@ body {
 }
 
 .container-checker {
-    display: table;    
+    display: table;
     padding: 0;
     height: 100%;
     width: 100%;
 
     .transition(~"max-height 0.4s ease-out");
-    
+
     .row {
-        display: table-row;   
-        margin: 0; 
-        
+        display: table-row;
+        margin: 0;
+
         .panel {
             .border-radius(0);
             .box-shadow(~" 0 3px 2px 2px rgba(0,0,0,0.1)");
@@ -47,7 +47,7 @@ body {
         }
     }
     .col-center {
-        text-align: center;        
+        text-align: center;
     }
 
     // vertical centered in Unknow
@@ -57,19 +57,19 @@ body {
         &:before {
         content: '';
         display: inline-block;
-        vertical-align: middle; 
-        width: 0px; 
+        vertical-align: middle;
+        width: 0px;
         height: 100%;
         }
 
         .centerd {
             display: inline-block;
-            vertical-align: middle;        
+            vertical-align: middle;
         }
     }
     .vertical-block {
         height: 100%;
-        max-height: 100%;  
+        max-height: 100%;
     }
     .wrapper {
         position: relative;
@@ -85,7 +85,7 @@ body {
         .transition-property( margin);
         margin: 8px 0; padding: 0;
         font-size: 2em;
-        color: @brand-primary;        
+        color: @brand-primary;
     }
     p {
         .transition(~"max-height 1s ease-out");
@@ -100,22 +100,22 @@ body {
         @val : 1em * 3 * @line-height-base + 2.1em;
         max-height: @val;
         overflow: hidden;
-        &:before {          
+        &:before {
             content: "";
             position: absolute;
             bottom: 0; left: 0;
-            height: 1em;            
+            height: 1em;
             width: 100%;
-            .box-shadow(~"inset 0 -1em rgba(255,255,255,1)");  
+            .box-shadow(~"inset 0 -1em rgba(255,255,255,1)");
         }
         &:after {
-            content: "Read more..."; 
-            position: absolute;      
+            content: "Read more...";
+            position: absolute;
             right: 0px;
             bottom: 0 ;
             color: @brand-primary;
             text-decoration: underline;
-        }     
+        }
     }
 }
 
@@ -124,38 +124,38 @@ body {
 @sign-h : 90px;
 .container-checker {
     // second block : signature
-    
+
     .column.column-table {
-        display: block;        
+        display: block;
         width: 100%;
         white-space: nowrap;
         word-spacing: 0;
         font-size: 0;
     }
-    label.serial {        
+    label.serial {
         .size(@sign-h);
-        display: block;     
+        display: block;
         float: left;
-        
+
         margin-bottom: 0;
         margin-right: -100%;
 
-        background-color: @brand-primary;    
+        background-color: @brand-primary;
 
         color: white;
         font-size: @sign-h - 38;
         text-align: center;
         line-height: @sign-h;
-        font-family: arial,  sans-serif;        
+        font-family: arial,  sans-serif;
         vertical-align: top;
     }
     span.signature {
-        position: relative;        
-        display: block;            
+        position: relative;
+        display: block;
         float: left;
 
         width: 100%;
-        
+
         padding-left: @sign-h;
         line-height: @sign-h;
 
@@ -174,7 +174,7 @@ body {
 
             line-height: 1.8em;
             font-size: 23px !important;
-            text-align: center;                        
+            text-align: center;
         }
         img {
             .size(100%);
@@ -190,8 +190,8 @@ body {
 // ====================================
 .container-checker {
     // third block : counter
-    .counter {     
-        display: inline-block;   
+    .counter {
+        display: inline-block;
         text-align: center;
         color: @brand-primary;
         padding: 10px 0 0 0;
@@ -213,19 +213,19 @@ body {
 .container-checker {
     // forth block : graphic-counter
     .graphic-counter {
-        position: relative;        
+        position: relative;
         height: 110px;
         padding-top: 5px;
         overflow: hidden;
         color: @brand-primary;
 
         > [class^="col-"] {
-            transition: all 0.3s linear;            
+            transition: all 0.3s linear;
         }
-        &.nobody { 
+        &.nobody {
             .col-left{ transform: scaleX(0); dispaly: none }
-            .col-center{ transform: scaleX(0); dispaly: none;}      
-            .col-right{ position:absolute; left: 50%; transform: translateX(-50%);}            
+            .col-center{ transform: scaleX(0); dispaly: none;}
+            .col-right{ position:absolute; left: 50%; transform: translateX(-50%);}
         }
         [class^="flaticon-"]:before {
             font-size: 46em / 14; // 46px(flaticon fz) / 14px(default fz) = 3.285714em
@@ -235,19 +235,19 @@ body {
             position: absolute;
             top: -2.2em;
             content: 'No.';
-            font-size: 0.5em;            
+            font-size: 0.5em;
         }
         .people-servicing, .people-checker {
             position: relative;
             display: block;
              text-align: center;
-            
-            &-serial {            
+
+            &-serial {
                 .size(60px, 45px);
                 position: relative;
                 font-size: 2em;
                 line-height: 58px;
-                top: -8px;                
+                top: -8px;
             }
         }
         .people-checker:after {
@@ -264,10 +264,10 @@ body {
             text-align: center;
         }
         .people-line {
-            position: relative;             
+            position: relative;
             margin-left: -20px;
             width: 100%;
-            white-space: nowrap;            
+            white-space: nowrap;
             .display(flex);
             .justify-content(space-around);
 
@@ -280,7 +280,7 @@ body {
                 width: 90px;
                 .box-shadow(~"inset -58px 0px 30px -25px rgba(255,255,255,1)");
             }
-            &.folded { 
+            &.folded {
                 &:after {
                     content: '...';
                     position: absolute;
@@ -289,7 +289,7 @@ body {
                     font-size: 35px;
                 }
             }
-            .people-waiting {                                         
+            .people-waiting {
                 text-align: center;
 
                 &:before {
@@ -297,7 +297,7 @@ body {
                 }
             }
         }
-        .wrapper {              
+        .wrapper {
             text-align: center;
         }
     }
@@ -312,19 +312,19 @@ body {
 .checker-alert {
 
     h1 {
-        margin: 1em auto;      
-    }        
+        margin: 1em auto;
+    }
     .panel {
 
         &.checker-alert-display {
-            -webkit-animation-name: none;            
+            -webkit-animation-name: none;
         }
         label.serial {
-            -webkit-animation: bounce 2s 2s infinite; 
+            -webkit-animation: bounce 2s 2s infinite;
         }
         .counter {
-            -webkit-animation: bounce 2s infinite;      
-        }        
+            -webkit-animation: bounce 2s infinite;
+        }
     }
 }
 
@@ -360,7 +360,7 @@ body {
     .counter {
         font-size: @em;
     }
-    label.serial {        
+    label.serial {
         .size(@sign-h*@r) !important;
         line-height: @sign-h*@r !important;
         font-size: (@sign-h - 40 )*@r !important;
@@ -385,7 +385,7 @@ body {
     .counter {
         font-size: @em;
     }
-    label.serial {        
+    label.serial {
         .size(@sign-h*@r) !important;
         line-height: @sign-h*@r !important;
         font-size: (@sign-h - 40 )*@r !important;
@@ -409,9 +409,9 @@ body {
     .counter {
         font-size: 1.5em;
     }
-    label.serial {        
+    label.serial {
         .size(@sign-h*@r) !important;
-        line-height: @sign-h*@r !important;        
+        line-height: @sign-h*@r !important;
         font-size: (@sign-h - 40 )*@r !important;
     }
     span.signature {
@@ -432,10 +432,10 @@ body {
     }
     .counter {
         font-size: 1em;
-    }    
-    label.serial {        
+    }
+    label.serial {
         .size(@sign-h*@r) !important;
-        line-height: @sign-h*@r !important;        
+        line-height: @sign-h*@r !important;
         font-size: (@sign-h - 40 )*@r !important;
     }
     span.signature {
@@ -462,7 +462,7 @@ body {
 }
 
 
-// bounce 
+// bounce
 
 @-webkit-keyframes bounce {
   0%, 20%, 53%, 80%, 100% {
